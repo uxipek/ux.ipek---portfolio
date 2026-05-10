@@ -1,62 +1,66 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
+  --color-dark: #28002c; /* Deep plum / Primary */
+  --color-cream: #FDFBF8; /* Elegant warm ivory */
+  --color-base: #FFFFFF; /* Pure white */
+  --color-pink: #ca006c; /* Vibrant magenta / Secondary */
+  --color-purple: #8B3A75; /* Soft mauve/plum for harmony */
+  --color-orange: #E0583A; /* Terra-cotta orange for warmth */
+  --color-green: #198754; /* Deep emerald for strategy */
+  
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --animate-blob: blob 10s infinite alternate;
+  --font-serif: "Playfair Display", ui-serif, Georgia, serif;
   
-  --color-cream: #f8f6f3;
-  --color-primary: #df7200;
-  --color-dark: #28002c;
-  --color-magenta: #ca006c;
+  --animate-blob: blob 10s infinite alternate;
 }
 
 @layer utilities {
   .bg-grid-pattern {
-    background-image: linear-gradient(to right, rgba(40,0,44,0.04) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(40,0,44,0.04) 1px, transparent 1px);
+    background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+                      linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
     background-size: 32px 32px;
   }
 
   .glass-card {
-    background: rgba(255, 255, 255, 0.7);
+    background: rgba(255, 255, 255, 0.6);
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(202, 0, 108, 0.1);
-    box-shadow: 0 10px 40px -10px rgba(40,0,44,0.08);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
   }
 
   .glass-panel {
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(202, 0, 108, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.6);
   }
 
   .text-gradient-ai {
-    background: linear-gradient(135deg, #28002c 0%, #ca006c 50%, #df7200 100%);
+    background: linear-gradient(135deg, #FF9A9E 0%, #A18CD1 25%, #A1C4FD 50%, #C2E9FB 75%, #FFECD2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .text-gradient-soft {
-    background: linear-gradient(135deg, #ca006c 0%, #df7200 100%);
+    background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 50%, #FFECD2 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
   .btn-primary {
-    background: #df7200;
-    color: #ffffff;
+    background: linear-gradient(135deg, #A18CD1 0%, #FBC2EB 100%);
+    color: #111827;
     transition: all 0.3s ease;
   }
   
   .btn-primary:hover {
-    background: #c26300;
-    box-shadow: 0 10px 25px -5px rgba(223, 114, 0, 0.4);
+    box-shadow: 0 10px 25px -5px rgba(161, 140, 209, 0.5);
     transform: translateY(-2px);
   }
 
@@ -76,7 +80,5 @@
 }
 
 body {
-  background-color: #f8f6f3;
-  color: #28002c;
   overflow-x: hidden;
 }

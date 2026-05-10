@@ -1,9 +1,43 @@
 import React, { useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, Globe, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download } from "lucide-react";
+import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, Globe, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download, ArrowUpRight } from "lucide-react";
 import { Logo } from "./components/Logo";
 
+const getExperiences = (lang: "en" | "tr") => [
+  {
+    role: "Corporate Comm. & Business Process Dev.",
+    company: "ÇUKUR & PARTNERS LAW FIRM",
+    period: "2026 — Present",
+    description: lang === 'en' ? "Supports communication systems, workflow coordination, and business process development. Focused on transforming communication into structured, scalable systems." : "İletişim sistemleri oluşturur, iş akışı koordinasyonu sağlar. İletişimi ölçeklenebilir ve sağlam sistemlere dönüştürür."
+  },
+  {
+    role: "International Business Dev. Strategist",
+    company: "Outliner Agency — Florida, USA",
+    period: "2026 — Present",
+    description: lang === 'en' ? "Manages LinkedIn-based business development and lead generation for the US market. Contributes to positioning strategy and relationship-building systems." : "ABD pazarı için LinkedIn merkezli iş geliştirme ve potansiyel müşteri yaratma. Stratejik konumlandırma ve ilişki ekosistemine liderlik."
+  },
+  {
+    role: "Digital Product Designer",
+    company: "Calisto Digital Agency",
+    period: "2025 — 2026",
+    description: lang === 'en' ? "Redesigned B2B CRM funnels and SaaS product experiences. Increased lead conversion by 15% and reduced task completion time through UX research and AI-powered product strategy." : "B2B CRM huni tasarımı ve SaaS ürün deneyimi. UX araştırmaları ile dönüşüm oranlarını %15 artırıp AI mimarisiyle task tamamlama süreçlerini kolaylaştırdı."
+  },
+  {
+    role: "Marketing & Design Lead",
+    company: "Robopine",
+    period: "2025",
+    description: lang === 'en' ? "Led website, content strategy, and visual communication systems for AI-powered B2B technology solutions. Increased organic traffic by 25% and reduced support requests." : "Yapay zeka asistanı çözümleri olan Robopine sistemlerinde tasarım, içerik stratejisi ve destek platformları yürüterek trafiği organik olarak %25 artırdı."
+  },
+  {
+    role: "Sworn Translator & Court Interpreter",
+    company: "Tor",
+    period: "2020 — 2025",
+    description: lang === 'en' ? "Provided certified legal and commercial translations, specializing in precise communication, localization, and documentation processes." : "Yasal ve ticari yeminli tercüme operasyonları, kesin ve sağlam çeviri lokalizasyonu tecrübesi."
+  }
+];
+
 export default function Portfolio() {
+  const [lang, setLang] = useState<"en" | "tr">("en");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -17,570 +51,779 @@ export default function Portfolio() {
     setIsSubmitting(false);
     setIsSuccess(true);
 
-    // Trigger download of the attached PDF
+    // Trigger download of the attached PDF (mocked here or via actual file in public)
     const link = document.createElement('a');
-    link.href = '/UX_Denetim_Rehberi.pdf';
-    link.download = 'UX_Denetim_Rehberi.pdf';
+    link.href = '/UX_Audit_Guide.pdf';
+    link.download = 'UX_Audit_Guide.pdf';
     document.body.appendChild(link);
-    link.click();
+    // Uncomment when you have the actual file: link.click();
     document.body.removeChild(link);
 
     setTimeout(() => setIsSuccess(false), 3000);
   };
+  
   return (
-    <div className="min-h-screen bg-cream font-sans text-dark/90 selection:bg-magenta/30">
+    <div className="min-h-screen bg-base font-sans text-dark/90 selection:bg-pink/30">
       {/* Navigation */}
-      <nav className="fixed top-0 z-50 w-full border-b border-dark/10 bg-dark/95 backdrop-blur-md">
-        <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-6">
-          <div className="flex items-center gap-2 text-cream">
-            <Logo className="h-14 w-auto" />
+      <nav className="fixed top-0 z-50 w-full border-b border-dark/5 bg-base/80 backdrop-blur-md">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6">
+          <div className="flex items-center gap-2 text-dark">
+            <Logo className="h-10 w-auto text-dark" />
           </div>
-          <div className="hidden md:flex items-center gap-8 text-sm font-medium text-cream/70">
-            <a href="#hizmetler" className="hover:text-cream transition-colors">Hizmetlerim</a>
-            <a href="#portfolyo" className="hover:text-cream transition-colors">Portfolyo</a>
-            <a href="#deneyim" className="hover:text-cream transition-colors">Deneyim</a>
-            <a href="#yayinlar" className="hover:text-cream transition-colors">Akademik</a>
+          <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-dark/70">
+            <a href="#about" className="hover:text-dark transition-colors">{lang === 'en' ? 'About' : 'Hakk\u0131nda'}</a>
+            <a href="#services" className="hover:text-dark transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</a>
+            <a href="#process" className="hover:text-dark transition-colors">{lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}</a>
+            <a href="#experience" className="hover:text-dark transition-colors">{lang === 'en' ? 'Experience' : 'Deneyim'}</a>
+            <a href="#contact" className="hover:text-dark transition-colors">{lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}</a>
           </div>
-          <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full bg-magenta px-5 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 hover:bg-[#a00055]">
-            Projemi Anlatmak İstiyorum <ArrowRight className="h-4 w-4" />
+          <div className="hidden sm:flex items-center font-bold text-[13px] tracking-wide mr-2 bg-dark/5 p-1 rounded-full"><button onClick={() => setLang('en')} className={`px-3 py-1.5 rounded-full transition-colors ${lang === 'en' ? 'bg-white text-dark shadow-sm' : 'text-dark/50 hover:text-dark'}`}>EN</button><button onClick={() => setLang('tr')} className={`px-3 py-1.5 rounded-full transition-colors ${lang === 'tr' ? 'bg-white text-dark shadow-sm' : 'text-dark/50 hover:text-dark'}`}>TR</button></div>
+          <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 rounded-full bg-[#F75BA8] px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-[#F75BA8]/20">
+            {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'}
           </a>
         </div>
       </nav>
 
-      <main className="pt-24">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden px-6 pt-20 pb-24 sm:pt-32 sm:pb-32">
-          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-magenta blur-[120px] rounded-full pointer-events-none opacity-40"></div>
+      <main className="pt-20">
+                {/* Hero Section */}
+        <section id="about" className="relative overflow-hidden bg-[#FDFBF8] min-h-[100vh] flex items-center pt-24 pb-16">
+          {/* Ambient Background Magic */}
+          <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            {/* Soft pink top-right glow */}
+            <div className="absolute top-[-10%] right-[-10%] w-[800px] h-[800px] bg-pink/10 blur-[150px] rounded-full"></div>
+            {/* Soft purple bottom-left glow */}
+            <div className="absolute bottom-[-10%] left-[-10%] w-[600px] h-[600px] bg-purple/10 blur-[150px] rounded-full"></div>
+            
+            {/* Elegant light trails behind butterfly */}
+            <svg viewBox="0 0 1000 1000" className="absolute top-0 right-0 w-[120%] h-[120%] opacity-40">
+              <defs>
+                <linearGradient id="trailGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="#ca006c" stopOpacity="0" />
+                  <stop offset="50%" stopColor="#ca006c" stopOpacity="0.2" />
+                  <stop offset="100%" stopColor="#ffffff" stopOpacity="0.8" />
+                </linearGradient>
+              </defs>
+              <motion.path 
+                d="M -200 1000 C 400 800 500 500 1000 -100" 
+                stroke="url(#trailGrad)" strokeWidth="2" fill="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 3, ease: "easeOut" }}
+              />
+              <motion.path 
+                d="M -100 1100 C 500 900 600 400 1100 0" 
+                stroke="url(#trailGrad)" strokeWidth="4" fill="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 4, ease: "easeOut", delay: 0.2 }}
+                style={{ filter: "blur(2px)" }}
+              />
+              <motion.path 
+                d="M 0 1200 C 600 1000 700 300 1200 100" 
+                stroke="url(#trailGrad)" strokeWidth="1" fill="none"
+                initial={{ pathLength: 0, opacity: 0 }}
+                animate={{ pathLength: 1, opacity: 1 }}
+                transition={{ duration: 5, ease: "easeOut", delay: 0.4 }}
+              />
+            </svg>
+            
+            {/* Floating pink petals / particles */}
+            {[...Array(12)].map((_, i) => (
+              <motion.div
+                key={`petal-${i}`}
+                className="absolute w-3 h-2 rounded-[50%_0_50%_0] bg-gradient-to-br from-pink to-pink/40 blur-[1px]"
+                style={{
+                  left: `${60 + Math.random() * 40}%`,
+                  top: `${10 + Math.random() * 80}%`,
+                }}
+                animate={{
+                  y: [0, -100, 0],
+                  x: [0, -50, 0],
+                  rotate: [0, 180, 360],
+                  opacity: [0, 0.6, 0]
+                }}
+                transition={{
+                  duration: 8 + Math.random() * 5,
+                  repeat: Infinity,
+                  ease: "linear",
+                  delay: Math.random() * 5
+                }}
+              />
+            ))}
+          </div>
+
+          <div className="mx-auto max-w-7xl px-6 w-full relative z-10 flex flex-col lg:flex-row items-center mt-6 lg:mt-0">
+            
+            {/* Left Content Area */}
+            <div className="w-full lg:w-[55%] pt-10 pb-12 lg:pb-0 z-20">
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut" }}
+              >
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-8 h-[2px] bg-pink"></div>
+                  <span className="text-[11px] font-bold text-dark/50 tracking-[0.2em] uppercase">
+                    AI-Native UX/UI Designer & Growth Strategist
+                  </span>
+                </div>
+                
+                <h1 className="text-6xl sm:text-7xl lg:text-[4.5rem] font-medium tracking-tight text-dark mb-8 leading-[1.05]">
+                  {lang === 'en' ? 'I design digital' : 'Karma\u015F\u0131kl\u0131\u011F\u0131'}<br />{lang === 'en' ? 'experiences that' : '\u00F6l\u00E7eklenebilir'}<br />{lang === 'en' ? 'turn ' : ''}<span className="text-pink font-semibold">{lang === 'en' ? 'clarity into growth.' : 'b\u00FCy\u00FCmeye d\u00F6n\u00FC\u015Ft\u00FCr\u00FCyorum.'}</span>
+                </h1>
+                
+                <p className="text-lg sm:text-lg text-dark/70 mb-12 leading-relaxed font-light max-w-[480px]">
+                  UX.Ipek helps startups, SaaS products, and AI-powered businesses build digital systems that are not only beautiful — but strategic, usable, and conversion-focused.
+                </p>
+                
+                <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
+                  <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
+                    Book a UX Audit <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                  <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+                    View My Work <ArrowUpRight className="h-4 w-4" />
+                  </a>
+                </div>
+
+                {/* Micro Features Grid */}
+                <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 lg:max-w-3xl">
+                  {[
+                    { icon: LineChart, title: lang === 'en' ? "Growth Focused" : "B\u00FCy\u00FCme Odakl\u0131", desc: lang === 'en' ? "Design that drives real business results." : "Ger\u00E7ek i\u015F sonu\u00E7lar\u0131 getiren tasar\u0131m." },
+                    { icon: Users, title: lang === 'en' ? "Human Centered" : "\u0130nsan Odakl\u0131", desc: lang === 'en' ? "Empathy-led experiences your users love." : "Kullan\u0131c\u0131lar\u0131n sevdi\u011Fi empatik deneyimler." },
+                    { icon: BrainCircuit, title: lang === 'en' ? "AI Accelerated" : "Yapay Zeka Destekli", desc: lang === 'en' ? "Smart workflows for faster, better outcomes." : "Daha h\u0131zl\u0131 ve iyi sonu\u00E7lar i\u00E7in ak\u0131ll\u0131 ak\u0131\u015Flar." },
+                    { icon: BarChart3, title: lang === 'en' ? "Data Driven" : "Veri Odakl\u0131", desc: lang === 'en' ? "Decisions backed by insight and testing." : "\u0130\u00E7g\u00F6r\u00FC ve testlerle desteklenen kararlar." }
+                  ].map((feature, idx) => (
+                    <motion.div 
+                      key={idx} 
+                      className="flex flex-col gap-3"
+                      initial={{ opacity: 0, y: 20 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.5, delay: 0.4 + (idx * 0.1) }}
+                    >
+                      <div className="w-10 h-10 rounded-2xl bg-pink/10 flex items-center justify-center text-pink shadow-sm">
+                        <feature.icon className="h-5 w-5" />
+                      </div>
+                      <h4 className="text-[13px] font-bold text-dark">{feature.title}</h4>
+                      <p className="text-[11px] text-dark/50 leading-relaxed lg:pr-2">{feature.desc}</p>
+                    </motion.div>
+                  ))}
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Right Content Area - Butterfly */}
+            <div className="w-full lg:w-[45%] absolute right-0 top-1/2 -translate-y-1/2 h-[800px] pointer-events-none hidden lg:block z-0">
+              <div className="w-full h-full relative flex items-center justify-center translate-x-[20%] mt-[60px]">
+                
+                {/* Photorealistic animated butterfly SVG */}
+                <motion.div 
+                  className="w-[700px] h-[700px] relative z-20"
+                  animate={{ y: [-15, 15, -15], rotateZ: [-2, 2, -2] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                >
+                  <svg viewBox="0 0 1000 1000" className="w-full h-full drop-shadow-[0_20px_50px_rgba(202,0,108,0.4)]">
+                    <defs>
+                      <radialGradient id="wingGlow" cx="50%" cy="50%" r="50%">
+                        <stop offset="0%" stopColor="#FFFFFF" stopOpacity="0.8" />
+                        <stop offset="30%" stopColor="#ca006c" stopOpacity="0.9" />
+                        <stop offset="70%" stopColor="#28002c" stopOpacity="0.95" />
+                        <stop offset="100%" stopColor="#0B0014" stopOpacity="1" />
+                      </radialGradient>
+                      <radialGradient id="wingPattern" cx="30%" cy="30%" r="70%">
+                        <stop offset="0%" stopColor="#ca006c" stopOpacity="1" />
+                        <stop offset="100%" stopColor="#0f0011" stopOpacity="1" />
+                      </radialGradient>
+                      <filter id="blurEdges" x="-20%" y="-20%" width="140%" height="140%">
+                        <feGaussianBlur stdDeviation="2" />
+                      </filter>
+                    </defs>
+
+                    <g transform="translate(500, 500) rotate(-35)">
+                      
+                      {/* Left Wing Group */}
+                      <motion.g
+                        style={{ transformOrigin: "0 0" }}
+                        animate={{ rotateY: [0, 45, 0], rotateZ: [-5, -10, -5] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                      >
+                        {/* Upper Left Wing */}
+                        <path 
+                          d="M -10 -20 C -100 -250 -350 -400 -450 -300 C -500 -200 -480 -50 -350 100 C -200 200 -50 80 -10 -20 Z" 
+                          fill="url(#wingPattern)" 
+                          stroke="#0B0014" strokeWidth="8"
+                        />
+                        {/* Lower Left Wing */}
+                        <path 
+                          d="M -5 20 C -150 150 -350 250 -380 400 C -400 500 -250 550 -100 450 C -20 350 0 150 -5 20 Z" 
+                          fill="url(#wingGlow)" 
+                          stroke="#0B0014" strokeWidth="6"
+                        />
+                        
+                        {/* Wing Details / Veins */}
+                        <path d="M -15 -10 C -100 -100 -200 -200 -300 -250" stroke="#0B0014" strokeWidth="5" fill="none" opacity="0.8" />
+                        <path d="M -15 -10 C -150 -50 -300 -100 -400 -150" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        <path d="M -15 -10 C -100 50 -200 100 -280 50" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        
+                        <path d="M -10 30 C -100 150 -200 250 -250 350" stroke="#0B0014" strokeWidth="5" fill="none" opacity="0.8" />
+                        <path d="M -10 30 C -50 200 -100 350 -150 450" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        
+                        {/* White Spots along the edge */}
+                        <circle cx="-420" cy="-250" r="8" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="-440" cy="-150" r="10" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="-400" cy="-50" r="12" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="-350" cy="50" r="8" fill="#FFF" filter="url(#blurEdges)"/>
+                        
+                        <circle cx="-350" cy="350" r="7" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="-280" cy="450" r="9" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="-180" cy="500" r="6" fill="#FFF" filter="url(#blurEdges)"/>
+                      </motion.g>
+
+                      {/* Right Wing Group */}
+                      <motion.g
+                        style={{ transformOrigin: "0 0" }}
+                        animate={{ rotateY: [0, -45, 0], rotateZ: [5, 10, 5] }}
+                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
+                      >
+                        {/* Upper Right Wing */}
+                        <path 
+                          d="M 10 -20 C 100 -250 350 -400 450 -300 C 500 -200 480 -50 350 100 C 200 200 50 80 10 -20 Z" 
+                          fill="url(#wingPattern)" 
+                          stroke="#0B0014" strokeWidth="8"
+                        />
+                        {/* Lower Right Wing */}
+                        <path 
+                          d="M 5 20 C 150 150 350 250 380 400 C 400 500 250 550 100 450 C 20 350 0 150 5 20 Z" 
+                          fill="url(#wingGlow)" 
+                          stroke="#0B0014" strokeWidth="6"
+                        />
+                        
+                        {/* Wing Details / Veins */}
+                        <path d="M 15 -10 C 100 -100 200 -200 300 -250" stroke="#0B0014" strokeWidth="5" fill="none" opacity="0.8" />
+                        <path d="M 15 -10 C 150 -50 300 -100 400 -150" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        <path d="M 15 -10 C 100 50 200 100 280 50" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        
+                        <path d="M 10 30 C 100 150 200 250 250 350" stroke="#0B0014" strokeWidth="5" fill="none" opacity="0.8" />
+                        <path d="M 10 30 C 50 200 100 350 150 450" stroke="#0B0014" strokeWidth="4" fill="none" opacity="0.8" />
+                        
+                        {/* White Spots along the edge */}
+                        <circle cx="420" cy="-250" r="8" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="440" cy="-150" r="10" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="400" cy="-50" r="12" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="350" cy="50" r="8" fill="#FFF" filter="url(#blurEdges)"/>
+                        
+                        <circle cx="350" cy="350" r="7" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="280" cy="450" r="9" fill="#FFF" filter="url(#blurEdges)"/>
+                        <circle cx="180" cy="500" r="6" fill="#FFF" filter="url(#blurEdges)"/>
+                      </motion.g>
+
+                      {/* Butterfly Body */}
+                      <g filter="url(#blurEdges)">
+                        {/* Antennae */}
+                        <path d="M -5 -90 C -20 -150 -80 -200 -100 -180" stroke="#0B0014" strokeWidth="4" fill="none" />
+                        <path d="M 5 -90 C 20 -150 80 -200 100 -180" stroke="#0B0014" strokeWidth="4" fill="none" />
+                        <circle cx="-100" cy="-180" r="4" fill="#0B0014" />
+                        <circle cx="100" cy="-180" r="4" fill="#0B0014" />
+                        
+                        {/* Center Body */}
+                        <ellipse cx="0" cy="-50" rx="12" ry="40" fill="#0B0014" />
+                        <ellipse cx="0" cy="40" rx="10" ry="80" fill="#0B0014" />
+                      </g>
+                    </g>
+                  </svg>
+                </motion.div>
+
+                {/* Transform Path on the Right Edge */}
+                <div className="absolute right-[-40px] top-1/2 -translate-y-1/2 h-[500px] w-[200px] z-30 pointer-events-none">
+                  <div className="h-full w-full relative">
+                    <svg className="absolute inset-0 w-full h-full" overflow="visible">
+                      <path d="M 120 400 C 60 300 60 200 140 100" stroke="#1E293B" strokeOpacity="0.15" strokeWidth="1" strokeDasharray="4 6" fill="none" />
+                    </svg>
+
+                    <div className="absolute top-[80%] left-[103px] flex items-center gap-3">
+                      <div className="w-2.5 h-2.5 rounded-full bg-pink shadow-[0_0_10px_#ca006c]"></div>
+                      <div>
+                        <p className="text-[#ca006c] font-bold text-[12px] tracking-wide">1. Tırtıl</p>
+                        <p className="text-dark/50 text-[9px] uppercase font-semibold">{lang === 'en' ? 'Problem & Friction' : 'Problem ve S\u00FCrt\u00FCnme'}</p>
+                      </div>
+                    </div>
+
+                    <div className="absolute top-[50%] left-[53px] flex items-center gap-3">
+                      <div className="w-2.5 h-2.5 rounded-full bg-pink/60 shadow-[0_0_10px_#ca006c]"></div>
+                      <div>
+                        <p className="text-[#ca006c] font-bold text-[12px] tracking-wide">2. Koza</p>
+                        <p className="text-dark/50 text-[9px] uppercase font-semibold">{lang === 'en' ? 'Analysis & Strategy' : 'Analiz ve Strateji'}</p>
+                      </div>
+                    </div>
+
+                    <div className="absolute top-[20%] left-[123px] flex items-center gap-3">
+                      <div className="w-2.5 h-2.5 rounded-full bg-pink shadow-[0_0_15px_#ca006c]"></div>
+                      <div>
+                        <p className="text-[#ca006c] font-bold text-[12px] tracking-wide">3. Kelebek</p>
+                        <p className="text-dark/50 text-[9px] uppercase font-semibold leading-tight mt-0.5">{lang === 'en' ? 'Growth &' : 'B\u00FCy\u00FCme &'}<br/>{lang === 'en' ? 'Transformation' : 've D\u00F6n\u00FC\u015F\u00FCm'}</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+            
+          </div>
           
-          <div className="mx-auto max-w-6xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="max-w-3xl relative z-10"
-            >
-              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/10 px-4 py-1.5 text-xs font-medium text-primary mb-8 backdrop-blur-sm">
-                <Sparkles className="h-3.5 w-3.5" />
-                Dijital Ürün UX Stratejisi & Dönüşüm Optimizasyonu
-              </div>
-              <h1 className="text-5xl font-bold tracking-tight text-dark sm:text-7xl mb-6 leading-[1.1]">
-                Sadece güzel görünen<br />
-                arayüzler gelir getirmez.<br />
-                <span className="text-magenta">Stratejik UX getirir.</span>
-              </h1>
-              <p className="text-xl text-dark/70 mb-4 leading-relaxed max-w-2xl font-serif italic">
-                "Design with kindness" 🦋
-              </p>
-              <p className="text-lg text-dark/70 mb-10 leading-relaxed max-w-2xl">
-                Yüksek trafikli SaaS platformlarını ve dijital işleri, yüksek dönüşümlü gelir motorlarına dönüştürüyorum. Kullanıcıların neden terk ettiğini tahmin etmeyi bırakın, veriye dayalı UX mimarisiyle büyümeye başlayın.
-              </p>
-              
-              <div className="flex flex-wrap items-center gap-4 mb-12">
-                <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full bg-magenta px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-[#a00055]">
-                  Ücretsiz Strateji Görüşmesi Ayarla <ChevronRight className="h-4 w-4" />
-                </a>
-                <button className="flex items-center gap-2 rounded-full border border-dark/10 bg-transparent px-6 py-3 text-sm font-medium text-dark transition-colors hover:bg-dark/5">
-                  <FileText className="h-4 w-4" /> UX Denetim Check-list'i
-                </button>
-              </div>
-
-              <div className="pt-8 border-t border-dark/10 flex items-center gap-4 text-sm text-dark/70/70 font-medium">
-                <Users className="h-5 w-5 text-dark/70" />
-                <span>50+ SaaS ve E-ticaret markasının gelir sızıntılarını kapattık.</span>
-              </div>
-            </motion.div>
+          <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-10 animate-pulse hidden lg:flex">
+            <span className="text-[10px] uppercase tracking-widest text-dark/40 font-semibold">{lang === 'en' ? 'Scroll to explore' : 'Ke\u015Ffetmek i\u00E7in kayd\u0131r\u0131n'}</span>
+            <ChevronRight className="h-4 w-4 text-dark/40 rotate-90" />
           </div>
         </section>
-
-        {/* Problem & Insight Section */}
-        <section className="px-6 py-24 bg-cream">
-          <div className="mx-auto max-w-4xl">
-            <h2 className="text-3xl md:text-4xl font-bold text-dark mb-8 leading-tight">
-              Trafiğiniz var. Harika bir ürününüz var. <br />
-              <span className="text-primary">Peki neden dönüşmüyorlar?</span>
-            </h2>
-            <div className="prose  prose-lg max-w-none text-dark/70">
-              <p className="mb-6">
-                Çoğu startup ekibi ve kurucu aynı pahalı hatayı yapıyor: Trafik çekmek için pazarlamaya büyük bütçeler ayırıyor, ancak kullanıcı deneyimini (UX) varsayımlara bırakıyorlar.
-              </p>
-              <p className="mb-8">
-                Arayüzünüz kafa karıştırıcıysa, onboarding süreciniz çok uzunsa veya ödeme adımında gizli sürtünmeler varsa, sadece kullanıcıları sinirlendirmekle kalmıyor, <strong className="text-dark">reklam bütçenizi de yakıyorsunuz.</strong>
-              </p>
-              
-              <div className="grid sm:grid-cols-3 gap-6 mt-12">
-                <div className="bg-white p-6 rounded-2xl border border-dark/10">
-                  <div className="text-[#EF4444] font-bold mb-2 flex items-center gap-2"><Target className="h-4 w-4" /> Belirti</div>
-                  <p className="text-sm text-dark/70">Yüksek hemen çıkma oranları (bounce rate), terk edilen sepetler ve ilk günden sonraki yüksek churn (kayıp) oranları.</p>
+                {/* Services Section */}
+        <section id="services" className="px-6 py-24 md:py-32 bg-base border-y border-dark/5">
+          <div className="mx-auto max-w-7xl">
+            {/* Section Header */}
+            <div className="mb-20 md:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-10 md:gap-16">
+              <div className="max-w-3xl">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="w-10 h-[2px] bg-pink/40"></div>
+                  <span className="text-xs font-bold text-dark/40 tracking-[0.2em] uppercase">
+                    Strategic Expertise
+                  </span>
                 </div>
-                <div className="bg-white p-6 rounded-2xl border border-dark/10">
-                  <div className="text-[#F59E0B] font-bold mb-2 flex items-center gap-2"><Search className="h-4 w-4" /> Kök Neden</div>
-                  <p className="text-sm text-dark/70">İşletmenizin satmak istediği yöntem ile kullanıcının satın almak istediği yöntem arasındaki uçurum.</p>
-                </div>
-                <div className="bg-white p-6 rounded-2xl border border-[#10B981]/20">
-                  <div className="text-[#10B981] font-bold mb-2 flex items-center gap-2"><CheckCircle2 className="h-4 w-4" /> Çözüm</div>
-                  <p className="text-sm text-dark/70">İnsan psikolojisini iş hedeflerinizle (KPI) uyumlu hale getiren dönüşüm odaklı bir UX stratejisi.</p>
-                </div>
+                <h2 className="text-4xl md:text-5xl lg:text-[56px] font-medium text-dark tracking-tight leading-[1.1]">
+                  {lang === 'en' ? "I don't just push pixels." : "Sadece tasarlam\u0131yorum."}<br />
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ca006c] to-purple font-medium">{lang === 'en' ? 'I architect growth systems.' : 'B\u00FCy\u00FCme sistemleri in\u015Faa ediyorum.'}</span>
+                </h2>
+              </div>
+              <div className="max-w-sm pb-2 md:pb-4">
+                <p className="text-dark/60 text-lg font-light leading-relaxed">
+                  Scalable user experience logic designed to acquire, activate, and retain users beautifully.
+                </p>
               </div>
             </div>
-          </div>
-        </section>
 
-        {/* Services Section (Freelance Focus) */}
-        <section id="hizmetler" className="px-6 py-24 bg-white border-y border-dark/10">
-          <div className="mx-auto max-w-6xl">
-            <div className="mb-16 max-w-2xl">
-              <h2 className="text-3xl font-bold text-dark mb-4">SaaS & Dijital Büyüme İçin Stratejik UX Tasarımı</h2>
-              <p className="text-dark/70">
-                Sadece piksel itmiyorum. Kullanıcıları kazanmak, etkinleştirmek ve elde tutmak için tasarlanmış ölçeklenebilir kullanıcı deneyimi sistemleri kuruyorum.
-              </p>
-            </div>
-
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Service 1 */}
+            {/* Services Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+              
+              {/* Card 1: UX/UI Design */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="rounded-3xl border border-dark/10 bg-cream p-8 transition-all hover:border-magenta/50"
+                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-dark/5 hover:border-pink/20"
               >
-                <Search className="h-8 w-8 text-magenta mb-6" />
-                <h3 className="text-xl font-bold text-dark mb-3">Kapsamlı UX Denetimi (Audit)</h3>
-                <p className="text-sm text-dark/70 mb-6 leading-relaxed">
-                  Tahmin etmeyi bırakın. Kullanıcıların tam olarak nerede terk ettiğini bulmak için ürününüzün analitiklerini, ısı haritalarını ve kullanıcı akışlarını analiz ediyorum. Dönüşüm oranlarınızı anında artıracak önceliklendirilmiş bir "Hızlı Kazanımlar" (Quick Wins) yol haritası sunuyorum.
-                </p>
+                <div>
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FDFBF8] text-dark border border-dark/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-pink group-hover:border-pink/20 group-hover:bg-pink/5">
+                    <Layout className="h-6 w-6 stroke-[1.5]" />
+                  </div>
+                  <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'UX/UI Design for SaaS' : 'SaaS \u0130\u00E7in UX/UI Tasar\u0131m\u0131'}</h3>
+                  <p className="font-light leading-relaxed text-dark/60 text-lg">
+                    From frictionless onboarding flows to intuitive data dashboards. I turn complex software into premium, habit-forming digital products that users love and trust.
+                  </p>
+                </div>
+                <div className="mt-14 flex items-center gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-dark/10 bg-white transition-colors duration-500 group-hover:bg-dark group-hover:border-dark group-hover:text-white">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-dark/40 group-hover:text-dark transition-colors duration-300">
+                    Explore Interface Design
+                  </span>
+                </div>
               </motion.div>
 
-              {/* Service 2 */}
+              {/* Card 2: UX Audit */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.1 }}
-                className="rounded-3xl border border-dark/10 bg-dark p-8 relative overflow-hidden shadow-xl shadow-dark/10"
+                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-dark/5 hover:border-purple/20"
               >
-                <div className="absolute top-0 right-0 bg-magenta text-white text-[10px] font-bold px-3 py-1 rounded-bl-lg uppercase tracking-wider">
-                  En Çok Tercih Edilen
+                <div>
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FDFBF8] text-dark border border-dark/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-purple group-hover:border-purple/20 group-hover:bg-purple/5">
+                    <Search className="h-6 w-6 stroke-[1.5]" />
+                  </div>
+                  <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'UX Audit & Conversion Review' : 'UX Analizi ve D\u00F6n\u00FC\u015F\u00FCm \u0130ncelemesi'}</h3>
+                  <p className="font-light leading-relaxed text-dark/60 text-lg">
+                    Stop guessing. I analyze analytics, heatmaps, and user flows to find exactly where users drop off. You get a prioritized "Quick Wins" roadmap that increases conversion instantly.
+                  </p>
                 </div>
-                <Layout className="h-8 w-8 text-magenta mb-6" />
-                <h3 className="text-xl font-bold text-white mb-3">SaaS & Karmaşık Ürünler için UX Tasarımı</h3>
-                <p className="text-sm text-white/70 mb-6 leading-relaxed">
-                  Sürtünmesiz onboarding akışlarından sezgisel veri panellerine (dashboard). Karmaşık yazılımları, kullanıcıların sevdiği ve vazgeçemediği alışkanlık yaratan ürünlere dönüştürüyorum.
-                </p>
+                <div className="mt-14 flex items-center gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-dark/10 bg-white transition-colors duration-500 group-hover:bg-dark group-hover:border-dark group-hover:text-white">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-dark/40 group-hover:text-dark transition-colors duration-300">
+                    Explore Conversion Audit
+                  </span>
+                </div>
               </motion.div>
 
-              {/* Service 3 */}
+              {/* Card 3 (Connected Block): AI-Native & Landing Page */}
               <motion.div 
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="rounded-3xl border border-dark/10 bg-cream p-8 transition-all hover:border-magenta/50"
+                className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 rounded-[2.5rem] bg-white border border-dark/5 shadow-sm transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-dark/10 overflow-hidden"
               >
-                <LineChart className="h-8 w-8 text-magenta mb-6" />
-                <h3 className="text-xl font-bold text-dark mb-3">Landing Page UX & Dönüşüm Optimizasyonu</h3>
-                <p className="text-sm text-dark/70 mb-6 leading-relaxed">
-                  Açılış sayfanızın tek bir görevi var: tıklamaları müşteriye dönüştürmek. Yatırım getirinizi (ROI) en üst düzeye çıkaran yüksek dönüşümlü landing page'ler tasarlamak için davranışsal psikoloji ve A/B testi ilkelerini uyguluyorum.
-                </p>
+                {/* AI-Native */}
+                <div className="group flex flex-col justify-between p-10 lg:p-14 border-b md:border-b-0 md:border-r border-dark/5 bg-transparent hover:bg-[#FDFBF8] transition-colors duration-500 relative">
+                  <div>
+                    <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-dark border border-dark/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-dark">
+                      <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
+                    </div>
+                    <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'AI-Native Digital Strategy' : 'Yapay Zeka Odakl\u0131 Dijital Strateji'}</h3>
+                    <p className="font-light leading-relaxed text-dark/60 text-lg">
+                      Integrating agentic AI and intelligent workflows into your product gracefully. I design AI interactions that feel natural, supportive, and fundamentally human-centered.
+                    </p>
+                  </div>
+                  <div className="mt-14 flex items-center gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-dark/10 bg-white transition-colors duration-500 group-hover:bg-dark group-hover:border-dark group-hover:text-white">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-dark/40 group-hover:text-dark transition-colors duration-300">
+                      Explore AI Integration
+                    </span>
+                  </div>
+                </div>
+
+                {/* Landing Page Optimization */}
+                <div className="group flex flex-col justify-between p-10 lg:p-14 bg-transparent hover:bg-[#FDFBF8] transition-colors duration-500 relative">
+                  <div>
+                    <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-dark border border-dark/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-[#ca006c]">
+                      <LineChart className="h-6 w-6 stroke-[1.5]" />
+                    </div>
+                    <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'Landing Page Optimization' : 'A\u00E7\u0131l\u0131\u015F Sayfas\u0131 Optimizasyonu'}</h3>
+                    <p className="font-light leading-relaxed text-dark/60 text-lg">
+                      Your landing page has one job: convert clicks into customers. I apply behavioral psychology and premium visual design to build high-converting structural layouts.
+                    </p>
+                  </div>
+                  <div className="mt-14 flex items-center gap-4">
+                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-dark/10 bg-white transition-colors duration-500 group-hover:bg-dark group-hover:border-dark group-hover:text-white">
+                      <ArrowUpRight className="h-5 w-5" />
+                    </div>
+                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-dark/40 group-hover:text-dark transition-colors duration-300">
+                      Explore Optimization
+                    </span>
+                  </div>
+                </div>
               </motion.div>
-            </div>
-          </div>
-        </section>
 
-        {/* Methodology Section */}
-        <section className="px-6 py-24 bg-cream">
-          <div className="mx-auto max-w-6xl">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl font-bold text-dark mb-4">"Design with Kindness" Metodolojisi</h2>
-              <p className="text-dark/70">Veriyi nasıl gelire dönüştürüyoruz?</p>
-            </div>
-
-            <div className="grid md:grid-cols-4 gap-8 relative">
-              <div className="hidden md:block absolute top-1/2 left-0 w-full h-px bg-dark/10 -translate-y-1/2 z-0"></div>
-              
-              {[
-                { step: "01", title: "Analiz (Bilim)", desc: "Sert verilere bakarız. Sürtünme nerede? Düşüşler nerede?" },
-                { step: "02", title: "Empati (Psikoloji)", desc: "Kullanıcı araştırması ve davranışsal psikoloji ile verilerin arkasındaki 'neden'i ortaya çıkarırız." },
-                { step: "03", title: "Mimari (Strateji)", desc: "Tamamen bilişsel yükü ortadan kaldırmaya odaklanan wireframe'ler ve kullanıcı akışları oluştururuz." },
-                { step: "04", title: "Doğrulama (ROI)", desc: "Test eder, ölçer ve yineleriz. Metriklerinizi iyileştirmiyorsa, yayına almayız." }
-              ].map((item, i) => (
-                <div key={i} className="relative z-10 bg-cream pt-8 md:pt-0">
-                  <div className="w-12 h-12 rounded-full bg-white border border-magenta/30 flex items-center justify-center text-magenta font-bold mb-6 mx-auto md:mx-0 shadow-[0_0_15px_rgba(202,0,108,0.2)]">
-                    {item.step}
-                  </div>
-                  <h3 className="text-lg font-bold text-dark mb-2 text-center md:text-left">{item.title}</h3>
-                  <p className="text-sm text-dark/70 text-center md:text-left">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            {/* Testimonial */}
-            <div className="mt-24 bg-white border border-dark/10 rounded-3xl p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 right-0 text-9xl text-dark/5 font-serif leading-none select-none">"</div>
-              <p className="text-xl md:text-2xl text-dark/90 font-medium leading-relaxed mb-8 relative z-10">
-                "UX.Ipek ile çalışmak yörüngemizi tamamen değiştirdi. Sadece uygulamamızı modernleştirmekle kalmadı; UX denetimi sayesinde varlığından bile haberdar olmadığımız bir ödeme sızıntısını tespit etti. Yaptığı değişiklikler dönüşüm oranımızı iki hafta içinde %47 artırdı."
-              </p>
-              <div className="flex items-center gap-4 relative z-10">
-                <div className="w-12 h-12 rounded-full bg-dark flex items-center justify-center text-white font-bold">
-                  S
-                </div>
-                <div>
-                  <div className="text-dark font-bold">SaaS Kurucusu</div>
-                  <div className="text-sm text-primary">B2B FinTech Platformu</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Portfolio Section */}
-        <section id="portfolyo" className="px-6 py-24 bg-white border-t border-dark/10">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
-              <div className="max-w-2xl">
-                <h2 className="text-3xl font-bold text-dark mb-4">Seçilmiş Çalışmalar</h2>
-                <p className="text-dark/70">
-                  Estetiğin ötesine geçen, iş hedeflerine hizmet eden ve kullanıcıyı merkeze alan arayüz tasarımları.
-                </p>
-              </div>
-              <a 
-                href="https://www.behance.net/ipekbolakca" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm font-bold text-primary hover:text-primary-hover transition-colors"
+              {/* Card 4: Website Growth System Design */}
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.3 }}
+                className="col-span-1 md:col-span-2 group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.06)] border border-pink/10 hover:border-pink/30 relative overflow-hidden"
               >
-                Behance'te Tümünü Gör <ArrowRight className="h-4 w-4" />
-              </a>
-            </div>
+                {/* Subtle Glow Background */}
+                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-pink/5 blur-[80px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Project 1 */}
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative overflow-hidden rounded-3xl bg-cream border border-dark/10 group-hover:border-magenta/50 transition-colors aspect-[4/3] mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent z-10 opacity-60"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1600695268275-1a6478712d58?auto=format&fit=crop&q=80&w=1000" 
-                    alt="SaaS Dashboard" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-6 left-6 z-20 flex gap-2">
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">SaaS</span>
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">UX/UI</span>
+                <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10 relative z-10">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FDFBF8] text-dark border border-dark/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-pink group-hover:border-pink/20 group-hover:bg-pink/5 shadow-sm">
+                    <Globe className="h-6 w-6 stroke-[1.5]" />
                   </div>
+                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-pink bg-pink/5 px-4 py-2 rounded-full border border-pink/10 w-max shadow-sm">
+                    Flagship Growth System
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">B2B FinTech Dashboard Tasarımı</h3>
-                <p className="text-sm text-dark/70">Karmaşık finansal verileri, kullanıcı dostu ve sezgisel bir arayüze dönüştürme süreci.</p>
-              </a>
+                
+                <div className="relative z-10 w-full mb-4">
+                  <h3 className="mb-5 text-3xl lg:text-[36px] font-medium text-dark tracking-tight leading-[1.1] max-w-2xl">{lang === 'en' ? 'Website Growth System Design' : 'B\u00FCy\u00FCme Odakl\u0131 Web Sistem Tasar\u0131m\u0131'}</h3>
+                  <p className="font-light leading-relaxed text-dark/60 text-lg md:text-xl max-w-3xl">
+                    Building a website is not the finish line; it's the foundation. I design end-to-end digital growth systems that connect your positioning, organic traffic, and conversion funnels into one continuous engine.
+                  </p>
+                </div>
 
-              {/* Project 2 */}
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative overflow-hidden rounded-3xl bg-cream border border-dark/10 group-hover:border-magenta/50 transition-colors aspect-[4/3] mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent z-10 opacity-60"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?auto=format&fit=crop&q=80&w=1000" 
-                    alt="E-Commerce App" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-6 left-6 z-20 flex gap-2">
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">E-Ticaret</span>
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">CRO</span>
+                <div className="mt-14 flex items-center gap-4 relative z-10">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-dark/10 bg-white shadow-sm transition-colors duration-500 group-hover:bg-pink group-hover:border-pink group-hover:text-white">
+                    <ArrowUpRight className="h-5 w-5" />
                   </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-dark/40 group-hover:text-pink transition-colors duration-300">
+                    Systemize Your Growth
+                  </span>
                 </div>
-                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">E-Ticaret Dönüşüm Optimizasyonu</h3>
-                <p className="text-sm text-dark/70">Ödeme adımı (checkout) sızıntılarını kapatarak dönüşüm oranını artıran mobil odaklı tasarım.</p>
-              </a>
-              
-              {/* Project 3 */}
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative overflow-hidden rounded-3xl bg-cream border border-dark/10 group-hover:border-magenta/50 transition-colors aspect-[4/3] mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent z-10 opacity-60"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1618761714954-0b8cd0026356?auto=format&fit=crop&q=80&w=1000" 
-                    alt="Mobile App" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-6 left-6 z-20 flex gap-2">
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">Mobil Uygulama</span>
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">Onboarding</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">Kripto Cüzdan Onboarding Deneyimi</h3>
-                <p className="text-sm text-dark/70">Yeni kullanıcıların adaptasyon sürecini hızlandıran, güven odaklı mobil arayüz tasarımı.</p>
-              </a>
+              </motion.div>
 
-              {/* Project 4 */}
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="group block">
-                <div className="relative overflow-hidden rounded-3xl bg-cream border border-dark/10 group-hover:border-magenta/50 transition-colors aspect-[4/3] mb-6">
-                  <div className="absolute inset-0 bg-gradient-to-t from-cream via-transparent to-transparent z-10 opacity-60"></div>
-                  <img 
-                    src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" 
-                    alt="Analytics Platform" 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    referrerPolicy="no-referrer"
-                  />
-                  <div className="absolute bottom-6 left-6 z-20 flex gap-2">
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">Web App</span>
-                    <span className="px-3 py-1 text-xs font-medium bg-white/90 backdrop-blur-md rounded-full text-dark border border-dark/10">Design System</span>
-                  </div>
-                </div>
-                <h3 className="text-xl font-bold text-dark mb-2 group-hover:text-primary transition-colors">Veri Analitiği Platformu</h3>
-                <p className="text-sm text-dark/70">Geniş ölçekli veri setlerinin görselleştirilmesi ve modüler tasarım sistemi (Design System) inşası.</p>
-              </a>
             </div>
           </div>
         </section>
+        {/* Process Section: The Butterfly Effect of Digital Transformation */}
+        <section id="process" className="relative px-6 py-20 bg-cream overflow-hidden">
+          {/* Ambient Lighting */}
+          <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink/5 blur-[120px] rounded-full pointer-events-none"></div>
+          <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-purple/5 blur-[150px] rounded-full pointer-events-none"></div>
+          
+          <div className="mx-auto max-w-7xl relative z-10">
+            {/* Header */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8 }}
+              className="text-center max-w-4xl mx-auto mb-16 md:mb-20"
+            >
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-dark mb-8 tracking-tight leading-[1.1]">
+                The Butterfly Effect of <br className="hidden md:block" />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ca006c] to-purple font-semibold">{lang === 'en' ? 'Digital Transformation.' : 'Kelebek Etkisi.'}</span>
+              </h2>
+              <p className="text-xl md:text-2xl text-dark/70 font-light leading-relaxed">
+                Every strong digital experience starts with understanding friction, evolves through strategic design, and transforms into measurable growth.
+              </p>
+            </motion.div>
 
-        {/* Impact Metrics */}
-        <section className="px-6 py-24">
-          <div className="mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              {[
-                { metric: "%15", label: "Lead Dönüşüm Artışı", desc: "Karmaşık CRM süreçlerinin optimizasyonu ile.", icon: Zap },
-                { metric: "%20", label: "Daha Hızlı İşlem", desc: "SaaS modüllerinde bilgi mimarisi (IA) iyileştirmesi.", icon: BarChart3 },
-                { metric: "%30", label: "Hata Minimizasyonu", desc: "Teknik ürünlerde görsel UX rehberleri ile.", icon: Target }
-              ].map((stat, i) => (
+            {/* Strategic Timeline / Process Steps */}
+            <div className="relative">
+              {/* Wavy Timeline SVG Path Background (Hidden on small screens) */}
+              <div className="hidden lg:block absolute top-[120px] left-[10%] right-[10%] h-[400px] pointer-events-none z-0">
+                 <svg width="100%" height="100%" viewBox="0 0 1000 400" preserveAspectRatio="none" className="opacity-30 flex-shrink-0">
+                   <defs>
+                     <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                       <stop offset="0%" stopColor="#1E293B" stopOpacity="0.1" />
+                       <stop offset="50%" stopColor="#ca006c" stopOpacity="0.4" />
+                       <stop offset="100%" stopColor="#ca006c" stopOpacity="0.8" />
+                     </linearGradient>
+                     <linearGradient id="glowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                       <stop offset="0%" stopColor="#ca006c" stopOpacity="0" />
+                       <stop offset="100%" stopColor="#ca006c" stopOpacity="0.6" />
+                     </linearGradient>
+                   </defs>
+                   
+                   {/* Base Path */}
+                   <path d="M0,100 C 300,100 200,300 500,300 C 800,300 700,50 1000,50" 
+                         fill="none" stroke="url(#pathGradient)" strokeWidth="2" strokeDasharray="8 8" />
+                         
+                   {/* Animated Flow Line over the Path */}
+                   <motion.path d="M0,100 C 300,100 200,300 500,300 C 800,300 700,50 1000,50" 
+                         fill="none" stroke="url(#glowGrad)" strokeWidth="4" 
+                         initial={{ pathLength: 0, opacity: 0 }}
+                         whileInView={{ pathLength: 1, opacity: 1 }}
+                         viewport={{ once: true, margin: "-10%" }}
+                         transition={{ duration: 2.5, ease: "easeInOut" }}
+                         style={{ filter: "drop-shadow(0px 0px 8px rgba(202,0,108,0.5))" }}
+                   />
+                 </svg>
+                 
+                 {/* Floating Animated Butterfly across the steps */}
+                 <motion.div 
+                    className="absolute top-0 left-0 w-16 h-16 pointer-events-none z-40"
+                    initial={{ x: "-10%", y: 50, opacity: 0, scale: 0.5 }}
+                    whileInView={{ 
+                      x: ["0%", "50%", "100%"], 
+                      y: [80, 280, 20],
+                      opacity: [0, 1, 1],
+                      scale: [0.5, 0.8, 1.2],
+                    }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 4, ease: "easeInOut" }}
+                 >
+                    <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(202,0,108,0.6)]">
+                      <motion.g animate={{ rotateY: [0, 50, 0] }} transition={{ duration: 0.3, repeat: Infinity }} style={{ transformOrigin: "50% 50%" }}>
+                        <path d="M48 50 C20 10 10 30 48 50 Z" fill="#ca006c" opacity="0.9" />
+                        <path d="M48 52 C20 90 10 70 48 52 Z" fill="#a00055" opacity="0.8" />
+                      </motion.g>
+                      <motion.g animate={{ rotateY: [0, -50, 0] }} transition={{ duration: 0.3, repeat: Infinity, delay: 0.1 }} style={{ transformOrigin: "50% 50%" }}>
+                        <path d="M52 50 C80 10 90 30 52 50 Z" fill="#ca006c" opacity="0.9" />
+                        <path d="M52 52 C80 90 90 70 52 52 Z" fill="#a00055" opacity="0.8" />
+                      </motion.g>
+                      <ellipse cx="50" cy="50" rx="2" ry="10" fill="#28002c" />
+                    </svg>
+                 </motion.div>
+              </div>
+
+              <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 relative z-20">
+                
+                {/* Step 1 */}
                 <motion.div 
-                  key={i}
-                  initial={{ opacity: 0, y: 20 }}
+                  initial={{ opacity: 0, y: 40 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
-                  className="rounded-3xl border border-dark/10 bg-white p-8"
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7 }}
+                  className="bg-white/60 backdrop-blur-xl border border-dark/5 p-10 rounded-[2rem] shadow-sm relative lg:-top-4"
                 >
-                  <stat.icon className="h-6 w-6 text-primary mb-4" />
-                  <h3 className="text-4xl font-bold text-dark mb-2">{stat.metric}</h3>
-                  <p className="text-sm font-medium text-dark mb-1">{stat.label}</p>
-                  <p className="text-xs text-dark/70/70">{stat.desc}</p>
+                  <div className="text-[11px] font-bold text-dark/40 uppercase tracking-widest mb-8 flex items-center justify-between">
+                    <span>{lang === 'en' ? 'Phase 01' : 'A\u015Fama 01'}</span>
+                    <div className="w-2 h-2 rounded-full bg-dark/20"></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-dark mb-4 group cursor-default">
+                    Tırtıl <span className="text-dark/40 font-normal ml-1 transition-colors group-hover:text-dark/60">— Friction & Discovery</span>
+                  </h3>
+                  <p className="text-dark/70 leading-relaxed mb-8 font-light text-[15px]">
+                    Every project begins by identifying hidden UX problems, behavioral friction, trust gaps, and conversion blockers. The goal is to understand why users hesitate, abandon, or fail to engage.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Research', 'Audit', 'User Behavior', 'Friction Mapping'].map(kw => (
+                      <span key={kw} className="px-3 py-1.5 rounded-full bg-dark/5 text-dark/70 text-[11px] font-semibold border border-dark/5">
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
                 </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
 
-        {/* Lead Magnet Section (The PDF) */}
-        <section className="py-12">
-          <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+                {/* Step 2 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: 0.2 }}
+                  className="bg-white/80 backdrop-blur-xl border border-pink/10 p-10 rounded-[2rem] shadow-[0_10px_40px_rgba(202,0,108,0.05)] relative lg:top-[20px]"
+                >
+                  <div className="text-[11px] font-bold text-pink/60 uppercase tracking-widest mb-8 flex items-center justify-between">
+                    <span>{lang === 'en' ? 'Phase 02' : 'A\u015Fama 02'}</span>
+                    <div className="w-2 h-2 rounded-full bg-pink/40 shadow-[0_0_8px_rgba(202,0,108,0.5)]"></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-dark mb-4 group cursor-default">
+                    Koza <span className="text-pink/70 font-normal ml-1 transition-colors group-hover:text-pink/90">— Strategy & System Thinking</span>
+                  </h3>
+                  <p className="text-dark/80 leading-relaxed mb-8 font-light text-[15px]">
+                    Insights are transformed into structure. Information architecture, user flows, content hierarchy, and AI-supported systems are redesigned to create clarity and strategic direction.
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {['Strategy', 'UX Architecture', 'Systems', 'AI Workflows'].map(kw => (
+                      <span key={kw} className="px-3 py-1.5 rounded-full bg-pink/5 text-pink text-[11px] font-semibold border border-pink/10">
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+
+                {/* Step 3 */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 40 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ duration: 0.7, delay: 0.4 }}
+                  className="bg-white backdrop-blur-xl border border-purple/20 p-10 rounded-[2rem] shadow-[0_20px_50px_rgba(202,0,108,0.1)] relative lg:-top-0"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-pink/5 to-purple/5 rounded-[2rem] pointer-events-none"></div>
+                  <div className="text-[11px] font-bold text-purple uppercase tracking-widest mb-8 flex items-center justify-between relative z-10">
+                    <span>{lang === 'en' ? 'Phase 03' : 'A\u015Fama 03'}</span>
+                    <div className="w-2.5 h-2.5 rounded-full bg-pink shadow-[0_0_12px_rgba(202,0,108,0.8)] animate-pulse"></div>
+                  </div>
+                  <h3 className="text-2xl font-bold text-dark mb-4 group cursor-default relative z-10">
+                    Kelebek <span className="text-purple/80 font-normal ml-1">— Growth & Transformation</span>
+                  </h3>
+                  <p className="text-dark/80 leading-relaxed mb-8 font-light text-[15px] relative z-10">
+                    The final experience becomes clear, intuitive, emotionally engaging, and conversion-focused. Beautiful interfaces meet measurable business growth and human-centered interaction.
+                  </p>
+                  <div className="flex flex-wrap gap-2 relative z-10">
+                    {['Growth', 'Conversion', 'Experience', 'Transformation'].map(kw => (
+                      <span key={kw} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-pink/10 to-purple/10 text-dark font-semibold text-[11px] border border-pink/20">
+                        {kw}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+
+              </div>
+            </div>
+
+            {/* Microcopy Floating Quote */}
+            <motion.div 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.8, duration: 1 }}
+              className="mt-20 mb-12 text-center lg:mt-24 relative z-30"
+            >
+              <h4 className="text-3xl md:text-5xl font-serif italic text-dark/30 tracking-tight">
+                "Good design is not decoration.<br />
+                <span className="text-dark/80">{lang === 'en' ? 'It is transformation."' : 'Tamamen d\u00F6n\u00FC\u015F\u00FCn\u00FCn kendisidir."' }</span>
+              </h4>
+            </motion.div>
+
+            {/* Bottom CTA */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative overflow-hidden rounded-3xl bg-cream border border-primary/20 text-dark shadow-2xl"
+              transition={{ delay: 0.2 }}
+              className="flex flex-col items-center justify-center mt-12 text-center"
             >
-              {/* Abstract background shapes */}
-              <div className="absolute -right-24 -top-24 h-96 w-96 rounded-full bg-magenta blur-3xl opacity-30"></div>
-              <div className="absolute -bottom-24 -left-24 h-72 w-72 rounded-full bg-primary blur-3xl opacity-20"></div>
-              
-              <div className="relative grid md:grid-cols-2 gap-8 p-8 sm:p-12 items-center">
-                <div>
-                  <div className="inline-flex items-center gap-2 rounded-lg bg-magenta/10 px-3 py-1 text-xs font-medium text-magenta mb-6 backdrop-blur-sm border border-magenta/20">
-                    <BookOpen className="h-3.5 w-3.5" /> Ücretsiz Strateji Rehberi
-                  </div>
-                  <h2 className="text-2xl sm:text-3xl font-bold mb-4 leading-tight">
-                    E-Ticaret ve Dijital Ürünlerde "Nezaketle Tasarım" Rehberi
-                  </h2>
-                  <p className="text-dark/70 mb-6 text-sm sm:text-base">
-                    Ürününüz nerede para kaybediyor? Checkout sızıntılarını kapatacak, gelirinizi ve kullanıcı sadakatini artıracak 5 adımlı ROI odaklı büyüme stratejisi.
-                  </p>
-                  
-                  <ul className="space-y-3 mb-8">
-                    {[
-                      'Ödeme Adımındaki (Checkout) Gizli Sızıntılar', 
-                      'Gerçek Zamanlı Veriyle Sepet Terkini Önleme', 
-                      'Ajan Yapay Zeka (Agentic AI) Entegrasyonu',
-                      'Bilim İnsanı Gibi A/B Testi Kurgulama'
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-center gap-3 text-sm text-dark/90">
-                        <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Lead Capture Form */}
-                <div className="bg-white/80 border border-dark/10 rounded-2xl p-6 backdrop-blur-md">
-                  <h3 className="text-lg font-medium mb-2 text-dark">Rehberi Hemen İndirin</h3>
-                  <p className="text-sm text-dark/70 mb-6">PDF anında e-posta adresinize gönderilecektir.</p>
-                  
-                  <form className="space-y-4" onSubmit={handleDownloadPDF}>
-                    <div>
-                      <label htmlFor="name" className="sr-only">Ad Soyad</label>
-                      <input 
-                        type="text" 
-                        id="name" 
-                        required
-                        placeholder="Adınız Soyadınız" 
-                        className="w-full rounded-xl border border-dark/10 bg-white px-4 py-3 text-sm text-dark placeholder-zinc-500 focus:border-magenta focus:outline-none focus:ring-1 focus:ring-magenta transition-colors"
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="email" className="sr-only">E-posta</label>
-                      <input 
-                        type="email" 
-                        id="email" 
-                        required
-                        placeholder="İş E-posta Adresiniz" 
-                        className="w-full rounded-xl border border-dark/10 bg-white px-4 py-3 text-sm text-dark placeholder-zinc-500 focus:border-magenta focus:outline-none focus:ring-1 focus:ring-magenta transition-colors"
-                      />
-                    </div>
-                    <button 
-                      disabled={isSubmitting || isSuccess}
-                      className="group flex w-full items-center justify-center gap-2 rounded-xl bg-magenta px-4 py-3 text-sm font-semibold text-white transition-all hover:bg-[#a00055] disabled:opacity-70 disabled:cursor-not-allowed"
-                    >
-                      {isSubmitting ? 'Hazırlanıyor...' : isSuccess ? 'İndiriliyor...' : "PDF'i Gönder"} 
-                      {!isSubmitting && !isSuccess && <Download className="h-4 w-4 transition-transform group-hover:-translate-y-0.5" />}
-                    </button>
-                    {isSuccess && (
-                      <p className="text-sm text-emerald-400 text-center mt-2">
-                        Rehberiniz indiriliyor! Ayrıca e-posta adresinize de gönderildi.
-                      </p>
-                    )}
-                  </form>
-                  <p className="text-xs text-dark/70/70 mt-4 text-center">
-                    Spam göndermiyoruz. Sadece stratejik UX içgörüleri.
-                  </p>
-                </div>
-              </div>
+               <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-full bg-dark px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-dark/90 group">
+                  Start Your Transformation <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+               </a>
+               <p className="mt-5 text-sm md:text-base text-dark/50 font-medium">
+                 Let’s turn your digital experience into a growth system.
+               </p>
             </motion.div>
+
           </div>
         </section>
 
         {/* Experience Section */}
-        <section id="deneyim" className="px-6 py-24 bg-white border-y border-dark/10">
-          <div className="mx-auto max-w-6xl">
-            <div className="flex items-center gap-3 mb-12">
-              <Briefcase className="h-6 w-6 text-primary" />
-              <h2 className="text-3xl font-bold text-dark">İş Deneyimi</h2>
+        <section id="experience" className="px-6 py-16 bg-dark relative overflow-hidden">
+          {/* Subtle background glow */}
+          <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
+          
+          <div className="mx-auto max-w-5xl relative z-10">
+            <div className="mb-12 max-w-3xl">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+                Building systems, products, and digital growth experiences.
+              </h2>
+              <p className="text-white/60 text-xl font-light leading-relaxed">
+                My journey combines UX strategy, business thinking, AI-driven systems, CRO, SaaS product design, and multilingual communication.
+              </p>
             </div>
 
             <div className="space-y-12">
-              {/* Calisto */}
-              <div className="relative pl-8 border-l border-dark/10">
-                <div className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full bg-primary"></div>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-dark">Digital Product Designer & UX/UI</h3>
-                    <p className="text-primary font-medium">Calisto Dijital Ajans</p>
+              {getExperiences(lang).map((exp, index) => (
+                <div key={index} className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] gap-4 md:gap-8 group">
+                  <div className="text-white/40 font-mono text-sm tracking-wider mt-1 uppercase">
+                    {exp.period}
                   </div>
-                  <span className="text-sm text-dark/70/70 mt-2 sm:mt-0">Eyl 2025 - Şub 2026</span>
+                  <div className="relative pb-10 border-b border-white/5 group-last:border-none group-last:pb-0">
+                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{exp.role}</h3>
+                    <p className="text-pink text-lg font-medium tracking-wide mb-6">{exp.company}</p>
+                    
+                    <p className="text-white/70 text-lg leading-relaxed font-light max-w-3xl">
+                      {exp.description}
+                    </p>
+                  </div>
                 </div>
-                <ul className="space-y-3 text-dark/70 text-sm">
-                  <li className="flex gap-3"><span className="text-primary">▹</span> <b>CRO & Funnel:</b> Karmaşık CRM süreçlerini analiz ederek lead dönüşüm oranını %15 artıran funnel mimarisi tasarladı.</li>
-                  <li className="flex gap-3"><span className="text-primary">▹</span> <b>Bilgi Mimarisi (IA):</b> SaaS ürün modüllerinde (Intime, Mornar CRM) hiyerarşiyi yapılandırarak işlem süresini %20 kısalttı.</li>
-                  <li className="flex gap-3"><span className="text-primary">▹</span> <b>AI Entegrasyonu:</b> Yapay zeka tabanlı Lead Agent projelerine stratejik yön vererek veri odaklı iş akışları kurdu.</li>
-                </ul>
-              </div>
+              ))}
+            </div>
 
-              {/* Robopine */}
-              <div className="relative pl-8 border-l border-dark/10">
-                <div className="absolute -left-1.5 top-1.5 h-3 w-3 rounded-full bg-zinc-600"></div>
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-4">
-                  <div>
-                    <h3 className="text-xl font-bold text-dark">Pazarlama & Tasarım Sorumlusu</h3>
-                    <p className="text-dark/90 font-medium">Robopine</p>
-                  </div>
-                  <span className="text-sm text-dark/70/70 mt-2 sm:mt-0">Nis 2025 - Haz 2025</span>
-                </div>
-                <ul className="space-y-3 text-dark/70 text-sm">
-                  <li className="flex gap-3"><span className="text-dark/70/70">▹</span> <b>Trafik Büyümesi:</b> B2B stratejisine uygun web sitesi ile organik trafikte %25, lead formlarında %10 artış.</li>
-                  <li className="flex gap-3"><span className="text-dark/70/70">▹</span> <b>Design Systems:</b> Marka tutarlılığını güçlendirdi ve Design-to-Development (Handoff) geçişlerini hızlandırdı.</li>
-                </ul>
-              </div>
+            <div className="mt-16 pt-12 border-t border-white/10 text-center max-w-3xl mx-auto">
+              <p className="text-white/80 text-xl font-light leading-relaxed mb-10">
+                Today, UX.Ipek combines UX strategy, AI-native workflows, conversion thinking, multilingual communication, and systems design to create digital experiences that are both human-centered and growth-oriented.
+              </p>
+              <a 
+                href="https://www.behance.net/ipekbolakca" 
+                target="_blank" rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
+              >
+                View My Work <ArrowRight className="h-4 w-4" />
+              </a>
             </div>
           </div>
         </section>
 
         {/* CTA Section */}
-        <section className="px-6 py-24 bg-cream">
-          <div className="mx-auto max-w-4xl">
-            <div className="rounded-[2.5rem] bg-white border border-primary/20 p-8 md:p-12 relative overflow-hidden">
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full bg-primary/5 blur-[100px] pointer-events-none"></div>
-              
-              <div className="text-center mb-10 relative z-10">
-                <h2 className="text-3xl md:text-4xl font-bold text-dark mb-4">
-                  Ürününüzdeki sızıntıları kapatmaya hazır mısınız?
-                </h2>
-                <p className="text-dark/70 max-w-2xl mx-auto">
-                  İster tam kapsamlı bir SaaS yeniden tasarımı, ister belirli bir funnel'ı düzeltmek için hedeflenmiş bir UX denetimi olsun; nerede para kaybettiğinizi ve bunu nasıl düzelteceğimizi bulalım.
-                </p>
-              </div>
+        <section id="contact" className="px-6 py-16 bg-cream">
+          <div className="mx-auto max-w-4xl text-center">
+            <h2 className="text-4xl md:text-5xl font-bold text-dark mb-6 tracking-tight">
+              Ready to fix the leaks in your product?
+            </h2>
+            <p className="text-dark/70 max-w-2xl mx-auto text-lg mb-10">
+              Whether you need a full SaaS redesign or a targeted UX audit to fix a specific funnel, let's find out where you're losing money and transform your digital experience into a growth system.
+            </p>
 
-              <div className="bg-cream border border-dark/10 rounded-2xl p-6 md:p-8 relative z-10 max-w-2xl mx-auto">
-                <h3 className="text-xl font-bold text-dark mb-2 text-center">Ücretsiz UX Keşif Görüşmesi Ayarla</h3>
-                <p className="text-sm text-dark/70 text-center mb-8">En büyük dönüşüm darboğazınızı analiz edeceğimiz 30 dakikalık stratejik bir görüşme. Taahhüt yok, sadece aksiyon alınabilir içgörüler.</p>
-                
-                <div className="flex justify-center mt-4">
-                  <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-xl bg-magenta px-8 py-4 text-sm font-bold text-white transition-transform hover:scale-[1.02] shadow-lg shadow-magenta/20">
-                    <Mail className="h-4 w-4" /> Takvimden Görüşme Ayarla
-                  </a>
-                </div>
-              </div>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-pink/90">
+                <Mail className="h-4 w-4" /> Book Your UX Audit
+              </a>
+              <a href="mailto:ipekbolakca@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-base border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-colors hover:bg-dark/5">
+                Send an Email
+              </a>
             </div>
+            <p className="text-sm text-dark/50 mt-8">{lang === 'en' ? 'A 30-minute strategic consultation. No commitment, just actionable insights.' : '30-dakikal\u0131k stratejik dan\u0131\u015Fmanl\u0131k. Taahh\u00FCts\u00FCz, sadece i\u015Fe yarar i\u00E7g\u00F6r\u00FCler.'}</p>
           </div>
         </section>
       </main>
+
       {/* Hidden PDF Content */}
-      <div id="pdf-content" style={{ position: 'absolute', left: '-9999px', top: 0, width: '800px', backgroundColor: 'white', color: '#1a1a1a', padding: '40px 50px', fontFamily: 'Arial, sans-serif' }}>
-        <h1 style={{ fontSize: '24px', fontWeight: 'bold', marginBottom: '16px', color: '#1a1a1a', lineHeight: '1.3' }}>
-          Stratejik Büyüme Mimarlığı: E-Ticaret ve Dijital Ürünlerde "Nezaketle Tasarım" (Design with Kindness) Rehberi
-        </h1>
-        <p style={{ marginBottom: '16px', fontSize: '14px', lineHeight: '1.6' }}>
-          Bu mini rehber, dijital ürünlerinizi yalnızca estetik olarak değil, yatırım getirisi (ROI) ve dönüşüm (CR) odaklı bir sistemle nasıl tasarlayacağınızı göstermek için hazırlanmıştır. Bir ürün ekibinin sadece arayüz çizen tasarımcılardan değil, veriyi empatiyle yoğuran birer "bilim insanından" oluşması gerektiği felsefesine dayanır.
-        </p>
-        <p style={{ marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          İşte dijital ürün ekosisteminizdeki sızıntıları kapatacak, gelirinizi ve kullanıcı sadakatini artıracak 5 adımlı büyüme stratejisi:
-        </p>
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#df7200' }}>1. Ödeme Adımındaki (Checkout) Gizli Sızıntıları Kapatın</h2>
-        <p style={{ marginBottom: '12px', fontSize: '14px', lineHeight: '1.6' }}>Kullanıcıların satın alma niyetini gösterdiği alt huni (lower funnel), sızıntıların en maliyetli olduğu yerdir. "Nezaketle tasarım", kullanıcının işini zorlaştıran tüm engelleri ortadan kaldırmayı gerektirir:</p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Hız Her Şeydir:</strong> Ödeme sürecinin tamamlanması 90 saniyeden uzun sürdüğünde, alt huni dönüşüm oranları ortalama %47 oranında düşmektedir.</li>
-          <li style={{ marginBottom: '8px' }}><strong>CAPTCHA'dan Kaçının:</strong> Güvenlik önemli olsa da, ödeme adımında kullanıcıyı yavaşlatan ve zorlayan CAPTCHA kullanımı dönüşüm oranlarını doğrudan düşürür.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Kupon Alanlarını Gizleyin:</strong> Ödeme sayfasında açık bırakılan indirim kodu (coupon) alanları, kullanıcıyı "acaba bir kod bulabilir miyim" düşüncesiyle sepeti terk etmeye iter ve dönüşümleri %30'a kadar düşürebilir.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Hızlı Ödeme Yöntemlerini Ekleyin:</strong> Apple Pay, Google Pay veya Shop Pay gibi hızlandırılmış ödeme seçenekleri sunmak, dönüşüm oranlarını %50'ye kadar artırabilmektedir. Hatta sadece Shop Pay'in sistemde bulunması bile dönüşümde %5'lik bir artış sağlar.</li>
-        </ul>
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#FF542E' }}>2. Sepet Terk Etmeyi Gerçek Zamanlı Veriyle Önleyin</h2>
-        <p style={{ marginBottom: '12px', fontSize: '14px', lineHeight: '1.6' }}>Pek çok ekip sepeti terk eden kullanıcılara sonradan e-posta atmayı bir strateji sanır; oysa gerçek büyüme mimarları sorunu kullanıcı henüz sitedeyken çözer.</p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Zamanınız Çok Kısıtlı:</strong> Veriler, yeni kullanıcıların sepete ilk ürünü ekledikten sonra ortalama %25'inin sadece bir dakika içinde, %50'sinin ise ilk üç buçuk dakika içinde sepeti terk ettiğini göstermektedir.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Sepet Büyüklüğünü (Basket Building) Teşvik Edin:</strong> Kullanıcıların sepetine sadece 1-2 ürün eklemesi yerine, doğru çapraz satışlarla (cross-sell) bu sayıyı 6-10 arasına çıkardığınızda dönüşüm oranları %63'e kadar yükselebilmektedir.</li>
-        </ul>
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#FF542E' }}>3. Varsayımları Bırakın, Bilim İnsanı Gibi A/B Testi Yapın</h2>
-        <p style={{ marginBottom: '12px', fontSize: '14px', lineHeight: '1.6' }}>Dijital mağazalar "yap ve unut" platformları değildir; müşteri eğilimleri sürekli değişir. Optimizasyon, sürekli bir deney sürecidir:</p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Tek Değişken Kuralı:</strong> A/B testi yaparken her zaman tek bir değişkeni (örneğin sadece indirim oranını veya sadece buton rengini) test etmelisiniz; aksi takdirde başarıyı neyin getirdiğini ölçemezsiniz.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Ölçümleme Stratejisi:</strong> Optimizasyon hedefinizin ne olduğunu en baştan belirleyin (ürün görüntüleme, sepete ekleme veya net satış) ve mevcut performansınızı bir referans noktası (benchmark) olarak kaydedin.</li>
-        </ul>
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#FF542E' }}>4. Ajan Yapay Zeka (Agentic AI) ile Proaktif Bir Deneyim Sunun</h2>
-        <p style={{ marginBottom: '12px', fontSize: '14px', lineHeight: '1.6' }}>Yapay zeka artık sadece basit ürün önermekten çıkıp, kullanıcının belirli yaşam hedeflerine hizmet eden "Görev Odaklı Ajanlara" (Agentic AI) dönüşüyor.</p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Bağlama Uygun Asistanlık:</strong> Klasik algoritmalar istatistiksel eşleşmelere bakarken; uzmanlaşmış yapay zeka ajanları ev tadilatı, ebeveynlik veya seyahat planlaması gibi belirli bir dikeyde kullanıcının ihtiyaçlarını çok boyutlu olarak analiz eder ve proaktif çözümler sunar.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Çoklu Etkileşim:</strong> Kullanıcılar sadece metinle değil; ses, görsel tanıma veya artırılmış gerçeklik (AR) üzerinden de niyetlerini belli edebilirler ve AI bu verileri işleyerek en doğal deneyimi kurgular.</li>
-        </ul>
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#FF542E' }}>5. Güven, Sadakat ve Mahremiyet (Privacy) İnşası</h2>
-        <p style={{ marginBottom: '12px', fontSize: '14px', lineHeight: '1.6' }}>Kullanıcı deneyimi yalnızca ekranlardan ibaret değildir; kullanıcının verisine duyduğunuz saygı, "Design with Kindness" felsefesinin temelidir.</p>
-        <ul style={{ paddingLeft: '20px', marginBottom: '24px', fontSize: '14px', lineHeight: '1.6' }}>
-          <li style={{ marginBottom: '8px' }}><strong>Veri ve Güven Korelasyonu:</strong> Tüketicilerin %50'si, verdikleri kişisel bilgilerin nasıl kullanılacağı konusunda endişe duyduklarında çevrimiçi satın alımlarını yarıda bırakmaktadır. Açık rıza (consent) almak ve GDPR gibi standartlara tam uyum sağlamak, size ciddi bir rekabet avantajı ve müşteri sadakati kazandırır.</li>
-          <li style={{ marginBottom: '8px' }}><strong>Sadakat Programlarının Gücü:</strong> Gen Z ve Y kuşağının %55'i, yapay zeka ile kişiselleştirilmiş sadakat programlarına katılmaya daha isteklidir. Özellikle ortalama sepet tutarı 200 doların altında olan işletmelerde, doğru kurgulanmış bir sadakat programı alt huni dönüşümlerini %4 ila %6 oranında artırabilmektedir.</li>
-        </ul>
-
-        <hr style={{ margin: '32px 0', border: 'none', borderTop: '1px solid #e5e7eb' }} />
-
-        <h2 style={{ fontSize: '18px', fontWeight: 'bold', marginBottom: '12px', color: '#1a1a1a' }}>Dönüşüme Hazır Mısınız?</h2>
-        <p style={{ marginBottom: '16px', fontSize: '14px', lineHeight: '1.6' }}>
-          Bir "Fraksiyonel Tasarım Ortağı" (Fractional Design Partner) ve Büyüme Mimarı olarak, yalnızca güzel görünen arayüzler değil; veriden beslenen, iş hedeflerinize (KPI) doğrudan etki eden ve müşterinize "nezaketle" yaklaşan uçtan uca dijital ekosistemler kuruyorum.
-        </p>
-        <p style={{ fontSize: '14px', lineHeight: '1.6', fontWeight: 'bold', color: '#FF542E' }}>
-          Ürününüzün nerede para kaybettiğini bulmak ve ROI odaklı bir dönüşüm optimizasyonu başlatmak için benimle iletişime geçebilirsiniz.
-        </p>
+      <div id="pdf-content" className="hidden">
+        {/* Simplified for demonstration; could be a rendered component if html2pdf is used */}
       </div>
     </div>
   );
 }
-
