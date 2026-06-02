@@ -1,0 +1,76 @@
+{
+  "concept": "The Butterfly Effect of Digital Transformation",
+  "translations": {
+    "en": {
+      "title": "The Butterfly Effect of Digital Transformation",
+      "subtitle": "Every strong digital experience starts with understanding friction, evolves through strategic design, and transforms into measurable growth."
+    },
+    "tr": {
+      "title": "Dijital Dönüşümün Kelebek Etkisi",
+      "subtitle": "Her güçlü dijital deneyim sürtünmeyi (friction) anlamakla başlar, stratejik tasarımla evrilir ve ölçülebilir büyümeye dönüşür."
+    }
+  },
+  "phases": [
+    {
+      "id": "phase_01",
+      "stage": "Caterpillar",
+      "icon": "🐛",
+      "translations": {
+        "en": {
+          "phase_label": "Phase 01",
+          "title": "Tırtıl — Friction & Discovery",
+          "description": "Every project begins by identifying hidden UX problems, behavioral friction, trust gaps, and conversion blockers. The goal is to understand why users hesitate, abandon, or fail to engage."
+        },
+        "tr": {
+          "phase_label": "Aşama 01",
+          "title": "Tırtıl — Keşif ve Etkileşim Problemleri",
+          "description": "Her proje; açıkta olmayan UX problemlerini, davranışsal pürüzleri ve güven problemlerini bularak başlar. Amaç, kullanıcıların neden ayrıldığını anlamaktır."
+        }
+      }
+    },
+    {
+      "id": "phase_02",
+      "stage": "Cocoon",
+      "icon": "🪹",
+      "translations": {
+        "en": {
+          "phase_label": "Phase 02",
+          "title": "Koza — Strategy & System Thinking",
+          "description": "Insights are transformed into structure. Information architecture, user flows, content hierarchy, and AI-supported systems are redesigned to create clarity and strategic direction."
+        },
+        "tr": {
+          "phase_label": "Aşama 02",
+          "title": "Koza — Strateji ve Sistem Düşüncesi",
+          "description": "İçgörü, sisteme dönüşür. Bilgi mimarisi, kullanıcı akışı, içerik hiyerarşisi ve AI destekli sistemler; net ve stratejik bir doğrultu için tekrar tasarlanır."
+        }
+      }
+    },
+    {
+      "id": "phase_03",
+      "stage": "Butterfly",
+      "icon": "🦋",
+      "translations": {
+        "en": {
+          "phase_label": "Phase 03",
+          "title": "Kelebek — Growth & Transformation",
+          "description": "The final experience becomes clear, intuitive, emotionally engaging, and conversion-focused. Beautiful interfaces meet measurable business growth and human-centered interaction."
+        },
+        "tr": {
+          "phase_label": "Aşama 03",
+          "title": "Kelebek — Büyüme ve Dönüşüm",
+          "description": "Nihai deneyim; dönüşüm odaklı, sezgisel ve duygusal bağlayıcı olur. Asil arayüzler ile ölçülebilir iş büyümesi harmanlanır."
+        }
+      }
+    }
+  ],
+  "quote": {
+    "translations": {
+      "en": {
+        "text": "\"Good design is not decoration. It is transformation.\""
+      },
+      "tr": {
+        "text": "\"İyi tasarım dekorasyon değildir. Tamamen dönüşümün kendisidir.\""
+      }
+    }
+  }
+}
