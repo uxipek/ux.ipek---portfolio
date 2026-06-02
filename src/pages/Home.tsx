@@ -734,11 +734,11 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
           
           <div className="mx-auto max-w-5xl relative z-10">
-            <div className="mb-12 max-w-3xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8 leading-[1.1] tracking-tight">
+            <div className="mb-16 max-w-4xl mx-auto text-center">
+              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight text-balance">
                 Building systems, products, and digital growth experiences.
               </h2>
-              <p className="text-white/60 text-xl font-light leading-relaxed">
+              <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed">
                 My journey combines UX strategy, business thinking, AI-driven systems, CRO, SaaS product design, and multilingual communication.
               </p>
             </div>
