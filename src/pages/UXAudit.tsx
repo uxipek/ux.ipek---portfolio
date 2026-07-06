@@ -136,7 +136,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               <p className="text-lg font-light leading-relaxed text-dark/70 mb-8">
                 {lang === 'en'
                   ? 'A UX Audit identifies usability problems, friction points, confusing navigation, and conversion blockers before redesign begins. Stop guessing why users leave and start fixing what is actually broken.'
-                  : 'UX Analizi; kullanılabilirlik sorunlarını, sürtünme noktalarını, kafa karıştırıcı gezinmeyi ve dönüşüm engellerini yeniden tasarımdan önce belirler. Kullanıcıların neden ayrıldığını tahmin etmeyi bırakın ve gerçekten neyin bozuk olduğunu düzeltmeye başlayın.'}
+                  : 'UX Analizi, web sitenizde ziyaretçileri zorlayan ve kaçıran hataları tespit eder. İnsanların sitenizden neden ayrıldığını tahmin etmeyi bırakın; sorunu net olarak bulup düzeltmeye başlayalım.'}
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
