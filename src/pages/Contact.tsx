@@ -124,7 +124,6 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             <div className="mt-12 p-8 bg-white/50 backdrop-blur-md rounded-3xl border border-white">
               <p className="text-[11px] font-bold text-dark/40 tracking-wider uppercase mb-2">{lang === 'en' ? 'Direct Email' : 'E-posta'}</p>
               <a href="mailto:uxdesigneripek@gmail.com" className="text-xl font-medium text-[#ca006c] hover:underline">uxdesigneripek@gmail.com</a>
-              {/* <a href="mailto:hello@uxipek.com" className="block text-sm text-dark/50 mt-2">hello@uxipek.com</a> */}
             </div>
           </motion.div>
 
@@ -176,6 +175,39 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Message' : 'Mesaj'}</label>
                 <textarea required rows={4} className="w-full px-5 py-5 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all resize-none font-medium" placeholder={lang === 'en' ? 'Tell me about your product challenges...' : 'Ürün pürüzlerinden bahsedin...'}></textarea>
+              </div>
+
+              <div className="space-y-4 pt-2">
+                <div className="flex items-start gap-3">
+                  <input 
+                    type="checkbox" 
+                    id="contactLegalConsent" 
+                    required
+                    className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c]"
+                  />
+                  <label htmlFor="contactLegalConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                    {lang === 'en' ? (
+                      <>I have read the <a href="/kvkk" target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Information Notice</a> and <a href="/privacy-policy" target="_blank" className="text-[#ca006c] hover:underline font-medium">Privacy Policy</a>.</>
+                    ) : (
+                      <><a href="/kvkk" target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href="/privacy-policy" target="_blank" className="text-[#ca006c] hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                    )}
+                  </label>
+                </div>
+                
+                <div className="flex items-start gap-3">
+                  <input 
+                    type="checkbox" 
+                    id="contactMarketingConsent" 
+                    className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c]"
+                  />
+                  <label htmlFor="contactMarketingConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                    {lang === 'en' ? (
+                      'I would like to receive content, announcements, and service updates from UXIPEK via email.'
+                    ) : (
+                      'UXIPEK tarafından e-posta yoluyla içerik, duyuru ve hizmet bilgilendirmeleri almak istiyorum.'
+                    )}
+                  </label>
+                </div>
               </div>
               
               <button disabled={isSubmitting} type="submit" className="w-full flex items-center justify-center gap-3 bg-[#1E293B] text-white px-8 py-5 rounded-2xl font-bold hover:bg-[#1E293B]/90 transition-all shadow-lg shadow-dark/20 hover:shadow-xl hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed">

@@ -344,6 +344,39 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   ></textarea>
                 </div>
                 
+                <div className="space-y-4 pt-2">
+                  <div className="flex items-start gap-3">
+                    <input 
+                      type="checkbox" 
+                      id="legalConsent" 
+                      required
+                      className="mt-1 w-4 h-4 rounded border-dark/20 text-pink focus:ring-pink"
+                    />
+                    <label htmlFor="legalConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                      {lang === 'en' ? (
+                        <>I have read the <a href="/kvkk" target="_blank" className="text-pink hover:underline font-medium">KVKK Information Notice</a> and <a href="/privacy-policy" target="_blank" className="text-pink hover:underline font-medium">Privacy Policy</a>.</>
+                      ) : (
+                        <><a href="/kvkk" target="_blank" className="text-pink hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href="/privacy-policy" target="_blank" className="text-pink hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                      )}
+                    </label>
+                  </div>
+                  
+                  <div className="flex items-start gap-3">
+                    <input 
+                      type="checkbox" 
+                      id="marketingConsent" 
+                      className="mt-1 w-4 h-4 rounded border-dark/20 text-pink focus:ring-pink"
+                    />
+                    <label htmlFor="marketingConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                      {lang === 'en' ? (
+                        'I would like to receive content, announcements, and service updates from UXIPEK via email.'
+                      ) : (
+                        'UXIPEK tarafından e-posta yoluyla içerik, duyuru ve hizmet bilgilendirmeleri almak istiyorum.'
+                      )}
+                    </label>
+                  </div>
+                </div>
+
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}

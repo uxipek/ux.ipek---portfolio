@@ -1,40 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, Globe, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download, ArrowUpRight } from "lucide-react";
 import { Logo } from "../components/Logo";
-
-const getExperiences = (lang: "en" | "tr") => [
-  {
-    role: "Corporate Comm. & Business Process Dev.",
-    company: "ÇUKUR & PARTNERS LAW FIRM",
-    period: "2026 — Present",
-    description: lang === 'en' ? "Supports communication systems, workflow coordination, and business process development. Focused on transforming communication into structured, scalable systems." : "İletişim sistemleri oluşturur, iş akışı koordinasyonu sağlar. İletişimi ölçeklenebilir ve sağlam sistemlere dönüştürür."
-  },
-  {
-    role: "International Business Dev. Strategist",
-    company: "Outliner Agency — Florida, USA",
-    period: "2026 — Present",
-    description: lang === 'en' ? "Manages LinkedIn-based business development and lead generation for the US market. Contributes to positioning strategy and relationship-building systems." : "ABD pazarı için LinkedIn merkezli iş geliştirme ve potansiyel müşteri yaratma. Stratejik konumlandırma ve ilişki ekosistemine liderlik."
-  },
-  {
-    role: "Digital Product Designer",
-    company: "Calisto Digital Agency",
-    period: "2025 — 2026",
-    description: lang === 'en' ? "Redesigned B2B CRM funnels and SaaS product experiences. Increased lead conversion by 15% and reduced task completion time through UX research and AI-powered product strategy." : "B2B CRM huni tasarımı ve SaaS ürün deneyimi. UX araştırmaları ile dönüşüm oranlarını %15 artırıp AI mimarisiyle task tamamlama süreçlerini kolaylaştırdı."
-  },
-  {
-    role: "Marketing & Design Lead",
-    company: "Robopine",
-    period: "2025",
-    description: lang === 'en' ? "Led website, content strategy, and visual communication systems for AI-powered B2B technology solutions. Increased organic traffic by 25% and reduced support requests." : "Yapay zeka asistanı çözümleri olan Robopine sistemlerinde tasarım, içerik stratejisi ve destek platformları yürüterek trafiği organik olarak %25 artırdı."
-  },
-  {
-    role: "Sworn Translator & Court Interpreter",
-    company: "Tor",
-    period: "2020 — 2025",
-    description: lang === 'en' ? "Provided certified legal and commercial translations, specializing in precise communication, localization, and documentation processes." : "Yasal ve ticari yeminli tercüme operasyonları, kesin ve sağlam çeviri lokalizasyonu tecrübesi."
-  }
-];
+import { projects } from "../data/projects";
 
 export function Home({ lang }: { lang: "en" | "tr" }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -728,50 +697,81 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
           </div>
         </section>
 
-        {/* Experience Section */}
-        <section id="experience" className="px-6 py-16 bg-dark relative overflow-hidden">
+        {/* Featured Case Studies Section */}
+        <section id="portfolio" className="px-6 py-24 bg-dark relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
           
-          <div className="mx-auto max-w-5xl relative z-10">
-            <div className="mb-16 max-w-4xl mx-auto text-center">
+          <div className="mx-auto max-w-7xl relative z-10">
+            <div className="mb-16 max-w-4xl">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight text-balance">
-                Building systems, products, and digital growth experiences.
+                {lang === 'en' ? 'Featured Case Studies' : 'Öne Çıkan Çalışmalar'}
               </h2>
-              <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed">
-                My journey combines UX strategy, business thinking, AI-driven systems, CRO, SaaS product design, and multilingual communication.
+              <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
+                {lang === 'en' 
+                  ? 'A selection of premium digital products and experiences crafted with a focus on conversion, usability, and growth.' 
+                  : 'Dönüşüm, kullanılabilirlik ve büyüme odaklı tasarlanmış premium dijital ürünler ve deneyimler.'}
               </p>
             </div>
 
-            <div className="space-y-12">
-              {getExperiences(lang).map((exp, index) => (
-                <div key={index} className="grid grid-cols-1 md:grid-cols-[1fr_3.5fr] gap-4 md:gap-8 group">
-                  <div className="text-white/40 font-mono text-sm tracking-wider mt-1 uppercase">
-                    {exp.period}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+              {projects.slice(0, 3).map((project, index) => (
+                <motion.div 
+                  key={project.id}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="group flex flex-col bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
+                >
+                  <div className="relative aspect-[4/3] overflow-hidden bg-white/10">
+                    <img 
+                      src={project.coverImage} 
+                      alt={project.title} 
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1.5 rounded-full bg-dark/80 backdrop-blur-md text-white text-xs font-medium border border-white/10">
+                        {project.category}
+                      </span>
+                    </div>
                   </div>
-                  <div className="relative pb-10 border-b border-white/5 group-last:border-none group-last:pb-0">
-                    <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">{exp.role}</h3>
-                    <p className="text-pink text-lg font-medium tracking-wide mb-6">{exp.company}</p>
-                    
-                    <p className="text-white/70 text-lg leading-relaxed font-light max-w-3xl">
-                      {exp.description}
+                  <div className="p-8 flex flex-col flex-grow">
+                    <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                    <p className="text-white/60 font-light leading-relaxed mb-6 flex-grow">
+                      {project.description}
                     </p>
+                    <div className="flex flex-wrap gap-2 mb-8">
+                      {project.services.slice(0, 3).map(tag => (
+                        <span key={tag} className="px-2.5 py-1 rounded-md bg-white/5 text-white/70 text-[11px] font-medium">
+                          {tag}
+                        </span>
+                      ))}
+                      {project.services.length > 3 && (
+                         <span className="px-2.5 py-1 rounded-md bg-white/5 text-white/50 text-[11px] font-medium">
+                          +{project.services.length - 3}
+                        </span>
+                      )}
+                    </div>
+                    <Link 
+                      to={`/projects/${project.id}`}
+                      className="inline-flex items-center gap-2 text-pink font-semibold text-sm hover:text-white transition-colors mt-auto"
+                    >
+                      {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
+                    </Link>
                   </div>
-                </div>
+                </motion.div>
               ))}
             </div>
 
-            <div className="mt-16 pt-12 border-t border-white/10 text-center max-w-3xl mx-auto">
-              <p className="text-white/80 text-xl font-light leading-relaxed mb-10">
-                Today, UX.Ipek combines UX strategy, AI-native workflows, conversion thinking, multilingual communication, and systems design to create digital experiences that are both human-centered and growth-oriented.
-              </p>
-              <a 
-                href="https://www.behance.net/ipekbolakca" 
-                target="_blank" rel="noopener noreferrer"
+            <div className="mt-16 text-center">
+              <Link 
+                to="/portfolio" 
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
               >
-                View My Work <ArrowRight className="h-4 w-4" />
-              </a>
+                {lang === 'en' ? 'Explore All Projects' : 'Tüm Projeleri Keşfet'} <ArrowRight className="w-4 h-4" />
+              </Link>
             </div>
           </div>
         </section>

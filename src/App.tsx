@@ -6,6 +6,19 @@ import { Logo } from "./components/Logo";
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
 const ServicesPage = lazy(() => import("./pages/Services").then(module => ({ default: module.ServicesPage })));
 const UXAuditPage = lazy(() => import("./pages/UXAudit").then(module => ({ default: module.UXAuditPage })));
+const ContactPage = lazy(() => import("./pages/Contact").then(module => ({ default: module.ContactPage })));
+const AboutPage = lazy(() => import("./pages/About").then(module => ({ default: module.AboutPage })));
+const PortfolioPage = lazy(() => import("./pages/Portfolio").then(module => ({ default: module.PortfolioPage })));
+const ProjectDetailPage = lazy(() => import("./pages/ProjectDetail").then(module => ({ default: module.ProjectDetailPage })));
+
+// Legal Pages
+const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicy").then(module => ({ default: module.PrivacyPolicyPage })));
+const KVKKPage = lazy(() => import("./pages/KVKK").then(module => ({ default: module.KVKKPage })));
+const CookiePolicyPage = lazy(() => import("./pages/CookiePolicy").then(module => ({ default: module.CookiePolicyPage })));
+const TermsOfUsePage = lazy(() => import("./pages/TermsOfUse").then(module => ({ default: module.TermsOfUsePage })));
+
+import { Footer } from "./components/Footer";
+import { CookieBanner } from "./components/CookieBanner";
 
 function ComingSoon() {
   return (
@@ -39,7 +52,7 @@ function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | "tr") =
           <a href="/services" className="hover:text-dark transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</a>
           <a href="/ux-audit" className="hover:text-dark transition-colors font-semibold text-pink">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</a>
           <a href={isHome ? "#process" : "/#process"} className="hover:text-dark transition-colors">{lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}</a>
-          <a href={isHome ? "#experience" : "/#experience"} className="hover:text-dark transition-colors">{lang === 'en' ? 'Experience' : 'Deneyim'}</a>
+          <a href="/portfolio" className="hover:text-dark transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</a>
           <a href={isHome ? "#contact" : "/#contact"} className="hover:text-dark transition-colors">{lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}</a>
         </div>
         
@@ -71,7 +84,7 @@ function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | "tr") =
           <a href="/services" onClick={toggleMenu} className="hover:text-pink transition-colors text-lg">{lang === 'en' ? 'Services' : 'Hizmetler'}</a>
           <a href="/ux-audit" onClick={toggleMenu} className="hover:text-pink transition-colors font-semibold text-pink text-lg">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</a>
           <a href={isHome ? "#process" : "/#process"} onClick={toggleMenu} className="hover:text-pink transition-colors text-lg">{lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}</a>
-          <a href={isHome ? "#experience" : "/#experience"} onClick={toggleMenu} className="hover:text-pink transition-colors text-lg">{lang === 'en' ? 'Experience' : 'Deneyim'}</a>
+          <a href="/portfolio" onClick={toggleMenu} className="hover:text-pink transition-colors text-lg">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</a>
           <a href={isHome ? "#contact" : "/#contact"} onClick={toggleMenu} className="hover:text-pink transition-colors text-lg">{lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}</a>
           
           <div className="flex sm:hidden items-center justify-between pt-4 border-t border-dark/10">
@@ -95,20 +108,31 @@ export default function App() {
 
   return (
     <BrowserRouter>
-      <div className="min-h-screen bg-base font-sans text-dark/90 selection:bg-pink/30">
+      <div className="min-h-screen bg-base font-sans text-dark/90 selection:bg-pink/30 flex flex-col">
         <Nav lang={lang} setLang={setLang} />
-        <main className="pt-20">
-          <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-dark/40"><Logo className="h-8 w-auto animate-pulse" /></div>}>
+        <main className="pt-20 flex-grow">
+          <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-dark/40"><Logo className="h-8 w-auto animate-pulse" /></div>}>
             <Routes>
               <Route path="/" element={<Home lang={lang} />} />
               <Route path="/services" element={<ServicesPage lang={lang} />} />
               <Route path="/ux-audit" element={<UXAuditPage lang={lang} />} />
+              <Route path="/contact" element={<ContactPage lang={lang} />} />
+              <Route path="/about" element={<AboutPage lang={lang} />} />
+              <Route path="/portfolio" element={<PortfolioPage lang={lang} />} />
+              <Route path="/projects/:id" element={<ProjectDetailPage lang={lang} />} />
               <Route path="/dashboard" element={<ComingSoon />} />
               <Route path="/reports" element={<ComingSoon />} />
               <Route path="/monthly-ux" element={<ComingSoon />} />
+              {/* Legal Routes */}
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage lang={lang} />} />
+              <Route path="/kvkk" element={<KVKKPage lang={lang} />} />
+              <Route path="/cookie-policy" element={<CookiePolicyPage lang={lang} />} />
+              <Route path="/terms-of-use" element={<TermsOfUsePage lang={lang} />} />
             </Routes>
           </Suspense>
         </main>
+        <Footer lang={lang} />
+        <CookieBanner lang={lang} />
       </div>
     </BrowserRouter>
   );
