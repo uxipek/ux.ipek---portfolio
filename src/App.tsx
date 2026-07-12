@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Suspense, lazy } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { ArrowUpRight, Lock } from "lucide-react";
 import { Logo } from "./components/Logo";
-import { Home } from "./pages/Home";
-import { ServicesPage } from "./pages/Services";
-import { UXAuditPage } from "./pages/UXAudit";
+
+const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
+const ServicesPage = lazy(() => import("./pages/Services").then(module => ({ default: module.ServicesPage })));
+const UXAuditPage = lazy(() => import("./pages/UXAudit").then(module => ({ default: module.UXAuditPage })));
 
 function ComingSoon() {
   return (
@@ -56,14 +57,16 @@ export default function App() {
       <div className="min-h-screen bg-base font-sans text-dark/90 selection:bg-pink/30">
         <Nav lang={lang} setLang={setLang} />
         <main className="pt-20">
-          <Routes>
-            <Route path="/" element={<Home lang={lang} />} />
-            <Route path="/services" element={<ServicesPage lang={lang} />} />
-            <Route path="/ux-audit" element={<UXAuditPage lang={lang} />} />
-            <Route path="/dashboard" element={<ComingSoon />} />
-            <Route path="/reports" element={<ComingSoon />} />
-            <Route path="/monthly-ux" element={<ComingSoon />} />
-          </Routes>
+          <Suspense fallback={<div className="min-h-screen flex items-center justify-center text-dark/40"><Logo className="h-8 w-auto animate-pulse" /></div>}>
+            <Routes>
+              <Route path="/" element={<Home lang={lang} />} />
+              <Route path="/services" element={<ServicesPage lang={lang} />} />
+              <Route path="/ux-audit" element={<UXAuditPage lang={lang} />} />
+              <Route path="/dashboard" element={<ComingSoon />} />
+              <Route path="/reports" element={<ComingSoon />} />
+              <Route path="/monthly-ux" element={<ComingSoon />} />
+            </Routes>
+          </Suspense>
         </main>
       </div>
     </BrowserRouter>

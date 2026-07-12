@@ -156,8 +156,8 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
-                    Book a UX Audit <ArrowUpRight className="h-4 w-4" />
+                  <a href="/ux-audit" className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
+                    {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                   <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
                     View My Work <ArrowUpRight className="h-4 w-4" />
@@ -717,7 +717,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: 0.2 }}
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
-               <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-full bg-dark px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-dark/90 group">
+               <a href="/ux-audit" className="flex items-center justify-center gap-3 rounded-full bg-dark px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-dark/90 group">
                   Start Your Transformation <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                </a>
                <p className="mt-5 text-sm md:text-base text-dark/50 font-medium">
@@ -787,7 +787,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-pink/90">
+              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-pink/90">
                 <Mail className="h-4 w-4" /> Book Your UX Audit
               </a>
               <a href="mailto:ipekbolakca@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-base border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-colors hover:bg-dark/5">

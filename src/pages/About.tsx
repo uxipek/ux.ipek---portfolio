@@ -61,7 +61,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-4 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#ca006c]/90">
+              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-4 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#ca006c]/90">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="text-sm font-medium text-dark/50 italic px-4">
@@ -270,10 +270,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-5 text-sm font-bold text-white transition-all shadow-lg shadow-[#ca006c]/20 hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
+              <a href="/ux-audit" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-5 text-sm font-bold text-white transition-all shadow-lg shadow-[#ca006c]/20 hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-1">
+              <a href="/ux-audit" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-1">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>

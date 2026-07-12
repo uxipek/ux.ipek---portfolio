@@ -38,7 +38,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
+              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
                 {lang === 'en' ? 'Book UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
@@ -215,7 +215,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-[#ca006c]">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
-            <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-10 py-5 text-base font-bold text-white transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90 mt-8">
+            <a href="/ux-audit" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-10 py-5 text-base font-bold text-white transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90 mt-8">
               {lang === 'en' ? 'Book a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-5 h-5" />
             </a>
           </motion.div>

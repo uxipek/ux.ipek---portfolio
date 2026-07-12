@@ -50,10 +50,10 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
+              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>
@@ -238,7 +238,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                {lang === 'en' ? 'Let\'s uncover the friction, simplify complexity, and design experiences that help your business grow.' : 'Gelin sürtünmeleri ortaya çıkaralım, karmaşıklığı basitleştirelim ve işinizin büyümesine yardımcı olacak deneyimler tasarlayalım.'}
             </p>
 
-            <a href="https://calendly.com/ipekbolakca/dijital-urun-yazilim-cozumleri-uzerine" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-[#1E293B] transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
+            <a href="/ux-audit" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-[#1E293B] transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
               {lang === 'en' ? 'Book a Strategy Session' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
             </a>
           </motion.div>
