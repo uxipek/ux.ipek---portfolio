@@ -3,13 +3,14 @@ import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
 import { projects } from "../data/projects";
+import { EventGoCaseStudy } from "./EventGoCaseStudy";
 
 export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.id === id);
 
   if (!project) {
-    return <Navigate to="/portfolio" />;
+    return <Navigate to={`/${lang}/portfolio`} />;
   }
 
   useEffect(() => {
@@ -19,11 +20,15 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
 
   const otherProjects = projects.filter(p => p.id !== id).slice(0, 3);
 
+  if (project.id === "eventgo") {
+    return <EventGoCaseStudy lang={lang} project={project} otherProjects={otherProjects} />;
+  }
+
   return (
     <div className="bg-[#FDFBF8] min-h-screen pt-24 pb-0 w-full text-dark">
       {/* Hero Section */}
       <div className="px-6 py-12 max-w-7xl mx-auto">
-        <Link to="/portfolio" className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
         </Link>
         <div className="mb-12 max-w-4xl">
@@ -157,10 +162,10 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             {lang === 'en' ? 'Let’s discuss how strategic UX design can drive growth for your business.' : 'Stratejik UX tasarımının işletmeniz için nasıl büyüme sağlayabileceğini konuşalım.'}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <Link to="/contact" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:bg-pink/90 hover:shadow-lg hover:-translate-y-1">
+             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:bg-pink/90 hover:shadow-lg hover:-translate-y-1">
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
-             <Link to="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-white/10 px-8 py-4 text-sm font-bold text-white border border-white/20 transition-all hover:bg-white/20">
+             <Link to={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-white/10 px-8 py-4 text-sm font-bold text-white border border-white/20 transition-all hover:bg-white/20">
                {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu Alın'}
              </Link>
           </div>
@@ -174,14 +179,14 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-3xl font-bold text-dark">
               {lang === 'en' ? 'More Case Studies' : 'Daha Fazla Çalışma'}
             </h2>
-            <Link to="/portfolio" className="hidden sm:flex items-center gap-2 text-pink font-semibold hover:text-dark transition-colors">
+            <Link to={`/${lang}/portfolio`} className="hidden sm:flex items-center gap-2 text-pink font-semibold hover:text-dark transition-colors">
               {lang === 'en' ? 'View All' : 'Tümünü Gör'} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
           
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
             {otherProjects.map(p => (
-              <Link key={p.id} to={`/projects/${p.id}`} className="group block">
+              <Link key={p.id} to={`/${lang}/projects/${p.id}`} className="group block">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
                   <img src={p.coverImage} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
@@ -192,7 +197,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
           </div>
           
           <div className="mt-8 text-center sm:hidden">
-             <Link to="/portfolio" className="inline-flex items-center gap-2 text-pink font-semibold border border-pink/20 px-6 py-3 rounded-full hover:bg-pink hover:text-white transition-all">
+             <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-pink font-semibold border border-pink/20 px-6 py-3 rounded-full hover:bg-pink hover:text-white transition-all">
                {lang === 'en' ? 'View All Projects' : 'Tüm Projeleri Gör'} <ArrowRight className="w-4 h-4" />
              </Link>
           </div>

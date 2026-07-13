@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
@@ -5,7 +6,7 @@ import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText,
 import { Logo } from "../components/Logo";
 import { projects } from "../data/projects";
 
-export function Home({ lang }: { lang: "en" | "tr" }) {
+export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "UXIPEK | Digital Product Design & Growth" : "UXIPEK | Dijital Ürün Tasarımı ve Büyüme"; }, [lang]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
 
@@ -125,7 +126,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <a href="/ux-audit" className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
+                  <a href={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
                     {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                   <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
@@ -686,7 +687,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: 0.2 }}
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
-               <a href="/ux-audit" className="flex items-center justify-center gap-3 rounded-full bg-dark px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-dark/90 group">
+               <a href={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-dark px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-dark/90 group">
                   Start Your Transformation <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                </a>
                <p className="mt-5 text-sm md:text-base text-dark/50 font-medium">
@@ -698,7 +699,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
         </section>
 
         {/* Featured Case Studies Section */}
-        <section id="portfolio" className="px-6 py-24 bg-dark relative overflow-hidden">
+        <section id="portfolio" className="px-6 py-24 bg-[#1E293B] relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
           
@@ -732,7 +733,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                       loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
-                      <span className="px-3 py-1.5 rounded-full bg-dark/80 backdrop-blur-md text-white text-xs font-medium border border-white/10">
+                      <span className="px-3 py-1.5 rounded-full bg-pink text-white text-xs font-medium border border-pink/20 shadow-sm shadow-pink/20">
                         {project.category}
                       </span>
                     </div>
@@ -755,7 +756,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                       )}
                     </div>
                     <Link 
-                      to={`/projects/${project.id}`}
+                      to={`/${lang}/projects/${project.id}`}
                       className="inline-flex items-center gap-2 text-pink font-semibold text-sm hover:text-white transition-colors mt-auto"
                     >
                       {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
@@ -767,7 +768,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
 
             <div className="mt-16 text-center">
               <Link 
-                to="/portfolio" 
+                to={`/${lang}/portfolio`} 
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
               >
                 {lang === 'en' ? 'Explore All Projects' : 'Tüm Projeleri Keşfet'} <ArrowRight className="w-4 h-4" />
@@ -787,12 +788,12 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-pink/90">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-pink/90">
                 <Mail className="h-4 w-4" /> Book Your UX Audit
               </a>
-              <a href="mailto:ipekbolakca@gmail.com" className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-base border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-colors hover:bg-dark/5">
-                Send an Email
-              </a>
+              <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-base border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-colors hover:bg-dark/5">
+                {lang === 'en' ? 'Contact Me' : 'İletişime Geç'}
+              </Link>
             </div>
             <p className="text-sm text-dark/50 mt-8">{lang === 'en' ? 'A 30-minute strategic consultation. No commitment, just actionable insights.' : '30-dakikal\u0131k stratejik dan\u0131\u015Fmanl\u0131k. Taahh\u00FCts\u00FCz, sadece i\u015Fe yarar i\u00E7g\u00F6r\u00FCler.'}</p>
           </div>

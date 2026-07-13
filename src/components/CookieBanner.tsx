@@ -71,7 +71,7 @@ export function CookieBanner({ lang }: { lang: "en" | "tr" }) {
           
           <div className="flex justify-between items-center mt-2 pt-2 border-t border-dark/10">
             <Link 
-              to="/cookie-policy" 
+              to={`/${lang}/cookie-policy`} 
               onClick={() => setIsVisible(false)}
               className="text-pink hover:underline text-xs font-medium"
             >

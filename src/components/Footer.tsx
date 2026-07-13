@@ -7,7 +7,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
     <footer className="bg-dark text-white py-16 px-6 mt-auto">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 lg:gap-12">
         <div className="md:col-span-2">
-          <Link to="/" className="inline-block mb-6">
+          <Link to={`/${lang}`} className="inline-block mb-6">
             <Logo className="h-8 w-auto text-white" />
           </Link>
           <p className="text-white/60 font-light text-sm mb-6 max-w-xs">
@@ -23,18 +23,18 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         <div>
           <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">UXIPEK</h4>
           <ul className="space-y-4">
-            <li><Link to="/about" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
-            <li><Link to="/services" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>
-            <li><Link to="/ux-audit" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</Link></li>
-            <li><Link to="/contact" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Contact' : 'İletişim'}</Link></li>
+            <li><Link to={`/${lang}/about`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
+            <li><Link to={`/${lang}/services`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>
+            <li><Link to={`/${lang}/ux-audit`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</Link></li>
+            <li><Link to={`/${lang}/contact`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Contact' : 'İletişim'}</Link></li>
           </ul>
         </div>
 
         <div>
           <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">Portfolio</h4>
           <ul className="space-y-4">
-            <li><a href="/#portfolio" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</a></li>
-            <li><Link to="/portfolio" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
+            <li><a href={`/${lang}/#portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</a></li>
+            <li><Link to={`/${lang}/portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
             <li><a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Behance</a></li>
           </ul>
         </div>
@@ -51,10 +51,10 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         <div>
           <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">Legal</h4>
           <ul className="space-y-4">
-            <li><Link to="/privacy-policy" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}</Link></li>
-            <li><Link to="/kvkk" className="text-white/70 hover:text-white transition-colors">KVKK Aydınlatma Metni</Link></li>
-            <li><Link to="/cookie-policy" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Cookie Policy' : 'Çerez Politikası'}</Link></li>
-            <li><Link to="/terms-of-use" className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Terms of Use' : 'Kullanım Koşulları'}</Link></li>
+            <li><Link to={`/${lang}/privacy-policy`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}</Link></li>
+            <li><Link to={`/${lang}/kvkk`} className="text-white/70 hover:text-white transition-colors">KVKK Aydınlatma Metni</Link></li>
+            <li><Link to={`/${lang}/cookie-policy`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Cookie Policy' : 'Çerez Politikası'}</Link></li>
+            <li><Link to={`/${lang}/terms-of-use`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Terms of Use' : 'Kullanım Koşulları'}</Link></li>
             <li>
               <button 
                 onClick={() => {

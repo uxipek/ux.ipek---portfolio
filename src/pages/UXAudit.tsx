@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import React, { useState } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Search, FileText, CheckCircle2, ChevronDown, Zap, User, Target, BarChart3, AlertCircle, Loader2 } from "lucide-react";
@@ -5,7 +6,7 @@ import { ArrowUpRight, Search, FileText, CheckCircle2, ChevronDown, Zap, User, T
 // Google Apps Script Web App URL
 const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbykh3fplObzwut9axlAixamrEpMfiJpHoFapEBrPtwCpDoKHN-MIU5kFtymDFMS14MbhQ/exec";
 
-export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
+export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "UX Audit | UXIPEK" : "UX Analizi | UXIPEK"; }, [lang]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formState, setFormState] = useState({
     website: "",
@@ -354,9 +355,9 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                     />
                     <label htmlFor="legalConsent" className="text-sm text-dark/70 font-light leading-relaxed">
                       {lang === 'en' ? (
-                        <>I have read the <a href="/kvkk" target="_blank" className="text-pink hover:underline font-medium">KVKK Information Notice</a> and <a href="/privacy-policy" target="_blank" className="text-pink hover:underline font-medium">Privacy Policy</a>.</>
+                        <>I have read the <a href={`/${lang}/kvkk`} target="_blank" className="text-pink hover:underline font-medium">KVKK Information Notice</a> and <a href={`/${lang}/privacy-policy`} target="_blank" className="text-pink hover:underline font-medium">Privacy Policy</a>.</>
                       ) : (
-                        <><a href="/kvkk" target="_blank" className="text-pink hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href="/privacy-policy" target="_blank" className="text-pink hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                        <><a href={`/${lang}/kvkk`} target="_blank" className="text-pink hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href={`/${lang}/privacy-policy`} target="_blank" className="text-pink hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
                       )}
                     </label>
                   </div>

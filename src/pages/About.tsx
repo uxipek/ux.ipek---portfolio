@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import { motion, useInView } from "motion/react";
 import { ArrowUpRight, BarChart3, TrendingUp, Users, Zap, Layout, Workflow, ShieldCheck, CheckCircle2, BrainCircuit } from "lucide-react";
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState } from "react";
 
 function Counter({ from, to, prefix = "", suffix = "", duration = 2 }: { from: number, to: number, prefix?: string, suffix?: string, duration?: number }) {
   const nodeRef = useRef<HTMLSpanElement>(null);
@@ -25,7 +26,7 @@ function Counter({ from, to, prefix = "", suffix = "", duration = 2 }: { from: n
   return <span ref={nodeRef}>{prefix}{count}{suffix}</span>;
 }
 
-export function AboutPage({ lang }: { lang: "en" | "tr" }) {
+export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "About | UXIPEK" : "Hakkında | UXIPEK"; }, [lang]);
   return (
     <div className="bg-[#FDFBF8] w-full mt-[-80px] pt-20">
       {/* 1. HERO SECTION */}
@@ -61,7 +62,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-4 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#ca006c]/90">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-4 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#ca006c]/90">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="text-sm font-medium text-dark/50 italic px-4">
@@ -270,10 +271,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-              <a href="/ux-audit" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-5 text-sm font-bold text-white transition-all shadow-lg shadow-[#ca006c]/20 hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-5 text-sm font-bold text-white transition-all shadow-lg shadow-[#ca006c]/20 hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="/ux-audit" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-1">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-1">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>

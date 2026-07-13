@@ -10,9 +10,9 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
   }, [lang]);
 
   return (
-    <div className="bg-dark min-h-screen pt-32 pb-24 px-6 w-full text-white">
+    <div className="bg-[#1E293B] min-h-screen pt-32 pb-24 px-6 w-full text-white">
       <div className="max-w-7xl mx-auto">
-        <Link to="/" className="inline-flex items-center gap-2 text-white/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-white/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
@@ -37,7 +37,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="group flex flex-col"
             >
-              <Link to={`/projects/${project.id}`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
+              <Link to={`/${lang}/projects/${project.id}`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
                 <img 
                   src={project.coverImage} 
                   alt={project.title} 
@@ -54,7 +54,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                  <span className="text-pink text-xs font-semibold px-3 py-1 rounded-full bg-pink/10 border border-pink/20">
+                  <span className="text-white text-xs font-medium px-3 py-1.5 rounded-full bg-pink border border-pink/20 shadow-sm shadow-pink/20">
                     {project.category}
                   </span>
                 </div>

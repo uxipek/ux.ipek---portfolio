@@ -45,7 +45,7 @@ export function LegalSupportCard({ lang }: { lang: "en" | "tr" }) {
       </div>
 
       <Link 
-        to="/contact" 
+        to={`/${lang}/contact`} 
         className="inline-flex items-center justify-center gap-2 rounded-xl bg-dark px-8 py-4 text-sm font-bold text-white transition-all hover:bg-pink shadow-lg shadow-dark/10"
       >
         {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'} <ArrowUpRight className="w-4 h-4" />

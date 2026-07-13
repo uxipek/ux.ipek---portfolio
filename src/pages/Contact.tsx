@@ -1,19 +1,55 @@
+import { useEffect } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, ArrowRight, Linkedin, Instagram, Dribbble, PenTool, LayoutTemplate, Briefcase, Zap, BarChart3, LineChart } from "lucide-react";
 import React, { useState } from "react";
 
-export function ContactPage({ lang }: { lang: "en" | "tr" }) {
+export function ContactPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "Contact | UXIPEK" : "İletişim | UXIPEK"; }, [lang]);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setTimeout(() => {
+    setErrorMsg("");
+    
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get("name"),
+      email: formData.get("email"),
+      subject: formData.get("subject") || (lang === 'en' ? 'New Contact Inquiry' : 'Yeni İletişim Talebi'),
+      message: `
+Company: ${formData.get("company")}
+Website: ${formData.get("website")}
+Project Type: ${formData.get("projectType")}
+Budget: ${formData.get("budget")}
+Marketing Consent: ${formData.get("marketingConsent") ? "Yes" : "No"}
+
+Message:
+${formData.get("message")}
+      `
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data)
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        (e.target as HTMLFormElement).reset();
+        setTimeout(() => setIsSuccess(false), 5000);
+      } else {
+        const errorData = await response.json();
+        setErrorMsg(errorData.error || "Something went wrong.");
+      }
+    } catch (error) {
+      setErrorMsg("Failed to connect to the server.");
+    } finally {
       setIsSubmitting(false);
-      setIsSuccess(true);
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 1500);
+    }
   };
 
   return (
@@ -50,10 +86,10 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="/ux-audit" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>
@@ -133,27 +169,27 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               <div className="grid grid-cols-2 gap-6">
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Name' : 'İsim'}</label>
-                  <input required type="text" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="Jane Doe" />
+                  <input required name="name" type="text" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="Jane Doe" />
                 </div>
                 <div>
                   <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Company' : 'Şirket'}</label>
-                  <input type="text" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="Acme Inc." />
+                  <input type="text" name="company" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="Acme Inc." />
                 </div>
               </div>
 
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Email Address' : 'E-posta Adresi'}</label>
-                <input required type="email" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="hello@company.com" />
+                <input required name="email" type="email" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="hello@company.com" />
               </div>
               
               <div className="grid grid-cols-2 gap-6">
                  <div>
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Website (Optional)' : 'Web Sitesi (Opsiyonel)'}</label>
-                    <input type="url" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="https://" />
+                    <input name="website" type="text" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all font-medium" placeholder="example.com" />
                  </div>
                  <div>
                     <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Project Type' : 'Proje Türü'}</label>
-                    <select className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark transition-all font-medium appearance-none">
+                    <select name="projectType" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark transition-all font-medium appearance-none">
                        <option>{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</option>
                        <option>{lang === 'en' ? 'SaaS Product Design' : 'SaaS Ürün Tasarımı'}</option>
                        <option>{lang === 'en' ? 'Landing Page' : 'Açılış Sayfası'}</option>
@@ -165,7 +201,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
 
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Budget Range' : 'Bütçe Aralığı'}</label>
-                <select className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark transition-all font-medium appearance-none">
+                <select name="budget" className="w-full px-5 py-4 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark transition-all font-medium appearance-none">
                    <option>$1k - $3k</option>
                    <option>$3k - $10k</option>
                    <option>$10k+</option>
@@ -174,7 +210,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
 
               <div>
                 <label className="block text-[10px] font-bold uppercase tracking-wider text-dark/50 mb-3">{lang === 'en' ? 'Message' : 'Mesaj'}</label>
-                <textarea required rows={4} className="w-full px-5 py-5 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all resize-none font-medium" placeholder={lang === 'en' ? 'Tell me about your product challenges...' : 'Ürün pürüzlerinden bahsedin...'}></textarea>
+                <textarea name="message" required rows={4} className="w-full px-5 py-5 bg-[#F8F7F4] border border-dark/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#ca006c]/30 text-dark placeholder:text-dark/20 transition-all resize-none font-medium" placeholder={lang === 'en' ? 'Tell me about your product challenges...' : 'Ürün pürüzlerinden bahsedin...'}></textarea>
               </div>
 
               <div className="space-y-4 pt-2">
@@ -182,14 +218,15 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                   <input 
                     type="checkbox" 
                     id="contactLegalConsent" 
+                    name="legalConsent"
                     required
                     className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c]"
                   />
                   <label htmlFor="contactLegalConsent" className="text-sm text-dark/70 font-light leading-relaxed">
                     {lang === 'en' ? (
-                      <>I have read the <a href="/kvkk" target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Information Notice</a> and <a href="/privacy-policy" target="_blank" className="text-[#ca006c] hover:underline font-medium">Privacy Policy</a>.</>
+                      <>I have read the <a href={`/${lang}/kvkk`} target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Information Notice</a> and <a href={`/${lang}/privacy-policy`} target="_blank" className="text-[#ca006c] hover:underline font-medium">Privacy Policy</a>.</>
                     ) : (
-                      <><a href="/kvkk" target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href="/privacy-policy" target="_blank" className="text-[#ca006c] hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                      <><a href={`/${lang}/kvkk`} target="_blank" className="text-[#ca006c] hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href={`/${lang}/privacy-policy`} target="_blank" className="text-[#ca006c] hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
                     )}
                   </label>
                 </div>
@@ -198,6 +235,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                   <input 
                     type="checkbox" 
                     id="contactMarketingConsent" 
+                    name="marketingConsent"
                     className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c]"
                   />
                   <label htmlFor="contactMarketingConsent" className="text-sm text-dark/70 font-light leading-relaxed">
@@ -214,6 +252,12 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                 {isSubmitting ? (lang === 'en' ? 'Sending...' : 'Gönderiliyor...') : (lang === 'en' ? 'Send Inquiry' : 'Talebi Gönder')}
                 <ArrowRight className="w-5 h-5" />
               </button>
+
+              {errorMsg && (
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 text-red-600 font-medium text-center bg-red-50 border border-red-100 py-3 rounded-2xl mt-4">
+                  {errorMsg}
+                </motion.div>
+              )}
 
               {isSuccess && (
                 <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 text-emerald-600 font-medium text-center bg-emerald-50 border border-emerald-100 py-5 rounded-2xl mt-4">
@@ -270,7 +314,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                {lang === 'en' ? 'Let\'s uncover the friction, simplify complexity, and design experiences that help your business grow.' : 'Gelin sürtünmeleri ortaya çıkaralım, karmaşıklığı basitleştirelim ve işinizin büyümesine yardımcı olacak deneyimler tasarlayalım.'}
             </p>
 
-            <a href="/ux-audit" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-[#1E293B] transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
+            <a href={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-[#1E293B] transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
               {lang === 'en' ? 'Book a Strategy Session' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
             </a>
           </motion.div>

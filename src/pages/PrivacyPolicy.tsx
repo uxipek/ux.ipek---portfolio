@@ -24,7 +24,7 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-[#FDFBF8] w-full min-h-screen pt-32 pb-24 px-6">
       <div className="max-w-[800px] mx-auto">
-        <Link to="/" className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
