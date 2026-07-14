@@ -32,42 +32,42 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-dark/70">
           <a 
             href={isHome ? "#about" : `/${lang}#about`} 
-            className={`transition-colors ${isAboutActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isAboutActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
             {lang === 'en' ? 'About' : 'Hakk\u0131nda'}
           </a>
           <a 
             href={`/${lang}/services`} 
-            className={`transition-colors ${isServicesActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isServicesActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isServicesActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Services' : 'Hizmetler'}
           </a>
           <a 
             href={`/${lang}/ux-audit`} 
-            className={`transition-colors ${isUxAuditActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isUxAuditActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isUxAuditActive ? "page" : undefined}
           >
             {lang === 'en' ? 'UX Audit' : 'UX Analizi'}
           </a>
           <a 
             href={`/${lang}/process`} 
-            className={`transition-colors ${isProcessActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isProcessActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isProcessActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}
           </a>
           <a 
             href={`/${lang}/portfolio`} 
-            className={`transition-colors ${isPortfolioActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isPortfolioActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isPortfolioActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Portfolio' : 'Portfolyo'}
           </a>
           <a 
             href={`/${lang}/contact`} 
-            className={`transition-colors ${isContactActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors relative pb-1 ${isContactActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}
             aria-current={isContactActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}
@@ -101,7 +101,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={isHome ? "#about" : `/${lang}#about`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isAboutActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isAboutActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
             {lang === 'en' ? 'About' : 'Hakk\u0131nda'}
@@ -109,7 +109,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={`/${lang}/services`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isServicesActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isServicesActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isServicesActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Services' : 'Hizmetler'}
@@ -117,7 +117,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={`/${lang}/ux-audit`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isUxAuditActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isUxAuditActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isUxAuditActive ? "page" : undefined}
           >
             {lang === 'en' ? 'UX Audit' : 'UX Analizi'}
@@ -125,7 +125,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={`/${lang}/process`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isProcessActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isProcessActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isProcessActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}
@@ -133,7 +133,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={`/${lang}/portfolio`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isPortfolioActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isPortfolioActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isPortfolioActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Portfolio' : 'Portfolyo'}
@@ -141,7 +141,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a 
             href={`/${lang}/contact`} 
             onClick={toggleMenu} 
-            className={`transition-colors text-lg ${isContactActive ? "text-pink font-semibold" : "hover:text-pink"}`}
+            className={`transition-colors text-lg ${isContactActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}
             aria-current={isContactActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}

@@ -35,7 +35,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-dark/70 font-light leading-relaxed max-w-3xl mx-auto mb-12">
+            <p className="text-xl md:text-2xl text-dark/70 font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto mb-12">
               {lang === 'en'
                 ? '“I turn complex product and business problems into clear, usable and conversion-focused digital experiences.”'
                 : '“Karmaşık ürün ve iş problemlerini net, kullanılabilir ve dönüşüm odaklı dijital deneyimlere dönüştürüyorum.”'}
@@ -57,8 +57,8 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
       {/* 2. WORKING PRINCIPLES */}
       <section className="px-6 py-24 md:py-32 bg-white relative">
         <div className="mx-auto max-w-7xl">
-          <div className="text-center max-w-3xl mx-auto mb-16 md:mb-24">
-            <h2 className="text-3xl md:text-5xl font-medium text-dark tracking-tight mb-6">
+          <div className="text-center w-[min(100%-32px,850px)] mx-auto mb-16 md:mb-24">
+            <h2 className="text-h2 mb-6">
               {lang === 'en' ? '“My Working Principles”' : '“Çalışma Prensiplerim”'}
             </h2>
             <p className="text-dark/60 text-lg md:text-xl font-light leading-relaxed">
@@ -151,7 +151,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
           <div className="flex flex-col md:flex-row gap-12 lg:gap-24 items-center">
             <div className="flex-1">
               <motion.div initial={{ opacity: 0, x: -20 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-                <h2 className="text-3xl md:text-4xl font-medium text-dark tracking-tight mb-6">
+                <h2 className="text-h2 mb-6">
                   {lang === 'en' ? '“Clear communication at every stage”' : '“Her aşamada açık iletişim”'}
                 </h2>
                 <p className="text-dark/70 text-lg font-light leading-relaxed mb-10">
@@ -204,10 +204,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
       <section className="px-6 py-24 md:py-32 bg-white relative">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <h2 className="text-3xl md:text-5xl font-medium text-dark tracking-tight mb-8">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? '“AI-accelerated, human-directed”' : '“Yapay zekâyla hızlanan, insan bakışıyla yönlenen”'}
             </h2>
-            <p className="text-dark/70 text-lg md:text-xl font-light leading-relaxed max-w-3xl mx-auto">
+            <p className="text-dark/70 text-lg md:text-xl font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“I use AI to accelerate research, exploration and production—not to replace strategic thinking. Every final decision is reviewed through user needs, business goals and design principles.”'
                 : '“Yapay zekâyı stratejik düşünmenin yerine değil; araştırmayı, keşfi ve üretimi hızlandırmak için kullanıyorum. Her nihai kararı kullanıcı ihtiyaçları, iş hedefleri ve tasarım prensipleri doğrultusunda değerlendiriyorum.”'}
@@ -217,18 +217,18 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
       </section>
 
       {/* 5. FINAL CTA */}
-      <section className="px-6 py-32 bg-[#1E293B] text-center relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#1E293B] text-center relative overflow-hidden">
         {/* Soft animated background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-pink/20 blur-[100px] rounded-full mix-blend-screen"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple/20 blur-[100px] rounded-full mix-blend-screen"></div>
         </div>
-        <div className="max-w-3xl mx-auto relative z-10">
+        <div className="w-[min(100%-32px,850px)] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-white mb-8 leading-[1.1]">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? '“Ready to bring clarity to your product?”' : '“Ürününüzü daha net ve güçlü bir deneyime dönüştürmeye hazır mısınız?”'}
             </h2>
-            <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl mx-auto">
+            <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-12 w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“Tell me what you are building, where users struggle and what you want to improve.”'
                 : '“Ne geliştirdiğinizi, kullanıcıların nerede zorlandığını ve neyi iyileştirmek istediğinizi paylaşın.”'}

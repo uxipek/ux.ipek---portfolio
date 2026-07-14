@@ -39,7 +39,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
           />
         </div>
         
-        <div className="max-w-6xl mx-auto w-full relative z-10 flex flex-col lg:flex-row items-center gap-16">
+        <div className="container-app w-full relative z-10 flex flex-col lg:flex-row items-center gap-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -50,19 +50,19 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
               {lang === 'en' ? 'AI-Native UX Strategist' : 'Yapay Zeka Odaklı UX Strateji'}
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-dark mb-8 leading-[1.05]">
+            <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-dark mb-6 mx-auto">
               {lang === 'en' ? 'Designing systems that scale businesses, ' : 'İşletmeleri ölçekleyen sistemler '}
-              <span className="text-[#1E293B] italic font-serif text-4xl md:text-5xl lg:text-6xl text-dark/40">{lang === 'en' ? 'not just interfaces.' : 'sadece arayüz değil.'}</span>
+              <span className="text-h1 text-dark mb-8 italic md:text-5xl lg:text-6xl">{lang === 'en' ? 'not just interfaces.' : 'sadece arayüz değil.'}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-dark/70 leading-relaxed mb-12 max-w-2xl">
+            <p className="text-h3 text-dark mb-12 max-w-2xl">
               {lang === 'en' 
                 ? 'I combine UX strategy, behavioral psychology, AI workflows, and conversion thinking to build digital products users trust and businesses grow from.' 
                 : 'Kullanıcıların güvendiği ve işletmelerin büyüdüğü dijital ürünler inşa etmek için UX stratejisi, davranışsal psikoloji ve yapay zeka akışlarını birleştiriyorum.'}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-4 text-sm font-bold text-white transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-[#ca006c]/90">
+              <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="text-sm font-medium text-dark/50 italic px-4">
@@ -113,16 +113,16 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
       </section>
 
       {/* 2. BUSINESS IMPACT METRICS SECTION */}
-      <section className="px-6 py-32 bg-[#1E293B] relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#1E293B] relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
            <svg viewBox="0 0 1000 1000" className="w-[120%] h-[120%] -ml-40 -mt-20 text-purple">
               <path d="M -10 -20 C -100 -250 -350 -400 -450 -300 C -500 -200 -480 -50 -350 100 C -200 200 -50 80 -10 -20 Z" fill="currentColor" stroke="none" opacity="0.3"/>
            </svg>
         </div>
         
-        <div className="max-w-7xl mx-auto relative z-10">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-medium text-white mb-6 tracking-tight">
+        <div className="container-app relative z-10">
+          <div className="text-center mb-20 w-[min(100%-32px,850px)] mx-auto">
+            <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Measurable UX Impact' : 'Ölçülebilir UX Etkisi'}
             </h2>
             <p className="text-white/60 text-lg font-light leading-relaxed">
@@ -153,11 +153,11 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
       </section>
 
       {/* 3. MY APPROACH SECTION */}
-      <section className="px-6 py-32 bg-white relative">
-        <div className="max-w-6xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-white relative">
+        <div className="container-app ">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-dark mb-8 leading-[1.1]">
+              <h2 className="text-h1 text-dark mb-8 md:text-5xl lg:text-6xl mb-8">
                 {lang === 'en' ? 'Good UX is not decoration.' : 'İyi UX dekorasyon değildir.'}<br/>
                 <span className="text-[#ca006c]">{lang === 'en' ? "It's behavioral architecture." : "Davranışsal mimaridir."}</span>
               </h2>
@@ -188,15 +188,15 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
       </section>
 
       {/* 4. BUTTERFLY TRANSFORMATION SYSTEM */}
-      <section className="px-6 py-32 bg-[#F8F7F4] relative border-t border-dark/5">
-        <div className="max-w-4xl mx-auto text-center mb-20">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#F8F7F4] relative border-t border-dark/5">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-20">
           <span className="text-xs font-bold text-[#ca006c] tracking-[0.2em] uppercase mb-4 block">
             {lang === 'en' ? 'Transformation Ecosystem' : 'Dönüşüm Ekosistemi'}
           </span>
-          <h2 className="text-4xl md:text-5xl font-medium text-dark tracking-tight">The Butterfly Model</h2>
+          <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark">The Butterfly Model</h2>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="container-app ">
           <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative">
             <div className="hidden md:block absolute top-[4rem] left-[10%] right-[10%] h-[1px] bg-dark/10 z-0 border-dashed border-b border-dark/20"></div>
 
@@ -207,11 +207,11 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
             ].map((p, i) => (
               <motion.div 
                 key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-                className="flex-1 relative z-10 bg-white p-8 rounded-[2rem] border border-dark/5 shadow-xl shadow-dark/5 group hover:-translate-y-2 transition-all transition-duration-500"
+                className="flex-1 relative z-10 bg-white border border-dark/5 shadow-xl shadow-dark/5 rounded-[2rem] p-8 transition-all duration-500 group hover:-translate-y-2"
               >
                 <div className="text-4xl mb-6 opacity-80 group-hover:scale-110 transition-transform origin-bottom-left">{p.icon}</div>
                 <div className="text-[10px] font-bold text-dark/40 tracking-widest uppercase mb-2">{p.label} — {p.state}</div>
-                <h4 className="text-xl font-medium text-dark mb-4">{p.title}</h4>
+                <h4 className="text-h3 text-dark mb-4">{p.title}</h4>
                 <p className="text-dark/60 font-light leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
@@ -220,13 +220,13 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
       </section>
 
       {/* 5. EXPERIENCE / EXPERTISE SECTION */}
-      <section className="px-6 py-32 bg-white relative">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-20 max-w-2xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-medium text-dark mb-6 tracking-tight">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-white relative">
+        <div className="container-app ">
+          <div className="text-center mb-20 w-[min(100%-32px,850px)] mx-auto">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark mb-6">
               {lang === 'en' ? 'Expertise & Capabilities' : 'Uzmanlıklar ve Yetenekler'}
             </h2>
-            <p className="text-dark/60 text-lg font-light leading-relaxed">
+            <p className="text-body-lg text-dark/70 max-w-[680px]">
               {lang === 'en' 
                 ? 'Strategic consultation and design execution aimed at measurable outcomes.' 
                 : 'Ölçülebilir sonuçları hedefleyen stratejik danışmanlık ve tasarım uygulamaları.'}
@@ -248,7 +248,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
                 <div className="w-16 h-16 rounded-full bg-[#F8F7F4] text-[#ca006c] flex items-center justify-center mb-6 shadow-inner">
                    <item.icon strokeWidth={1.5} size={28}/>
                 </div>
-                <h4 className="text-[15px] font-semibold text-dark/80 leading-snug max-w-[150px]">{item.title}</h4>
+                <h4 className="text-base font-semibold leading-[1.65] text-dark max-w-[150px]">{item.title}</h4>
               </motion.div>
             ))}
           </div>
@@ -256,25 +256,25 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
       </section>
 
       {/* 6. FINAL CTA SECTION */}
-      <section className="px-6 py-32 bg-[#1E293B] text-center relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#1E293B] text-center relative overflow-hidden">
         {/* Soft animated background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-[#ca006c]/20 blur-[100px] rounded-full mix-blend-screen"></div>
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-purple/20 blur-[100px] rounded-full mix-blend-screen"></div>
         </div>
 
-        <div className="max-w-3xl mx-auto relative z-10">
+        <div className="w-[min(100%-32px,850px)] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-white mb-8 leading-[1.1]">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-pink to-purple">{lang === 'en' ? 'It needs smarter systems.' : 'Düşünen sistemlere ihtiyacı var.'}</span>
             </h2>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-8 py-5 text-sm font-bold text-white transition-all shadow-lg shadow-[#ca006c]/20 hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
+              <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto hover:shadow-xl">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 rounded-2xl border border-white/20 bg-white/5 backdrop-blur-sm px-8 py-5 text-sm font-bold text-white transition-all hover:bg-white/10 hover:-translate-y-1">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>

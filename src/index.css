@@ -82,3 +82,46 @@
 body {
   overflow-x: hidden;
 }
+@layer components {
+  /* Typography Scale */
+  .text-h1 {
+    @apply text-[clamp(2.5rem,5vw,4.75rem)] leading-[1.02] tracking-[-0.045em] font-bold;
+  }
+  .text-h2 {
+    @apply text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.1] tracking-[-0.035em] font-bold;
+  }
+  .text-h3 {
+    @apply text-[clamp(1.25rem,2vw,1.65rem)] leading-[1.25] tracking-[-0.015em] font-semibold;
+  }
+  .text-body-lg {
+    @apply text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.7];
+  }
+  .text-body {
+    @apply text-base leading-[1.65];
+  }
+  .text-body-sm {
+    @apply text-[0.875rem] leading-[1.55];
+  }
+
+  /* Shared Container */
+  .page-container {
+    @apply w-[min(100%-40px,1200px)] mx-auto;
+  }
+
+  /* Button System */
+  .btn-primary-pink {
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-[#ca006c] text-white hover:bg-[#a80058] focus-visible:ring-4 focus-visible:ring-[#ca006c]/30 shadow-lg;
+  }
+  .btn-dark-solid {
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-[#1E293B] text-white hover:bg-[#2A3B54] focus-visible:ring-4 focus-visible:ring-[#1E293B]/30 shadow-lg;
+  }
+  .btn-light-solid {
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-white border border-dark/10 text-[#1E293B] hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm;
+  }
+  .btn-outline-light {
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-white/20 text-white hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20;
+  }
+  .btn-outline-dark {
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-dark/20 text-dark hover:bg-dark/5 focus-visible:ring-4 focus-visible:ring-dark/10;
+  }
+}

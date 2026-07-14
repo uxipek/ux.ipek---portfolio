@@ -1,12 +1,11 @@
-import { useEffect } from "react";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "motion/react";
 import { ArrowUpRight, Search, FileText, CheckCircle2, ChevronDown, Zap, User, Target, BarChart3, AlertCircle, Loader2 } from "lucide-react";
 
-// Google Apps Script Web App URL
 const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbykh3fplObzwut9axlAixamrEpMfiJpHoFapEBrPtwCpDoKHN-MIU5kFtymDFMS14MbhQ/exec";
 
-export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "UX Audit | UXIPEK" : "UX Analizi | UXIPEK"; }, [lang]);
+export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
+  useEffect(() => { document.title = lang === "en" ? "UX Audit | UXIPEK" : "UX Analizi | UXIPEK"; }, [lang]);
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formState, setFormState] = useState({
     website: "",
@@ -14,9 +13,30 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
     company: "",
     email: "",
     goal: "",
-    challenge: ""
+    challenge: "",
+    legalConsent: false
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const pushToDataLayer = (data: any) => {
+    if (typeof window !== "undefined" && (window as any).dataLayer) {
+      (window as any).dataLayer.push(data);
+    }
+  };
+
+  const handleCtaClick = (location: string) => {
+    pushToDataLayer({
+      event: "ux_analysis_cta_click",
+      cta_location: location
+    });
+  };
+
+  const handleSampleProjectClick = () => {
+    pushToDataLayer({
+      event: "view_sample_ux_audit",
+      project_name: "akademi_ozalit"
+    });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -29,7 +49,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
     try {
       const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
         method: "POST",
-        mode: "no-cors", // Important for Google Apps Script
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
@@ -44,9 +64,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
         }),
       });
       
-      // Since mode is no-cors, we won't get a readable response back, but if it doesn't throw, we assume success.
       setStatus("success");
-      setFormState({ website: "", name: "", company: "", email: "", goal: "", challenge: "" });
+      setFormState({ website: "", name: "", company: "", email: "", goal: "", challenge: "", legalConsent: false });
+      
+      pushToDataLayer({
+        event: "generate_lead",
+        form_name: "free_mini_ux_analysis"
+      });
     } catch (error) {
       console.error("Error submitting form:", error);
       setStatus("error");
@@ -55,35 +79,55 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
 
   const faqs = [
     {
-      q: lang === 'en' ? 'What is a UX Audit?' : 'UX Audit (Analizi) Nedir?',
+      q: lang === 'en' ? 'What is a UX Audit?' : 'UX analizi nedir?',
       a: lang === 'en' 
-        ? 'A UX Audit is an expert evaluation of your website or product. We identify friction points, confusing navigation, and usability issues that are costing you conversions, providing you with actionable recommendations.'
-        : 'UX Analizi, web sitenizin veya ürününüzün uzman değerlendirmesidir. Dönüşümlerinizi düşüren sürtünme noktalarını, kafa karıştırıcı gezinmeleri ve kullanılabilirlik sorunlarını belirleyip eyleme dönüştürülebilir öneriler sunarız.'
+        ? 'A UX audit identifies points in your website where visitors struggle, hesitate, or leave without completing a transaction. The goal is not just to list problems, but to provide actionable solutions to improve user experience and conversion potential.'
+        : 'UX analizi, web sitenizde ziyaretçilerin zorlandığı, kararsız kaldığı veya işlemi tamamlamadan ayrıldığı noktaları ortaya çıkarır. Amaç yalnızca sorunları listelemek değil; kullanıcı deneyimini ve dönüşüm potansiyelini geliştirecek uygulanabilir çözümler sunmaktır.'
     },
     {
-      q: lang === 'en' ? 'How long does it take?' : 'Ne kadar sürer?',
+      q: lang === 'en' ? 'What does the free mini audit cover?' : 'Ücretsiz mini analiz neleri kapsar?',
       a: lang === 'en'
-        ? 'A Mini UX Audit is typically completed within 3-5 business days. A comprehensive full-product audit may take 2-4 weeks depending on the complexity of the platform.'
-        : 'Mini UX Analizi genellikle 3-5 iş günü içinde tamamlanır. Kapsamlı bir ürün analizi, platformun karmaşıklığına bağlı olarak 2-4 hafta sürebilir.'
+        ? 'It covers an evaluation of your website to identify the top 3 most critical issues affecting user experience, along with our initial recommendations for improvement.'
+        : 'Web sitenizi inceleyip kullanıcı deneyimini etkileyen en kritik 3 sorunu ve ilk iyileştirme önerilerini kapsar.'
     },
     {
-      q: lang === 'en' ? 'Who is it for?' : 'Kimin içindir?',
+      q: lang === 'en' ? 'How long does the audit take?' : 'Analiz ne kadar sürer?',
       a: lang === 'en'
-        ? 'Founders, product teams, and marketers who have an existing product or website with traffic, but are experiencing low conversion rates, high bounce rates, or user drop-offs.'
-        : 'Trafiği olan ancak düşük dönüşüm oranları, yüksek hemen çıkma oranları veya kullanıcı kayıpları yaşayan mevcut bir ürünü veya web sitesi olan kurucular, ürün ekipleri ve pazarlamacılar içindir.'
+        ? 'We will share the mini UX audit report with you via email within 3 business days.'
+        : 'Mini UX analizi raporunu 3 iş günü içinde e-posta ile sizinle paylaşacağız.'
     },
     {
-      q: lang === 'en' ? 'What happens after the audit?' : 'Analizden sonra ne olur?',
+      q: lang === 'en' ? 'Who is this for?' : 'Kimler için uygundur?',
       a: lang === 'en'
-        ? 'You receive a detailed report with prioritized action items. You can choose to implement these changes with your internal team, or hire UXipek to execute the redesign strategy for you.'
-        : 'Önceliklendirilmiş aksiyon öğelerini içeren detaylı bir rapor alırsınız. Bu değişiklikleri kendi ekibinizle uygulamayı seçebilir veya yeniden tasarım stratejisini yürütmesi için UXipek ile çalışabilirsiniz.'
+        ? 'It is suitable for businesses and product teams that have an existing website or platform and want to improve user experience and conversion rates.'
+        : 'Mevcut bir web sitesi veya platformu olan, kullanıcı deneyimini ve dönüşüm oranlarını artırmak isteyen işletmeler ve ürün ekipleri için uygundur.'
+    },
+    {
+      q: lang === 'en' ? 'What happens after the audit?' : 'Analiz sonrasında ne olur?',
+      a: lang === 'en'
+        ? 'You will receive actionable recommendations. You can implement these changes with your team or choose to work with us for a comprehensive redesign.'
+        : 'Uygulanabilir öneriler alırsınız. Bu değişiklikleri kendi ekibinizle uygulayabilir veya kapsamlı bir yeniden tasarım için bizimle çalışmayı seçebilirsiniz.'
+    },
+    {
+      q: lang === 'en' ? 'Is the redesign service included in the audit?' : 'Yeniden tasarım hizmeti analize dahil mi?',
+      a: lang === 'en'
+        ? 'No, the free mini audit only provides the evaluation and top 3 recommendations. Redesign services are separate and can be discussed based on your needs.'
+        : 'Hayır, ücretsiz mini analiz yalnızca değerlendirmeyi ve en önemli 3 öneriyi sunar. Yeniden tasarım hizmetleri ayrıdır ve ihtiyaçlarınıza göre görüşülebilir.'
     }
   ];
+
+  const smoothScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const elem = document.getElementById(targetId);
+    if (elem) {
+      elem.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <div className="bg-[#FDFBF8] w-full mt-[-80px] pt-20">
       {/* 1. HERO SECTION */}
-      <section className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32 px-6">
+      <section className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24 lg:pb-32 w-full">
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
           <motion.div
             className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ca006c]/20 to-purple/20 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
@@ -92,34 +136,43 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
           />
         </div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="container-app text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-dark/5 shadow-sm text-xs font-bold uppercase tracking-widest text-dark/50 mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-dark/5 shadow-sm text-[0.875rem] font-semibold uppercase tracking-widest text-dark/70 mb-4">
               <span className="w-2 h-2 rounded-full bg-[#ca006c] animate-pulse"></span>
-              {lang === 'en' ? 'EXPERT EVALUATION' : 'UZMAN DEĞERLENDİRMESİ'}
+              {lang === 'en' ? 'UXIPEK UX EVALUATION' : 'UXİPEK UX DEĞERLENDİRMESİ'}
             </div>
             
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-dark mb-8 leading-[1.05]">
-              {lang === 'en' ? 'Is Your Website Actually ' : 'Web Siteniz Gerçekten '}<br className="hidden md:block" />
-              <span className="text-[#ca006c] font-semibold">{lang === 'en' ? 'Converting?' : 'Dönüştürüyor mu?'}</span>
+            <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-dark mb-6 mx-auto">
+              {lang === 'en' ? 'Is Your Website Actually ' : 'Web Siteniz Gerçekten '}
+              <br className="hidden md:block" />
+              <span className="text-[#ca006c]">{lang === 'en' ? 'Converting?' : 'Dönüştürüyor mu?'}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-dark/60 max-w-2xl mx-auto leading-relaxed mb-12">
+            <p className="text-body-lg text-dark/70 max-w-[680px] mx-auto mb-8">
               {lang === 'en' 
-                ? "A beautiful website doesn't always create business results. Discover usability issues before your users leave." 
-                : "Güzel bir web sitesi her zaman iş sonuçları yaratmaz. Kullanıcılarınız ayrılmadan önce kullanılabilirlik sorunlarını keşfedin."}
+                ? "A beautiful website doesn't always create results. Let's discover together where users struggle, why they don't take action, and which areas need improvement." 
+                : "Güzel görünen bir web sitesi her zaman sonuç yaratmaz. Kullanıcıların nerede zorlandığını, neden harekete geçmediğini ve hangi noktaların iyileştirilmesi gerektiğini birlikte keşfedelim."}
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href="#audit-form" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
-                {lang === 'en' ? 'Get a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi Alın'} <ArrowUpRight className="w-4 h-4" />
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
+              <a 
+                href="#ux-analizi-formu" 
+                onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('hero'); }} 
+                className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-[#1E293B] text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#2A3B54] focus-visible:ring-4 focus-visible:ring-[#1E293B]/30 shadow-lg"
+              >
+                {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="https://gamma.app/docs/Web-Sitenizin-Donusum-Potansiyelini-Olcun-r0d5y2nmgtuwgpj" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
-                <FileText className="w-4 h-4" /> {lang === 'en' ? 'Measure Your Website\'s Conversion Potential' : 'Web Sitenizin Dönüşüm Potansiyelini Ölçün'}
+              <a 
+                href="#ornek-ux-calismasi" 
+                onClick={(e) => smoothScroll(e, 'ornek-ux-calismasi')} 
+                className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white border border-dark/10 text-[#1E293B] text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm"
+              >
+                <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample Work' : 'Örnek Çalışmayı İncele'}
               </a>
             </div>
           </motion.div>
@@ -127,31 +180,31 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
       </section>
 
       {/* 2. EXPLAIN SECTION */}
-      <section className="px-6 py-24 bg-white relative border-y border-dark/5">
-        <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col lg:flex-row gap-16 items-center">
-            <div className="flex-1">
-              <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-dark mb-6">
+      <section className="py-16 md:py-24 lg:py-32 bg-white relative border-y border-dark/5 w-full">
+        <div className="container-app ">
+          <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+            <div className="flex-1 w-full">
+              <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark mb-6">
                 {lang === 'en' ? 'What is a UX Audit?' : 'UX Analizi Nedir?'}
               </h2>
-              <p className="text-lg font-light leading-relaxed text-dark/70 mb-8">
+              <p className="text-body-lg text-dark/70 max-w-[680px] mb-12">
                 {lang === 'en'
-                  ? 'A UX Audit identifies usability problems, friction points, confusing navigation, and conversion blockers before redesign begins. Stop guessing why users leave and start fixing what is actually broken.'
-                  : 'UX Analizi, web sitenizde ziyaretçileri zorlayan ve kaçıran hataları tespit eder. İnsanların sitenizden neden ayrıldığını tahmin etmeyi bırakın; sorunu net olarak bulup düzeltmeye başlayalım.'}
+                  ? 'A UX audit identifies points in your website where visitors struggle, hesitate, or leave without completing a transaction. The goal is not just to list problems, but to provide actionable solutions to improve user experience and conversion potential.'
+                  : 'UX analizi, web sitenizde ziyaretçilerin zorlandığı, kararsız kaldığı veya işlemi tamamlamadan ayrıldığı noktaları ortaya çıkarır. Amaç yalnızca sorunları listelemek değil; kullanıcı deneyimini ve dönüşüm potansiyelini geliştirecek uygulanabilir çözümler sunmaktır.'}
               </p>
               
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 lg:gap-6">
                 {[
-                  { icon: AlertCircle, text: lang === 'en' ? 'Identify friction points' : 'Sürtünme noktalarını bulun' },
-                  { icon: Target, text: lang === 'en' ? 'Remove conversion blockers' : 'Dönüşüm engellerini kaldırın' },
-                  { icon: User, text: lang === 'en' ? 'Understand user confusion' : 'Kullanıcı kafa karışıklığını anlayın' },
-                  { icon: BarChart3, text: lang === 'en' ? 'Data-backed redesign strategy' : 'Veriye dayalı tasarım stratejisi' },
+                  { icon: AlertCircle, text: lang === 'en' ? 'Identify friction points' : 'Kullanıcıların zorlandığı noktaları belirleme' },
+                  { icon: Target, text: lang === 'en' ? 'Evaluate content & visual hierarchy' : 'İçerik ve görsel hiyerarşiyi değerlendirme' },
+                  { icon: User, text: lang === 'en' ? 'Reveal conversion blockers' : 'Dönüşüm engellerini ortaya çıkarma' },
+                  { icon: BarChart3, text: lang === 'en' ? 'Provide data-driven recommendations' : 'Veriye dayalı iyileştirme önerileri sunma' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-4 p-4 rounded-2xl bg-[#FDFBF8] border border-dark/5">
-                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex items-center justify-center text-[#ca006c]">
+                  <div key={i} className="flex items-start gap-4 p-6 rounded-2xl bg-[#FDFBF8] border border-dark/5 h-full">
+                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex shrink-0 items-center justify-center text-[#ca006c]">
                       <item.icon className="w-5 h-5 stroke-[1.5]" />
                     </div>
-                    <span className="font-medium text-sm text-dark/80">{item.text}</span>
+                    <span className="font-semibold text-base leading-[1.65] text-dark mt-1.5">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -171,193 +224,251 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
         </div>
       </section>
 
-      {/* 3. PROCESS SECTION */}
-      <section className="px-6 py-24 bg-[#FDFBF8]">
-        <div className="max-w-5xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-dark tracking-tight">{lang === 'en' ? 'Our Process' : 'Sürecimiz'}</h2>
+      {/* 3. SAMPLE PROJECT SECTION */}
+      <section id="ornek-ux-calismasi" className="py-16 md:py-24 lg:py-32 bg-[#1E293B] text-white relative w-full">
+        <div className="container-app ">
+          <div className="mb-12 lg:mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-[0.875rem] font-semibold uppercase tracking-widest mb-4">
+              {lang === 'en' ? 'SAMPLE UX AUDIT CASE STUDY' : 'ÖRNEK UX AUDIT ÇALIŞMASI'}
+            </div>
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.08] text-white mb-6 max-w-[820px]">
+              {lang === 'en' ? (
+                <>I Didn't Just Redesign a Website.<br className="hidden md:block" />I Made Its Problems Visible.</>
+              ) : (
+                <>Bir Web Sitesini Yalnızca<br className="hidden md:block" />Yeniden Tasarlamadım.<br className="hidden md:block" />Sorunlarını Görünür Hâle Getirdim.</>
+              )}
+            </h2>
+            <p className="text-body-lg text-white/80 max-w-[680px]">
+              {lang === 'en' 
+                ? 'I analyzed the Akademi Ozalit website in terms of user experience, content hierarchy, accessibility, and conversion. I presented the core issues I identified, along with actionable improvement recommendations and redesigned screens.' 
+                : 'Akademi Ozalit web sitesini kullanıcı deneyimi, içerik hiyerarşisi, erişilebilirlik ve dönüşüm açısından analiz ettim. Belirlediğim temel sorunları, uygulanabilir iyileştirme önerileri ve yeniden tasarlanan ekranlarla birlikte sundum.'}
+            </p>
           </div>
-          
-          <div className="flex flex-col gap-4 relative">
-            <div className="absolute left-[2.25rem] top-8 bottom-8 w-px bg-dark/10 hidden md:block z-0"></div>
-            
-            {[
-              { num: '1', title: lang === 'en' ? 'Website Review' : 'Web Sitesi İncelemesi' },
-              { num: '2', title: lang === 'en' ? 'AI-Assisted Analysis' : 'Yapay Zeka Destekli Analiz' },
-              { num: '3', title: lang === 'en' ? 'UX Audit Report' : 'UX Analiz Raporu' },
-              { num: '4', title: lang === 'en' ? 'Actionable Recommendations' : 'Uygulanabilir Öneriler' },
-              { num: '5', title: lang === 'en' ? 'Redesign Strategy' : 'Yeniden Tasarım Stratejisi' },
-            ].map((step, i) => (
-              <div key={i} className="flex items-center gap-6 relative z-10 group bg-white p-6 rounded-2xl border border-dark/5 shadow-[0_4px_20px_rgba(0,0,0,0.02)] transition-all hover:border-[#ca006c]/20 hover:shadow-[0_8px_30px_rgba(0,0,0,0.04)]">
-                <div className="w-14 h-14 rounded-full bg-[#1E293B] text-white flex flex-shrink-0 items-center justify-center font-serif text-xl italic group-hover:bg-[#ca006c] transition-colors">
-                  {step.num}
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+            <div className="rounded-2xl overflow-hidden border border-white/10 bg-white/5 shadow-2xl">
+              <div className="aspect-[4/3] bg-[#0F172A] relative flex items-center justify-center overflow-hidden">
+                <img 
+                  src="https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80" 
+                  alt={lang === 'en' ? 'Akademi Ozalit UX audit and website redesign project' : 'Akademi Ozalit UX audit ve web sitesi yeniden tasarım çalışması'}
+                  className="w-full h-full object-cover opacity-80 mix-blend-overlay"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E293B] to-transparent opacity-80"></div>
+                <div className="absolute bottom-8 left-8 right-8">
+                  <div className="text-h3 text-white mb-2">Akademi Ozalit</div>
+                  <div className="text-white/70 text-base">UX Audit & Redesign</div>
                 </div>
-                <h3 className="text-xl font-medium text-dark">{step.title}</h3>
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
+            </div>
 
-      {/* 4. WHY UXIPEK SECTION */}
-      <section className="px-6 py-24 bg-white border-y border-dark/5 relative">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-dark tracking-tight mb-4">{lang === 'en' ? 'Why UXipek?' : 'Neden UXipek?'}</h2>
-            <p className="text-dark/60">{lang === 'en' ? 'A unique blend of technology and human expertise.' : 'Teknoloji ve insan uzmanlığının eşsiz birleşimi.'}</p>
-          </div>
-          
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {[
-              { icon: Zap, title: lang === 'en' ? 'AI-Assisted Workflow' : 'Yapay Zeka İş Akışı' },
-              { icon: User, title: lang === 'en' ? 'Human UX Expertise' : 'İnsan UX Uzmanlığı' },
-              { icon: FileText, title: lang === 'en' ? 'Actionable Reports' : 'Uygulanabilir Raporlar' },
-              { icon: Target, title: lang === 'en' ? 'Business-Focused Design' : 'İş Odaklı Tasarım' },
-            ].map((card, i) => (
-              <div key={i} className="p-8 rounded-3xl bg-[#FDFBF8] border border-dark/5 flex flex-col items-center text-center transition-transform hover:-translate-y-1">
-                <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center text-dark mb-6">
-                  <card.icon className="w-6 h-6 stroke-[1.5]" />
+            <div className="flex flex-col gap-8">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Service Type' : 'Çalışma Türü'}</div>
+                  <div className="text-base font-semibold leading-[1.65] text-white">UX Audit & Redesign</div>
                 </div>
-                <h3 className="font-medium text-dark">{card.title}</h3>
+                <div>
+                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Industry' : 'Sektör'}</div>
+                  <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'Education & Publishing' : 'Eğitim ve Yayıncılık'}</div>
+                </div>
+                <div className="sm:col-span-2">
+                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Areas Evaluated' : 'İncelenen Alanlar'}</div>
+                  <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'User experience, accessibility, and content hierarchy' : 'Kullanıcı deneyimi, erişilebilirlik ve içerik hiyerarşisi'}</div>
+                </div>
+                <div className="sm:col-span-2">
+                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Deliverables' : 'Çıktı'}</div>
+                  <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'Prioritized findings and redesign recommendations' : 'Önceliklendirilmiş bulgular ve yeniden tasarım önerileri'}</div>
+                </div>
               </div>
-            ))}
+
+              <div className="pt-8 border-t border-white/10">
+                <h3 className="text-h3 text-white mb-4">
+                  {lang === 'en' ? 'Key Deliverables:' : 'Üç Temel Çıktı:'}
+                </h3>
+                <ul className="flex flex-col gap-3 text-white/90 text-base leading-[1.65]">
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#ca006c] shrink-0 mt-0.5" />
+                    <span>{lang === 'en' ? 'UX and accessibility issues' : 'UX ve erişilebilirlik sorunları'}</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#ca006c] shrink-0 mt-0.5" />
+                    <span>{lang === 'en' ? 'Prioritized improvement recommendations' : 'Önceliklendirilmiş iyileştirme önerileri'}</span>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-[#ca006c] shrink-0 mt-0.5" />
+                    <span>{lang === 'en' ? 'Redesigned user interface' : 'Yeniden tasarlanmış kullanıcı arayüzü'}</span>
+                  </li>
+                </ul>
+              </div>
+
+              <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4">
+                <a 
+                  href="https://akademozalit-uxaudit-redesign.lovable.app/#ux-audit" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  onClick={handleSampleProjectClick}
+                  className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white text-[#1E293B] text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
+                >
+                  <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample UX Audit' : 'Örnek UX Çalışmasını İncele'}
+                </a>
+                <a 
+                  href="#ux-analizi-formu" 
+                  onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('sample_project'); }} 
+                  className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20"
+                >
+                  {lang === 'en' ? 'Analyze My Site Too' : 'Benim Sitemi de Analiz Et'}
+                </a>
+              </div>
+              
+              <p className="text-[0.875rem] leading-[1.55] text-white/50 mt-2">
+                {lang === 'en' 
+                  ? '*This project was prepared to demonstrate my UX audit process and recommended design approach.' 
+                  : '*Bu çalışma, UX analiz sürecimi ve önerdiğim tasarım yaklaşımını göstermek amacıyla hazırlanmıştır.'}
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* 5. SAMPLE REPORT SECTION */}
-      <section id="sample-report" className="px-6 py-24 bg-[#1E293B] text-white relative overflow-hidden">
-        <div className="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ca006c]/40 via-transparent to-transparent"></div>
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <FileText className="w-12 h-12 mx-auto mb-6 opacity-80" />
-          <h2 className="text-3xl md:text-4xl font-medium mb-6">
-            {lang === 'en' ? 'Know what to expect.' : 'Neyle karşılaşacağınızı bilin.'}
-          </h2>
-          <p className="text-lg text-white/70 font-light mb-10 max-w-2xl mx-auto">
-            {lang === 'en' 
-              ? 'Download a sample UX Audit report to see the level of detail, behavioral analysis, and actionable insights we provide.' 
-              : 'Sağladığımız detay seviyesini, davranışsal analizi ve eyleme dönüştürülebilir içgörüleri görmek için örnek bir UX Analizi raporu indirin.'}
-          </p>
-          <a href="https://gamma.app/docs/Web-Sitenizin-Donusum-Potansiyelini-Olcun-r0d5y2nmgtuwgpj" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white text-[#1E293B] px-8 py-4 text-sm font-bold transition-all shadow-lg hover:scale-105">
-            <FileText className="w-4 h-4" /> {lang === 'en' ? 'Measure Your Website\'s Conversion Potential' : 'Web Sitenizin Dönüşüm Potansiyelini Ölçün'}
-          </a>
-        </div>
-      </section>
-
-      {/* 6. LEAD FORM SECTION */}
-      <section id="audit-form" className="px-6 py-24 bg-[#FDFBF8] relative">
-        <div className="max-w-xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-3xl font-medium text-dark mb-4">{lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}</h2>
-            <p className="text-dark/60 text-sm">
-              {lang === 'en' ? 'Fill out the form below. We will review your website and get back to you.' : 'Aşağıdaki formu doldurun. Sitenizi inceleyip size dönüş yapacağız.'}
+      {/* 4. LEAD FORM SECTION */}
+      <section id="ux-analizi-formu" className="py-16 md:py-24 lg:py-32 bg-[#FDFBF8] relative border-y border-dark/5 w-full">
+        <div className="w-[min(100%-32px,640px)] mx-auto">
+          <div className="text-center mb-12">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark mb-4">
+              {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}
+            </h2>
+            <p className="text-body-lg text-dark/70 max-w-[680px] mx-auto">
+              {lang === 'en' 
+                ? 'I will review your website and share the top 3 critical UX issues and initial improvement recommendations via email within 3 business days.' 
+                : 'Web sitenizi inceleyip kullanıcı deneyimini etkileyen en kritik 3 sorunu ve ilk iyileştirme önerilerimi 3 iş günü içinde e-posta ile paylaşacağım.'}
             </p>
           </div>
           
-          <div className="bg-white p-8 md:p-10 rounded-[2rem] border border-dark/5 shadow-xl shadow-dark/5">
+          <div className="bg-white p-6 sm:p-8 md:p-10 rounded-[2rem] border border-dark/5 shadow-xl shadow-dark/5">
             {status === 'success' ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-500/10 text-green-500 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-green-500/10 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-2xl font-medium text-dark mb-2">
+                <h3 className="text-h3 font-bold text-dark mb-4">
                   {lang === 'en' ? 'Request Sent Successfully!' : 'Talebiniz Başarıyla Alındı!'}
                 </h3>
-                <p className="text-dark/60 mb-8">
-                  {lang === 'en' ? 'We will review your website and get back to you shortly.' : 'Web sitenizi inceleyip en kısa sürede size dönüş yapacağız.'}
+                <p className="text-base leading-[1.65] text-dark/70 mb-8">
+                  {lang === 'en' ? 'I will review your website and get back to you shortly.' : 'Web sitenizi inceleyip en kısa sürede size dönüş yapacağım.'}
                 </p>
                 <button 
                   onClick={() => setStatus('idle')}
-                  className="px-6 py-3 rounded-xl bg-dark/5 text-dark font-medium hover:bg-dark/10 transition-colors"
+                  className="min-h-[48px] px-6 rounded-2xl bg-[#1E293B] text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#2A3B54] focus-visible:ring-4 focus-visible:ring-[#1E293B]/30"
                 >
                   {lang === 'en' ? 'Submit Another Request' : 'Yeni Bir Talep Gönder'}
                 </button>
               </div>
             ) : (
-              <form className="space-y-6" onSubmit={handleSubmit}>
+              <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
                 {status === 'error' && (
-                  <div className="p-4 rounded-xl bg-red-500/10 text-red-600 text-sm font-medium flex items-center gap-2">
-                    <AlertCircle className="w-4 h-4" />
-                    {lang === 'en' ? 'Something went wrong. Please try again.' : 'Bir hata oluştu. Lütfen tekrar deneyin.'}
+                  <div className="p-4 rounded-xl bg-red-500/10 text-red-600 text-[0.9375rem] font-semibold leading-[1.2] flex items-center gap-2">
+                    <AlertCircle className="w-4 h-4 shrink-0" />
+                    {lang === 'en' ? 'An error occurred. Please try again.' : 'Bir hata oluştu. Lütfen tekrar deneyin.'}
                   </div>
                 )}
                 <div>
-                  <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Website URL' : 'Web Sitesi URL'}</label>
+                  <label htmlFor="website" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                    {lang === 'en' ? 'Website URL' : 'Web Sitesi URL’si'} <span className="text-[#ca006c]">*</span>
+                  </label>
                   <input 
+                    id="website"
                     type="url" 
                     value={formState.website}
                     onChange={(e) => setFormState({...formState, website: e.target.value})}
-                    placeholder="https://yourwebsite.com" 
-                    className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors" 
+                    placeholder="https://" 
+                    className="w-full min-h-[48px] px-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 text-base" 
                     required 
                   />
                 </div>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                   <div>
-                    <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Full Name' : 'Ad Soyad'}</label>
+                    <label htmlFor="name" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                      {lang === 'en' ? 'Full Name' : 'Ad Soyad'} <span className="text-[#ca006c]">*</span>
+                    </label>
                     <input 
+                      id="name"
                       type="text" 
                       value={formState.name}
                       onChange={(e) => setFormState({...formState, name: e.target.value})}
-                      className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors" 
+                      className="w-full min-h-[48px] px-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 text-base" 
                       required 
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Company' : 'Şirket'}</label>
+                    <label htmlFor="email" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                      {lang === 'en' ? 'Email Address' : 'E-posta Adresi'} <span className="text-[#ca006c]">*</span>
+                    </label>
                     <input 
-                      type="text" 
-                      value={formState.company}
-                      onChange={(e) => setFormState({...formState, company: e.target.value})}
-                      className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors" 
+                      id="email"
+                      type="email" 
+                      value={formState.email}
+                      onChange={(e) => setFormState({...formState, email: e.target.value})}
+                      className="w-full min-h-[48px] px-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 text-base" 
                       required 
                     />
                   </div>
                 </div>
+
                 <div>
-                  <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Email Address' : 'E-posta Adresi'}</label>
+                  <label htmlFor="company" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                    {lang === 'en' ? 'Company / Brand Name' : 'Şirket / Marka Adı'} <span className="text-dark/50 font-normal text-[0.875rem] ml-1">({lang === 'en' ? 'Optional' : 'İsteğe bağlı'})</span>
+                  </label>
                   <input 
-                    type="email" 
-                    value={formState.email}
-                    onChange={(e) => setFormState({...formState, email: e.target.value})}
-                    className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors" 
-                    required 
+                    id="company"
+                    type="text" 
+                    value={formState.company}
+                    onChange={(e) => setFormState({...formState, company: e.target.value})}
+                    className="w-full min-h-[48px] px-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 text-base" 
                   />
                 </div>
+                
                 <div>
-                  <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Business Goal' : 'İş Hedefi'}</label>
+                  <label htmlFor="goal" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                    {lang === 'en' ? 'What is the primary goal you want to achieve with your website?' : 'Web sitenizle ulaşmak istediğiniz temel hedef nedir?'} <span className="text-[#ca006c]">*</span>
+                  </label>
                   <input 
+                    id="goal"
                     type="text" 
                     value={formState.goal}
                     onChange={(e) => setFormState({...formState, goal: e.target.value})}
-                    placeholder={lang === 'en' ? 'e.g. Increase sign-ups' : 'örn. Kayıtları artırmak'} 
-                    className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors" 
+                    className="w-full min-h-[48px] px-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 text-base" 
+                    required
                   />
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-dark/80 mb-2">{lang === 'en' ? 'Biggest UX Challenge' : 'En Büyük UX Zorluğu'}</label>
+                  <label htmlFor="challenge" className="block text-[0.9375rem] font-semibold text-dark mb-2">
+                    {lang === 'en' ? 'What is the most important problem you want to solve on your website?' : 'Web sitenizde çözmek istediğiniz en önemli sorun nedir?'} <span className="text-[#ca006c]">*</span>
+                  </label>
                   <textarea 
-                    rows={3} 
+                    id="challenge"
                     value={formState.challenge}
                     onChange={(e) => setFormState({...formState, challenge: e.target.value})}
-                    placeholder={lang === 'en' ? 'Users are dropping off at checkout...' : 'Kullanıcılar ödeme sayfasında ayrılıyor...'} 
-                    className="w-full px-4 py-3 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-1 focus:ring-[#ca006c] transition-colors resize-none"
+                    className="w-full min-h-[120px] p-4 rounded-xl bg-[#FDFBF8] border border-dark/10 focus:outline-none focus:border-[#ca006c] focus:ring-2 focus:ring-[#ca006c]/20 transition-all text-dark placeholder-dark/30 resize-none text-base"
+                    required
                   ></textarea>
                 </div>
                 
-                <div className="space-y-4 pt-2">
+                <div className="flex flex-col gap-4 pt-4 border-t border-dark/5">
                   <div className="flex items-start gap-3">
                     <input 
                       type="checkbox" 
                       id="legalConsent" 
+                      checked={formState.legalConsent}
+                      onChange={(e) => setFormState({...formState, legalConsent: e.target.checked})}
                       required
-                      className="mt-1 w-4 h-4 rounded border-dark/20 text-pink focus:ring-pink"
+                      className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c] shrink-0 cursor-pointer"
                     />
-                    <label htmlFor="legalConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                    <label htmlFor="legalConsent" className="text-[0.875rem] leading-[1.55] text-dark/80 cursor-pointer select-none">
                       {lang === 'en' ? (
-                        <>I have read the <a href={`/${lang}/kvkk`} target="_blank" className="text-pink hover:underline font-medium">KVKK Information Notice</a> and <a href={`/${lang}/privacy-policy`} target="_blank" className="text-pink hover:underline font-medium">Privacy Policy</a>.</>
+                        <>I have read the <a href={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-[#ca006c] hover:underline font-semibold">KVKK Information Notice</a> and agree to the processing of my personal data to evaluate my request.</>
                       ) : (
-                        <><a href={`/${lang}/kvkk`} target="_blank" className="text-pink hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href={`/${lang}/privacy-policy`} target="_blank" className="text-pink hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                        <><a href={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-[#ca006c] hover:underline font-semibold">KVKK Aydınlatma Metni</a>'ni okudum ve kişisel verilerimin talebimin değerlendirilmesi amacıyla işlenmesini kabul ediyorum.</>
                       )}
                     </label>
                   </div>
@@ -366,13 +477,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
                     <input 
                       type="checkbox" 
                       id="marketingConsent" 
-                      className="mt-1 w-4 h-4 rounded border-dark/20 text-pink focus:ring-pink"
+                      className="mt-1 w-4 h-4 rounded border-dark/20 text-[#ca006c] focus:ring-[#ca006c] shrink-0 cursor-pointer"
                     />
-                    <label htmlFor="marketingConsent" className="text-sm text-dark/70 font-light leading-relaxed">
+                    <label htmlFor="marketingConsent" className="text-[0.875rem] leading-[1.55] text-dark/80 cursor-pointer select-none">
                       {lang === 'en' ? (
-                        'I would like to receive content, announcements, and service updates from UXIPEK via email.'
+                        'I would like to receive content and information from UXipek via email.'
                       ) : (
-                        'UXIPEK tarafından e-posta yoluyla içerik, duyuru ve hizmet bilgilendirmeleri almak istiyorum.'
+                        'UXipek\'e ait içerik ve bilgilendirmeleri e-posta yoluyla almak istiyorum.'
                       )}
                     </label>
                   </div>
@@ -381,40 +492,138 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
                 <button 
                   type="submit" 
                   disabled={status === 'loading'}
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all hover:bg-[#ca006c] mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
+                  className="btn-primary-pink w-full sm:w-auto text-[0.9375rem] mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? (
-                    <><Loader2 className="w-5 h-5 animate-spin" /> {lang === 'en' ? 'Sending...' : 'Gönderiliyor...'}</>
+                     <><Loader2 className="w-5 h-5 animate-spin" /> {lang === 'en' ? 'Sending...' : 'Gönderiliyor...'}</>
                   ) : (
-                    <>{lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" /></>
+                    <>{lang === 'en' ? 'Request My Free Mini Audit' : 'Ücretsiz Mini Analizimi İste'} <ArrowUpRight className="w-4 h-4" /></>
                   )}
                 </button>
+
+                <p className="text-[0.875rem] leading-[1.55] text-center text-dark/60 mt-2">
+                  {lang === 'en' 
+                    ? 'Your information is used only to evaluate your request and is not shared with third parties.' 
+                    : 'Bilgileriniz yalnızca talebinizi değerlendirmek için kullanılır ve üçüncü kişilerle paylaşılmaz.'}
+                </p>
               </form>
             )}
           </div>
         </div>
       </section>
 
-      {/* 7. FAQ SECTION */}
-      <section className="px-6 py-24 bg-white border-y border-dark/5">
-        <div className="max-w-3xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-medium text-dark tracking-tight">FAQ</h2>
+      {/* 5. PROCESS SECTION */}
+      <section className="py-16 md:py-24 lg:py-32 bg-white w-full">
+        <div className="w-[min(100%-32px,1000px)] mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark mb-6">
+              {lang === 'en' ? 'Our Process' : 'Sürecimiz'}
+            </h2>
+            <p className="text-body-lg text-dark/70 max-w-[680px] mx-auto">
+              {lang === 'en' 
+                ? 'I combine AI-assisted analysis tools with expert evaluation to prioritize issues and turn them into an actionable roadmap.' 
+                : 'Yapay zekâ destekli analiz araçlarını uzman değerlendirmesiyle birleştirerek sorunları önceliklendiriyor ve uygulanabilir bir yol haritasına dönüştürüyorum.'}
+            </p>
           </div>
-          <div className="space-y-4">
+          
+          <div className="flex flex-col md:flex-row md:items-start gap-6 relative">
+            <div className="absolute top-[3.5rem] left-[3.5rem] right-[3.5rem] h-px bg-dark/10 hidden md:block z-0"></div>
+            <div className="absolute left-[3.5rem] top-[3.5rem] bottom-[3.5rem] w-px bg-dark/10 md:hidden z-0"></div>
+            
+            {[
+              { num: '1', title: lang === 'en' ? 'Website Review' : 'Web Sitesi İncelemesi' },
+              { num: '2', title: lang === 'en' ? 'AI-Assisted Pre-Analysis' : 'AI Destekli Ön Analiz' },
+              { num: '3', title: lang === 'en' ? 'Expert UX Evaluation' : 'Uzman UX Değerlendirmesi' },
+              { num: '4', title: lang === 'en' ? 'Findings and Actionable Recommendations' : 'Bulgular ve Uygulanabilir Öneriler' },
+              { num: '5', title: lang === 'en' ? 'Redesign Strategy' : 'Yeniden Tasarım Stratejisi' },
+            ].map((step, i) => (
+              <div key={i} className="flex flex-row md:flex-col items-center gap-6 md:gap-4 relative z-10 group flex-1">
+                <div className="w-14 h-14 rounded-full bg-white text-[#1E293B] border-2 border-dark/10 flex flex-shrink-0 items-center justify-center font-bold text-xl group-hover:border-[#ca006c] group-hover:text-[#ca006c] transition-colors shadow-sm">
+                  {step.num}
+                </div>
+                <h3 className="text-base font-semibold leading-[1.65] text-dark md:text-center px-2">{step.title}</h3>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. WHY UXIPEK SECTION */}
+      <section className="py-16 md:py-24 lg:py-32 bg-[#FDFBF8] border-y border-dark/5 relative w-full">
+        <div className="container-app ">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark mb-6">
+              {lang === 'en' ? 'Why UXipek?' : 'Neden UXipek?'}
+            </h2>
+            <p className="text-body-lg text-dark/70 max-w-[680px] mx-auto">
+              {lang === 'en' 
+                ? 'I combine technology and human experience in a balanced, strategic, and actionable process.' 
+                : 'Teknoloji ve insan deneyimini dengeli, stratejik ve uygulanabilir bir süreçte birleştiriyorum.'}
+            </p>
+          </div>
+          
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+            {[
+              { 
+                icon: Zap, 
+                title: lang === 'en' ? 'AI-Assisted Workflow' : 'Yapay Zekâ Destekli İş Akışı',
+                desc: lang === 'en' ? 'Faster and data-informed problem detection using modern tools.' : 'Modern araçlar kullanarak daha hızlı ve veri destekli sorun tespiti.'
+              },
+              { 
+                icon: User, 
+                title: lang === 'en' ? 'Human-Centric Expert Evaluation' : 'İnsan Odaklı Uzman Değerlendirmesi',
+                desc: lang === 'en' ? 'Deep behavioral analysis beyond what automated tools can see.' : 'Otomatik araçların göremediğinin ötesinde derin davranışsal analiz.'
+              },
+              { 
+                icon: FileText, 
+                title: lang === 'en' ? 'Actionable & Prioritized Recommendations' : 'Uygulanabilir ve Önceliklendirilmiş Öneriler',
+                desc: lang === 'en' ? 'Clear steps on what to fix first for maximum impact.' : 'Maksimum etki için önce neyin düzeltilmesi gerektiğine dair net adımlar.'
+              },
+              { 
+                icon: Target, 
+                title: lang === 'en' ? 'Design Aligned with Business Goals' : 'İş Hedefleriyle Uyumlu Tasarım',
+                desc: lang === 'en' ? 'Solutions focused on improving conversions and retention.' : 'Dönüşümleri ve elde tutmayı artırmaya odaklı çözümler.'
+              },
+            ].map((card, i) => (
+              <div key={i} className="p-6 lg:p-8 rounded-[2rem] bg-white border border-dark/5 flex flex-col items-start transition-shadow hover:shadow-md h-full">
+                <div className="w-12 h-12 rounded-xl bg-[#FDFBF8] border border-dark/5 flex shrink-0 items-center justify-center text-[#ca006c] mb-6">
+                  <card.icon className="w-6 h-6 stroke-[1.5]" />
+                </div>
+                <h3 className="text-h3 text-dark mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-base leading-[1.65] text-dark/70">
+                  {card.desc}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 7. FAQ SECTION */}
+      <section className="py-16 md:py-24 lg:py-32 bg-white border-b border-dark/5 w-full">
+        <div className="w-[min(100%-32px,850px)] mx-auto">
+          <div className="text-center mb-12 lg:mb-16">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark">
+              {lang === 'en' ? 'Frequently Asked Questions' : 'Sık Sorulan Sorular'}
+            </h2>
+          </div>
+          <div className="flex flex-col gap-4">
             {faqs.map((faq, i) => (
-              <div key={i} className="border border-dark/5 rounded-2xl overflow-hidden bg-[#FDFBF8]">
+              <div key={i} className="border border-dark/5 rounded-2xl overflow-hidden bg-[#FDFBF8] transition-all duration-200">
                 <button 
                   onClick={() => setOpenFaq(openFaq === i ? null : i)}
-                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none"
+                  className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#ca006c]/50 rounded-2xl"
+                  aria-expanded={openFaq === i}
                 >
-                  <span className="font-medium text-dark">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-dark/40 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="text-[1.125rem] leading-[1.4] font-semibold text-dark pr-4">{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-[#ca006c] shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 <div 
-                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-40 pb-5 opacity-100' : 'max-h-0 opacity-0'}`}
+                  className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                  <p className="text-dark/60 font-light text-sm">{faq.a}</p>
+                  <p className="text-base leading-[1.65] text-dark/80">{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -422,18 +631,27 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => 
         </div>
       </section>
 
-      {/* 8. SCARCITY CTA */}
-      <section className="px-6 py-24 bg-[#FDFBF8] text-center">
-        <div className="max-w-2xl mx-auto">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#ca006c]/10 text-[#ca006c] text-xs font-bold uppercase tracking-widest mb-6">
-            <span className="w-2 h-2 rounded-full bg-[#ca006c] animate-pulse"></span>
-            {lang === 'en' ? 'Limited Availability' : 'Sınırlı Kontenjan'}
+      {/* 8. FINAL CTA SECTION */}
+      <section className="py-16 md:py-24 lg:py-32 bg-[#1E293B] text-center relative overflow-hidden w-full">
+        <div className="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#ca006c]/30 via-transparent to-transparent"></div>
+        <div className="w-[min(100%-32px,850px)] mx-auto relative z-10">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-[0.875rem] font-semibold uppercase tracking-widest mb-6">
+            {lang === 'en' ? 'TAKE THE FIRST STEP' : 'İLK ADIMI ATIN'}
           </div>
-          <h2 className="text-3xl md:text-5xl font-medium tracking-tight text-dark mb-8">
-            {lang === 'en' ? 'Only 5 Free Mini UX Audits Available This Week' : 'Bu Hafta Yalnızca 5 Ücretsiz Mini UX Analizi Kontenjanı Kaldı'}
+          <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-white mb-6">
+            {lang === 'en' ? 'Let\'s Discover Where Users Struggle on Your Website Together.' : 'Web Sitenizde Kullanıcıların Nerede Zorlandığını Birlikte Keşfedelim.'}
           </h2>
-          <a href="#audit-form" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-10 py-5 text-base font-bold text-white transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90">
-            {lang === 'en' ? 'Apply Now' : 'Hemen Başvur'} <ArrowUpRight className="w-5 h-5" />
+          <p className="text-body-lg text-white/80 max-w-[680px] mx-auto mb-10">
+            {lang === 'en' 
+              ? 'See the most critical issues with a free mini audit, and plan your next steps more consciously.' 
+              : 'Ücretsiz mini analizle en kritik sorunları görün, sonraki adımlarınızı daha bilinçli planlayın.'}
+          </p>
+          <a 
+            href="#ux-analizi-formu" 
+            onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('final_cta'); }} 
+            className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-[#1E293B] text-[1rem] font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
+          >
+            {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />
           </a>
         </div>
       </section>

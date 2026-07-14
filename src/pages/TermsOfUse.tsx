@@ -24,14 +24,14 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-[#FDFBF8] w-full min-h-screen pt-32 pb-24 px-6">
       <div className="max-w-[800px] mx-auto">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-dark/80 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
         <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">
           {lang === 'en' ? 'Terms of Use' : 'Kullanım Koşulları'}
         </h1>
-        <p className="text-dark/70 text-lg font-light mb-8 leading-relaxed max-w-2xl">
+        <p className="text-dark/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en'
             ? 'Guidelines and rules for using the UXIPEK website, content, and digital assets.'
             : 'UXIPEK web sitesinin, içeriklerinin ve dijital varlıklarının kullanımına dair kurallar ve esaslar.'}
@@ -40,7 +40,7 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
         </p>
 
-        <div className="space-y-16 text-dark/80 font-light leading-relaxed">
+        <div className="space-y-16 text-dark/80 font-light leading-[1.7]">
           
           <section>
             <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">

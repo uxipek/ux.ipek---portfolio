@@ -64,7 +64,7 @@ ${formData.get("message")}
           />
         </div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -79,7 +79,7 @@ ${formData.get("message")}
               <span className="text-[#1E293B] italic font-serif opacity-80">{lang === 'en' ? 'Growth System.' : 'Sistemi Kuralım.'}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-dark/70 max-w-3xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl font-light text-dark/70 w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
               {lang === 'en' 
                 ? 'Whether you\'re launching a new product, optimizing conversions, improving user experience, or building an AI-powered platform, let\'s create digital experiences people trust and businesses grow from.' 
                 : 'Yeni bir ürün piyasaya sürüyor, dönüşümleri optimize ediyor, kullanıcı deneyimini iyileştiriyor veya yapay zeka destekli bir platform oluşturuyor olun; insanların güvendiği ve işlerin büyüdüğü dijital deneyimler yaratalım.'}
@@ -89,7 +89,7 @@ ${formData.get("message")}
               <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
                 {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-dark/10 text-[#1E293B] text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm">
                 {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
               </a>
             </div>
@@ -99,9 +99,9 @@ ${formData.get("message")}
 
       {/* 02 WHY REACH OUT? */}
       <section className="px-6 py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-medium tracking-tight text-dark mb-4">{lang === 'en' ? 'How I Can Help' : 'Nasıl Yardımcı Olabilirim?'}</h2>
+            <h2 className="text-h2 mb-4">{lang === 'en' ? 'How I Can Help' : 'Nasıl Yardımcı Olabilirim?'}</h2>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -115,7 +115,7 @@ ${formData.get("message")}
                 key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="group flex items-start gap-6 bg-[#FDFBF8] p-10 rounded-[2rem] border border-dark/5 hover:border-[#ca006c]/20 hover:shadow-xl transition-all"
               >
-                <div className="w-16 h-16 shrink-0 rounded-2xl bg-white border border-dark/5 flex items-center justify-center text-dark/40 group-hover:text-[#ca006c] group-hover:scale-105 transition-all shadow-sm">
+                <div className="w-16 h-16 rounded-2xl bg-white border border-dark/10 flex items-center justify-center text-dark/60 transition-all duration-300 group-hover:text-[#ca006c] group-hover:scale-105 shadow-sm">
                    <s.icon strokeWidth={1.5} size={28}/>
                 </div>
                 <div>
@@ -130,10 +130,10 @@ ${formData.get("message")}
       </section>
 
       {/* 03 CONTACT EXPERIENCE */}
-      <section className="px-6 py-32 bg-[#F8F7F4] relative border-t border-dark/5">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#F8F7F4] relative border-t border-dark/5">
+        <div className="container-app grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-dark mb-6">
+            <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Start the Conversation' : 'Bağlantı Kurun'}
             </h2>
             <p className="text-xl text-dark/60 font-light mb-12 max-w-md leading-relaxed">
@@ -143,16 +143,16 @@ ${formData.get("message")}
             {/* 04 CONNECT (Moved inside left column for layout elegance) */}
             <h3 className="text-[11px] font-bold text-dark/40 tracking-[0.2em] uppercase mb-6">{lang === 'en' ? 'Connect Beyond Email' : 'Diğer Platformlar'}</h3>
             <div className="grid grid-cols-2 gap-4">
-              <a href="https://linkedin.com/in/ipek-bolakca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-dark/5 shadow-sm hover:border-blue-500/30 hover:shadow-md transition-all group">
+              <a href="https://linkedin.com/in/ipek-bolakca" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-dark/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-blue-500/30 hover:shadow-md group">
                 <Linkedin size={20} className="text-[#0A66C2] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-dark">LinkedIn</span>
               </a>
-              <a href="https://behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-dark/5 shadow-sm hover:border-[#1769FF]/30 hover:shadow-md transition-all group">
+              <a href="https://behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-dark/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-[#1769FF]/30 hover:shadow-md group">
                 <PenTool size={20} className="text-[#1769FF] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-dark">Behance</span>
               </a>
-              <a href="#" className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-dark/5 shadow-sm hover:border-dark/30 hover:shadow-md transition-all group">
+              <a href="#" className="rounded-2xl bg-white border border-dark/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-dark/30 hover:shadow-md group">
                  <Briefcase size={20} className="text-dark group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-dark">Medium</span>
               </a>
-              <a href="#" className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-dark/5 shadow-sm hover:border-pink-500/30 hover:shadow-md transition-all group">
+              <a href="#" className="rounded-2xl bg-white border border-dark/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-pink-500/30 hover:shadow-md group">
                  <Instagram size={20} className="text-pink-600 group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-dark">Instagram</span>
               </a>
             </div>
@@ -270,13 +270,13 @@ ${formData.get("message")}
       </section>
 
       {/* 05 CONSULTATION PROCESS */}
-      <section className="px-6 py-32 bg-white relative overflow-hidden">
-        <div className="max-w-4xl mx-auto text-center mb-24 relative z-10">
-          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-dark mb-4">{lang === 'en' ? 'What Happens Next?' : 'Süreç Nasıl İşliyor?'}</h2>
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-white relative overflow-hidden">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-24 relative z-10">
+          <h2 className="text-h2 mb-4">{lang === 'en' ? 'What Happens Next?' : 'Süreç Nasıl İşliyor?'}</h2>
           <p className="text-dark/60 font-light">{lang === 'en' ? 'The transformation journey.' : 'Dönüşüm yolculuğu.'}</p>
         </div>
         
-        <div className="max-w-6xl mx-auto relative z-10">
+        <div className="container-app relative z-10">
           <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative">
             <div className="hidden md:block absolute top-[4rem] left-[10%] right-[10%] h-[1px] bg-[#ca006c]/20 z-0"></div>
             {[
@@ -286,7 +286,7 @@ ${formData.get("message")}
             ].map((p, i) => (
               <motion.div 
                 key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
-                className="flex-1 relative z-10 bg-white/50 backdrop-blur-xl p-8 rounded-[2rem] border border-dark/5 shadow-xl shadow-dark/5 text-center group hover:-translate-y-2 transition-all duration-500"
+                className="flex-1 relative z-10 bg-white/60 border border-white backdrop-blur-xl shadow-xl shadow-dark/5 rounded-[2rem] p-8 transition-all duration-500 group hover:-translate-y-2"
               >
                 <div className="text-[10px] font-bold text-[#ca006c] tracking-[0.2em] uppercase mb-4">Step {p.num}</div>
                 <h4 className="text-2xl font-serif italic text-dark mb-4 group-hover:text-[#ca006c] transition-colors">{lang === 'en' ? p.state : p.tr_state}</h4>
@@ -298,19 +298,19 @@ ${formData.get("message")}
       </section>
 
       {/* 06 FINAL CTA */}
-      <section className="px-6 py-32 bg-[#1E293B] text-center relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#1E293B] text-center relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute -top-40 right-1/4 w-[600px] h-[600px] bg-[#ca006c]/10 blur-[120px] rounded-full mix-blend-screen"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto relative z-10">
+        <div className="w-[min(100%-32px,1000px)] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-4xl md:text-5xl lg:text-7xl font-medium tracking-tight text-white mb-8 leading-[1.05]">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-[#ca006c] italic font-serif opacity-90">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
             
-            <p className="text-xl text-white/60 font-light max-w-2xl mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-white/60 font-light w-[min(100%-32px,850px)] mx-auto mb-12 leading-relaxed">
                {lang === 'en' ? 'Let\'s uncover the friction, simplify complexity, and design experiences that help your business grow.' : 'Gelin sürtünmeleri ortaya çıkaralım, karmaşıklığı basitleştirelim ve işinizin büyümesine yardımcı olacak deneyimler tasarlayalım.'}
             </p>
 

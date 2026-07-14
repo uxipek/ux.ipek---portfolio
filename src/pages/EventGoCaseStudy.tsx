@@ -23,7 +23,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
     <MotionConfig reducedMotion="user">
     <div className="bg-[#FDFBF8] w-full text-dark">
       {/* 1. Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex flex-col justify-center px-6 pt-24 pb-12 max-w-7xl mx-auto">
+      <section className="container-app relative w-full min-h-[90vh] flex flex-col justify-center px-6 pt-24 pb-12">
         <div className="absolute top-24 left-6 z-10">
           <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors text-sm font-medium">
             <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
@@ -37,7 +37,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4">{project.title}</h1>
-            <p className="text-xl md:text-3xl text-dark/60 font-light mb-8 max-w-2xl mx-auto">
+            <p className="text-xl md:text-3xl text-dark/60 font-light mb-8 w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en' 
                 ? 'Making it easier to find people, plan activities and move together.' 
                 : 'Spor yapacak kişileri bulmayı, etkinlik planlamayı ve birlikte harekete geçmeyi kolaylaştıran bir deneyim.'}
@@ -84,7 +84,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
       </section>
 
       {/* 2. Project Overview */}
-      <section className="px-6 py-24 max-w-7xl mx-auto border-t border-dark/5">
+      <section className="container-app px-6 py-24 border-t border-dark/5">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24">
           <motion.div 
             initial={{ opacity: 0, y: 24 }}
@@ -92,7 +92,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-dark mb-6">
+            <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Project Overview' : 'Projeye Genel Bakış'}
             </h2>
             <p className="text-lg text-dark/70 leading-relaxed mb-6">
@@ -131,7 +131,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
 
       {/* 3. Design Process */}
       <section className="px-6 py-24 bg-dark/5">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -189,7 +189,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
 
       {/* 4. Project Showcase */}
       <section id="case-study-content" className="py-24">
-        <div className="max-w-7xl mx-auto px-6">
+        <div className="container-app px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-32">
             {showcaseSections.filter(s => !s.image).map((section, i) => (
               <motion.div 
@@ -217,7 +217,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, margin: "-100px" }}
                     transition={{ duration: 0.8 }}
-                    className="max-w-3xl mx-auto text-center mb-12"
+                    className="w-[min(100%-32px,850px)] mx-auto text-center mb-12"
                   >
                     <h3 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? section.titleEn : section.titleTr}</h3>
                     <p className="text-dark/70 text-lg leading-relaxed">
@@ -247,7 +247,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
 
       {/* 5. Outcomes */}
       <section className="px-6 py-24 bg-dark text-white rounded-t-[3rem] md:rounded-t-[5rem]">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -293,9 +293,9 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
 
       {/* 6. Next Project */}
       <section className="px-6 py-24 bg-[#F5F3EF]">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <div className="flex flex-col items-center mb-16">
-            <h2 className="text-3xl font-bold text-dark mb-4">
+            <h2 className="text-h2 mb-4">
               {lang === 'en' ? 'Up Next' : 'Sıradaki Proje'}
             </h2>
             <div className="w-12 h-1 bg-pink rounded-full" />

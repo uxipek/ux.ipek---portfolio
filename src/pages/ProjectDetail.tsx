@@ -27,7 +27,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-[#FDFBF8] min-h-screen pt-24 pb-0 w-full text-dark">
       {/* Hero Section */}
-      <div className="px-6 py-12 max-w-7xl mx-auto">
+      <div className="container-app px-6 py-12">
         <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
         </Link>
@@ -56,7 +56,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       </div>
 
       {/* Project Info & Overview */}
-      <div className="px-6 max-w-7xl mx-auto mb-24">
+      <div className="container-app px-6 mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           
           <div className="lg:col-span-4 order-2 lg:order-1">
@@ -97,7 +97,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
           <div className="lg:col-span-8 order-1 lg:order-2 text-lg font-light text-dark/80 leading-relaxed space-y-16">
             
             <section>
-              <h2 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
+              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
               <p className="mb-6">
                 This project focuses on delivering a highly optimized and intuitive experience for users. The primary goal was to bridge the gap between complex requirements and a seamless user interface, ultimately driving higher engagement and conversion rates.
               </p>
@@ -107,14 +107,14 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             </section>
             
             <section>
-              <h2 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? 'The Challenge' : 'Zorluk'}</h2>
+              <h2 className="text-h2 mb-6">{lang === 'en' ? 'The Challenge' : 'Zorluk'}</h2>
               <p className="p-8 rounded-2xl bg-dark/5 border-l-4 border-pink">
                 The main challenge was simplifying a multi-step, data-heavy process into an experience that felt effortless and trustworthy for the end user, while accommodating diverse user personas and technical constraints.
               </p>
             </section>
             
             <section>
-              <h2 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? 'Research & Insights' : 'Araştırma ve İçgörüler'}</h2>
+              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Research & Insights' : 'Araştırma ve İçgörüler'}</h2>
               <p className="mb-6">
                 Extensive qualitative and quantitative research revealed significant friction points in the existing user journey. We utilized affinity mapping and user interviews to pinpoint exactly where users were dropping off.
               </p>
@@ -131,7 +131,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             </section>
             
             <section>
-              <h2 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? 'Design Decisions & UI' : 'Tasarım Kararları ve Arayüz'}</h2>
+              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Design Decisions & UI' : 'Tasarım Kararları ve Arayüz'}</h2>
               <p className="mb-8">
                 Based on our research, the information architecture was completely restructured. We adopted a progressive disclosure approach, presenting information only when the user needed it. The visual language was refined to communicate premium quality, using a clean layout, generous whitespace, and purposeful micro-interactions.
               </p>
@@ -142,7 +142,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             </section>
             
             <section>
-              <h2 className="text-3xl font-bold text-dark mb-6">{lang === 'en' ? 'Outcome & Impact' : 'Sonuç ve Etki'}</h2>
+              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Outcome & Impact' : 'Sonuç ve Etki'}</h2>
               <p>
                 The redesigned experience led to a more intuitive flow and a measurable increase in user task success rates. The strategic alignment of business goals with user-centered design principles successfully transformed the product into a growth engine.
               </p>
@@ -154,8 +154,8 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
 
       {/* CTA Section */}
       <section className="px-6 py-24 bg-dark text-center">
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+        <div className="w-[min(100%-32px,850px)] mx-auto">
+          <h2 className="text-h2 mb-6">
             {lang === 'en' ? 'Ready to elevate your product?' : 'Ürününüzü bir üst seviyeye taşımaya hazır mısınız?'}
           </h2>
           <p className="text-white/60 text-lg mb-10">
@@ -165,7 +165,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
              <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:bg-pink/90 hover:shadow-lg hover:-translate-y-1">
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
-             <Link to={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-white/10 px-8 py-4 text-sm font-bold text-white border border-white/20 transition-all hover:bg-white/20">
+             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-[#FDFBF8] hover:border-dark/20 shadow-sm">
                {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu Alın'}
              </Link>
           </div>
@@ -174,9 +174,9 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
 
       {/* More Case Studies */}
       <section className="px-6 py-24 bg-[#F5F3EF]">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <div className="flex items-center justify-between mb-12">
-            <h2 className="text-3xl font-bold text-dark">
+            <h2 className="text-h2 ">
               {lang === 'en' ? 'More Case Studies' : 'Daha Fazla Çalışma'}
             </h2>
             <Link to={`/${lang}/portfolio`} className="hidden sm:flex items-center gap-2 text-pink font-semibold hover:text-dark transition-colors">

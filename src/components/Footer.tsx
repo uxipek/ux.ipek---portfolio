@@ -5,7 +5,7 @@ import { Logo } from "./Logo";
 export function Footer({ lang }: { lang: "en" | "tr" }) {
   return (
     <footer className="bg-[#1E293B] text-white py-16 px-6 mt-auto">
-      <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-6 gap-8 lg:gap-12">
+      <div className="container-app grid grid-cols-1 md:grid-cols-6 gap-8 lg:gap-12">
         <div className="md:col-span-2">
           <Link to={`/${lang}`} className="inline-block mb-6">
             <Logo className="h-8 w-auto text-white" />

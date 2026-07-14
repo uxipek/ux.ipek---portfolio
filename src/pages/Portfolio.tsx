@@ -11,13 +11,13 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
 
   return (
     <div className="bg-[#1E293B] min-h-screen pt-32 pb-24 px-6 w-full text-white">
-      <div className="max-w-7xl mx-auto">
+      <div className="container-app ">
         <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-white/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
         <div className="mb-16 max-w-3xl">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 tracking-tight">
+          <h1 className="text-h1 text-dark mb-8 md:text-5xl lg:text-6xl mb-6">
             {lang === 'en' ? 'Featured Work' : 'Öne Çıkan Çalışmalar'}
           </h1>
           <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed">

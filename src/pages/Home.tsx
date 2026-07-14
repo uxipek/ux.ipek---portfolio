@@ -33,9 +33,9 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
   
   return (
     <>
-      <div className="w-full mt-[-80px]">
+      <div className="w-full">
                 {/* Hero Section */}
-        <section id="about" className="relative overflow-hidden bg-[#FDFBF8] min-h-[100vh] flex items-center pt-24 pb-16">
+        <section id="about" className="relative overflow-hidden bg-[#FDFBF8] pt-[80px] pb-[48px] md:pt-[104px] md:pb-[72px] lg:pt-[104px] lg:pb-[88px]">
           {/* Ambient Background Magic */}
           <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
             {/* Soft pink top-right glow */}
@@ -101,7 +101,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
             ))}
           </div>
 
-          <div className="mx-auto max-w-7xl px-6 w-full relative z-10 flex flex-col lg:flex-row items-center mt-6 lg:mt-0">
+          <div className="page-container relative z-10 flex flex-col lg:flex-row items-center">
             
             {/* Left Content Area */}
             <div className="w-full lg:w-[55%] pt-10 pb-12 lg:pb-0 z-20">
@@ -117,19 +117,19 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   </span>
                 </div>
                 
-                <h1 className="text-6xl sm:text-7xl lg:text-[4.5rem] font-medium tracking-tight text-dark mb-8 leading-[1.05]">
+                <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-dark mb-6 mx-auto">
                   {lang === 'en' ? 'I design digital' : 'Karma\u015F\u0131kl\u0131\u011F\u0131'}<br />{lang === 'en' ? 'experiences that' : '\u00F6l\u00E7eklenebilir'}<br />{lang === 'en' ? 'turn ' : ''}<span className="text-pink font-semibold">{lang === 'en' ? 'clarity into growth.' : 'b\u00FCy\u00FCmeye d\u00F6n\u00FC\u015Ft\u00FCr\u00FCyorum.'}</span>
                 </h1>
                 
-                <p className="text-lg sm:text-lg text-dark/70 mb-12 leading-relaxed font-light max-w-[480px]">
+                <p className="text-body-lg text-dark/70 max-w-[680px] mb-8">
                   UX.Ipek helps startups, SaaS products, and AI-powered businesses build digital systems that are not only beautiful — but strategic, usable, and conversion-focused.
                 </p>
                 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <a href={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-2xl bg-pink px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(202,0,108,0.3)] hover:shadow-[0_8px_40px_rgb(202,0,108,0.5)] hover:-translate-y-1 hover:bg-pink/90">
+                  <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
                     {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'} <ArrowUpRight className="h-4 w-4" />
                   </a>
-                  <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+                  <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-dark/10 text-[#1E293B] text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm">
                     View My Work <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
@@ -325,10 +325,10 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
           </div>
         </section>
                 {/* Services Section */}
-        <section id="services" className="px-6 py-24 md:py-32 bg-base border-y border-dark/5">
-          <div className="mx-auto max-w-7xl">
+        <section id="services" className="py-[48px] md:py-[64px] lg:py-[88px] bg-base border-y border-dark/5">
+          <div className="page-container">
             {/* Section Header */}
-            <div className="mb-20 md:mb-28 flex flex-col md:flex-row md:items-end justify-between gap-10 md:gap-16">
+            <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end justify-between gap-8 md:gap-12">
               <div className="max-w-3xl">
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-10 h-[2px] bg-pink/40"></div>
@@ -336,13 +336,13 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     Strategic Expertise
                   </span>
                 </div>
-                <h2 className="text-4xl md:text-5xl lg:text-[56px] font-medium text-dark tracking-tight leading-[1.1]">
+                <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark">
                   {lang === 'en' ? "I don't just push pixels." : "Sadece tasarlam\u0131yorum."}<br />
                   <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ca006c] to-purple font-medium">{lang === 'en' ? 'I architect growth systems.' : 'B\u00FCy\u00FCme sistemleri in\u015Faa ediyorum.'}</span>
                 </h2>
               </div>
               <div className="max-w-sm pb-2 md:pb-4">
-                <p className="text-dark/60 text-lg font-light leading-relaxed">
+                <p className="text-body-lg text-dark/70 max-w-[680px]">
                   Scalable user experience logic designed to acquire, activate, and retain users beautifully.
                 </p>
               </div>
@@ -362,7 +362,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FDFBF8] text-dark border border-dark/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-pink group-hover:border-pink/20 group-hover:bg-pink/5">
                     <Layout className="h-6 w-6 stroke-[1.5]" />
                   </div>
-                  <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'UX/UI Design for SaaS' : 'SaaS \u0130\u00E7in UX/UI Tasar\u0131m\u0131'}</h3>
+                  <h3 className="text-h3 mb-5 text-dark">{lang === 'en' ? 'UX/UI Design for SaaS' : 'SaaS \u0130\u00E7in UX/UI Tasar\u0131m\u0131'}</h3>
                   <p className="font-light leading-relaxed text-dark/60 text-lg">
                     From frictionless onboarding flows to intuitive data dashboards. I turn complex software into premium, habit-forming digital products that users love and trust.
                   </p>
@@ -389,7 +389,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#FDFBF8] text-dark border border-dark/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-purple group-hover:border-purple/20 group-hover:bg-purple/5">
                     <Search className="h-6 w-6 stroke-[1.5]" />
                   </div>
-                  <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'UX Audit & Conversion Review' : 'UX Analizi ve D\u00F6n\u00FC\u015F\u00FCm \u0130ncelemesi'}</h3>
+                  <h3 className="text-h3 mb-5 text-dark">{lang === 'en' ? 'UX Audit & Conversion Review' : 'UX Analizi ve D\u00F6n\u00FC\u015F\u00FCm \u0130ncelemesi'}</h3>
                   <p className="font-light leading-relaxed text-dark/60 text-lg">
                     Stop guessing. I analyze analytics, heatmaps, and user flows to find exactly where users drop off. You get a prioritized "Quick Wins" roadmap that increases conversion instantly.
                   </p>
@@ -410,7 +410,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
-                className="col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 rounded-[2.5rem] bg-white border border-dark/5 shadow-sm transition-all hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-dark/10 overflow-hidden"
+                className="rounded-[2rem] bg-white border border-dark/5 transition-all duration-500 col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-dark/10 overflow-hidden"
               >
                 {/* AI-Native */}
                 <div className="group flex flex-col justify-between p-10 lg:p-14 border-b md:border-b-0 md:border-r border-dark/5 bg-transparent hover:bg-[#FDFBF8] transition-colors duration-500 relative">
@@ -418,7 +418,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-dark border border-dark/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-dark">
                       <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
                     </div>
-                    <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'AI-Native Digital Strategy' : 'Yapay Zeka Odakl\u0131 Dijital Strateji'}</h3>
+                    <h3 className="text-h3 mb-5 text-dark">{lang === 'en' ? 'AI-Native Digital Strategy' : 'Yapay Zeka Odakl\u0131 Dijital Strateji'}</h3>
                     <p className="font-light leading-relaxed text-dark/60 text-lg">
                       Integrating agentic AI and intelligent workflows into your product gracefully. I design AI interactions that feel natural, supportive, and fundamentally human-centered.
                     </p>
@@ -439,7 +439,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-dark border border-dark/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-[#ca006c]">
                       <LineChart className="h-6 w-6 stroke-[1.5]" />
                     </div>
-                    <h3 className="mb-5 text-2xl lg:text-[28px] font-medium text-dark tracking-tight leading-[1.2]">{lang === 'en' ? 'Landing Page Optimization' : 'A\u00E7\u0131l\u0131\u015F Sayfas\u0131 Optimizasyonu'}</h3>
+                    <h3 className="text-h3 mb-5 text-dark">{lang === 'en' ? 'Landing Page Optimization' : 'A\u00E7\u0131l\u0131\u015F Sayfas\u0131 Optimizasyonu'}</h3>
                     <p className="font-light leading-relaxed text-dark/60 text-lg">
                       Your landing page has one job: convert clicks into customers. I apply behavioral psychology and premium visual design to build high-converting structural layouts.
                     </p>
@@ -496,21 +496,21 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
           </div>
         </section>
         {/* Process Section: The Butterfly Effect of Digital Transformation */}
-        <section id="process" className="relative px-6 py-20 bg-cream overflow-hidden">
+        <section id="process" className="relative py-[48px] md:py-[64px] lg:py-[88px] bg-cream overflow-hidden">
           {/* Ambient Lighting */}
           <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-pink/5 blur-[120px] rounded-full pointer-events-none"></div>
           <div className="absolute bottom-0 left-0 w-[800px] h-[800px] bg-purple/5 blur-[150px] rounded-full pointer-events-none"></div>
           
-          <div className="mx-auto max-w-7xl relative z-10">
+          <div className="page-container relative z-10">
             {/* Header */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.8 }}
-              className="text-center max-w-4xl mx-auto mb-16 md:mb-20"
+              className="text-center max-w-[1000px] mx-auto mb-12 md:mb-16"
             >
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-medium text-dark mb-8 tracking-tight leading-[1.1]">
+              <h2 className="text-h1 text-dark md:text-5xl lg:text-6xl mb-8">
                 The Butterfly Effect of <br className="hidden md:block" />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#ca006c] to-purple font-semibold">{lang === 'en' ? 'Digital Transformation.' : 'Kelebek Etkisi.'}</span>
               </h2>
@@ -578,7 +578,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                  </motion.div>
               </div>
 
-              <div className="grid lg:grid-cols-3 gap-12 lg:gap-8 relative z-20">
+              <div className="grid lg:grid-cols-3 gap-8 relative z-20">
                 
                 {/* Step 1 */}
                 <motion.div 
@@ -671,7 +671,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ delay: 0.8, duration: 1 }}
-              className="mt-20 mb-12 text-center lg:mt-24 relative z-30"
+              className="mt-12 mb-8 text-center lg:mt-16 relative z-30"
             >
               <h4 className="text-3xl md:text-5xl font-serif italic text-dark/30 tracking-tight">
                 "Good design is not decoration.<br />
@@ -699,13 +699,13 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
         </section>
 
         {/* Featured Case Studies Section */}
-        <section id="portfolio" className="px-6 py-24 bg-[#1E293B] relative overflow-hidden">
+        <section id="portfolio" className="py-[48px] md:py-[64px] lg:py-[88px] bg-[#1E293B] relative overflow-hidden">
           {/* Subtle background glow */}
           <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-pink/5 blur-[120px] rounded-full pointer-events-none opacity-50"></div>
           
-          <div className="mx-auto max-w-7xl relative z-10">
-            <div className="mb-16 max-w-4xl">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-[1.1] tracking-tight text-balance">
+          <div className="page-container relative z-10">
+            <div className="mb-12 max-w-4xl">
+              <h2 className="text-h1 text-white md:text-5xl lg:text-6xl mb-6">
                 {lang === 'en' ? 'Featured Case Studies' : 'Öne Çıkan Çalışmalar'}
               </h2>
               <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed max-w-2xl">
@@ -723,7 +723,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1 }}
-                  className="group flex flex-col bg-white/5 rounded-3xl overflow-hidden border border-white/10 hover:border-white/20 transition-all hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
+                  className="group flex flex-col rounded-[2rem] bg-white/5 border border-white/10 transition-all duration-500 overflow-hidden hover:bg-white/10 hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-white/10">
                     <img 
@@ -766,7 +766,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               ))}
             </div>
 
-            <div className="mt-16 text-center">
+            <div className="mt-12 text-center">
               <Link 
                 to={`/${lang}/portfolio`} 
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-sm font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
@@ -778,12 +778,12 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
         </section>
 
         {/* CTA Section */}
-        <section id="contact" className="px-6 py-16 bg-cream">
-          <div className="mx-auto max-w-4xl text-center">
-            <h2 className="text-4xl md:text-5xl font-bold text-dark mb-6 tracking-tight">
+        <section id="contact" className="py-[48px] md:py-[64px] lg:py-[88px] bg-cream">
+          <div className="page-container"><div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-h2 mb-6">
               Ready to fix the leaks in your product?
             </h2>
-            <p className="text-dark/70 max-w-2xl mx-auto text-lg mb-10">
+            <p className="text-dark/70 max-w-[850px] mx-auto text-lg mb-10">
               Whether you need a full SaaS redesign or a targeted UX audit to fix a specific funnel, let's find out where you're losing money and transform your digital experience into a growth system.
             </p>
 
@@ -796,6 +796,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               </Link>
             </div>
             <p className="text-sm text-dark/50 mt-8">{lang === 'en' ? 'A 30-minute strategic consultation. No commitment, just actionable insights.' : '30-dakikal\u0131k stratejik dan\u0131\u015Fmanl\u0131k. Taahh\u00FCts\u00FCz, sadece i\u015Fe yarar i\u00E7g\u00F6r\u00FCler.'}</p>
+          </div>
           </div>
         </section>
       </div>

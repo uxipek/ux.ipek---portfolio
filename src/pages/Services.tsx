@@ -16,7 +16,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
           />
         </div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -32,7 +32,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
               <span className="text-[#ca006c] font-semibold">{lang === 'en' ? 'AI-Native Digital Products' : 'Dijital Ürün Büyüme Sistemleri'}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-dark/60 max-w-2xl mx-auto leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl font-light text-dark/60 w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
               {lang === 'en' 
                 ? 'AI-powered UX systems designed to increase clarity, trust, and conversion.' 
                 : 'Netlik, güven ve dönüşümü artırmak için tasarlanmış, yapay zeka destekli UX sistemleri.'}
@@ -42,7 +42,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
               <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-[#1E293B] px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
                 {lang === 'en' ? 'Book UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl border border-dark/10 bg-white/50 backdrop-blur-sm px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-white hover:-translate-y-1 shadow-sm">
+              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-dark/10 text-[#1E293B] text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm">
                 {lang === 'en' ? 'View Case Studies' : 'Vaka Çalışmalarını İncele'}
               </a>
             </div>
@@ -52,7 +52,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
 
       {/* 2. SERVICES SECTION */}
       <section className="px-6 py-24 bg-white relative">
-        <div className="max-w-7xl mx-auto">
+        <div className="container-app ">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
@@ -146,13 +146,13 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
       </section>
 
       {/* 3. PROCESS SECTION */}
-      <section className="px-6 py-32 bg-[#F8F7F4] relative border-t border-dark/5">
-        <div className="max-w-4xl mx-auto text-center mb-20">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#F8F7F4] relative border-t border-dark/5">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-20">
           <span className="text-xs font-bold text-dark/40 tracking-[0.2em] uppercase mb-4 block">Transformation Framework</span>
-          <h2 className="text-4xl md:text-5xl font-medium text-dark tracking-tight">The Butterfly Methodology</h2>
+          <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-dark">The Butterfly Methodology</h2>
         </div>
         
-        <div className="max-w-6xl mx-auto">
+        <div className="container-app ">
           <div className="flex flex-col md:flex-row gap-8 lg:gap-12 relative">
             {/* Connecting line for desktop */}
             <div className="hidden md:block absolute top-[4rem] left-[10%] right-[10%] h-[1px] bg-dark/10 z-0"></div>
@@ -171,7 +171,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
                 className="flex-1 relative z-10 bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-[0_10px_30px_rgba(0,0,0,0.02)]"
               >
                 <div className="text-[10px] font-bold text-[#ca006c] tracking-widest uppercase mb-6">Phase {p.phase}</div>
-                <h4 className="text-xl font-medium text-dark mb-4">{p.stage}</h4>
+                <h4 className="text-h3 text-dark mb-4">{p.stage}</h4>
                 <p className="text-dark/60 font-light leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
@@ -180,22 +180,22 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
       </section>
 
       {/* 4. PHILOSOPHY SECTION */}
-      <section className="px-6 py-32 bg-[#1E293B] text-white relative overflow-hidden">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-[#1E293B] text-white relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-20">
            <svg viewBox="0 0 1000 1000" className="w-[120%] h-[120%] -ml-40 -mt-20 text-[#ca006c]">
               <path d="M -10 -20 C -100 -250 -350 -400 -450 -300 C -500 -200 -480 -50 -350 100 C -200 200 -50 80 -10 -20 Z" fill="currentColor" stroke="none" opacity="0.3"/>
            </svg>
         </div>
         
-        <div className="max-w-4xl mx-auto text-center relative z-10">
+        <div className="w-[min(100%-32px,1000px)] mx-auto text-center relative z-10">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-4xl md:text-6xl font-serif italic mb-8 font-medium">“Design is not decoration.<br/>It is transformation.”</h2>
-            <p className="text-xl md:text-2xl text-white/70 font-light max-w-3xl mx-auto leading-relaxed">
+            <h2 className="text-h2 italic mb-8">“Design is not decoration.<br/>It is transformation.”</h2>
+            <p className="text-xl md:text-2xl text-white/70 font-light w-[min(100%-32px,850px)] mx-auto leading-relaxed">
               {lang === 'en' 
                 ? 'I architect digital systems where UX strategy, AI workflows, behavioral psychology, and business growth meet to create seamless products.' 
                 : 'UX stratejisi, yapay zeka akışları, davranışsal psikoloji ve stratejik iş büyümesini bir araya getirerek sistemler kuruyorum.'}
@@ -205,18 +205,18 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
       </section>
 
       {/* 5. FINAL CTA */}
-      <section className="px-6 py-32 bg-white text-center">
-        <div className="max-w-3xl mx-auto">
+      <section className="py-16 md:py-24 lg:py-32 w-full bg-white text-center">
+        <div className="w-[min(100%-32px,850px)] mx-auto">
           <motion.div
              initial={{ opacity: 0, y: 20 }}
              whileInView={{ opacity: 1, y: 0 }}
              viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-6xl font-medium tracking-tight text-dark mb-8">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-[#ca006c]">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
-            <a href={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-3 rounded-2xl bg-[#ca006c] px-10 py-5 text-base font-bold text-white transition-all shadow-lg hover:-translate-y-1 hover:shadow-xl hover:bg-[#ca006c]/90 mt-8">
+            <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto text-base hover:shadow-xl mt-8">
               {lang === 'en' ? 'Book a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-5 h-5" />
             </a>
           </motion.div>
