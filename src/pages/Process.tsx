@@ -204,7 +204,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-24 md:py-32 bg-white relative">
         <div className="mx-auto max-w-4xl text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.8 }}>
-            <h2 className="text-h2 !text-white mb-8">
+            <h2 className="text-h2 mb-8">
               {lang === 'en' ? '“AI-accelerated, human-directed”' : '“Yapay zekâyla hızlanan, insan bakışıyla yönlenen”'}
             </h2>
             <p className="text-text-primary/70 text-lg md:text-xl font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto">

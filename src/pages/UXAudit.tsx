@@ -161,20 +161,20 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
-              <Link 
-                href="#ux-analizi-formu" 
-                onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('hero'); }} 
+              <a
+                href="#ux-analizi-formu"
+                onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('hero'); }}
                 className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-brand-primary text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg"
               >
                 {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
-              </Link>
-              <Link 
-                href="#ornek-ux-calismasi" 
-                onClick={(e) => smoothScroll(e, 'ornek-ux-calismasi')} 
+              </a>
+              <a
+                href="#ornek-ux-calismasi"
+                onClick={(e) => smoothScroll(e, 'ornek-ux-calismasi')}
                 className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm"
               >
                 <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample Work' : 'Örnek Çalışmayı İncele'}
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -303,22 +303,22 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               </div>
 
               <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 pt-4">
-                <Link 
-                  href="https://akademozalit-uxaudit-redesign.lovable.app/#ux-audit" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
+                <a
+                  href="https://akademozalit-uxaudit-redesign.lovable.app/#ux-audit"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   onClick={handleSampleProjectClick}
                   className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
                 >
                   <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample UX Audit' : 'Örnek UX Çalışmasını İncele'}
-                </Link>
-                <Link 
-                  href="#ux-analizi-formu" 
-                  onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('sample_project'); }} 
+                </a>
+                <a
+                  href="#ux-analizi-formu"
+                  onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('sample_project'); }}
                   className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20"
                 >
                   {lang === 'en' ? 'Analyze My Site Too' : 'Benim Sitemi de Analiz Et'}
-                </Link>
+                </a>
               </div>
               
               <p className="text-[0.875rem] leading-[1.55] text-white/50 mt-2">
@@ -647,13 +647,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               ? 'See the most critical issues with a free mini audit, and plan your next steps more consciously.' 
               : 'Ücretsiz mini analizle en kritik sorunları görün, sonraki adımlarınızı daha bilinçli planlayın.'}
           </p>
-          <Link 
-            href="#ux-analizi-formu" 
-            onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('final_cta'); }} 
+          <a
+            href="#ux-analizi-formu"
+            onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('final_cta'); }}
             className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-brand-primary text-[1rem] font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
           >
             {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />
-          </Link>
+          </a>
         </div>
       </section>
     </div>

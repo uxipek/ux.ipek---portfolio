@@ -4,7 +4,7 @@ export const projects = [
     title: "Zeka Oyunları",
     category: "Bilişsel Gelişim ve Oyun Platformu",
     description: "Oyun keşfi, oyunlaştırılmış ilerleme ve responsive ürün deneyimini bir araya getiren UX/UI case study.",
-    coverImage: "/Elmosite.png",
+    coverImage: "/zeka-oyunlari/zeka-oyunlari-cover.jpeg",
     services: ["UX Research", "Product Strategy", "UX/UI Design", "Responsive Design"],
     timeline: "4 Weeks",
     role: "UX/UI Designer",
