@@ -92,7 +92,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           <a href={`/${lang}/ux-audit`} className="hidden sm:flex items-center gap-2 rounded-full bg-brand-transformation px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
             {lang === 'en' ? 'Book' : 'Randevu'}
           </a>
-          <button className="p-2 text-text-primary/70 hover:text-text-primary focus:outline-none" onClick={toggleMenu} aria-label="Toggle menu">
+          <button className="p-2 text-text-primary/70 hover:text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50" onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
