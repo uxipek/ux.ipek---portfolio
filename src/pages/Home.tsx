@@ -726,10 +726,10 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   className="group flex flex-col rounded-[2rem] bg-white/5 border border-white/10 transition-all duration-500 overflow-hidden hover:bg-white/10 hover:border-white/20 hover:-translate-y-2 hover:shadow-[0_8px_30px_rgb(0,0,0,0.5)]"
                 >
                   <div className="relative aspect-[4/3] overflow-hidden bg-white/10">
-                    <img 
-                      src={project.coverImage} 
-                      alt={project.title} 
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    <img
+                      src={project.coverImage}
+                      alt={project.title}
+                      className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${project.id === "zeka-oyunlari" ? "object-top" : ""}`}
                       loading="lazy"
                     />
                     <div className="absolute top-4 left-4">
@@ -755,12 +755,21 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                         </span>
                       )}
                     </div>
-                    <Link 
-                      to={`/${lang}/projects/${project.id}`}
-                      className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
-                    >
-                      {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
-                    </Link>
+                    {project.id === "zeka-oyunlari" ? (
+                      <a
+                        href="/zeka-oyunlari-case-study.html"
+                        className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
+                      >
+                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
+                      </a>
+                    ) : (
+                      <Link
+                        to={`/${lang}/projects/${project.id}`}
+                        className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
+                      >
+                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
+                      </Link>
+                    )}
                   </div>
                 </motion.div>
               ))}
