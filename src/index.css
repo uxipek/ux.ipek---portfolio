@@ -1,18 +1,29 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
 @theme {
-  --color-dark: #28002c; /* Deep plum / Primary */
-  --color-cream: #FDFBF8; /* Elegant warm ivory */
-  --color-base: #FFFFFF; /* Pure white */
-  --color-pink: #ca006c; /* Vibrant magenta / Secondary */
-  --color-purple: #8B3A75; /* Soft mauve/plum for harmony */
-  --color-orange: #E0583A; /* Terra-cotta orange for warmth */
-  --color-green: #198754; /* Deep emerald for strategy */
-  
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --color-brand-primary: #28002C;
+  --color-brand-transformation: #CA006C;
+  --color-brand-secondary: #D60081;
+  --color-brand-technology: #246B9A;
+  --color-background: #F7F4F2;
+  --color-surface: #FFFFFF;
+  --color-text-primary: #28002C;
+  --color-text-muted: #8F8787;
+
+  /* Legacy mappings mapped to new semantic colors */
+  --color-dark: #28002c; 
+  --color-cream: #F7F4F2;
+  --color-base: #FFFFFF;
+  --color-pink: #CA006C;
+  --color-purple: #D60081;
+  --color-orange: #E0583A;
+  --color-green: #198754;
+
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
+  --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   
   --animate-blob: blob 10s infinite alternate;
 }
@@ -81,20 +92,21 @@
 
 body {
   overflow-x: hidden;
+  @apply font-sans text-text-primary bg-background;
 }
 @layer components {
   /* Typography Scale */
   .text-h1 {
-    @apply text-[clamp(2.5rem,5vw,4.75rem)] leading-[1.02] tracking-[-0.045em] font-bold;
+    @apply text-[clamp(2.5rem,5vw,4.75rem)] leading-[1.02] tracking-[-0.045em] font-bold font-serif text-brand-primary;
   }
   .text-h2 {
-    @apply text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.1] tracking-[-0.035em] font-bold;
+    @apply text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.1] tracking-[-0.035em] font-bold font-serif text-brand-primary;
   }
   .text-h3 {
     @apply text-[clamp(1.25rem,2vw,1.65rem)] leading-[1.25] tracking-[-0.015em] font-semibold;
   }
   .text-body-lg {
-    @apply text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.7];
+    @apply text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.7] text-text-muted;
   }
   .text-body {
     @apply text-base leading-[1.65];
@@ -105,18 +117,24 @@ body {
 
   /* Shared Container */
   .page-container {
+    @apply w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+  .container-app {
+    @apply w-full max-w-7xl mx-auto px-6 md:px-8 lg:px-12;
+  }
+  .page-container-old {
     @apply w-[min(100%-40px,1200px)] mx-auto;
   }
 
   /* Button System */
   .btn-primary-pink {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-[#ca006c] text-white hover:bg-[#a80058] focus-visible:ring-4 focus-visible:ring-[#ca006c]/30 shadow-lg;
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-transformation text-white hover:bg-brand-transformation/90 focus-visible:ring-4 focus-visible:ring-brand-transformation/30 shadow-lg;
   }
   .btn-dark-solid {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-[#1E293B] text-white hover:bg-[#2A3B54] focus-visible:ring-4 focus-visible:ring-[#1E293B]/30 shadow-lg;
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-primary text-white hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg;
   }
   .btn-light-solid {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-white border border-dark/10 text-[#1E293B] hover:bg-[#FDFBF8] focus-visible:ring-4 focus-visible:ring-[#1E293B]/10 shadow-sm;
+    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-white border border-dark/10 text-brand-primary hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm;
   }
   .btn-outline-light {
     @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-white/20 text-white hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20;

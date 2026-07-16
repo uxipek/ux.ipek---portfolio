@@ -22,28 +22,28 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
   }, [lang]);
 
   return (
-    <div className="bg-[#FDFBF8] w-full min-h-screen pt-32 pb-24 px-6">
-      <div className="max-w-[800px] mx-auto">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-dark/80 hover:text-pink transition-colors mb-8 text-sm font-medium">
+    <div className="bg-background w-full min-h-screen pt-32 pb-24">
+      <div className="max-w-[800px] mx-auto px-6 md:px-8">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-text-primary/80 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-dark mb-6">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-6">
           {lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}
         </h1>
-        <p className="text-dark/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
+        <p className="text-text-primary/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en' 
             ? 'We are committed to protecting your privacy and ensuring your personal information is handled securely and transparently.' 
             : 'Gizliliğinizi korumayı, kişisel bilgilerinizin şeffaf ve güvenli bir şekilde işlenmesini taahhüt ediyoruz.'}
         </p>
-        <p className="text-dark/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
+        <p className="text-text-primary/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
         </p>
 
-        <div className="space-y-16 text-dark/80 font-light leading-[1.7]">
+        <div className="space-y-16 text-text-primary/80 font-light leading-[1.7]">
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">01</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">01</span> 
               {lang === 'en' ? 'Purpose' : 'Amaç'}
             </h2>
             <p className="mb-4">
@@ -59,8 +59,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">02</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">02</span> 
               {lang === 'en' ? 'Information We Collect' : 'Topladığımız Bilgiler'}
             </h2>
             <p className="mb-6">
@@ -69,31 +69,31 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
                 : 'İletişim formlarımızı, proje talep özelliklerini kullandığınızda veya web sitemizde gezindiğinizde aşağıdaki bilgileri toplayabiliriz:'}
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              <div className="p-6 rounded-2xl bg-white border border-dark/5">
-                <h4 className="font-medium text-dark mb-2 text-sm">{lang === 'en' ? 'Provided by You' : 'Sizin Sağladıklarınız'}</h4>
+              <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
+                <h4 className="font-medium text-text-primary mb-2 text-sm">{lang === 'en' ? 'Provided by You' : 'Sizin Sağladıklarınız'}</h4>
                 <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink/50"></div> Name</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink/50"></div> Email address</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink/50"></div> Phone number</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink/50"></div> Company name (if provided)</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-pink/50"></div> Project information and goals</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Name</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Email address</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Phone number</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Company name (if provided)</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Project information and goals</li>
                 </ul>
               </div>
-              <div className="p-6 rounded-2xl bg-white border border-dark/5">
-                <h4 className="font-medium text-dark mb-2 text-sm">{lang === 'en' ? 'Collected Automatically' : 'Otomatik Toplananlar'}</h4>
+              <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
+                <h4 className="font-medium text-text-primary mb-2 text-sm">{lang === 'en' ? 'Collected Automatically' : 'Otomatik Toplananlar'}</h4>
                 <ul className="space-y-2 text-sm">
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-dark/20"></div> Browser information</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-dark/20"></div> Device information</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-dark/20"></div> Website analytics data</li>
-                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-dark/20"></div> IP address</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> Browser information</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> Device information</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> Website analytics data</li>
+                  <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> IP address</li>
                 </ul>
               </div>
             </div>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">03</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">03</span> 
               {lang === 'en' ? 'Why We Process Data' : 'Verileri Neden İşliyoruz?'}
             </h2>
             <p className="mb-4">
@@ -101,27 +101,27 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
             </p>
             <ul className="space-y-3">
               <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-dark/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-dark"></div></div>
+                <div className="w-6 h-6 rounded-full bg-brand-primary/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-brand-primary"></div></div>
                 <span>{lang === 'en' ? 'To respond to your inquiries and project requests.' : 'Taleplerinize ve proje isteklerinize yanıt vermek.'}</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-dark/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-dark"></div></div>
+                <div className="w-6 h-6 rounded-full bg-brand-primary/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-brand-primary"></div></div>
                 <span>{lang === 'en' ? 'To prepare strategic project proposals and UX analyses.' : 'Stratejik proje teklifleri ve UX analizleri hazırlamak.'}</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-dark/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-dark"></div></div>
+                <div className="w-6 h-6 rounded-full bg-brand-primary/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-brand-primary"></div></div>
                 <span>{lang === 'en' ? 'To improve our website experience and digital presence.' : 'Web sitemizi ve dijital varlığımızı iyileştirmek.'}</span>
               </li>
               <li className="flex items-start gap-3">
-                <div className="w-6 h-6 rounded-full bg-dark/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-dark"></div></div>
+                <div className="w-6 h-6 rounded-full bg-brand-primary/5 flex items-center justify-center flex-shrink-0 mt-0.5"><div className="w-2 h-2 rounded-full bg-brand-primary"></div></div>
                 <span>{lang === 'en' ? 'To send relevant service updates (if you opted in).' : '(Onay verdiyseniz) hizmetlerimizle ilgili güncellemeler göndermek.'}</span>
               </li>
             </ul>
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">04</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">04</span> 
               {lang === 'en' ? 'Data Security' : 'Veri Güvenliği'}
             </h2>
             <p>
@@ -132,8 +132,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">05</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">05</span> 
               {lang === 'en' ? 'Third Party Services' : 'Üçüncü Taraf Hizmetleri'}
             </h2>
             <p className="mb-4">
@@ -142,10 +142,10 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
                 : 'Web sitemizi etkili bir şekilde yönetmek ve profesyonel bir deneyim sunmak için güvenli üçüncü taraf platformlarla çalışıyoruz. Bunlar şunları içerir:'}
             </p>
             <div className="flex flex-wrap gap-3">
-              <span className="px-4 py-2 rounded-full border border-dark/10 bg-white text-sm">Google Analytics</span>
-              <span className="px-4 py-2 rounded-full border border-dark/10 bg-white text-sm">Vercel</span>
+              <span className="px-4 py-2 rounded-full border border-brand-primary/10 bg-white text-sm">Google Analytics</span>
+              <span className="px-4 py-2 rounded-full border border-brand-primary/10 bg-white text-sm">Vercel</span>
             </div>
-            <p className="mt-6 text-sm text-dark/50">
+            <p className="mt-6 text-sm text-text-primary/50">
               {lang === 'en' 
                 ? 'These services process data according to their own privacy policies. We do not sell your data to third parties.' 
                 : 'Bu servisler, verileri kendi gizlilik politikalarına göre işler. Verilerinizi asla üçüncü taraflara satmıyoruz.'}
@@ -153,8 +153,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">06</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">06</span> 
               {lang === 'en' ? 'Data Retention' : 'Veri Saklama Süresi'}
             </h2>
             <p>
@@ -165,8 +165,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-dark mb-6 flex items-baseline gap-4">
-              <span className="text-pink text-sm font-bold">07</span> 
+            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
+              <span className="text-brand-transformation text-sm font-bold">07</span> 
               {lang === 'en' ? 'Your Rights' : 'Haklarınız'}
             </h2>
             <p className="mb-4">
@@ -175,10 +175,10 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
                 : 'Kişisel verilerinizle ilgili olarak yürürlükteki yasalara göre çeşitli haklara sahipsiniz:'}
             </p>
             <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <li className="p-4 rounded-xl bg-dark/5 text-sm">{lang === 'en' ? 'Right to access your data' : 'Verilerinize erişim sağlama hakkı'}</li>
-              <li className="p-4 rounded-xl bg-dark/5 text-sm">{lang === 'en' ? 'Right to correct inaccuracies' : 'Hatalı verileri düzelttirme hakkı'}</li>
-              <li className="p-4 rounded-xl bg-dark/5 text-sm">{lang === 'en' ? 'Right to request deletion' : 'Verilerinizin silinmesini talep etme hakkı'}</li>
-              <li className="p-4 rounded-xl bg-dark/5 text-sm">{lang === 'en' ? 'Right to withdraw consent' : 'Onayınızı geri çekme hakkı'}</li>
+              <li className="p-4 rounded-xl bg-brand-primary/5 text-sm">{lang === 'en' ? 'Right to access your data' : 'Verilerinize erişim sağlama hakkı'}</li>
+              <li className="p-4 rounded-xl bg-brand-primary/5 text-sm">{lang === 'en' ? 'Right to correct inaccuracies' : 'Hatalı verileri düzelttirme hakkı'}</li>
+              <li className="p-4 rounded-xl bg-brand-primary/5 text-sm">{lang === 'en' ? 'Right to request deletion' : 'Verilerinizin silinmesini talep etme hakkı'}</li>
+              <li className="p-4 rounded-xl bg-brand-primary/5 text-sm">{lang === 'en' ? 'Right to withdraw consent' : 'Onayınızı geri çekme hakkı'}</li>
             </ul>
           </section>
         </div>

@@ -4,7 +4,7 @@ import { Logo } from "./Logo";
 
 export function Footer({ lang }: { lang: "en" | "tr" }) {
   return (
-    <footer className="bg-[#1E293B] text-white py-16 px-6 mt-auto">
+    <footer className="bg-brand-primary text-white py-16 mt-auto">
       <div className="container-app grid grid-cols-1 md:grid-cols-6 gap-8 lg:gap-12">
         <div className="md:col-span-2">
           <Link to={`/${lang}`} className="inline-block mb-6">
@@ -21,7 +21,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">UXIPEK</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">UXIPEK</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/about`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
             <li><Link to={`/${lang}/services`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>
@@ -31,7 +31,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">Portfolio</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Portfolio</h4>
           <ul className="space-y-4">
             <li><a href={`/${lang}/#portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</a></li>
             <li><Link to={`/${lang}/portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
@@ -40,7 +40,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">Connect</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Connect</h4>
           <ul className="space-y-4">
             <li><a href="https://www.linkedin.com/in/ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">LinkedIn</a></li>
             <li><a href="https://medium.com/@ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Medium</a></li>
@@ -49,7 +49,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-pink">Legal</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Legal</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/privacy-policy`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}</Link></li>
             <li><Link to={`/${lang}/kvkk`} className="text-white/70 hover:text-white transition-colors">KVKK Aydınlatma Metni</Link></li>

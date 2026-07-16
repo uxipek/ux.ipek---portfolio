@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
 import { projects } from "../data/projects";
 import { EventGoCaseStudy } from "./EventGoCaseStudy";
+import { AkademiOzalitCaseStudy } from "./AkademiOzalitCaseStudy";
 
 export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
   const { id } = useParams<{ id: string }>();
@@ -20,31 +21,34 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
 
   const otherProjects = projects.filter(p => p.id !== id).slice(0, 3);
 
+  if (project.id === "akademi-ozalit") {
+    return <AkademiOzalitCaseStudy lang={lang} project={project} otherProjects={otherProjects} />;
+  }
   if (project.id === "eventgo") {
     return <EventGoCaseStudy lang={lang} project={project} otherProjects={otherProjects} />;
   }
 
   return (
-    <div className="bg-[#FDFBF8] min-h-screen pt-24 pb-0 w-full text-dark">
+    <div className="bg-background min-h-screen pt-24 pb-0 w-full text-text-primary">
       {/* Hero Section */}
-      <div className="container-app px-6 py-12">
-        <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-dark/60 hover:text-pink transition-colors mb-8 text-sm font-medium">
+      <div className="container-app py-12">
+        <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-text-primary/60 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
         </Link>
         <div className="mb-12 max-w-4xl">
-          <span className="inline-block mb-4 text-pink font-semibold tracking-wider text-sm uppercase">
+          <span className="inline-block mb-4 text-brand-transformation font-semibold tracking-wider text-sm uppercase">
             {project.category}
           </span>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-dark/70 font-light leading-relaxed">
+          <p className="text-xl md:text-2xl text-text-primary/70 font-light leading-relaxed">
             {project.description}
           </p>
         </div>
       </div>
 
-      <div className="w-full px-6 max-w-[1400px] mx-auto mb-20">
+      <div className="w-full px-6 md:px-8 lg:px-12 max-w-[1400px] mx-auto mb-20">
          <motion.div 
            initial={{ opacity: 0, y: 30 }}
            animate={{ opacity: 1, y: 0 }}
@@ -56,36 +60,36 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       </div>
 
       {/* Project Info & Overview */}
-      <div className="container-app px-6 mb-24">
+      <div className="container-app mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
           
           <div className="lg:col-span-4 order-2 lg:order-1">
-            <div className="sticky top-32 p-8 bg-white rounded-3xl border border-dark/5 shadow-xl shadow-dark/5">
-               <div className="mb-8 pb-8 border-b border-dark/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-dark/40 font-bold mb-3">{lang === 'en' ? 'Role' : 'Rol'}</h4>
-                 <p className="text-dark font-medium">{project.role}</p>
+            <div className="sticky top-32 p-8 bg-white rounded-3xl border border-brand-primary/5 shadow-xl shadow-dark/5">
+               <div className="mb-8 pb-8 border-b border-brand-primary/5">
+                 <h4 className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold mb-3">{lang === 'en' ? 'Role' : 'Rol'}</h4>
+                 <p className="text-text-primary font-medium">{project.role}</p>
                </div>
                
-               <div className="mb-8 pb-8 border-b border-dark/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-dark/40 font-bold mb-3">{lang === 'en' ? 'Timeline' : 'Süreç'}</h4>
-                 <p className="text-dark font-medium">{project.timeline}</p>
+               <div className="mb-8 pb-8 border-b border-brand-primary/5">
+                 <h4 className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold mb-3">{lang === 'en' ? 'Timeline' : 'Süreç'}</h4>
+                 <p className="text-text-primary font-medium">{project.timeline}</p>
                </div>
                
-               <div className="mb-8 pb-8 border-b border-dark/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-dark/40 font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
+               <div className="mb-8 pb-8 border-b border-brand-primary/5">
+                 <h4 className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
                  <div className="flex flex-wrap gap-2">
                    {project.tools.map(tool => (
-                     <span key={tool} className="px-3 py-1.5 bg-dark/5 rounded-md text-sm font-medium text-dark/80">{tool}</span>
+                     <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-sm font-medium text-text-primary/80">{tool}</span>
                    ))}
                  </div>
                </div>
                
                <div>
-                 <h4 className="text-[11px] uppercase tracking-widest text-dark/40 font-bold mb-3">{lang === 'en' ? 'Services Provided' : 'Hizmetler'}</h4>
+                 <h4 className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold mb-3">{lang === 'en' ? 'Services Provided' : 'Hizmetler'}</h4>
                  <ul className="space-y-2">
                    {project.services.map(service => (
-                     <li key={service} className="flex items-start gap-2 text-sm font-medium text-dark/80">
-                       <CheckCircle2 className="w-4 h-4 text-pink flex-shrink-0 mt-0.5" />
+                     <li key={service} className="flex items-start gap-2 text-sm font-medium text-text-primary/80">
+                       <CheckCircle2 className="w-4 h-4 text-brand-transformation flex-shrink-0 mt-0.5" />
                        {service}
                      </li>
                    ))}
@@ -94,7 +98,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             </div>
           </div>
           
-          <div className="lg:col-span-8 order-1 lg:order-2 text-lg font-light text-dark/80 leading-relaxed space-y-16">
+          <div className="lg:col-span-8 order-1 lg:order-2 text-lg font-light text-text-primary/80 leading-relaxed space-y-16">
             
             <section>
               <h2 className="text-h2 mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
@@ -108,7 +112,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             
             <section>
               <h2 className="text-h2 mb-6">{lang === 'en' ? 'The Challenge' : 'Zorluk'}</h2>
-              <p className="p-8 rounded-2xl bg-dark/5 border-l-4 border-pink">
+              <p className="p-8 rounded-2xl bg-brand-primary/5 border-l-4 border-brand-transformation">
                 The main challenge was simplifying a multi-step, data-heavy process into an experience that felt effortless and trustworthy for the end user, while accommodating diverse user personas and technical constraints.
               </p>
             </section>
@@ -119,12 +123,12 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                 Extensive qualitative and quantitative research revealed significant friction points in the existing user journey. We utilized affinity mapping and user interviews to pinpoint exactly where users were dropping off.
               </p>
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                <li className="p-6 bg-white rounded-2xl border border-dark/5 shadow-sm">
-                   <h4 className="font-bold text-dark mb-2">Insight 1</h4>
+                <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
+                   <h4 className="font-bold text-text-primary mb-2">Insight 1</h4>
                    <p className="text-sm">Users felt overwhelmed by the amount of choices presented on a single screen.</p>
                 </li>
-                <li className="p-6 bg-white rounded-2xl border border-dark/5 shadow-sm">
-                   <h4 className="font-bold text-dark mb-2">Insight 2</h4>
+                <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
+                   <h4 className="font-bold text-text-primary mb-2">Insight 2</h4>
                    <p className="text-sm">Trust signals were missing during critical conversion moments, leading to abandonment.</p>
                 </li>
               </ul>
@@ -135,7 +139,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
               <p className="mb-8">
                 Based on our research, the information architecture was completely restructured. We adopted a progressive disclosure approach, presenting information only when the user needed it. The visual language was refined to communicate premium quality, using a clean layout, generous whitespace, and purposeful micro-interactions.
               </p>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-dark/5 mb-6">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-brand-primary/5 mb-6">
                  {/* Placeholder for project specific UI screenshots */}
                  <img src={project.coverImage} alt="UI Design" className="w-full h-full object-cover opacity-80" />
               </div>
@@ -153,7 +157,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       </div>
 
       {/* CTA Section */}
-      <section className="px-6 py-24 bg-dark text-center">
+      <section className="py-24 bg-brand-primary text-center">
         <div className="w-[min(100%-32px,850px)] mx-auto">
           <h2 className="text-h2 mb-6">
             {lang === 'en' ? 'Ready to elevate your product?' : 'Ürününüzü bir üst seviyeye taşımaya hazır mısınız?'}
@@ -162,10 +166,10 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             {lang === 'en' ? 'Let’s discuss how strategic UX design can drive growth for your business.' : 'Stratejik UX tasarımının işletmeniz için nasıl büyüme sağlayabileceğini konuşalım.'}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-pink px-8 py-4 text-sm font-bold text-white transition-all hover:bg-pink/90 hover:shadow-lg hover:-translate-y-1">
+             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:bg-brand-transformation/90 hover:shadow-lg hover:-translate-y-1">
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
-             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-dark/10 px-8 py-4 text-sm font-bold text-dark transition-all hover:bg-[#FDFBF8] hover:border-dark/20 shadow-sm">
+             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-sm font-bold text-text-primary transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
                {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu Alın'}
              </Link>
           </div>
@@ -173,13 +177,13 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       </section>
 
       {/* More Case Studies */}
-      <section className="px-6 py-24 bg-[#F5F3EF]">
+      <section className="py-24 bg-background">
         <div className="container-app ">
           <div className="flex items-center justify-between mb-12">
             <h2 className="text-h2 ">
               {lang === 'en' ? 'More Case Studies' : 'Daha Fazla Çalışma'}
             </h2>
-            <Link to={`/${lang}/portfolio`} className="hidden sm:flex items-center gap-2 text-pink font-semibold hover:text-dark transition-colors">
+            <Link to={`/${lang}/portfolio`} className="hidden sm:flex items-center gap-2 text-brand-transformation font-semibold hover:text-text-primary transition-colors">
               {lang === 'en' ? 'View All' : 'Tümünü Gör'} <ArrowRight className="w-4 h-4" />
             </Link>
           </div>
@@ -190,14 +194,14 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
                   <img src={p.coverImage} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
-                <h3 className="font-bold text-dark text-xl mb-1 group-hover:text-pink transition-colors">{p.title}</h3>
-                <p className="text-sm text-dark/60 font-medium">{p.category}</p>
+                <h3 className="font-bold text-text-primary text-xl mb-1 group-hover:text-brand-transformation transition-colors">{p.title}</h3>
+                <p className="text-sm text-text-primary/60 font-medium">{p.category}</p>
               </Link>
             ))}
           </div>
           
           <div className="mt-8 text-center sm:hidden">
-             <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-pink font-semibold border border-pink/20 px-6 py-3 rounded-full hover:bg-pink hover:text-white transition-all">
+             <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-brand-transformation font-semibold border border-brand-transformation/20 px-6 py-3 rounded-full hover:bg-brand-transformation hover:text-white transition-all">
                {lang === 'en' ? 'View All Projects' : 'Tüm Projeleri Gör'} <ArrowRight className="w-4 h-4" />
              </Link>
           </div>

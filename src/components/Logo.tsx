@@ -38,7 +38,7 @@ export function Logo({ className = "h-8" }: { className?: string }) {
       </g>
       
       {/* Center Dot */}
-      <circle cx="100" cy="75" r="8" fill="#ca006c" />
+      <circle cx="100" cy="75" r="8" fill="#CA006C" />
     </svg>
   );
 }

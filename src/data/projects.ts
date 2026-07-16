@@ -1,5 +1,27 @@
 export const projects = [
   {
+    id: "zeka-oyunlari",
+    title: "Zeka Oyunları",
+    category: "Bilişsel Gelişim ve Oyun Platformu",
+    description: "Oyun keşfi, oyunlaştırılmış ilerleme ve responsive ürün deneyimini bir araya getiren UX/UI case study.",
+    coverImage: "/Elmosite.png",
+    services: ["UX Research", "Product Strategy", "UX/UI Design", "Responsive Design"],
+    timeline: "4 Weeks",
+    role: "UX/UI Designer",
+    tools: ["Figma"]
+  },
+  {
+    id: "akademi-ozalit",
+    title: "Akademi Ozalit",
+    category: "UX Audit & Website Redesign",
+    description: "Akademi Ozalit için UX Audit temelli web sitesi yeniden tasarımı. Kullanıcı deneyimi, içerik hiyerarşisi, erişilebilirlik ve dönüşüm odaklı stratejik bir vaka çalışması.",
+    coverImage: "https://images.unsplash.com/photo-1555421689-d68471e189f2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2000&q=80",
+    services: ["UX Audit", "UX Strategy", "UI Design"],
+    timeline: "2 Weeks",
+    role: "UX/UI Designer",
+    tools: ["Figma"]
+  },
+  {
     id: "eventgo",
     title: "EventGO",
     category: "Gamified Sport Event Planner",

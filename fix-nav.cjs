@@ -1,34 +1,31 @@
 const fs = require('fs');
-const path = require('path');
 
-const navPath = path.join(__dirname, 'src', 'components', 'Nav.tsx');
-let content = fs.readFileSync(navPath, 'utf8');
+let content = fs.readFileSync('src/components/Nav.tsx', 'utf8');
 
-content = content.replace(/className=\{`transition-colors \$\{isAboutActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isAboutActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors \$\{isServicesActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isServicesActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors \$\{isUxAuditActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isUxAuditActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors \$\{isProcessActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isProcessActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors \$\{isPortfolioActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isPortfolioActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors \$\{isContactActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors relative pb-1 ${isContactActive ? "text-[#ca006c] font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-[#ca006c] after:rounded-full" : "hover:text-[#ca006c]"}`}');
+// The old active logic had bugs like pathname.includes('/portfolio') being true for everything? Wait, no.
+// But we need strict matching or at least better matching.
 
-// Mobile
-content = content.replace(/className=\{`transition-colors text-lg \$\{isAboutActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isAboutActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors text-lg \$\{isServicesActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isServicesActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors text-lg \$\{isUxAuditActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isUxAuditActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors text-lg \$\{isProcessActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isProcessActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors text-lg \$\{isPortfolioActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isPortfolioActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
-content = content.replace(/className=\{`transition-colors text-lg \$\{isContactActive \? "text-pink font-semibold" : "hover:text-pink"\}`\}/g,
-  'className={`transition-colors text-lg ${isContactActive ? "text-[#ca006c] font-semibold" : "hover:text-[#ca006c]"}`}');
+const newLogic = `
+  const location = useLocation();
+  const pathname = location.pathname;
+  const hash = location.hash;
 
-fs.writeFileSync(navPath, content, 'utf8');
+  const currentPath = pathname.replace(/^\\/(en|tr)/, '') || '/';
+  
+  const isHomePage = currentPath === '/';
+  const isHome = isHomePage;
+  
+  const isAboutActive = isHomePage && (!hash || hash === '#about');
+  const isServicesActive = currentPath.startsWith('/services') || (isHomePage && hash === '#services');
+  const isUxAuditActive = currentPath.startsWith('/ux-audit');
+  const isProcessActive = currentPath.startsWith('/process') || (isHomePage && hash === '#process');
+  const isPortfolioActive = currentPath.startsWith('/portfolio') || currentPath.startsWith('/case-study') || currentPath.includes('eventgo');
+  const isContactActive = currentPath.startsWith('/contact') || (isHomePage && hash === '#contact');
+`;
+
+content = content.replace(
+  /const location = useLocation\(\);[\s\S]*?const \[isMenuOpen, setIsMenuOpen\] = useState\(false\);/,
+  newLogic + '\n  const [isMenuOpen, setIsMenuOpen] = useState(false);'
+);
+
+fs.writeFileSync('src/components/Nav.tsx', content, 'utf8');

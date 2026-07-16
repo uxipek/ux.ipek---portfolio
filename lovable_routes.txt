@@ -1,0 +1,658 @@
+./index-B-PUomsC.js
+/assets/before-home-ccYS-SQO.png
+/assets/before-services-DMfrf-G3.png
+/assets/before-machine-park-DKGi0FJr.png
+c27b0906-7ad1-4fc7-81c9-e1a79b8e7581
+756428c5-9bf4-416f-b40f-d94a366ceee6
+/__l5e/assets-v1/c27b0906-7ad1-4fc7-81c9-e1a79b8e7581/redesign-home.png
+a/v1/756428c5-9bf4-416f-b40f-d94a366ceee6/c27b0906-7ad1-4fc7-81c9-e1a79b8e7581/redesign-home.png
+redesign-home.png
+,created_at:
+/assets/redesign-machine-park-DMSNKWuG.png
+0ed8ffaa-8dd6-4c75-b316-7acbadcc0be4
+756428c5-9bf4-416f-b40f-d94a366ceee6
+/__l5e/assets-v1/0ed8ffaa-8dd6-4c75-b316-7acbadcc0be4/redesign-contact.png
+a/v1/756428c5-9bf4-416f-b40f-d94a366ceee6/0ed8ffaa-8dd6-4c75-b316-7acbadcc0be4/redesign-contact.png
+redesign-contact.png
+,created_at:
+},f={version:1,asset_id:
+,project_id:
+/__l5e/assets-v1/e04998c5-74dc-482b-9337-0f8026a04db3/before-contact.png
+a/v1/756428c5-9bf4-416f-b40f-d94a366ceee6/e04998c5-74dc-482b-9337-0f8026a04db3/before-contact.png
+before-contact.png
+,created_at:
+},p=s.url,m=d.url,h=f.url,g=[{id:
+Genel Bakış
+Önce / Sonra
+sonraki-adim
+Sonraki Adım
+[data-reveal]
+));let t=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&(e.target.classList.add(
+,e,{passive:!0}),()=>window.removeEventListener(
+,e)},[]),(0,r.useEffect)(()=>{let e=new IntersectionObserver(e=>{e.forEach(e=>{e.isIntersecting&&t(e.target.id)})},{rootMargin:
+,{className:
+bg-background/90 backdrop-blur border-border
+bg-background border-transparent
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+Sayfa içi gezinme
+,{onClick:()=>s(t.id),className:
+text-muted-foreground hover:text-ink
+,children:[t.label,e===t.id&&(0,c.jsx)(
+,{className:
+})]},t.id))}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{onClick:()=>s(
+),className:
+}),(0,c.jsxs)(
+Menüyü aç/kapat
+aria-expanded
+inline-flex h-10 w-10 items-center justify-center rounded-sm border border-border lg:hidden
+,{className:
+}),(0,c.jsx)(
+aria-hidden
+,children:(0,c.jsx)(
+M0 1h18M0 6h18M0 11h18
+currentColor
+})})]})]})]}),a&&(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[g.map(t=>(0,c.jsx)(
+,{onClick:()=>s(t.id),className:
+text-primary
+,children:t.label},t.id)),(0,c.jsx)(
+,{onClick:()=>s(
+),className:
+}){let i=r===
+h-[520px] sm:h-[620px] lg:h-[720px]
+h-[460px] sm:h-[560px] lg:h-[680px]
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{onClick:n,className:
+${t} — tam ekran görüntüle
+Tam Ekran Gör ↗
+,onClick:n,className:
+${t} — tam ekran görüntüle
+,{src:e,alt:t,loading:
+,className:
+&&n()};document.addEventListener(
+,()=>{document.removeEventListener(
+,t),document.body.style.overflow=r}},[e,n]),e?(0,c.jsxs)(
+fixed inset-0 z-50 overflow-y-auto bg-black/90
+,{onClick:n,
+,className:
+,children:(0,c.jsx)(
+aria-hidden
+,children:(0,c.jsx)(
+M1 1l14 14M15 1L1 15
+currentColor
+})})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsx)(
+,{src:e,alt:t,className:
+,{children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{onClick:()=>a(
+),className:
+bg-ink text-white
+text-ink/70 hover:text-ink
+}),(0,c.jsx)(
+,{onClick:()=>a(
+),className:
+bg-primary text-white
+text-ink/70 hover:text-ink
+})]}),(0,c.jsx)(y,{src:o.src,alt:o.alt,onExpand:()=>n(o.src,o.lbAlt),size:
+,className:
+,children:[(0,c.jsx)(v,{}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+#tasarimlar
+inline-flex h-11 items-center rounded-sm bg-primary px-5 text-[14px] font-medium text-white transition-colors hover:bg-primary-dark
+}),(0,c.jsx)(
+,className:
+})]})]}),(0,c.jsx)(
+,{className:
+data-reveal
+,{className:
+,children:[[
+Akademi Ozalit Website Redesign
+UX Audit · UX Strategy · UI Design
+Codex · Stitch · Figma · AI-assisted
+Konsept · Client Presentation
+,{children:[(0,c.jsx)(
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t})]},e))})})]}),(0,c.jsx)(
+,{className:
+data-reveal
+Akademi Ozalit — yeniden tasarlanan ana sayfa önizlemesi
+Redesign — Ana Sayfa
+})})]})}),(0,c.jsx)(
+genel-bakis
+border-t border-border bg-surface
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+data-reveal
+,{className:
+})})]}),(0,c.jsx)(
+,{className:
+,children:[[
+Hizmetleri netleştirmek
+Kullanıcının ihtiyaç duyduğu baskı hizmetini hızlıca bulmasını sağlamak.
+Güveni güçlendirmek
+Üretim kapasitesini, makine parkurunu ve iş örneklerini daha görünür hâle getirmek.
+Teklif akışını kolaylaştırmak
+Kullanıcıyı WhatsApp veya yapılandırılmış teklif akışına daha açık biçimde yönlendirmek.
+data-reveal
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t}),(0,c.jsx)(
+,{className:
+,children:n})]},e))})]})}),(0,c.jsx)(
+,className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+data-reveal
+,{className:
+})})]}),(0,c.jsx)(
+,{className:
+,children:[[
+Çalışmayan iletişim formu
+Mevcut formun gerçek bir gönderim altyapısı bulunmadığı için kullanıcı taleplerinin işletmeye ulaşmama riski vardı.
+Görsele gömülü hero içeriği
+Ana mesaj ve “Hemen Teklif Alın” çağrısı tek bir görselin parçasıydı. Buton görünmesine rağmen tıklanabilir değildi.
+Belirsiz teklif ve fiyat akışı
+Kullanıcı fiyatı etkileyen ölçü, adet, malzeme ve sonlandırma gibi kriterleri göremiyordu.
+Sınırlı güven kanıtı
+Makine parkuru ve hizmetler bulunmasına rağmen gerçek işler, üretim süreci ve müşteri kanıtları yeterince görünür değildi.
+Tek kanallı iletişim
+Dönüşüm akışı büyük ölçüde WhatsApp
+]].map(([e,t,n])=>(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsx)(
+,{className:
+,children:t})}),(0,c.jsx)(
+,{className:
+,children:n})]},e))}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+,children:[{src:i,title:
+Temel değer önerisi ve teklif çağrısı görselin içine gömülü.
+Akademi Ozalit — mevcut ana sayfa ekran görüntüsü
+Hizmetlerimiz
+Hizmetler listeleniyor ancak her hizmet için güçlü bir teklif adımı bulunmuyor.
+Akademi Ozalit — mevcut hizmetler sayfası ekran görüntüsü
+Makine Parkuru
+Üretim kategorileri gösteriliyor ancak kapasite ve kullanıcı faydası yeterince açıklanmıyor.
+Akademi Ozalit — mevcut makine parkuru sayfası ekran görüntüsü
+data-reveal
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:e.title}),(0,c.jsx)(
+,{className:
+,children:e.caption})]})]},e.title))})]})}),(0,c.jsx)(
+,className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+data-reveal
+Yeni deneyim; kullanıcının hizmeti anlama, üretim gücüne güven duyma ve doğru teklif kanalına ulaşma yolculuğunu dört aşamalı net bir çerçevede kuruyor.
+,{className:
+,children:[[
+Hizmetleri ve değer önerisini ilk bakışta anlaşılır hâle getirmek.
+Üretim kapasitesini ve iş örneklerini görünür kılmak.
+Fiyatı ve teklif sürecini etkileyen kriterleri açıklamak.
+Her hizmetten bağlama özel teklif alma adımı sunmak.
+,{className:
+data-reveal
+,{className:
+,children:[
+,n+1]}),(0,c.jsx)(
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t}),n<3&&(0,c.jsx)(
+aria-hidden
+,className:
+})]},e))}),(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+,children:[
+Makine Parkuru
+].map(e=>(0,c.jsx)(
+,{className:
+border-primary bg-blush text-primary
+border-border bg-surface text-ink
+,children:e},e))})]})})})]})]})}),(0,c.jsx)(
+border-t border-border
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+Görsele gömülü mesaj
+Gerçek, okunabilir başlık ve tıklanabilir CTA
+Üç temel hizmet
+Altı yapılandırılmış hizmet ve bağlama özel teklif butonları
+Genel işletme iddiaları
+Üretim örnekleri, konum ve şeffaf süreç anlatımı
+WhatsApp ağırlıklı tek yol
+Hizmet bazlı teklif ve çoklu iletişim seçenekleri
+,{className:
+border-t border-border
+,children:[(0,c.jsx)(
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t}),(0,c.jsx)(
+,{className:
+,children:n})]},e))]})]})}),(0,c.jsx)(
+border-t border-border bg-surface
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+data-reveal
+Önce — Ana Sayfa
+Önce — Ana Sayfa
+Redesign — yeni ana sayfa
+Redesign — Ana Sayfa
+,{className:
+data-reveal
+Net değer önerisi
+İşletmenin hizmeti ve konumu ilk ekranda açıkça anlatılıyor.
+Çoklu CTA yapısı
+WhatsApp ve hizmetleri inceleme seçenekleri farklı kullanıcı niyetlerini destekliyor.
+Hizmet seçimi
+Altı hizmet, taranabilir kartlarla sunuluyor.
+Güven ve üretim kanıtı
+Üretim yaklaşımı ve iş örnekleri satın alma kararını destekliyor.
+Şeffaf fiyatlandırma
+Fiyatı belirleyen temel kriterler kullanıcıya açıklanıyor.
+Güçlü son CTA
+Sayfanın sonunda kullanıcı tekrar teklif almaya yönlendiriliyor.
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:e}),(0,c.jsxs)(
+,{children:[(0,c.jsx)(
+,{className:
+,children:t}),(0,c.jsx)(
+,{className:
+,children:n})]})]},e))})]})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+data-reveal
+Önce — Hizmetlerimiz sayfası
+Önce — Hizmetlerimiz
+Redesign — yeni Hizmetlerimiz sayfası
+Redesign — Hizmetlerimiz
+,{className:
+,children:[[
+Her hizmetin hedef kullanıcıları açıklanıyor.
+Teklif için gerekenler
+Ölçü, adet, malzeme ve dosya formatı gibi girdiler önceden belirtiliyor.
+Hizmete özel CTA
+Kullanıcı ilgili hizmet için doğrudan teklif akışına geçebiliyor.
+data-reveal
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t})]},e))})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+data-reveal
+Önce — Makine Parkuru sayfası
+Önce — Makine Parkuru
+Redesign — yeni Makine Parkuru sayfası
+Redesign — Makine Parkuru
+,{className:
+,children:[
+Desteklenen malzeme ve üretim özellikleri.
+Özel projeler için görünür teklif yönlendirmesi.
+data-reveal
+,{className:
+,children:[
+,t+1]}),(0,c.jsx)(
+,{className:
+,children:e})]},e))})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+data-reveal
+Önce — İletişim sayfası
+Önce — İletişim
+Redesign — yeni iletişim sayfası
+Redesign — İletişim
+,{className:
+,children:[[
+WhatsApp ve doğrudan iletişim bilgileri sayfanın ilk bakışta görünür.
+Yapılandırılmış teklif formu
+Hizmet türü, boyut, adet, renk ve termin alanlarıyla daha net talep toplama.
+Güven sinyalleri
+Adres, çalışma saatleri ve harita entegrasyonu işletmeyi somutlaştırıyor.
+data-reveal
+,{className:
+,children:e}),(0,c.jsx)(
+,{className:
+,children:t})]},e))})]})}),(0,c.jsx)(
+,{className:
+,style:{background:
+},children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+data-reveal
+Aşağıdaki çıktılar tasarım hedeflerini ifade eder; ölçülmüş bir performans iyileştirmesi değildir.
+,{className:
+,children:[
+Teklif alma sürecindeki belirsizliğin azalması
+Üretim kapasitesine yönelik güvenin artması
+WhatsApp ve teklif CTA
+].map((e,t)=>(0,c.jsxs)(
+data-reveal
+,{className:
+,children:[
+,t+1]}),(0,c.jsx)(
+,{className:
+,children:e})]},e))}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsx)(
+,{className:
+data-reveal
+Yapay zekâ destekli araçlar arayüz alternatiflerini ve içerik yapısını hızlandırmak için kullanıldı. UX değerlendirmesi, problem önceliklendirmesi, tasarım yönü ve nihai kararlar UXipek tarafından gerçekleştirildi.
+,{className:
+data-reveal
+Canlı Site İncelemesi
+Bulguların Önceliklendirilmesi
+AI Destekli Arayüz Keşfi
+Figma Düzenlemeleri
+Final Tasarım Konsepti
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[
+,t+1]}),(0,c.jsx)(
+,{className:
+,children:e})]}),t<n.length-1&&(0,c.jsx)(
+aria-hidden
+,className:
+})]},e))})]})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+,children:(0,c.jsx)(
+,{className:
+})}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+in doğrulanmış işletme bilgileri ve gerçek görselleriyle güncellenecektir.
+sonraki-adim
+border-t border-border
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]})}),(0,c.jsx)(
+,{className:
+,children:[
+Gerçek içerik ve görsellerin toplanması
+Mobil ekranların ve teklif formunun detaylandırılması
+Geliştirme ve kullanılabilirlik testi
+,{className:
+data-reveal
+,{className:
+,children:String(t+1).padStart(2,
+)}),(0,c.jsx)(
+,{className:
+,children:e})]},e))}),(0,c.jsx)(
+,{className:
+data-reveal
+https://uxipek.com
+noopener noreferrer
+inline-flex h-12 items-center rounded-sm bg-primary px-6 text-[14px] font-medium text-white transition-colors hover:bg-primary-dark
+Redesign Sürecini Başlatalım
+,{className:
+,children:(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+data-reveal
+,{className:
+}),(0,c.jsx)(
+,{className:
+in üretim gücünü kullanıcıların kolayca anlayabileceği ve harekete geçebileceği bir web deneyimine dönüştürmek.
+,{className:
+})]})})}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+})]}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{children:
+}),(0,c.jsx)(
+,{children:
+}),(0,c.jsx)(
+,{children:
+}),(0,c.jsx)(
+,{children:
+})]})]}),(0,c.jsxs)(
+,{className:
+,children:[(0,c.jsx)(
+,{className:
+}),(0,c.jsx)(
+,{className:
+,children:(0,c.jsx)(
+,{children:(0,c.jsx)(
+https://uxipek.com
+hover:text-white
+,{className:
+,children:[(0,c.jsx)(
+,{children:
+}),(0,c.jsx)(
+,{children:
+})]})]})}),(0,c.jsx)(b,{src:e?.src??null,alt:e?.alt??
