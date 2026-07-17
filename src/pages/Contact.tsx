@@ -305,7 +305,7 @@ ${formData.get("message")}
 
         <div className="w-[min(100%-32px,1000px)] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-            <h2 className="text-h2 mb-8">
+            <h2 className="text-h2 mb-8 text-white">
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-brand-transformation italic font-serif opacity-90">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
