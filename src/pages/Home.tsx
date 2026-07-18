@@ -129,8 +129,8 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                   <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
                     {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'} <ArrowUpRight className="h-4 w-4" />
                   </a>
-                  <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
-                    {lang === 'en' ? 'View My Work' : 'Çalışmalarımı İncele'} <ArrowUpRight className="h-4 w-4" />
+                  <a href="https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
+                    {lang === 'en' ? 'Book a Free 15-Min Call' : '15 Dakikalık Ücretsiz Görüşme'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
 
