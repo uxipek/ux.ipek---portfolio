@@ -38,11 +38,30 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               className="group flex flex-col"
             >
               {project.id === "zeka-oyunlari" ? (
-                <a href="/zeka-oyunlari-case-study.html" className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
+                <a href={`/zeka-oyunlari-case-study.html?lang=${lang}`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
                   <img
                     src={project.coverImage}
                     alt={project.title}
                     className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
+                     <span className="bg-brand-transformation text-white py-3 rounded-full text-sm font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                       {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
+                     </span>
+                  </div>
+                </a>
+              ) : project.id === "akademi-ozalit" ? (
+                <a
+                  href="https://akademozalit-uxaudit-redesign.lovable.app"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6"
+                >
+                  <img
+                    src={project.coverImage}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">

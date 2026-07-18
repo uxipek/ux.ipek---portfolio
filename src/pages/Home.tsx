@@ -757,7 +757,16 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     </div>
                     {project.id === "zeka-oyunlari" ? (
                       <a
-                        href="/zeka-oyunlari-case-study.html"
+                        href={`/zeka-oyunlari-case-study.html?lang=${lang}`}
+                        className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
+                      >
+                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
+                      </a>
+                    ) : project.id === "akademi-ozalit" ? (
+                      <a
+                        href="https://akademozalit-uxaudit-redesign.lovable.app"
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
                       >
                         {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
