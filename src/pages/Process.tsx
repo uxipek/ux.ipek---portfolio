@@ -1,13 +1,8 @@
-import { useEffect } from "react";
 import { motion } from "motion/react";
 import { Focus, Scale, MessageSquare, Layers3, CheckCircle2 } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => { 
-    document.title = lang === "en" ? "Process | UXIPEK" : "Süreç | UXIPEK"; 
-  }, [lang]);
-
   return (
     <div className="flex flex-col min-h-screen pt-20">
       

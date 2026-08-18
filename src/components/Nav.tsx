@@ -3,18 +3,19 @@ import { useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 
+const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
+
 export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | "tr") => void }) {
-  
+
   const location = useLocation();
   const pathname = location.pathname;
   const hash = location.hash;
 
   const currentPath = pathname.replace(/^\/(en|tr)/, '') || '/';
-  
+
   const isHomePage = currentPath === '/';
-  const isHome = isHomePage;
-  
-  const isAboutActive = isHomePage && (!hash || hash === '#about');
+
+  const isAboutActive = currentPath.startsWith('/about');
   const isServicesActive = currentPath.startsWith('/services') || (isHomePage && hash === '#services');
   const isUxAuditActive = currentPath.startsWith('/ux-audit');
   const isProcessActive = currentPath.startsWith('/process') || (isHomePage && hash === '#process');
@@ -33,8 +34,8 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-text-primary/70">
-          <a 
-            href={isHome ? "#about" : `/${lang}#about`} 
+          <a
+            href={`/${lang}/about`}
             className={`transition-colors relative pb-1 ${isAboutActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
@@ -82,15 +83,15 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
             <button onClick={() => setLang('en')} className={`px-3 py-1.5 rounded-full transition-colors ${lang === 'en' ? 'bg-white text-text-primary shadow-sm' : 'text-text-primary/50 hover:text-text-primary'}`}>EN</button>
             <button onClick={() => setLang('tr')} className={`px-3 py-1.5 rounded-full transition-colors ${lang === 'tr' ? 'bg-white text-text-primary shadow-sm' : 'text-text-primary/50 hover:text-text-primary'}`}>TR</button>
           </div>
-          <a href={`/${lang}/ux-audit`} className="hidden lg:flex items-center gap-2 rounded-full bg-brand-transformation px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
-            {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'}
+          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center gap-2 rounded-full bg-brand-transformation px-6 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
+            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme'}
           </a>
         </div>
 
         {/* Mobile Menu Toggle */}
         <div className="flex lg:hidden items-center gap-4">
-          <a href={`/${lang}/ux-audit`} className="hidden sm:flex items-center gap-2 rounded-full bg-brand-transformation px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
-            {lang === 'en' ? 'Book' : 'Randevu'}
+          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden sm:flex items-center gap-2 rounded-full bg-brand-transformation px-4 py-2 text-sm font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
+            {lang === 'en' ? 'Call' : 'Görüşme'}
           </a>
           <button className="p-2 text-text-primary/70 hover:text-text-primary focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50" onClick={toggleMenu} aria-label="Toggle menu">
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -101,9 +102,9 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-brand-primary/5 shadow-2xl flex flex-col px-6 md:px-8 lg:px-12 py-6 space-y-5 font-medium text-text-primary/80 max-h-[calc(100vh-5rem)] overflow-y-auto">
-          <a 
-            href={isHome ? "#about" : `/${lang}#about`} 
-            onClick={toggleMenu} 
+          <a
+            href={`/${lang}/about`}
+            onClick={toggleMenu}
             className={`transition-colors text-lg ${isAboutActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
@@ -157,8 +158,8 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
             </div>
           </div>
           
-          <a href={`/${lang}/ux-audit`} onClick={toggleMenu} className="sm:hidden flex items-center justify-center gap-2 rounded-xl bg-brand-transformation w-full py-4 text-base font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20 mt-4">
-            {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'}
+          <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="sm:hidden flex items-center justify-center gap-2 rounded-xl bg-brand-transformation w-full py-4 text-base font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20 mt-4">
+            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme'}
           </a>
         </div>
       )}

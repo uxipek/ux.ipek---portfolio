@@ -1,26 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { LegalSupportCard } from "../components/LegalSupportCard";
 
 export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => {
-    document.title = lang === 'en' ? "Terms of Use | UXIPEK" : "Kullanım Koşulları | UXIPEK";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    const descContent = lang === 'en' 
-      ? "Review the terms of use and intellectual property guidelines for the UXIPEK website." 
-      : "UXIPEK web sitesinin kullanımına ilişkin koşulları ve fikri mülkiyet esaslarını inceleyin.";
-    
-    if (metaDesc) {
-      metaDesc.setAttribute("content", descContent);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = descContent;
-      document.head.appendChild(meta);
-    }
-  }, [lang]);
-
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">

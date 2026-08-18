@@ -4,7 +4,6 @@ import { ArrowLeft, ArrowRight, CheckCircle2, Mail, ExternalLink, AlertTriangle,
 
 export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang: "en" | "tr", project: any, otherProjects: any[] }) {
   useEffect(() => {
-    document.title = `${project?.title || 'Akademi Ozalit'} - UX Audit & Redesign | UXIPEK`;
     window.scrollTo(0, 0);
   }, [project?.title]);
 
@@ -24,13 +23,13 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
         
         <div className="mb-12 max-w-4xl">
           <span className="inline-block mb-4 text-brand-transformation font-semibold tracking-wider text-sm uppercase">
-            {project.category}
+            {project.category[lang]}
           </span>
           <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tight mb-6 text-brand-primary">
             {project.title}
           </h1>
           <p className="text-xl md:text-2xl text-text-primary/80 font-light leading-relaxed max-w-2xl">
-            {project.description}
+            {project.description[lang]}
           </p>
         </div>
 
@@ -304,7 +303,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
              <Link to={`/${lang}/ux-audit`} className="btn-outline-light">
-               {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu Alın'}
+               {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
              </Link>
           </div>
         </div>
@@ -337,8 +336,8 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
                   ))}
                 </div>
                 <h3 className="font-display font-bold text-brand-primary text-2xl md:text-3xl mb-2 group-hover:text-brand-transformation transition-colors">{relatedProject.title}</h3>
-                <p className="text-text-primary/70 font-light leading-relaxed mb-2">{relatedProject.category}</p>
-                <p className="text-text-primary/60 text-sm">{relatedProject.description}</p>
+                <p className="text-text-primary/70 font-light leading-relaxed mb-2">{relatedProject.category[lang]}</p>
+                <p className="text-text-primary/60 text-sm">{relatedProject.description[lang]}</p>
               </Link>
             )}
           </div>

@@ -313,7 +313,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                 </div>
                 <div className="text-center">
                   <h3 className="font-bold text-text-primary text-2xl mb-2 group-hover:text-brand-transformation transition-colors">{p.title}</h3>
-                  <p className="text-sm text-text-primary/60 font-medium tracking-wide uppercase">{p.category}</p>
+                  <p className="text-sm text-text-primary/60 font-medium tracking-wide uppercase">{p.category[lang]}</p>
                 </div>
               </Link>
             ))}

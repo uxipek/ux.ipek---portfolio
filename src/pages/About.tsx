@@ -26,7 +26,9 @@ function Counter({ from, to, prefix = "", suffix = "", duration = 2 }: { from: n
   return <span ref={nodeRef}>{prefix}{count}{suffix}</span>;
 }
 
-export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "About | UXIPEK" : "Hakkında | UXIPEK"; }, [lang]);
+const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
+
+export function AboutPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full mt-[-80px] pt-20">
       {/* 1. HERO SECTION */}
@@ -62,8 +64,8 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
-                {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-4 h-4" />
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
+                {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <p className="text-sm font-medium text-text-primary/50 italic px-4">
                 "Design with kindness."
@@ -272,10 +274,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { 
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
               <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto hover:shadow-xl">
-                {lang === 'en' ? 'Book a UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
+                {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">
-                {lang === 'en' ? 'Schedule a Strategy Call' : 'Strateji Görüşmesi Planla'}
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">
+                {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'}
               </a>
             </div>
           </motion.div>

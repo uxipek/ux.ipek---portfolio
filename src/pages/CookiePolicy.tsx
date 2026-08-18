@@ -1,26 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { LegalSupportCard } from "../components/LegalSupportCard";
 
 export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => {
-    document.title = lang === 'en' ? "Cookie Policy | UXIPEK" : "Çerez Politikası | UXIPEK";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    const descContent = lang === 'en' 
-      ? "Learn about the cookies we use on the UXIPEK website and how you can manage your preferences." 
-      : "UXIPEK web sitesinde kullanılan çerezler ve çerez tercihlerinizi nasıl yönetebileceğiniz hakkında bilgi alın.";
-    
-    if (metaDesc) {
-      metaDesc.setAttribute("content", descContent);
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = descContent;
-      document.head.appendChild(meta);
-    }
-  }, [lang]);
-
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">

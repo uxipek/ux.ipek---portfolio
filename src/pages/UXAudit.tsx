@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight, Search, FileText, CheckCircle2, ChevronDown, Zap, User, Target, BarChart3, AlertCircle, Loader2 } from "lucide-react";
-
-const GOOGLE_SHEETS_WEBHOOK_URL = "https://script.google.com/macros/s/AKfycbykh3fplObzwut9axlAixamrEpMfiJpHoFapEBrPtwCpDoKHN-MIU5kFtymDFMS14MbhQ/exec";
+import { TurnstileWidget } from "../components/TurnstileWidget";
 
 export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => { document.title = lang === "en" ? "UX Audit | UXIPEK" : "UX Analizi | UXIPEK"; }, [lang]);
+  const formSectionId = lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu';
   const [openFaq, setOpenFaq] = useState<number | null>(null);
   const [formState, setFormState] = useState({
     website: "",
@@ -15,9 +14,12 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
     email: "",
     goal: "",
     challenge: "",
-    legalConsent: false
+    legalConsent: false,
+    marketingConsent: false
   });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [turnstileToken, setTurnstileToken] = useState("");
+  const [turnstileResetKey, setTurnstileResetKey] = useState(0);
 
   const pushToDataLayer = (data: any) => {
     if (typeof window !== "undefined" && (window as any).dataLayer) {
@@ -41,33 +43,36 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!GOOGLE_SHEETS_WEBHOOK_URL) {
-      alert(lang === 'en' ? "Webhook URL is not configured yet." : "Webhook URL'si henüz ayarlanmadı.");
-      return;
-    }
-    
+
     setStatus("loading");
     try {
-      const response = await fetch(GOOGLE_SHEETS_WEBHOOK_URL, {
+      const response = await fetch("/api/ux-audit", {
         method: "POST",
-        mode: "no-cors",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          website: formState.website,
-          name: formState.name,
-          company: formState.company,
+          websiteUrl: formState.website,
+          fullName: formState.name,
           email: formState.email,
-          goal: formState.goal,
-          challenge: formState.challenge,
-          timestamp: new Date().toISOString()
+          companyName: formState.company,
+          primaryGoal: formState.goal,
+          mainProblem: formState.challenge,
+          kvkkConsent: formState.legalConsent,
+          marketingConsent: formState.marketingConsent,
+          turnstileToken,
         }),
       });
-      
+
+      if (!response.ok) {
+        throw new Error("request_failed");
+      }
+
       setStatus("success");
-      setFormState({ website: "", name: "", company: "", email: "", goal: "", challenge: "", legalConsent: false });
-      
+      setFormState({ website: "", name: "", company: "", email: "", goal: "", challenge: "", legalConsent: false, marketingConsent: false });
+      setTurnstileToken("");
+      setTurnstileResetKey(k => k + 1);
+
       pushToDataLayer({
         event: "generate_lead",
         form_name: "free_mini_ux_analysis"
@@ -75,6 +80,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
     } catch (error) {
       console.error("Error submitting form:", error);
       setStatus("error");
+      setTurnstileToken("");
+      setTurnstileResetKey(k => k + 1);
     }
   };
 
@@ -162,8 +169,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4">
               <a
-                href="#ux-analizi-formu"
-                onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('hero'); }}
+                href={`#${formSectionId}`}
+                onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('hero'); }}
                 className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-brand-primary text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg"
               >
                 {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
@@ -313,8 +320,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample UX Audit' : 'Örnek UX Çalışmasını İncele'}
                 </a>
                 <a
-                  href="#ux-analizi-formu"
-                  onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('sample_project'); }}
+                  href={`#${formSectionId}`}
+                  onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('sample_project'); }}
                   className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20"
                 >
                   {lang === 'en' ? 'Analyze My Site Too' : 'Benim Sitemi de Analiz Et'}
@@ -332,7 +339,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       </section>
 
       {/* 4. LEAD FORM SECTION */}
-      <section id="ux-analizi-formu" className="py-16 md:py-24 lg:py-32 bg-background relative border-y border-brand-primary/5 w-full">
+      <section id={formSectionId} className="py-16 md:py-24 lg:py-32 bg-background relative border-y border-brand-primary/5 w-full">
         <div className="w-[min(100%-32px,640px)] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary mb-4">
@@ -475,9 +482,11 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   </div>
                   
                   <div className="flex items-start gap-3">
-                    <input 
-                      type="checkbox" 
-                      id="marketingConsent" 
+                    <input
+                      type="checkbox"
+                      id="marketingConsent"
+                      checked={formState.marketingConsent}
+                      onChange={(e) => setFormState({...formState, marketingConsent: e.target.checked})}
                       className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-brand-transformation focus:ring-brand-transformation shrink-0 cursor-pointer"
                     />
                     <label htmlFor="marketingConsent" className="text-[0.875rem] leading-[1.55] text-text-primary/80 cursor-pointer select-none">
@@ -490,9 +499,16 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   </div>
                 </div>
 
-                <button 
-                  type="submit" 
-                  disabled={status === 'loading'}
+                <TurnstileWidget
+                  action="ux_audit_form"
+                  onVerify={setTurnstileToken}
+                  onExpire={() => setTurnstileToken("")}
+                  resetKey={turnstileResetKey}
+                />
+
+                <button
+                  type="submit"
+                  disabled={status === 'loading' || !turnstileToken}
                   className="btn-primary-pink w-full sm:w-auto text-[0.9375rem] mt-4 disabled:opacity-70 disabled:cursor-not-allowed"
                 >
                   {status === 'loading' ? (
@@ -648,8 +664,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               : 'Ücretsiz mini analizle en kritik sorunları görün, sonraki adımlarınızı daha bilinçli planlayın.'}
           </p>
           <a
-            href="#ux-analizi-formu"
-            onClick={(e) => { smoothScroll(e, 'ux-analizi-formu'); handleCtaClick('final_cta'); }}
+            href={`#${formSectionId}`}
+            onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('final_cta'); }}
             className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-brand-primary text-[1rem] font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
           >
             {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />

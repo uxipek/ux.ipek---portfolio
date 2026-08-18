@@ -15,9 +15,8 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
   }
 
   useEffect(() => {
-    document.title = `${project.title} - ${project.category} | UXIPEK`;
     window.scrollTo(0, 0);
-  }, [project.title, project.category]);
+  }, [project.id]);
 
   const otherProjects = projects.filter(p => p.id !== id).slice(0, 3);
 
@@ -37,13 +36,13 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
         </Link>
         <div className="mb-12 max-w-4xl">
           <span className="inline-block mb-4 text-brand-transformation font-semibold tracking-wider text-sm uppercase">
-            {project.category}
+            {project.category[lang]}
           </span>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
             {project.title}
           </h1>
           <p className="text-xl md:text-2xl text-text-primary/70 font-light leading-relaxed">
-            {project.description}
+            {project.description[lang]}
           </p>
         </div>
       </div>
@@ -170,7 +169,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
              <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-sm font-bold text-text-primary transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
-               {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu Alın'}
+               {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
              </Link>
           </div>
         </div>
@@ -195,7 +194,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                   <img src={p.coverImage} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
                 <h3 className="font-bold text-text-primary text-xl mb-1 group-hover:text-brand-transformation transition-colors">{p.title}</h3>
-                <p className="text-sm text-text-primary/60 font-medium">{p.category}</p>
+                <p className="text-sm text-text-primary/60 font-medium">{p.category[lang]}</p>
               </Link>
             ))}
           </div>

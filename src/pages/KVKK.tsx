@@ -1,22 +1,9 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "lucide-react";
 import { LegalSupportCard } from "../components/LegalSupportCard";
 
 export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => {
-    document.title = "KVKK Aydınlatma Metni | UXIPEK";
-    const metaDesc = document.querySelector('meta[name="description"]');
-    if (metaDesc) {
-      metaDesc.setAttribute("content", "UXIPEK tarafından kişisel verilerin işlenmesine ilişkin KVKK aydınlatma metnini inceleyin.");
-    } else {
-      const meta = document.createElement('meta');
-      meta.name = "description";
-      meta.content = "UXIPEK tarafından kişisel verilerin işlenmesine ilişkin KVKK aydınlatma metnini inceleyin.";
-      document.head.appendChild(meta);
-    }
-  }, []);
-
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">

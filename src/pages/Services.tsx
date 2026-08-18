@@ -1,8 +1,9 @@
-import { useEffect } from "react";
 import { motion } from "motion/react";
-import { ArrowUpRight, Search, Play, FileText, Component, BrainCircuit, LineChart } from "lucide-react";
+import { ArrowUpRight, Search, BrainCircuit, LineChart } from "lucide-react";
 
-export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "Services | UXIPEK" : "Hizmetler | UXIPEK"; }, [lang]);
+const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
+
+export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full mt-[-80px] pt-20">
       {/* 1. HERO SECTION */}
@@ -39,8 +40,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
-                {lang === 'en' ? 'Book UX Audit' : 'UX Randevusu Al'} <ArrowUpRight className="w-4 h-4" />
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
+                {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
                 {lang === 'en' ? 'View Case Studies' : 'Vaka Çalışmalarını İncele'}
@@ -73,7 +74,10 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
                     : 'Kullanıcı davranışlarını ve sürtünme noktalarını analiz ederek dijital deneyimleri dönüşüm sistemlerine çevirir.'}
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {['UX Audits', 'Behavioral UX', 'CRO Optimization'].map((item, i) => (
+                  {(lang === 'en'
+                    ? ['UX Audits', 'Behavioral UX', 'CRO Optimization']
+                    : ['UX Analizleri', 'Davranışsal UX', 'CRO Optimizasyonu']
+                  ).map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm font-medium text-text-primary/80">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-transformation"></span>
                       {item}
@@ -102,7 +106,10 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
                     : 'Kullanılabilirlik, otomasyon ve büyüme odaklı yapay zeka entegreli SaaS ürünleri tasarlar.'}
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {['SaaS UX Architecture', 'AI Workflow Interfaces', 'Design Systems'].map((item, i) => (
+                  {(lang === 'en'
+                    ? ['SaaS UX Architecture', 'AI Workflow Interfaces', 'Design Systems']
+                    : ['SaaS UX Mimarisi', 'AI İş Akışı Arayüzleri', 'Tasarım Sistemleri']
+                  ).map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm font-medium text-white/90">
                       <span className="w-1.5 h-1.5 rounded-full bg-white/50 border border-white/20"></span>
                       {item}
@@ -131,7 +138,10 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
                     : 'Müşteri kazanımı, aktivasyon ve güven için optimize edilmiş dönüşüm odaklı deneyimler yaratır.'}
                 </p>
                 <ul className="space-y-3 mb-8">
-                  {['Funnel Design', 'CRM Integration', 'Growth Messaging'].map((item, i) => (
+                  {(lang === 'en'
+                    ? ['Funnel Design', 'CRM Integration', 'Growth Messaging']
+                    : ['Huni Tasarımı', 'CRM Entegrasyonu', 'Büyüme Mesajlaşması']
+                  ).map((item, i) => (
                     <li key={i} className="flex items-center gap-3 text-sm font-medium text-text-primary/80">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-secondary"></span>
                       {item}
@@ -216,8 +226,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {  useEffect(() =>
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-brand-transformation">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
-            <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto text-base hover:shadow-xl mt-8">
-              {lang === 'en' ? 'Book a Strategy Call' : 'Strateji Görüşmesi Planla'} <ArrowUpRight className="w-5 h-5" />
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto text-base hover:shadow-xl mt-8">
+              {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-5 h-5" />
             </a>
           </motion.div>
         </div>

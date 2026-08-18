@@ -1,14 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, ArrowRight } from "lucide-react";
 import { motion } from "motion/react";
 import { projects } from "../data/projects";
 
 export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
-  useEffect(() => {
-    document.title = lang === 'en' ? "Portfolio | UXIPEK" : "Portfolyo | UXIPEK";
-  }, [lang]);
-
   return (
     <div className="bg-brand-primary min-h-screen pt-32 pb-24 w-full text-white">
       <div className="container-app ">
@@ -90,11 +86,11 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="flex items-center justify-between mb-3">
                   <h3 className="text-2xl font-bold text-white">{project.title}</h3>
                   <span className="text-white text-xs font-medium px-3 py-1.5 rounded-full bg-brand-transformation border border-brand-transformation/20 shadow-sm shadow-brand-transformation/20">
-                    {project.category}
+                    {project.category[lang]}
                   </span>
                 </div>
                 <p className="text-white/60 font-light leading-relaxed">
-                  {project.description}
+                  {project.description[lang]}
                 </p>
               </div>
             </motion.div>

@@ -1,14 +1,16 @@
-import { useEffect } from "react";
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { motion } from "motion/react";
-import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, Globe, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download, ArrowUpRight } from "lucide-react";
+import { motion, useReducedMotion } from "motion/react";
+import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download, ArrowUpRight } from "lucide-react";
 import { Logo } from "../components/Logo";
 import { projects } from "../data/projects";
 
-export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { document.title = lang === "en" ? "UXIPEK | Digital Product Design & Growth" : "UXIPEK | Dijital Ürün Tasarımı ve Büyüme"; }, [lang]);
+const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
+
+export function Home({ lang }: { lang: "en" | "tr" }) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const handleDownloadPDF = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -113,7 +115,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-8 h-[2px] bg-brand-transformation"></div>
                   <span className="text-[11px] font-bold text-text-primary/50 tracking-[0.2em] uppercase">
-                    AI-Native UX/UI Designer & Growth Strategist
+                    {lang === 'en' ? 'AI-Native UX/UI Designer & Growth Strategist' : 'AI-Native UX/UI Tasarımcı ve Büyüme Stratejisti'}
                   </span>
                 </div>
                 
@@ -122,15 +124,17 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                 </h1>
                 
                 <p className="text-body-lg text-text-primary/70 max-w-[680px] mb-8">
-                  UX.Ipek helps startups, SaaS products, and AI-powered businesses build digital systems that are not only beautiful — but strategic, usable, and conversion-focused.
+                  {lang === 'en'
+                    ? 'UX.Ipek helps startups, SaaS products, and AI-powered businesses build digital systems that are not only beautiful — but strategic, usable, and conversion-focused.'
+                    : 'UX.Ipek; startupların, SaaS ürünlerinin ve yapay zeka destekli işletmelerin yalnızca güzel değil, stratejik, kullanılabilir ve dönüşüm odaklı dijital sistemler kurmasına yardımcı olur.'}
                 </p>
-                
+
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <a href={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
-                    {lang === 'en' ? 'Book a UX Audit' : 'UX Analizi Randevusu'} <ArrowUpRight className="h-4 w-4" />
+                  <a href={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
+                    {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'} <ArrowUpRight className="h-4 w-4" />
                   </a>
-                  <a href="https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
-                    {lang === 'en' ? 'Book a Free 15-Min Call' : '15 Dakikalık Ücretsiz Görüşme'} <ArrowUpRight className="h-4 w-4" />
+                  <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
+                    {lang === 'en' ? 'Book a Free 15-Minute Call' : '15 Dakikalık Ücretsiz Görüşme Planla'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
 
@@ -191,7 +195,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                       
                       {/* Left Wing Group */}
                       <motion.g
-                        style={{ transformOrigin: "0 0" }}
+                        style={{ transformBox: "view-box", originX: 0, originY: 0 }}
                         animate={{ rotateY: [0, 45, 0], rotateZ: [-5, -10, -5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
                       >
@@ -229,7 +233,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
 
                       {/* Right Wing Group */}
                       <motion.g
-                        style={{ transformOrigin: "0 0" }}
+                        style={{ transformBox: "view-box", originX: 0, originY: 0 }}
                         animate={{ rotateY: [0, -45, 0], rotateZ: [5, 10, 5] }}
                         transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 0.1 }}
                       >
@@ -333,163 +337,140 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-10 h-[2px] bg-brand-transformation/40"></div>
                   <span className="text-xs font-bold text-text-primary/40 tracking-[0.2em] uppercase">
-                    Strategic Expertise
+                    {lang === 'en' ? 'Strategic Expertise' : 'Stratejik Uzmanl\u0131k'}
                   </span>
                 </div>
                 <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary">
                   {lang === 'en' ? "I don't just push pixels." : "Sadece tasarlam\u0131yorum."}<br />
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-transformation to-brand-secondary font-medium">{lang === 'en' ? 'I architect growth systems.' : 'B\u00FCy\u00FCme sistemleri in\u015Faa ediyorum.'}</span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-transformation to-brand-secondary font-medium">{lang === 'en' ? 'I architect growth systems.' : 'B\u00FCy\u00FCme sistemleri in\u015Fa ediyorum.'}</span>
                 </h2>
               </div>
               <div className="max-w-sm pb-2 md:pb-4">
                 <p className="text-body-lg text-text-primary/70 max-w-[680px]">
-                  Scalable user experience logic designed to acquire, activate, and retain users beautifully.
+                  {lang === 'en'
+                    ? 'Scalable user experience logic designed to acquire, activate, and retain users beautifully.'
+                    : 'Kullan\u0131c\u0131 kazanmak, etkinle\u015Ftirmek ve elde tutmak i\u00E7in tasarlanm\u0131\u015F \u00F6l\u00E7eklenebilir kullan\u0131c\u0131 deneyimi mant\u0131\u011F\u0131.'}
                 </p>
               </div>
             </div>
 
-            {/* Services Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
-              
-              {/* Card 1: UX/UI Design */}
-              <motion.div 
+            {/* Services Grid \u2014 3 core services */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+
+              {/* Service 1: UX R\u00F6ntgeni / UX X-Ray */}
+              <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-brand-primary/5 hover:border-brand-transformation/20"
+                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-12 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-brand-primary/5 hover:border-brand-transformation/20"
+              >
+                <div>
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-text-primary border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-transformation group-hover:border-brand-transformation/20 group-hover:bg-brand-transformation/5">
+                    <Search className="h-6 w-6 stroke-[1.5]" />
+                  </div>
+                  <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'UX X-Ray' : 'UX R\u00F6ntgeni'}</h3>
+                  <p className="font-light leading-relaxed text-text-primary/60 text-lg">
+                    {lang === 'en'
+                      ? 'I make the exact points where users struggle, hesitate, and abandon the conversion path visible \u2014 backed by evidence.'
+                      : 'Kullan\u0131c\u0131lar\u0131n zorland\u0131\u011F\u0131, karars\u0131z kald\u0131\u011F\u0131 ve d\u00F6n\u00FC\u015F\u00FCm yolundan ayr\u0131ld\u0131\u011F\u0131 noktalar\u0131 kan\u0131tlarla g\u00F6r\u00FCn\u00FCr h\u00E2le getiriyorum.'}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {(lang === 'en'
+                      ? ['Conversion Analysis', 'Heatmap Review', 'Usability Testing']
+                      : ['D\u00F6n\u00FC\u015F\u00FCm Analizi', 'Is\u0131 Haritas\u0131 \u0130ncelemesi', 'Kullan\u0131labilirlik Testi']
+                    ).map(tag => (
+                      <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-text-primary/70 text-[11px] font-semibold border border-brand-primary/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a href={`/${lang}/ux-audit`} className="mt-14 flex items-center gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
+                    {lang === 'en' ? "Explore the UX X-Ray" : "UX R\u00F6ntgeni'ni \u0130ncele"}
+                  </span>
+                </a>
+              </motion.div>
+
+              {/* Service 2: AI-Native \u00DCr\u00FCn Tasar\u0131m\u0131 / AI-Native Product Design */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.1 }}
+                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-12 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-brand-primary/5 hover:border-purple/20"
+              >
+                <div>
+                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-text-primary border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-secondary group-hover:border-purple/20 group-hover:bg-brand-secondary/5">
+                    <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
+                  </div>
+                  <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'AI-Native Product Design' : 'AI-Native \u00DCr\u00FCn Tasar\u0131m\u0131'}</h3>
+                  <p className="font-light leading-relaxed text-text-primary/60 text-lg">
+                    {lang === 'en'
+                      ? 'I design clear, trustworthy, human-centered user experiences for SaaS and AI-powered products.'
+                      : 'SaaS ve yapay zek\u00E2 destekli \u00FCr\u00FCnler i\u00E7in anla\u015F\u0131l\u0131r, g\u00FCvenilir ve insan odakl\u0131 kullan\u0131c\u0131 deneyimleri tasarl\u0131yorum.'}
+                  </p>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {(lang === 'en'
+                      ? ['SaaS Interfaces', 'AI Integration', 'Onboarding Design']
+                      : ['SaaS Aray\u00FCzleri', 'AI Entegrasyonu', 'Onboarding Tasar\u0131m\u0131']
+                    ).map(tag => (
+                      <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-secondary/5 text-text-primary/70 text-[11px] font-semibold border border-brand-primary/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <a href={`/${lang}/process`} className="mt-14 flex items-center gap-4">
+                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
+                    <ArrowUpRight className="h-5 w-5" />
+                  </div>
+                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
+                    {lang === 'en' ? 'Explore the Design Process' : '\u00DCr\u00FCn Tasar\u0131m\u0131 S\u00FCrecini \u0130ncele'}
+                  </span>
+                </a>
+              </motion.div>
+
+              {/* Service 3: UX/UI Redesign */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: 0.2 }}
+                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-12 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-brand-primary/5 hover:border-brand-transformation/20"
               >
                 <div>
                   <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-text-primary border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-transformation group-hover:border-brand-transformation/20 group-hover:bg-brand-transformation/5">
                     <Layout className="h-6 w-6 stroke-[1.5]" />
                   </div>
-                  <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'UX/UI Design for SaaS' : 'SaaS \u0130\u00E7in UX/UI Tasar\u0131m\u0131'}</h3>
+                  <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'UX/UI Redesign' : 'UX/UI Redesign'}</h3>
                   <p className="font-light leading-relaxed text-text-primary/60 text-lg">
-                    From frictionless onboarding flows to intuitive data dashboards. I turn complex software into premium, habit-forming digital products that users love and trust.
+                    {lang === 'en'
+                      ? 'I turn validated user problems into clearer, more usable, conversion-focused digital experiences.'
+                      : 'Do\u011Frulanan kullan\u0131c\u0131 problemlerini daha a\u00E7\u0131k, kullan\u0131labilir ve d\u00F6n\u00FC\u015F\u00FCm odakl\u0131 dijital deneyimlere d\u00F6n\u00FC\u015Ft\u00FCr\u00FCyorum.'}
                   </p>
+                  <div className="flex flex-wrap gap-2 mt-6">
+                    {(lang === 'en'
+                      ? ['Landing Page Optimization', 'Growth System Design', 'Dashboard / SaaS Redesign']
+                      : ['A\u00E7\u0131l\u0131\u015F Sayfas\u0131 Optimizasyonu', 'B\u00FCy\u00FCme Sistemi Tasar\u0131m\u0131', 'Dashboard / SaaS Redesign']
+                    ).map(tag => (
+                      <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-text-primary/70 text-[11px] font-semibold border border-brand-primary/5">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="mt-14 flex items-center gap-4">
+                <a href={`/${lang}/portfolio`} className="mt-14 flex items-center gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
-                    Explore Interface Design
+                    {lang === 'en' ? 'View the Work' : '\u00C7al\u0131\u015Fmalar\u0131 \u0130ncele'}
                   </span>
-                </div>
-              </motion.div>
-
-              {/* Card 2: UX Audit */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.1 }}
-                className="group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.04)] border border-brand-primary/5 hover:border-purple/20"
-              >
-                <div>
-                  <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-text-primary border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-secondary group-hover:border-purple/20 group-hover:bg-brand-secondary/5">
-                    <Search className="h-6 w-6 stroke-[1.5]" />
-                  </div>
-                  <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'UX Audit & Conversion Review' : 'UX Analizi ve D\u00F6n\u00FC\u015F\u00FCm \u0130ncelemesi'}</h3>
-                  <p className="font-light leading-relaxed text-text-primary/60 text-lg">
-                    Stop guessing. I analyze analytics, heatmaps, and user flows to find exactly where users drop off. You get a prioritized "Quick Wins" roadmap that increases conversion instantly.
-                  </p>
-                </div>
-                <div className="mt-14 flex items-center gap-4">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
-                    Explore Conversion Audit
-                  </span>
-                </div>
-              </motion.div>
-
-              {/* Card 3 (Connected Block): AI-Native & Landing Page */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.2 }}
-                className="rounded-[2rem] bg-white border border-brand-primary/5 transition-all duration-500 col-span-1 md:col-span-2 grid grid-cols-1 md:grid-cols-2 hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-brand-primary/10 overflow-hidden"
-              >
-                {/* AI-Native */}
-                <div className="group flex flex-col justify-between p-10 lg:p-14 border-b md:border-b-0 md:border-r border-brand-primary/5 bg-transparent hover:bg-background transition-colors duration-500 relative">
-                  <div>
-                    <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-text-primary border border-brand-primary/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-text-primary">
-                      <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
-                    </div>
-                    <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'AI-Native Digital Strategy' : 'Yapay Zeka Odakl\u0131 Dijital Strateji'}</h3>
-                    <p className="font-light leading-relaxed text-text-primary/60 text-lg">
-                      Integrating agentic AI and intelligent workflows into your product gracefully. I design AI interactions that feel natural, supportive, and fundamentally human-centered.
-                    </p>
-                  </div>
-                  <div className="mt-14 flex items-center gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
-                      <ArrowUpRight className="h-5 w-5" />
-                    </div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
-                      Explore AI Integration
-                    </span>
-                  </div>
-                </div>
-
-                {/* Landing Page Optimization */}
-                <div className="group flex flex-col justify-between p-10 lg:p-14 bg-transparent hover:bg-background transition-colors duration-500 relative">
-                  <div>
-                    <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-text-primary border border-brand-primary/5 shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-transformation">
-                      <LineChart className="h-6 w-6 stroke-[1.5]" />
-                    </div>
-                    <h3 className="text-h3 mb-5 text-text-primary">{lang === 'en' ? 'Landing Page Optimization' : 'A\u00E7\u0131l\u0131\u015F Sayfas\u0131 Optimizasyonu'}</h3>
-                    <p className="font-light leading-relaxed text-text-primary/60 text-lg">
-                      Your landing page has one job: convert clicks into customers. I apply behavioral psychology and premium visual design to build high-converting structural layouts.
-                    </p>
-                  </div>
-                  <div className="mt-14 flex items-center gap-4">
-                    <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
-                      <ArrowUpRight className="h-5 w-5" />
-                    </div>
-                    <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
-                      Explore Optimization
-                    </span>
-                  </div>
-                </div>
-              </motion.div>
-
-              {/* Card 4: Website Growth System Design */}
-              <motion.div 
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: 0.3 }}
-                className="col-span-1 md:col-span-2 group flex flex-col justify-between rounded-[2.5rem] bg-white p-10 lg:p-14 transition-all hover:-translate-y-1 hover:shadow-[0_20px_40px_rgba(202,0,108,0.06)] border border-brand-transformation/10 hover:border-brand-transformation/30 relative overflow-hidden"
-              >
-                {/* Subtle Glow Background */}
-                <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-brand-transformation/5 blur-[80px] rounded-full pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-1000"></div>
-
-                <div className="flex flex-col sm:flex-row sm:items-center gap-6 mb-10 relative z-10">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-text-primary border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-brand-transformation group-hover:border-brand-transformation/20 group-hover:bg-brand-transformation/5 shadow-sm">
-                    <Globe className="h-6 w-6 stroke-[1.5]" />
-                  </div>
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-brand-transformation bg-brand-transformation/5 px-4 py-2 rounded-full border border-brand-transformation/10 w-max shadow-sm">
-                    Flagship Growth System
-                  </span>
-                </div>
-                
-                <div className="relative z-10 w-full mb-4">
-                  <h3 className="mb-5 text-3xl lg:text-[36px] font-medium text-text-primary tracking-tight leading-[1.1] max-w-2xl">{lang === 'en' ? 'Website Growth System Design' : 'B\u00FCy\u00FCme Odakl\u0131 Web Sistem Tasar\u0131m\u0131'}</h3>
-                  <p className="font-light leading-relaxed text-text-primary/60 text-lg md:text-xl max-w-3xl">
-                    Building a website is not the finish line; it's the foundation. I design end-to-end digital growth systems that connect your positioning, organic traffic, and conversion funnels into one continuous engine.
-                  </p>
-                </div>
-
-                <div className="mt-14 flex items-center gap-4 relative z-10">
-                  <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white shadow-sm transition-colors duration-500 group-hover:bg-brand-transformation group-hover:border-brand-transformation group-hover:text-white">
-                    <ArrowUpRight className="h-5 w-5" />
-                  </div>
-                  <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-brand-transformation transition-colors duration-300">
-                    Systemize Your Growth
-                  </span>
-                </div>
+                </a>
               </motion.div>
 
             </div>
@@ -511,11 +492,15 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               className="text-center max-w-[1000px] mx-auto mb-12 md:mb-16"
             >
               <h2 className="text-h1 text-text-primary md:text-5xl lg:text-6xl mb-8">
-                The Butterfly Effect of <br className="hidden md:block" />
+                {lang === 'en'
+                  ? <>The Butterfly Effect of <br className="hidden md:block" /></>
+                  : <>Dijital Dönüşümün <br className="hidden md:block" /></>}
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-transformation to-brand-secondary font-semibold">{lang === 'en' ? 'Digital Transformation.' : 'Kelebek Etkisi.'}</span>
               </h2>
               <p className="text-xl md:text-2xl text-text-primary/70 font-light leading-relaxed">
-                Every strong digital experience starts with understanding friction, evolves through strategic design, and transforms into measurable growth.
+                {lang === 'en'
+                  ? 'Every strong digital experience starts with understanding friction, evolves through strategic design, and creates a clearer, more measurable path toward growth.'
+                  : 'Her güçlü dijital deneyim, sürtünmeyi anlamakla başlar, stratejik tasarımla gelişir ve büyümeye giden daha açık, ölçülebilir bir yol oluşturur.'}
               </p>
             </motion.div>
 
@@ -565,11 +550,11 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     transition={{ duration: 4, ease: "easeInOut" }}
                  >
                     <svg viewBox="0 0 100 100" className="w-full h-full drop-shadow-[0_0_15px_rgba(202,0,108,0.6)]">
-                      <motion.g animate={{ rotateY: [0, 50, 0] }} transition={{ duration: 0.3, repeat: Infinity }} style={{ transformOrigin: "50% 50%" }}>
+                      <motion.g animate={{ rotateY: [0, 50, 0] }} transition={{ duration: 0.3, repeat: Infinity }} style={{ transformBox: "view-box", originX: 0.5, originY: 0.5 }}>
                         <path d="M48 50 C20 10 10 30 48 50 Z" fill="#CA006C" opacity="0.9" />
                         <path d="M48 52 C20 90 10 70 48 52 Z" fill="var(--color-brand-secondary)" opacity="0.8" />
                       </motion.g>
-                      <motion.g animate={{ rotateY: [0, -50, 0] }} transition={{ duration: 0.3, repeat: Infinity, delay: 0.1 }} style={{ transformOrigin: "50% 50%" }}>
+                      <motion.g animate={{ rotateY: [0, -50, 0] }} transition={{ duration: 0.3, repeat: Infinity, delay: 0.1 }} style={{ transformBox: "view-box", originX: 0.5, originY: 0.5 }}>
                         <path d="M52 50 C80 10 90 30 52 50 Z" fill="#CA006C" opacity="0.9" />
                         <path d="M52 52 C80 90 90 70 52 52 Z" fill="var(--color-brand-secondary)" opacity="0.8" />
                       </motion.g>
@@ -593,13 +578,18 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     <div className="w-2 h-2 rounded-full bg-brand-primary/20"></div>
                   </div>
                   <h3 className="text-2xl font-bold text-text-primary mb-4 group cursor-default">
-                    Tırtıl <span className="text-text-primary/40 font-normal ml-1 transition-colors group-hover:text-text-primary/60">— Friction & Discovery</span>
+                    Tırtıl <span className="text-text-primary/40 font-normal ml-1 transition-colors group-hover:text-text-primary/60">— {lang === 'en' ? 'Friction & Discovery' : 'Sürtünme ve Keşif'}</span>
                   </h3>
                   <p className="text-text-primary/70 leading-relaxed mb-8 font-light text-[15px]">
-                    Every project begins by identifying hidden UX problems, behavioral friction, trust gaps, and conversion blockers. The goal is to understand why users hesitate, abandon, or fail to engage.
+                    {lang === 'en'
+                      ? 'Every project begins by identifying hidden UX problems, behavioral friction, trust gaps, and conversion blockers. The goal is to understand why users hesitate, abandon, or fail to engage.'
+                      : 'Her proje, gizli UX problemlerini, davranışsal sürtünmeyi, güven boşluklarını ve dönüşüm engellerini tespit ederek başlar. Amaç, kullanıcıların neden tereddüt ettiğini, vazgeçtiğini veya etkileşime geçmediğini anlamaktır.'}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Research', 'Audit', 'User Behavior', 'Friction Mapping'].map(kw => (
+                    {(lang === 'en'
+                      ? ['Research', 'Audit', 'User Behavior', 'Friction Mapping']
+                      : ['Araştırma', 'Denetim', 'Kullanıcı Davranışı', 'Sürtünme Haritalama']
+                    ).map(kw => (
                       <span key={kw} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-text-primary/70 text-[11px] font-semibold border border-brand-primary/5">
                         {kw}
                       </span>
@@ -620,13 +610,18 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     <div className="w-2 h-2 rounded-full bg-brand-transformation/40 shadow-[0_0_8px_rgba(202,0,108,0.5)]"></div>
                   </div>
                   <h3 className="text-2xl font-bold text-text-primary mb-4 group cursor-default">
-                    Koza <span className="text-brand-transformation/70 font-normal ml-1 transition-colors group-hover:text-brand-transformation/90">— Strategy & System Thinking</span>
+                    Koza <span className="text-brand-transformation/70 font-normal ml-1 transition-colors group-hover:text-brand-transformation/90">— {lang === 'en' ? 'Strategy & System Thinking' : 'Strateji ve Sistem Kurgusu'}</span>
                   </h3>
                   <p className="text-text-primary/80 leading-relaxed mb-8 font-light text-[15px]">
-                    Insights are transformed into structure. Information architecture, user flows, content hierarchy, and AI-supported systems are redesigned to create clarity and strategic direction.
+                    {lang === 'en'
+                      ? 'Insights are transformed into structure. Information architecture, user flows, content hierarchy, and AI-supported systems are redesigned to create clarity and strategic direction.'
+                      : 'İçgörüler yapıya dönüştürülür. Bilgi mimarisi, kullanıcı akışları, içerik hiyerarşisi ve yapay zeka destekli sistemler; netlik ve stratejik yön yaratacak şekilde yeniden tasarlanır.'}
                   </p>
                   <div className="flex flex-wrap gap-2">
-                    {['Strategy', 'UX Architecture', 'Systems', 'AI Workflows'].map(kw => (
+                    {(lang === 'en'
+                      ? ['Strategy', 'UX Architecture', 'Systems', 'AI Workflows']
+                      : ['Strateji', 'UX Mimarisi', 'Sistemler', 'AI İş Akışları']
+                    ).map(kw => (
                       <span key={kw} className="px-3 py-1.5 rounded-full bg-brand-transformation/5 text-brand-transformation text-[11px] font-semibold border border-brand-transformation/10">
                         {kw}
                       </span>
@@ -648,13 +643,18 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_12px_rgba(202,0,108,0.8)] animate-pulse"></div>
                   </div>
                   <h3 className="text-2xl font-bold text-text-primary mb-4 group cursor-default relative z-10">
-                    Kelebek <span className="text-brand-secondary/80 font-normal ml-1">— Growth & Transformation</span>
+                    Kelebek <span className="text-brand-secondary/80 font-normal ml-1">— {lang === 'en' ? 'Growth & Transformation' : 'Büyüme ve Dönüşüm'}</span>
                   </h3>
                   <p className="text-text-primary/80 leading-relaxed mb-8 font-light text-[15px] relative z-10">
-                    The final experience becomes clear, intuitive, emotionally engaging, and conversion-focused. Beautiful interfaces meet measurable business growth and human-centered interaction.
+                    {lang === 'en'
+                      ? 'The final experience becomes clear, intuitive, emotionally engaging, and conversion-focused. Beautiful interfaces meet measurable business growth and human-centered interaction.'
+                      : 'Ortaya çıkan nihai deneyim; net, sezgisel, duygusal olarak etkileyici ve dönüşüm odaklıdır. Güzel arayüzler, ölçülebilir iş büyümesi ve insan odaklı etkileşimle buluşur.'}
                   </p>
                   <div className="flex flex-wrap gap-2 relative z-10">
-                    {['Growth', 'Conversion', 'Experience', 'Transformation'].map(kw => (
+                    {(lang === 'en'
+                      ? ['Growth', 'Conversion', 'Experience', 'Transformation']
+                      : ['Büyüme', 'Dönüşüm', 'Deneyim', 'Transformasyon']
+                    ).map(kw => (
                       <span key={kw} className="px-3 py-1.5 rounded-full bg-gradient-to-r from-brand-transformation/10 to-brand-secondary/10 text-text-primary font-semibold text-[11px] border border-brand-transformation/20">
                         {kw}
                       </span>
@@ -674,7 +674,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               className="mt-12 mb-8 text-center lg:mt-16 relative z-30"
             >
               <h4 className="text-3xl md:text-5xl font-serif italic text-text-primary/30 tracking-tight">
-                "Good design is not decoration.<br />
+                {lang === 'en' ? '"Good design is not decoration.' : '"\u0130yi tasar\u0131m s\u00FCsleme de\u011Fildir.'}<br />
                 <span className="text-text-primary/80">{lang === 'en' ? 'It is transformation."' : 'Tamamen d\u00F6n\u00FC\u015F\u00FCm\u00FCn kendisidir."' }</span>
               </h4>
             </motion.div>
@@ -688,10 +688,10 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
                <a href={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
-                  Start Your Transformation <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  {lang === 'en' ? 'Start Your Transformation' : 'Dönüşümüne Başla'} <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                </a>
                <p className="mt-5 text-sm md:text-base text-text-primary/50 font-medium">
-                 Let’s turn your digital experience into a growth system.
+                 {lang === 'en' ? "Let's turn your digital experience into a growth system." : 'Dijital deneyiminizi bir büyüme sistemine dönüştürelim.'}
                </p>
             </motion.div>
 
@@ -734,14 +734,14 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
                     />
                     <div className="absolute top-4 left-4">
                       <span className="px-3 py-1.5 rounded-full bg-brand-transformation text-white text-xs font-medium border border-brand-transformation/20 shadow-sm shadow-brand-transformation/20">
-                        {project.category}
+                        {project.category[lang]}
                       </span>
                     </div>
                   </div>
                   <div className="p-8 flex flex-col flex-grow">
                     <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
                     <p className="text-white/60 font-light leading-relaxed mb-6 flex-grow">
-                      {project.description}
+                      {project.description[lang]}
                     </p>
                     <div className="flex flex-wrap gap-2 mb-8">
                       {project.services.slice(0, 3).map(tag => (
@@ -795,19 +795,71 @@ export function Home({ lang }: { lang: "en" | "tr" }) {  useEffect(() => { docum
           </div>
         </section>
 
+        {/* Coming Soon: UX-Ray AI */}
+        <section className="py-[48px] md:py-[64px] lg:py-[88px] bg-surface">
+          <div className="page-container">
+            <motion.div
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-4xl mx-auto rounded-[2.5rem] border-2 border-dashed border-brand-transformation/25 bg-white p-10 md:p-14 text-center"
+            >
+              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-transformation/5 text-brand-transformation border border-brand-transformation/10 mx-auto">
+                <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
+              </div>
+              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-transformation/5 text-brand-transformation text-[11px] font-bold uppercase tracking-[0.15em] border border-brand-transformation/10 mb-6">
+                {lang === 'en' ? 'IN DEVELOPMENT' : 'GELİŞTİRİLİYOR'}
+              </span>
+              <h2 className="text-h2 text-text-primary mb-5">
+                {lang === 'en' ? 'Coming Soon: UX-Ray AI' : 'Yakında: UX-Ray AI'}
+              </h2>
+              <p className="text-text-primary/70 text-lg leading-relaxed max-w-2xl mx-auto mb-4">
+                {lang === 'en'
+                  ? "I'm building an AI-assisted UX diagnostic platform that makes usability, accessibility, and conversion friction across websites more visible."
+                  : 'Web sitelerindeki kullanıcı deneyimi, erişilebilirlik ve dönüşüm problemlerini görünür hâle getiren AI destekli bir UX Röntgeni platformu geliştiriyorum.'}
+              </p>
+              <p className="text-text-primary/60 leading-relaxed max-w-2xl mx-auto mb-8">
+                {lang === 'en'
+                  ? 'UX-Ray AI aims to examine desktop and mobile experiences and translate priority issues, potential business risks, and actionable improvement areas into a clear report.'
+                  : 'UX-Ray AI; masaüstü ve mobil deneyimi inceleyerek öncelikli sorunları, olası iş etkilerini ve uygulanabilir iyileştirme alanlarını anlaşılır bir rapora dönüştürmeyi hedefliyor.'}
+              </p>
+              <div className="flex flex-wrap justify-center gap-2 mb-10">
+                {['UX Research', 'Product Strategy', 'AI-Native UX', 'In Development'].map(tag => (
+                  <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-text-primary/70 text-[11px] font-semibold border border-brand-primary/5">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+              <a
+                href="https://www.linkedin.com/in/ipekbolakca/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 min-h-[44px] rounded-full bg-brand-primary px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 hover:bg-brand-primary/90 shadow-lg hover:shadow-xl"
+              >
+                {lang === 'en' ? 'Follow the Build Journey' : 'Geliştirme Sürecini Takip Et'} <ArrowUpRight className="h-4 w-4" />
+              </a>
+              <p className="text-sm text-text-primary/50 mt-5">
+                {lang === 'en' ? 'The first version is currently in development.' : 'İlk sürüm üzerinde çalışılıyor.'}
+              </p>
+            </motion.div>
+          </div>
+        </section>
+
         {/* CTA Section */}
         <section id="contact" className="py-[48px] md:py-[64px] lg:py-[88px] bg-background">
           <div className="page-container"><div className="max-w-4xl mx-auto text-center">
             <h2 className="text-h2 mb-6">
-              Ready to fix the leaks in your product?
+              {lang === 'en' ? 'Ready to fix the leaks in your product?' : 'Ürününüzdeki sorunlu noktaları düzeltmeye hazır mısınız?'}
             </h2>
             <p className="text-text-primary/70 max-w-[850px] mx-auto text-lg mb-10">
-              Whether you need a full SaaS redesign or a targeted UX audit to fix a specific funnel, let's find out where you're losing money and transform your digital experience into a growth system.
+              {lang === 'en'
+                ? "Whether you need a full SaaS redesign or a targeted UX audit to fix a specific funnel, let's find the friction points and turn your digital experience into a growth system."
+                : 'İster kapsamlı bir SaaS yeniden tasarımına ihtiyacınız olsun, ister belirli bir dönüşüm hunisini düzeltmek için hedefe yönelik bir UX analizine; sürtünme noktalarını birlikte bulup dijital deneyiminizi bir büyüme sistemine dönüştürelim.'}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
-                <Mail className="h-4 w-4" /> Book Your UX Audit
+              <a href={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
+                <Mail className="h-4 w-4" /> {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
               </a>
               <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-surface border border-brand-primary/10 px-8 py-4 text-sm font-bold text-text-primary transition-colors hover:bg-brand-primary/5">
                 {lang === 'en' ? 'Contact Me' : 'İletişime Geç'}

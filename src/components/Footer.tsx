@@ -31,7 +31,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Portfolio</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</h4>
           <ul className="space-y-4">
             <li><a href={`/${lang}/#portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</a></li>
             <li><Link to={`/${lang}/portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
@@ -40,7 +40,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Connect</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">{lang === 'en' ? 'Connect' : 'Bağlantılar'}</h4>
           <ul className="space-y-4">
             <li><a href="https://www.linkedin.com/in/ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">LinkedIn</a></li>
             <li><a href="https://medium.com/@ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Medium</a></li>
@@ -49,7 +49,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">Legal</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">{lang === 'en' ? 'Legal' : 'Yasal'}</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/privacy-policy`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}</Link></li>
             <li><Link to={`/${lang}/kvkk`} className="text-white/70 hover:text-white transition-colors">KVKK Aydınlatma Metni</Link></li>
