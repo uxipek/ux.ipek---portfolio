@@ -33,7 +33,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         <div>
           <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-brand-transformation">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</h4>
           <ul className="space-y-4">
-            <li><a href={`/${lang}/#portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</a></li>
+            <li><Link to={`/${lang}/#portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</Link></li>
             <li><Link to={`/${lang}/portfolio`} className="text-white/70 hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
             <li><a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-white transition-colors">Behance</a></li>
           </ul>

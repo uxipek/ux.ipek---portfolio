@@ -50,8 +50,23 @@
   ],
   "rewrites": [
     {
+      "source": "/portfolio/zeka-oyunlari",
+      "destination": "/zeka-oyunlari-case-study.html"
+    },
+    {
+      "source": "/:lang(en|tr)/portfolio/zeka-oyunlari",
+      "destination": "/zeka-oyunlari-case-study.html"
+    },
+    {
       "source": "/((?!assets/|.*\\..*$).*)",
       "destination": "/index.html"
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/zeka-oyunlari-case-study.html",
+      "destination": "/portfolio/zeka-oyunlari",
+      "permanent": true
     }
   ]
 }

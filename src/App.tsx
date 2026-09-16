@@ -1,11 +1,12 @@
 import { MetaHelper } from "./components/MetaHelper";
 import React, { Suspense, lazy } from "react";
-import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import { Logo } from "./components/Logo";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Nav } from "./components/Nav";
 import { Footer } from "./components/Footer";
 import { CookieBanner } from "./components/CookieBanner";
 import { LanguageProvider, useLanguage } from "./components/layout/LanguageProvider";
+import { DawnTransition } from "./components/layout/DawnTransition";
 import { Lock } from "lucide-react";
 
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
@@ -54,9 +55,11 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-surface font-sans text-text-primary/90 selection:bg-brand-transformation/30 flex flex-col">
       <Nav lang={lang} setLang={setLang} />
-      <main className="pt-20 flex-grow">
+      <main className="pt-20 flex-grow relative overflow-x-clip">
         <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-text-primary/40"><Logo className="h-8 w-auto animate-pulse" /></div>}>
-          <Routes>
+        <DawnTransition>
+          {(location) => (
+          <Routes location={location}>
             <Route path="/:lang" element={<PageWrapper component={Home} />} />
             <Route path="/:lang/services" element={<PageWrapper component={ServicesPage} />} />
             <Route path="/:lang/ux-audit" element={<PageWrapper component={UXAuditPage} />} />
@@ -80,6 +83,8 @@ function AppContent() {
             <Route path="/:lang/*" element={<PageWrapper component={NotFoundPage} />} />
             <Route path="*" element={<PageWrapper component={NotFoundPage} />} />
           </Routes>
+          )}
+        </DawnTransition>
         </Suspense>
       </main>
       <Footer lang={lang} />

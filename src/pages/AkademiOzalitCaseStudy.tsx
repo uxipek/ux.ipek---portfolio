@@ -323,7 +323,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {relatedProject && (
-              <Link to={`/case-study/zeka-oyunlari`} className="group block">
+              <a href={`/${lang}/portfolio/zeka-oyunlari`} className="group block">
                 <div className="aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden bg-brand-primary/5 mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 relative">
                   <img src={relatedProject.coverImage} alt={relatedProject.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -338,7 +338,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
                 <h3 className="font-display font-bold text-brand-primary text-2xl md:text-3xl mb-2 group-hover:text-brand-transformation transition-colors">{relatedProject.title}</h3>
                 <p className="text-text-primary/70 font-light leading-relaxed mb-2">{relatedProject.category[lang]}</p>
                 <p className="text-text-primary/60 text-sm">{relatedProject.description[lang]}</p>
-              </Link>
+              </a>
             )}
           </div>
           

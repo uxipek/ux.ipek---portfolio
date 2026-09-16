@@ -28,6 +28,20 @@
   --animate-blob: blob 10s infinite alternate;
 }
 
+
+/* DawnTransition page layers — the ::after overlay is the iOS "pageIn" dim on the page underneath */
+.dawn-layer {
+  --dawn-overlay: 0;
+}
+.dawn-layer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: rgb(40 0 44 / var(--dawn-overlay));
+  z-index: 10;
+}
+
 @layer utilities {
   .bg-grid-pattern {
     background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),

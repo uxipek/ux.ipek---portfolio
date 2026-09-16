@@ -130,9 +130,9 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <a href={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
+                  <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
                     {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'} <ArrowUpRight className="h-4 w-4" />
-                  </a>
+                  </Link>
                   <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
                     {lang === 'en' ? 'Book a Free 15-Minute Call' : '15 Dakikalık Ücretsiz Görüşme Planla'} <ArrowUpRight className="h-4 w-4" />
                   </a>
@@ -385,14 +385,14 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     ))}
                   </div>
                 </div>
-                <a href={`/${lang}/ux-audit`} className="mt-14 flex items-center gap-4">
+                <Link to={`/${lang}/ux-audit`} className="mt-14 flex items-center gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
                     {lang === 'en' ? "Explore the UX X-Ray" : "UX R\u00F6ntgeni'ni \u0130ncele"}
                   </span>
-                </a>
+                </Link>
               </motion.div>
 
               {/* Service 2: AI-Native \u00DCr\u00FCn Tasar\u0131m\u0131 / AI-Native Product Design */}
@@ -424,14 +424,14 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     ))}
                   </div>
                 </div>
-                <a href={`/${lang}/process`} className="mt-14 flex items-center gap-4">
+                <Link to={`/${lang}/process`} className="mt-14 flex items-center gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
                     {lang === 'en' ? 'Explore the Design Process' : '\u00DCr\u00FCn Tasar\u0131m\u0131 S\u00FCrecini \u0130ncele'}
                   </span>
-                </a>
+                </Link>
               </motion.div>
 
               {/* Service 3: UX/UI Redesign */}
@@ -463,14 +463,14 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     ))}
                   </div>
                 </div>
-                <a href={`/${lang}/portfolio`} className="mt-14 flex items-center gap-4">
+                <Link to={`/${lang}/portfolio`} className="mt-14 flex items-center gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-[11px] font-bold uppercase tracking-[0.15em] text-text-primary/40 group-hover:text-text-primary transition-colors duration-300">
                     {lang === 'en' ? 'View the Work' : '\u00C7al\u0131\u015Fmalar\u0131 \u0130ncele'}
                   </span>
-                </a>
+                </Link>
               </motion.div>
 
             </div>
@@ -687,9 +687,9 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: 0.2 }}
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
-               <a href={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
+               <Link to={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-base font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
                   {lang === 'en' ? 'Start Your Transformation' : 'Dönüşümüne Başla'} <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-               </a>
+               </Link>
                <p className="mt-5 text-sm md:text-base text-text-primary/50 font-medium">
                  {lang === 'en' ? "Let's turn your digital experience into a growth system." : 'Dijital deneyiminizi bir büyüme sistemine dönüştürelim.'}
                </p>
@@ -757,7 +757,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     </div>
                     {project.id === "zeka-oyunlari" ? (
                       <a
-                        href={`/zeka-oyunlari-case-study.html?lang=${lang}`}
+                        href={`/${lang}/portfolio/zeka-oyunlari`}
                         className="inline-flex items-center gap-2 text-brand-transformation font-semibold text-sm hover:text-white transition-colors mt-auto"
                       >
                         {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
@@ -858,9 +858,9 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
+              <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
                 <Mail className="h-4 w-4" /> {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
-              </a>
+              </Link>
               <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-surface border border-brand-primary/10 px-8 py-4 text-sm font-bold text-text-primary transition-colors hover:bg-brand-primary/5">
                 {lang === 'en' ? 'Contact Me' : 'İletişime Geç'}
               </Link>

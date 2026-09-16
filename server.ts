@@ -218,15 +218,17 @@ async function startServer() {
 
     const { websiteUrl, fullName, email, companyName, primaryGoal, mainProblem, kvkkConsent, marketingConsent, turnstileToken } = body;
 
+    // The form only asks for the website URL now; the other fields stay
+    // accepted (optional) so older clients and the webhook schema keep working.
     const fieldErrors: string[] = [];
     if (!isRequiredHttpUrl(websiteUrl)) fieldErrors.push("websiteUrl");
-    if (!isRequiredString(fullName, 2, 100)) fieldErrors.push("fullName");
-    if (!isValidEmail(email)) fieldErrors.push("email");
+    if (!isOptionalString(fullName, 100)) fieldErrors.push("fullName");
+    if (email !== undefined && email !== "" && !isValidEmail(email)) fieldErrors.push("email");
     if (!isOptionalString(companyName, 150)) fieldErrors.push("companyName");
-    if (!isRequiredString(primaryGoal, 10, 2000)) fieldErrors.push("primaryGoal");
-    if (!isRequiredString(mainProblem, 10, 2000)) fieldErrors.push("mainProblem");
-    if (!isStrictTrue(kvkkConsent)) fieldErrors.push("kvkkConsent");
-    if (!isBoolean(marketingConsent)) fieldErrors.push("marketingConsent");
+    if (!isOptionalString(primaryGoal, 2000)) fieldErrors.push("primaryGoal");
+    if (!isOptionalString(mainProblem, 2000)) fieldErrors.push("mainProblem");
+    if (kvkkConsent !== undefined && !isBoolean(kvkkConsent)) fieldErrors.push("kvkkConsent");
+    if (marketingConsent !== undefined && !isBoolean(marketingConsent)) fieldErrors.push("marketingConsent");
 
     if (fieldErrors.length > 0) {
       logOutcome("/api/ux-audit", 400, "validation_failed", requestId);
@@ -247,12 +249,12 @@ async function startServer() {
 
     const payload = {
       websiteUrl: (websiteUrl as string).trim(),
-      fullName: (fullName as string).trim(),
-      email: (email as string).trim(),
+      fullName: fullName ? (fullName as string).trim() : "",
+      email: email ? (email as string).trim() : "",
       companyName: companyName ? (companyName as string).trim() : "",
-      primaryGoal: (primaryGoal as string).trim(),
-      mainProblem: (mainProblem as string).trim(),
-      kvkkConsent: true,
+      primaryGoal: primaryGoal ? (primaryGoal as string).trim() : "",
+      mainProblem: mainProblem ? (mainProblem as string).trim() : "",
+      kvkkConsent: Boolean(kvkkConsent),
       marketingConsent: Boolean(marketingConsent),
       consentTimestamp: new Date().toISOString(),
       privacyPolicyVersion: PRIVACY_POLICY_VERSION,
@@ -276,6 +278,15 @@ async function startServer() {
       logOutcome("/api/ux-audit", 500, "webhook_network_error", requestId);
       res.status(500).json({ error: "Failed to submit your request. Please try again." });
     }
+  });
+
+  // Pretty URL for the static Zeka Oyunları case study (mirrors the rewrite in vercel.json)
+  const staticRoot = process.env.NODE_ENV !== "production" ? "public" : "dist";
+  app.get(["/portfolio/zeka-oyunlari", "/:lang(en|tr)/portfolio/zeka-oyunlari"], (_req, res) => {
+    res.sendFile(path.join(process.cwd(), staticRoot, "zeka-oyunlari-case-study.html"));
+  });
+  app.get("/zeka-oyunlari-case-study.html", (_req, res) => {
+    res.redirect(301, "/portfolio/zeka-oyunlari");
   });
 
   // Vite middleware for development

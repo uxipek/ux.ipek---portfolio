@@ -7,16 +7,7 @@ import { TurnstileWidget } from "../components/TurnstileWidget";
 export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
   const formSectionId = lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu';
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [formState, setFormState] = useState({
-    website: "",
-    name: "",
-    company: "",
-    email: "",
-    goal: "",
-    challenge: "",
-    legalConsent: false,
-    marketingConsent: false
-  });
+  const [formState, setFormState] = useState({ website: "" });
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [turnstileToken, setTurnstileToken] = useState("");
   const [turnstileResetKey, setTurnstileResetKey] = useState(0);
@@ -53,13 +44,6 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
         },
         body: JSON.stringify({
           websiteUrl: formState.website,
-          fullName: formState.name,
-          email: formState.email,
-          companyName: formState.company,
-          primaryGoal: formState.goal,
-          mainProblem: formState.challenge,
-          kvkkConsent: formState.legalConsent,
-          marketingConsent: formState.marketingConsent,
           turnstileToken,
         }),
       });
@@ -69,7 +53,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       }
 
       setStatus("success");
-      setFormState({ website: "", name: "", company: "", email: "", goal: "", challenge: "", legalConsent: false, marketingConsent: false });
+      setFormState({ website: "" });
       setTurnstileToken("");
       setTurnstileResetKey(k => k + 1);
 
@@ -101,8 +85,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
     {
       q: lang === 'en' ? 'How long does the audit take?' : 'Analiz ne kadar sürer?',
       a: lang === 'en'
-        ? 'We will share the mini UX audit report with you via email within 3 business days.'
-        : 'Mini UX analizi raporunu 3 iş günü içinde e-posta ile sizinle paylaşacağız.'
+        ? 'I will reach you through the contact details on your website and share the mini UX audit report within 3 business days.'
+        : 'Web sitenizdeki iletişim bilgileri üzerinden size ulaşıp mini UX analizi raporunu 3 iş günü içinde paylaşacağım.'
     },
     {
       q: lang === 'en' ? 'Who is this for?' : 'Kimler için uygundur?',
@@ -347,8 +331,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             <p className="text-body-lg text-text-primary/70 max-w-[680px] mx-auto">
               {lang === 'en' 
-                ? 'I will review your website and share the top 3 critical UX issues and initial improvement recommendations via email within 3 business days.' 
-                : 'Web sitenizi inceleyip kullanıcı deneyimini etkileyen en kritik 3 sorunu ve ilk iyileştirme önerilerimi 3 iş günü içinde e-posta ile paylaşacağım.'}
+                ? 'Just drop your link. I will review your website and reach you through the contact details on your site with the top 3 critical UX issues and initial improvement recommendations within 3 business days.' 
+                : 'Sadece linkinizi bırakın. Web sitenizi inceleyip en kritik 3 UX sorununu ve ilk iyileştirme önerilerimi 3 iş günü içinde sitenizdeki iletişim bilgileri üzerinden size ulaştıracağım.'}
             </p>
           </div>
           
@@ -362,7 +346,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   {lang === 'en' ? 'Request Sent Successfully!' : 'Talebiniz Başarıyla Alındı!'}
                 </h3>
                 <p className="text-base leading-[1.65] text-text-primary/70 mb-8">
-                  {lang === 'en' ? 'I will review your website and get back to you shortly.' : 'Web sitenizi inceleyip en kısa sürede size dönüş yapacağım.'}
+                  {lang === 'en' ? 'I will review your website and reach you through the contact details on your site shortly.' : 'Web sitenizi inceleyip sitenizdeki iletişim bilgileri üzerinden en kısa sürede size dönüş yapacağım.'}
                 </p>
                 <button 
                   onClick={() => setStatus('idle')}
@@ -393,111 +377,6 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                     required 
                   />
                 </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                  <div>
-                    <label htmlFor="name" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                      {lang === 'en' ? 'Full Name' : 'Ad Soyad'} <span className="text-brand-transformation">*</span>
-                    </label>
-                    <input 
-                      id="name"
-                      type="text" 
-                      value={formState.name}
-                      onChange={(e) => setFormState({...formState, name: e.target.value})}
-                      className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 text-base" 
-                      required 
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                      {lang === 'en' ? 'Email Address' : 'E-posta Adresi'} <span className="text-brand-transformation">*</span>
-                    </label>
-                    <input 
-                      id="email"
-                      type="email" 
-                      value={formState.email}
-                      onChange={(e) => setFormState({...formState, email: e.target.value})}
-                      className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 text-base" 
-                      required 
-                    />
-                  </div>
-                </div>
-
-                <div>
-                  <label htmlFor="company" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                    {lang === 'en' ? 'Company / Brand Name' : 'Şirket / Marka Adı'} <span className="text-text-primary/50 font-normal text-[0.875rem] ml-1">({lang === 'en' ? 'Optional' : 'İsteğe bağlı'})</span>
-                  </label>
-                  <input 
-                    id="company"
-                    type="text" 
-                    value={formState.company}
-                    onChange={(e) => setFormState({...formState, company: e.target.value})}
-                    className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 text-base" 
-                  />
-                </div>
-                
-                <div>
-                  <label htmlFor="goal" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                    {lang === 'en' ? 'What is the primary goal you want to achieve with your website?' : 'Web sitenizle ulaşmak istediğiniz temel hedef nedir?'} <span className="text-brand-transformation">*</span>
-                  </label>
-                  <input 
-                    id="goal"
-                    type="text" 
-                    value={formState.goal}
-                    onChange={(e) => setFormState({...formState, goal: e.target.value})}
-                    className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 text-base" 
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="challenge" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                    {lang === 'en' ? 'What is the most important problem you want to solve on your website?' : 'Web sitenizde çözmek istediğiniz en önemli sorun nedir?'} <span className="text-brand-transformation">*</span>
-                  </label>
-                  <textarea 
-                    id="challenge"
-                    value={formState.challenge}
-                    onChange={(e) => setFormState({...formState, challenge: e.target.value})}
-                    className="w-full min-h-[120px] p-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 resize-none text-base"
-                    required
-                  ></textarea>
-                </div>
-                
-                <div className="flex flex-col gap-4 pt-4 border-t border-brand-primary/5">
-                  <div className="flex items-start gap-3">
-                    <input 
-                      type="checkbox" 
-                      id="legalConsent" 
-                      checked={formState.legalConsent}
-                      onChange={(e) => setFormState({...formState, legalConsent: e.target.checked})}
-                      required
-                      className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-brand-transformation focus:ring-brand-transformation shrink-0 cursor-pointer"
-                    />
-                    <label htmlFor="legalConsent" className="text-[0.875rem] leading-[1.55] text-text-primary/80 cursor-pointer select-none">
-                      {lang === 'en' ? (
-                        <>I have read the <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Information Notice</Link> and agree to the processing of my personal data to evaluate my request.</>
-                      ) : (
-                        <><Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Aydınlatma Metni</Link>'ni okudum ve kişisel verilerimin talebimin değerlendirilmesi amacıyla işlenmesini kabul ediyorum.</>
-                      )}
-                    </label>
-                  </div>
-                  
-                  <div className="flex items-start gap-3">
-                    <input
-                      type="checkbox"
-                      id="marketingConsent"
-                      checked={formState.marketingConsent}
-                      onChange={(e) => setFormState({...formState, marketingConsent: e.target.checked})}
-                      className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-brand-transformation focus:ring-brand-transformation shrink-0 cursor-pointer"
-                    />
-                    <label htmlFor="marketingConsent" className="text-[0.875rem] leading-[1.55] text-text-primary/80 cursor-pointer select-none">
-                      {lang === 'en' ? (
-                        'I would like to receive content and information from UXipek via email.'
-                      ) : (
-                        'UXipek\'e ait içerik ve bilgilendirmeleri e-posta yoluyla almak istiyorum.'
-                      )}
-                    </label>
-                  </div>
-                </div>
 
                 <TurnstileWidget
                   action="ux_audit_form"
@@ -519,9 +398,9 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 </button>
 
                 <p className="text-[0.875rem] leading-[1.55] text-center text-text-primary/60 mt-2">
-                  {lang === 'en' 
-                    ? 'Your information is used only to evaluate your request and is not shared with third parties.' 
-                    : 'Bilgileriniz yalnızca talebinizi değerlendirmek için kullanılır ve üçüncü kişilerle paylaşılmaz.'}
+                  {lang === 'en'
+                    ? <>Your link is used only to evaluate your request and is not shared with third parties. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Notice</Link></>
+                    : <>Linkiniz yalnızca talebinizi değerlendirmek için kullanılır ve üçüncü kişilerle paylaşılmaz. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Aydınlatma Metni</Link></>}
                 </p>
               </form>
             )}

@@ -34,7 +34,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               className="group flex flex-col"
             >
               {project.id === "zeka-oyunlari" ? (
-                <a href={`/zeka-oyunlari-case-study.html?lang=${lang}`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
+                <a href={`/${lang}/portfolio/zeka-oyunlari`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
                   <img
                     src={project.coverImage}
                     alt={project.title}

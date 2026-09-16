@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
 
@@ -28,54 +28,54 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
   return (
     <nav className="fixed top-0 z-50 w-full border-b border-brand-primary/5 bg-surface/80 backdrop-blur-md">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-6 md:px-8 lg:px-12">
-        <a href={`/${lang}`} className="flex items-center gap-2 text-text-primary">
+        <Link to={`/${lang}`} className="flex items-center gap-2 text-text-primary">
           <Logo className="h-10 w-auto text-text-primary" />
-        </a>
+        </Link>
         
         {/* Desktop Navigation */}
         <div className="hidden lg:flex items-center gap-8 text-sm font-medium text-text-primary/70">
-          <a
-            href={`/${lang}/about`}
+          <Link
+            to={`/${lang}/about`}
             className={`transition-colors relative pb-1 ${isAboutActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
             {lang === 'en' ? 'About' : 'Hakk\u0131nda'}
-          </a>
-          <a 
-            href={`/${lang}/services`} 
+          </Link>
+          <Link 
+            to={`/${lang}/services`} 
             className={`transition-colors relative pb-1 ${isServicesActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isServicesActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Services' : 'Hizmetler'}
-          </a>
-          <a 
-            href={`/${lang}/ux-audit`} 
+          </Link>
+          <Link 
+            to={`/${lang}/ux-audit`} 
             className={`transition-colors relative pb-1 ${isUxAuditActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isUxAuditActive ? "page" : undefined}
           >
             {lang === 'en' ? 'UX Audit' : 'UX Analizi'}
-          </a>
-          <a 
-            href={`/${lang}/process`} 
+          </Link>
+          <Link 
+            to={`/${lang}/process`} 
             className={`transition-colors relative pb-1 ${isProcessActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isProcessActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}
-          </a>
-          <a 
-            href={`/${lang}/portfolio`} 
+          </Link>
+          <Link 
+            to={`/${lang}/portfolio`} 
             className={`transition-colors relative pb-1 ${isPortfolioActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isPortfolioActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Portfolio' : 'Portfolyo'}
-          </a>
-          <a 
-            href={`/${lang}/contact`} 
+          </Link>
+          <Link 
+            to={`/${lang}/contact`} 
             className={`transition-colors relative pb-1 ${isContactActive ? "text-brand-transformation font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-brand-transformation"}`}
             aria-current={isContactActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}
-          </a>
+          </Link>
         </div>
         
         <div className="hidden sm:flex items-center gap-4">
@@ -102,54 +102,54 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="lg:hidden absolute top-20 left-0 w-full bg-white border-b border-brand-primary/5 shadow-2xl flex flex-col px-6 md:px-8 lg:px-12 py-6 space-y-5 font-medium text-text-primary/80 max-h-[calc(100vh-5rem)] overflow-y-auto">
-          <a
-            href={`/${lang}/about`}
+          <Link
+            to={`/${lang}/about`}
             onClick={toggleMenu}
             className={`transition-colors text-lg ${isAboutActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isAboutActive ? "page" : undefined}
           >
             {lang === 'en' ? 'About' : 'Hakk\u0131nda'}
-          </a>
-          <a 
-            href={`/${lang}/services`} 
+          </Link>
+          <Link 
+            to={`/${lang}/services`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lg ${isServicesActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isServicesActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Services' : 'Hizmetler'}
-          </a>
-          <a 
-            href={`/${lang}/ux-audit`} 
+          </Link>
+          <Link 
+            to={`/${lang}/ux-audit`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lg ${isUxAuditActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isUxAuditActive ? "page" : undefined}
           >
             {lang === 'en' ? 'UX Audit' : 'UX Analizi'}
-          </a>
-          <a 
-            href={`/${lang}/process`} 
+          </Link>
+          <Link 
+            to={`/${lang}/process`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lg ${isProcessActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isProcessActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Process' : 'S\u00FCre\u00E7'}
-          </a>
-          <a 
-            href={`/${lang}/portfolio`} 
+          </Link>
+          <Link 
+            to={`/${lang}/portfolio`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lg ${isPortfolioActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isPortfolioActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Portfolio' : 'Portfolyo'}
-          </a>
-          <a 
-            href={`/${lang}/contact`} 
+          </Link>
+          <Link 
+            to={`/${lang}/contact`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lg ${isContactActive ? "text-brand-transformation font-semibold" : "hover:text-brand-transformation"}`}
             aria-current={isContactActive ? "page" : undefined}
           >
             {lang === 'en' ? 'Contact' : '\u0130leti\u015Fim'}
-          </a>
+          </Link>
           
           <div className="flex sm:hidden items-center justify-between pt-4 border-t border-brand-primary/10">
             <div className="flex items-center font-bold text-[13px] tracking-wide bg-brand-primary/5 p-1 rounded-full w-max">
