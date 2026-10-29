@@ -4,6 +4,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText, GraduationCap, Layout, LineChart, Mail, Sparkles, Target, Users, CheckCircle2, Search, Zap, BookOpen, Download, ArrowUpRight } from "lucide-react";
 import { Logo } from "../components/Logo";
 import { projects } from "../data/projects";
+import { RepublicPopup } from "../components/RepublicPopup";
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -35,6 +36,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
   
   return (
     <>
+      <RepublicPopup lang={lang} />
       <div className="w-full">
                 {/* Hero Section */}
         <section id="about" className="relative overflow-hidden bg-background pt-[80px] pb-[48px] md:pt-[104px] md:pb-[72px] lg:pt-[104px] lg:pb-[88px]">

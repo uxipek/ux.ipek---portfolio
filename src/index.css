@@ -157,3 +157,120 @@ body {
     @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-dark/20 text-dark hover:bg-dark/5 focus-visible:ring-4 focus-visible:ring-dark/10;
   }
 }
+
+/* ---------- 29 Ekim (/:lang/29-ekim) ----------
+   All tokens are scoped to .republic-page so the site theme is untouched.
+   Souvenir tokens live on :root and never change with the night toggle. */
+:root {
+  --republic-paper: oklch(0.97 0.007 88);
+  --republic-ink: oklch(0.214 0.018 265);
+  --republic-card-night: oklch(0.205 0.04 245);
+  --republic-red: oklch(0.536 0.199 20);
+}
+.republic-page {
+  --r-bg: oklch(1 0 0);
+  --r-fg: oklch(0.19609 0.00425 84.591);
+  --r-soft: oklch(0.98337 0.00252 48.720);
+  --r-warm: oklch(0.95311 0.00344 67.782);
+  --r-muted-bg: oklch(0.96736 0.00287 84.559);
+  --r-muted: oklch(0.48919 0.01217 67.538);
+  --r-border: oklch(0.91096 0.00632 75.404);
+  --r-input: oklch(0.85708 0.00883 67.708);
+  --r-primary: oklch(0.30033 0.0079 59.372);
+  --r-primary-fg: oklch(1 0 0);
+  --r-gold: oklch(0.85755 0.11757 88.27);
+  --r-ring: oklch(0.55545 0.09564 226.37);
+  background: var(--r-bg);
+  color: var(--r-fg);
+  transition: background-color .4s, color .4s;
+  font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  scroll-behavior: smooth;
+}
+.republic-page.republic-night {
+  --r-bg: oklch(0.23764 0.00598 56.087);
+  --r-fg: oklch(0.96736 0.00287 84.559);
+  --r-soft: oklch(0.265 0.006 56);
+  --r-warm: oklch(0.285 0.007 56);
+  --r-muted-bg: oklch(0.30033 0.0079 59.372);
+  --r-muted: oklch(0.82 0.009 67);
+  --r-border: oklch(0.42 0.009 61);
+  --r-input: oklch(0.52 0.01 61);
+  --r-primary: oklch(0.95311 0.00344 67.782);
+  --r-primary-fg: oklch(0.19609 0.00425 84.591);
+  --r-ring: oklch(0.77 0.09 226);
+  color-scheme: dark;
+}
+.republic-page :focus-visible { outline: 2px solid var(--r-ring); outline-offset: 4px; }
+.republic-page h1, .republic-page h2 { font-family: "Playfair Display", ui-serif, Georgia, serif; line-height: 1.2; font-weight: 400; }
+.republic-page h3 { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; }
+.republic-page .r-serif { font-family: "Playfair Display", ui-serif, Georgia, serif; }
+.republic-page .r-border { border-color: var(--r-border); }
+.republic-page .r-muted { color: var(--r-muted); }
+.republic-page .r-accent { color: var(--r-muted); }
+.republic-page .r-soft { background: var(--r-soft); }
+.republic-page .r-warm { background: var(--r-warm); }
+.republic-page .r-muted-bg { background: var(--r-muted-bg); }
+.republic-page .r-card { background: var(--r-bg); }
+.republic-page .r-dark-band { background: var(--r-warm); color: var(--r-fg); }
+.republic-page .r-rule { background: var(--r-fg); }
+.republic-page .r-small { font-size: 0.875rem; }
+.republic-page .r-page-width { width: min(100% - 48px, 1152px); margin-inline: auto; }
+.republic-page .r-section { padding-block: 48px; scroll-margin-top: 96px; }
+.republic-page .r-section-label { color: var(--r-muted); font-size: 0.8125rem; font-weight: 600; margin-bottom: 20px; }
+.republic-page .r-section-title { font-size: 2.5rem; text-wrap: balance; }
+.republic-page .r-eyebrow { color: var(--r-muted); font-size: 0.875rem; font-weight: 600; }
+.republic-page .r-headline-rule { width: 40px; height: 4px; background: var(--r-gold); margin-top: 24px; }
+.republic-page .r-lead { margin-top: 28px; max-width: 32rem; font-size: 1.125rem; color: var(--r-muted); }
+.republic-page .r-toolbar { background: var(--r-bg); }
+.republic-page .r-toolbar-layout { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 64px; flex-wrap: wrap; padding-block: 8px; }
+.republic-page .r-header-links { display: flex; gap: 32px; }
+.republic-page .r-header-links a { display: inline-flex; align-items: center; min-height: 44px; }
+.republic-page .r-theme-switch { display: flex; padding: 4px; gap: 4px; border: 1px solid var(--r-border); border-radius: 6px; }
+.republic-page .r-theme-switch button { padding-inline: 12px; }
+.republic-page .r-opening { position: relative; overflow: hidden; min-height: 650px; }
+.republic-page .r-opening-content { position: relative; z-index: 1; padding-block: 48px; pointer-events: none; }
+.republic-page .r-opening-content a, .republic-page .r-opening-content button { pointer-events: auto; }
+.republic-page .r-opening-content h1 { font-size: 56px; margin-top: 24px; }
+.republic-page .r-opening-content h1, .republic-page .r-opening-content p { max-width: 54%; }
+.republic-page .r-opening-art { position: absolute; height: 100%; width: auto; max-width: 43%; right: max(24px, calc((100% - 1152px) / 2)); top: 0; object-fit: contain; }
+.republic-page .r-btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 40px; padding: 8px 16px; border-radius: 6px; font-size: 0.875rem; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: background-color .15s, opacity .15s; }
+.republic-page .r-btn-lg { min-height: 44px; padding-inline: 24px; }
+.republic-page .r-btn-default { background: var(--r-primary); color: var(--r-primary-fg); }
+.republic-page .r-btn-default:hover { opacity: .88; }
+.republic-page .r-btn-red { background: var(--republic-red); color: #fff; }
+.republic-page .r-btn-red:hover { background: color-mix(in oklab, var(--republic-red) 88%, black); }
+.republic-page .r-btn-outline { background: var(--r-bg); color: var(--r-fg); border-color: var(--r-input); }
+.republic-page .r-btn-outline:hover { background: var(--r-muted-bg); }
+.republic-page .r-btn-ghost { background: transparent; color: var(--r-fg); }
+.republic-page .r-btn-ghost:hover { background: var(--r-muted-bg); }
+.republic-page .r-btn:disabled { opacity: .5; cursor: not-allowed; }
+.republic-page .r-btn svg { width: 16px; height: 16px; flex: none; }
+.republic-page .r-field { width: 100%; border: 1px solid var(--r-input); background: var(--r-bg); color: var(--r-fg); border-radius: 6px; padding: 12px 18px; min-height: 48px; font: inherit; caret-color: var(--r-fg); }
+.republic-page .r-timeline-tab { border: 0; border-top: 2px solid var(--r-border); padding: 24px 0; height: auto; justify-content: space-between; border-radius: 0; font-family: "Playfair Display", ui-serif, Georgia, serif; font-size: 1.25rem; }
+.republic-page .r-timeline-tab { transition: border-color .3s; }
+.republic-page .r-timeline-selected { border-top-color: var(--r-gold); }
+.republic-page .r-souvenir-preview { display: block; max-width: 100%; width: auto; max-height: 660px; height: auto; margin-inline: auto; border: 1px solid var(--r-border); }
+@media (prefers-reduced-motion: reduce) {
+  .republic-page { scroll-behavior: auto; }
+  }
+.republic-page .r-btn.px-0 { padding-inline: 0; }
+.republic-page [id^="mobile-history-"] { padding-top: 8px; }
+.republic-page .r-btn.justify-between { justify-content: space-between; text-align: left; }
+.republic-page .r-tap { display: inline-flex; align-items: center; min-height: 44px; }
+@media (max-width: 767px) {
+  .republic-page .r-btn { min-height: 44px; }
+  .republic-page .r-toolbar-layout { flex-wrap: nowrap; min-height: 56px; }
+  .republic-page .r-header-links { gap: 4px; }
+  .republic-page .r-header-links a { padding-inline: 6px; font-size: 0.9375rem; white-space: nowrap; }
+  .republic-page .r-theme-switch button { padding-inline: 0; width: 44px; }
+  .republic-page .r-theme-label { display: none; }
+  .republic-page summary, .republic-page details a { display: inline-flex; align-items: center; min-height: 44px; }
+  .republic-page details li { width: 100%; }
+  .republic-page .r-section-title { font-size: 2.25rem; }
+  .republic-page .r-opening { display: flex; flex-direction: column; min-height: auto; }
+  .republic-page .r-opening-content { order: -1; padding-block: 32px 24px; }
+  .republic-page .r-opening-content h1 { font-size: 36px; }
+  .republic-page .r-opening-content h1, .republic-page .r-opening-content p { max-width: 100%; }
+  .republic-page .r-opening-art { position: relative; right: auto; top: auto; height: auto; width: min(100% - 48px, 320px); max-width: none; margin: 0 auto 32px; transform: none !important; }
+  .republic-page .r-souvenir-preview { max-height: 440px; }
+}

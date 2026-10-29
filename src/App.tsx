@@ -22,6 +22,7 @@ const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicy").then(module
 const KVKKPage = lazy(() => import("./pages/KVKK").then(module => ({ default: module.KVKKPage })));
 const CookiePolicyPage = lazy(() => import("./pages/CookiePolicy").then(module => ({ default: module.CookiePolicyPage })));
 const TermsOfUsePage = lazy(() => import("./pages/TermsOfUse").then(module => ({ default: module.TermsOfUsePage })));
+const Republic29EkimPage = lazy(() => import("./pages/Republic29Ekim").then(module => ({ default: module.Republic29EkimPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFound").then(module => ({ default: module.NotFoundPage })));
 
 function ComingSoon() {
@@ -71,6 +72,8 @@ function AppContent() {
             <Route path="/:lang/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             <Route path="/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             
+            <Route path="/:lang/29-ekim" element={<PageWrapper component={Republic29EkimPage} />} />
+
             <Route path="/:lang/dashboard" element={<ComingSoon />} />
             <Route path="/:lang/reports" element={<ComingSoon />} />
             <Route path="/:lang/monthly-ux" element={<ComingSoon />} />

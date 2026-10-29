@@ -24,6 +24,18 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
         "UXipek; SaaS, yapay zekâ destekli ürünler ve web siteleri için UX Röntgeni, ürün tasarımı ve dönüşüm odaklı UX/UI çözümleri sunar.",
     },
   },
+  "/29-ekim": {
+    en: {
+      title: "29 October — Republic Day, 103rd Year | UXipek",
+      description:
+        "Explore the story of the Republic in its 103rd year, choose the value you carry forward and create your own 29 October keepsake card. (Content in Turkish.)",
+    },
+    tr: {
+      title: "29 Ekim — Dünden ilham, yarına iz | UXipek",
+      description:
+        "Cumhuriyet’in 103. yılında hikâyesini keşfet, geleceğe taşıyacağın değeri seç ve sana özel 29 Ekim hatıra kartını oluştur.",
+    },
+  },
   "/services": {
     en: {
       title: "Product Design Services | UXipek",
