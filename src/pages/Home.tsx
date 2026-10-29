@@ -38,6 +38,17 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
     <>
       <RepublicPopup lang={lang} />
       <div className="w-full">
+        <Link
+          to={`/${lang}/29-ekim`}
+          className="flex min-h-[44px] items-center justify-center gap-2 bg-[var(--republic-red)] px-4 py-2.5 text-center text-sm font-semibold text-white transition-colors hover:bg-[color-mix(in_oklab,var(--republic-red)_88%,black)] focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
+        >
+          <span>
+            {lang === 'en'
+              ? '29 October, Republic Day: click to visit the page (in Turkish)'
+              : '29 Ekim Cumhuriyet Bayramı: sayfaya gitmek için tıklayınız'}
+          </span>
+          <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+        </Link>
                 {/* Hero Section */}
         <section id="about" className="relative overflow-hidden bg-background pt-[80px] pb-[48px] md:pt-[104px] md:pb-[72px] lg:pt-[104px] lg:pb-[88px]">
           {/* Ambient Background Magic */}
