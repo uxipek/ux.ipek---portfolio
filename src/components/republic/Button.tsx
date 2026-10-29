@@ -1,6 +1,6 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes } from "react";
 
-type Style = { variant?: "default" | "outline" | "ghost"; size?: "default" | "lg" };
+type Style = { variant?: "default" | "outline" | "ghost" | "red"; size?: "default" | "lg" };
 const cls = ({ variant = "default", size = "default" }: Style, extra = "") =>
   `r-btn r-btn-${variant} ${size === "lg" ? "r-btn-lg" : ""} ${extra}`;
 

@@ -45,7 +45,7 @@ export function Republic29EkimPage(_props: { lang: "en" | "tr" }) {
           <div className="r-headline-rule" aria-hidden />
           <Reveal as="p" delay={0.2} className="r-lead">Cumhuriyet, geçmişten devraldığımız bir miras ve geleceğe taşıdığımız ortak sorumluluk. 103. yılında hikâyesini keşfet, senin için taşıdığı değeri seç ve bu güne bir hatıra bırak.</Reveal>
           <Reveal delay={0.3} className="mt-8 flex flex-wrap gap-3">
-            <ButtonLink size="lg" href="#donum-noktasi">Hikâyeyi keşfet<ArrowDown aria-hidden /></ButtonLink>
+            <ButtonLink size="lg" variant="red" href="#donum-noktasi">Hikâyeyi keşfet<ArrowDown aria-hidden /></ButtonLink>
             <ButtonLink size="lg" variant="outline" href="#hatira-karti">Hatıra kartımı oluştur<ArrowUpRight aria-hidden /></ButtonLink>
           </Reveal>
           <p className="r-small r-muted mt-8">Cumhuriyet’in 103. yılına UXipek’ten dijital bir armağan.</p>

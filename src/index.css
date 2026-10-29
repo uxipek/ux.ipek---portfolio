@@ -237,6 +237,8 @@ body {
 .republic-page .r-btn-lg { min-height: 44px; padding-inline: 24px; }
 .republic-page .r-btn-default { background: var(--r-primary); color: var(--r-primary-fg); }
 .republic-page .r-btn-default:hover { opacity: .88; }
+.republic-page .r-btn-red { background: var(--republic-red); color: #fff; }
+.republic-page .r-btn-red:hover { background: color-mix(in oklab, var(--republic-red) 88%, black); }
 .republic-page .r-btn-outline { background: var(--r-bg); color: var(--r-fg); border-color: var(--r-input); }
 .republic-page .r-btn-outline:hover { background: var(--r-muted-bg); }
 .republic-page .r-btn-ghost { background: transparent; color: var(--r-fg); }
