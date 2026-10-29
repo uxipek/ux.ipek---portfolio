@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { AnimatePresence, motion } from "motion/react";
 import { ChevronDown, ArrowRight } from "lucide-react";
 import { Button } from "./Button";
 
@@ -25,7 +26,7 @@ export function HistoryTimeline() {
           e.preventDefault(); setSelected(next); document.getElementById(`history-tab-${next}`)?.focus();
         }}><span>{event.date}</span><ArrowRight aria-hidden /></Button>)}
       </div>
-      <div id="history-panel" role="tabpanel" aria-labelledby={`history-tab-${selected ?? 0}`} className="mt-10 hidden min-h-48 max-w-3xl md:block" tabIndex={0}><h3 className="text-3xl">{current.title}</h3><p className="mt-5 max-w-[65ch] r-muted">{current.text}</p></div>
+      <div id="history-panel" role="tabpanel" aria-labelledby={`history-tab-${selected ?? 0}`} className="mt-10 hidden min-h-48 max-w-3xl md:block" tabIndex={0}><AnimatePresence mode="wait"><motion.div key={selected ?? 0} initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.3 }}><h3 className="text-3xl">{current.title}</h3><p className="mt-5 max-w-[65ch] r-muted">{current.text}</p></motion.div></AnimatePresence></div>
       <div className="md:hidden">{events.map((event, i) => <div key={event.date} className="border-t r-border"><Button variant="ghost" className="h-auto w-full justify-between whitespace-normal px-0 py-6 text-left font-serif text-xl" aria-expanded={selected === i} aria-controls={`mobile-history-${i}`} onClick={() => setSelected(selected === i ? null : i)}>{event.date}<ChevronDown aria-hidden className={selected === i ? "rotate-180" : ""} /></Button><div id={`mobile-history-${i}`} hidden={selected !== i} className="pb-8"><h3 className="text-2xl">{event.title}</h3><p className="mt-4 r-muted">{event.text}</p></div></div>)}</div>
     </div>
   );

@@ -182,6 +182,7 @@ body {
   --r-ring: oklch(0.55545 0.09564 226.37);
   background: var(--r-bg);
   color: var(--r-fg);
+  transition: background-color .4s, color .4s;
   font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   scroll-behavior: smooth;
 }
@@ -243,16 +244,13 @@ body {
 .republic-page .r-btn:disabled { opacity: .5; cursor: not-allowed; }
 .republic-page .r-btn svg { width: 16px; height: 16px; flex: none; }
 .republic-page .r-field { width: 100%; border: 1px solid var(--r-input); background: var(--r-bg); color: var(--r-fg); border-radius: 6px; padding: 12px 18px; min-height: 48px; font: inherit; caret-color: var(--r-fg); }
-.republic-page .r-timeline-tab { border-top: 2px solid var(--r-border); padding: 24px 0; height: auto; justify-content: space-between; border-radius: 0; font-family: "Playfair Display", ui-serif, Georgia, serif; font-size: 1.25rem; }
-.republic-page .r-timeline-selected { border-color: var(--r-gold); }
+.republic-page .r-timeline-tab { border: 0; border-top: 2px solid var(--r-border); padding: 24px 0; height: auto; justify-content: space-between; border-radius: 0; font-family: "Playfair Display", ui-serif, Georgia, serif; font-size: 1.25rem; }
+.republic-page .r-timeline-tab { transition: border-color .3s; }
+.republic-page .r-timeline-selected { border-top-color: var(--r-gold); }
 .republic-page .r-souvenir-preview { display: block; max-width: 100%; width: auto; max-height: 660px; height: auto; margin-inline: auto; border: 1px solid var(--r-border); }
-.republic-page [data-reveal] { opacity: 0.001; transform: translateY(18px); }
-.republic-page [data-reveal].in-view { animation: republic-reveal 0.9s cubic-bezier(0.16, 1, 0.3, 1) both; }
-@keyframes republic-reveal { from { opacity: 0.001; transform: translateY(18px); filter: blur(4px); } to { opacity: 1; transform: none; filter: none; } }
 @media (prefers-reduced-motion: reduce) {
   .republic-page { scroll-behavior: auto; }
-  .republic-page [data-reveal] { animation: none !important; opacity: 1 !important; transform: none !important; }
-}
+  }
 @media (max-width: 767px) {
   .republic-page .r-section-title { font-size: 2.25rem; }
   .republic-page .r-opening { display: flex; flex-direction: column; min-height: auto; }

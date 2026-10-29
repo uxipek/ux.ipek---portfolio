@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowRight, X } from "lucide-react";
+import { AnimatePresence, MotionConfig, motion } from "motion/react";
 
 const STORAGE_KEY = "republic-29-ekim-2026-popup";
 
@@ -32,11 +33,12 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
     return () => { document.removeEventListener("keydown", onKey); previous?.focus?.(); };
   }, [open]);
 
-  if (!open) return null;
-
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-primary/60 p-4 backdrop-blur-sm" onClick={close}>
-      <div
+    <MotionConfig reducedMotion="user">
+    <AnimatePresence>
+    {open && <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="fixed inset-0 z-[100] flex items-center justify-center bg-brand-primary/60 p-4 backdrop-blur-sm" onClick={close}>
+      <motion.div
+        initial={{ opacity: 0, y: 24, scale: 0.96 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 12, scale: 0.98 }} transition={{ type: "spring", stiffness: 260, damping: 24 }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="republic-popup-title"
@@ -69,7 +71,9 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
             </button>
           </div>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>}
+    </AnimatePresence>
+    </MotionConfig>
   );
 }
