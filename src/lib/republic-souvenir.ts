@@ -27,7 +27,7 @@ export function wrapText(text: string, measure: (text: string) => number, width:
   return lines;
 }
 
-export async function drawCard(canvas: HTMLCanvasElement, data: { name: string; message: string; value: Value; format: CardFormat; theme: CardTheme }) {
+export async function drawCard(canvas: HTMLCanvasElement, data: { name: string; profession: string; message: string; value: Value; format: CardFormat; theme: CardTheme }) {
   await Promise.all([document.fonts.load('600 72px "Playfair Display"'), document.fonts.load('400 36px "DM Sans"')]);
   await document.fonts.ready;
   const [width, height] = dimensions[data.format];
@@ -86,8 +86,13 @@ export async function drawCard(canvas: HTMLCanvasElement, data: { name: string; 
   };
   const message = fitLines(limitMessage(data.message), story ? 48 : 32, story ? 320 : 110);
   message.lines.forEach((line, i) => text(line.trim(), 80, valueY + 82 + i * message.size * 1.4, message.size));
-  const name = fitLines(limitName(data.name), 32, 95);
-  name.lines.forEach((line, i) => text(line.trim(), 80, height - 240 + i * name.size * 1.4, name.size));
+  const name = fitLines(limitName(data.name), 32, 60);
+  name.lines.forEach((line, i) => text(line.trim(), 80, height - 275 + i * name.size * 1.4, name.size));
+  const profession = fitLines(limitName(data.profession), 26, 40);
+  const professionY = data.name.trim() ? height - 220 : height - 275;
+  ctx.globalAlpha = 0.75;
+  profession.lines.forEach((line, i) => text(line.trim(), 80, professionY + i * profession.size * 1.4, profession.size));
+  ctx.globalAlpha = 1;
   ctx.strokeStyle = red; ctx.beginPath(); ctx.moveTo(80, height - 180); ctx.lineTo(1000, height - 180); ctx.stroke();
   text("UXipek — Design with kindness", 80, height - 120, 29);
   text("www.uxipek.com", 80, height - 76, 25);

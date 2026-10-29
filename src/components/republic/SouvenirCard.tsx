@@ -7,6 +7,7 @@ export function SouvenirCard() {
   const [value, setValue] = useState<Value>("Bilim");
   const [message, setMessage] = useState<string>(messages.Bilim);
   const [name, setName] = useState("");
+  const [profession, setProfession] = useState("");
   const [format, setFormat] = useState<CardFormat>("story");
   const [theme, setTheme] = useState<CardTheme>("night");
   const [busy, setBusy] = useState(false);
@@ -15,19 +16,19 @@ export function SouvenirCard() {
   useEffect(() => {
     let active = true;
     const temporary = document.createElement("canvas");
-    void drawCard(temporary, { name, message, value, format, theme }).then(() => {
+    void drawCard(temporary, { name, profession, message, value, format, theme }).then(() => {
       if (!active || !canvas.current) return;
       canvas.current.width = temporary.width; canvas.current.height = temporary.height;
       canvas.current.getContext("2d")?.drawImage(temporary, 0, 0);
     }).catch(() => { if (active) setStatus("Kart önizlemesi yüklenemedi."); });
     return () => { active = false; };
-  }, [name, message, value, format, theme]);
+  }, [name, profession, message, value, format, theme]);
 
   const exportCard = async (share: boolean) => {
     setBusy(true); setStatus("");
     try {
       const output = document.createElement("canvas");
-      await drawCard(output, { name, message, value, format, theme });
+      await drawCard(output, { name, profession, message, value, format, theme });
       const blob = await cardBlob(output);
       const filename = `29-ekim-103-${format === "story" ? "hikaye" : "kare"}.png`;
       const file = new File([blob], filename, { type: "image/png" });
@@ -63,6 +64,7 @@ export function SouvenirCard() {
           <div className="mt-12 grid items-start gap-12 md:grid-cols-2 lg:gap-20">
             <form onSubmit={event => event.preventDefault()} className="min-w-0 space-y-7">
               <div><label htmlFor="card-name" className="mb-2 block font-semibold">Adın <span className="font-normal r-muted">(isteğe bağlı)</span></label><input id="card-name" value={name} maxLength={40} onChange={e => setName(limitName(e.target.value))} className="r-field h-12" autoComplete="off" /></div>
+              <div><label htmlFor="card-profession" className="mb-2 block font-semibold">Mesleğin <span className="font-normal r-muted">(isteğe bağlı)</span></label><input id="card-profession" value={profession} maxLength={40} onChange={e => setProfession(limitName(e.target.value))} className="r-field h-12" autoComplete="off" /></div>
               <div><label htmlFor="card-value" className="mb-2 block font-semibold">Seçtiğin değer</label><select id="card-value" className="r-field" value={value} onChange={e => { const selected = e.target.value as Value; setValue(selected); setMessage(messages[selected]); }}>{(Object.keys(messages) as Value[]).map(option => <option key={option}>{option}</option>)}</select></div>
               <div><label htmlFor="card-message" className="mb-2 block font-semibold">Mesajın</label><textarea id="card-message" value={message} maxLength={140} onChange={e => setMessage(limitMessage(e.target.value))} className="r-field min-h-32" aria-describedby="message-count" /><p id="message-count" className="mt-1 text-right text-sm r-muted">{Array.from(message).length} / 140</p></div>
               <fieldset><legend className="mb-3 font-semibold">Format</legend><div className="flex flex-wrap gap-2">{(["story", "square"] as const).map(f => <Button key={f} variant={format === f ? "default" : "outline"} aria-pressed={format === f} onClick={() => setFormat(f)}>{f === "story" ? "Hikâye · 1080 × 1920" : "Kare · 1080 × 1080"}</Button>)}</div></fieldset>
@@ -71,7 +73,7 @@ export function SouvenirCard() {
               <div className="flex flex-wrap gap-3"><Button size="lg" variant="red" disabled={busy} onClick={() => void exportCard(false)}><Download aria-hidden />{busy ? "Hazırlanıyor…" : "Kartı indir"}</Button><Button size="lg" variant="outline" disabled={busy} onClick={() => void exportCard(true)}><Share2 aria-hidden />Paylaş</Button></div>
               <p role="status" className="min-h-6 text-sm r-muted">{status}</p>
             </form>
-            <div className="min-w-0"><canvas ref={canvas} width={1080} height={1920} role="img" aria-label={`Hatıra kartı önizlemesi: ${value}. ${message}${name ? ` — ${name}` : ""}`} className="r-souvenir-preview" /><p className="mt-4 text-center text-sm r-muted">{format === "story" ? "1080 × 1920 px" : "1080 × 1080 px"} · {theme === "night" ? "Gece" : "Kâğıt"}</p></div>
+            <div className="min-w-0"><canvas ref={canvas} width={1080} height={1920} role="img" aria-label={`Hatıra kartı önizlemesi: ${value}. ${message}${name ? ` — ${name}` : ""}${profession ? `, ${profession}` : ""}`} className="r-souvenir-preview" /><p className="mt-4 text-center text-sm r-muted">{format === "story" ? "1080 × 1920 px" : "1080 × 1080 px"} · {theme === "night" ? "Gece" : "Kâğıt"}</p></div>
           </div>
         </div>
       </section>
