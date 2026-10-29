@@ -253,14 +253,24 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .republic-page { scroll-behavior: auto; }
   }
+.republic-page .r-btn.px-0 { padding-inline: 0; }
+.republic-page [id^="mobile-history-"] { padding-top: 8px; }
+.republic-page .r-btn.justify-between { justify-content: space-between; text-align: left; }
+.republic-page .r-tap { display: inline-flex; align-items: center; min-height: 44px; }
 @media (max-width: 767px) {
+  .republic-page .r-btn { min-height: 44px; }
+  .republic-page .r-toolbar-layout { flex-wrap: nowrap; min-height: 56px; }
+  .republic-page .r-header-links { gap: 4px; }
+  .republic-page .r-header-links a { padding-inline: 6px; font-size: 0.9375rem; white-space: nowrap; }
+  .republic-page .r-theme-switch button { padding-inline: 0; width: 44px; }
+  .republic-page .r-theme-label { display: none; }
+  .republic-page summary, .republic-page details a { display: inline-flex; align-items: center; min-height: 44px; }
+  .republic-page details li { width: 100%; }
   .republic-page .r-section-title { font-size: 2.25rem; }
   .republic-page .r-opening { display: flex; flex-direction: column; min-height: auto; }
   .republic-page .r-opening-content { order: -1; padding-block: 32px 24px; }
   .republic-page .r-opening-content h1 { font-size: 36px; }
   .republic-page .r-opening-content h1, .republic-page .r-opening-content p { max-width: 100%; }
-  .republic-page .r-opening-art { position: relative; right: auto; height: 150px; max-width: 100%; margin: 0 auto 20px; }
-  .republic-page .r-souvenir-preview { max-height: 560px; }
-  .republic-page .r-header-links { gap: 16px; }
-  .republic-page .r-theme-switch button { font-size: 12px; padding-inline: 8px; }
+  .republic-page .r-opening-art { position: relative; right: auto; top: auto; height: auto; width: min(100% - 48px, 320px); max-width: none; margin: 0 auto 32px; transform: none !important; }
+  .republic-page .r-souvenir-preview { max-height: 440px; }
 }

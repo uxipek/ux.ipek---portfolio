@@ -73,7 +73,7 @@ export function SouvenirCard() {
               <div className="flex flex-wrap gap-3"><Button size="lg" variant="red" disabled={busy} onClick={() => void exportCard(false)}><Download aria-hidden />{busy ? "Hazırlanıyor…" : "Kartı indir"}</Button><Button size="lg" variant="outline" disabled={busy} onClick={() => void exportCard(true)}><Share2 aria-hidden />Paylaş</Button></div>
               <p role="status" className="min-h-6 text-sm r-muted">{status}</p>
             </form>
-            <div className="min-w-0"><canvas ref={canvas} width={1080} height={1920} role="img" aria-label={`Hatıra kartı önizlemesi: ${value}. ${message}${name ? ` — ${name}` : ""}${profession ? `, ${profession}` : ""}`} className="r-souvenir-preview" /><p className="mt-4 text-center text-sm r-muted">{format === "story" ? "1080 × 1920 px" : "1080 × 1080 px"} · {theme === "night" ? "Gece" : "Kâğıt"}</p></div>
+            <div className="order-first min-w-0 md:order-none"><canvas ref={canvas} width={1080} height={1920} role="img" aria-label={`Hatıra kartı önizlemesi: ${value}. ${message}${name ? ` — ${name}` : ""}${profession ? `, ${profession}` : ""}`} className="r-souvenir-preview" /><p className="mt-4 text-center text-sm r-muted">{format === "story" ? "1080 × 1920 px" : "1080 × 1080 px"} · {theme === "night" ? "Gece" : "Kâğıt"}</p></div>
           </div>
         </div>
       </section>

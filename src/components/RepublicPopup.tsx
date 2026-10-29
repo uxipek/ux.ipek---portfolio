@@ -42,7 +42,7 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
         role="dialog"
         aria-modal="true"
         aria-labelledby="republic-popup-title"
-        className="relative w-full max-w-md overflow-hidden rounded-[2rem] bg-surface shadow-2xl"
+        className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-[2rem] bg-surface shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
         <button ref={closeRef} onClick={close} aria-label={lang === "en" ? "Close" : "Kapat"} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-text-primary shadow hover:bg-white">
