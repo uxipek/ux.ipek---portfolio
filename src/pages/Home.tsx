@@ -36,6 +36,12 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
   return (
     <>
       <div className="w-full">
+        <div className="bg-brand-primary text-white">
+          <Link to={`/${lang}/29-ekim`} className="mx-auto flex max-w-7xl items-center justify-center gap-2 px-6 py-2.5 text-center text-sm hover:underline">
+            <span>{lang === 'en' ? '29 October, Republic Day: a digital gift for the 103rd year (in Turkish)' : '29 Ekim Cumhuriyet Bayramı: 103. yıl için dijital bir armağan'}</span>
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+        </div>
                 {/* Hero Section */}
         <section id="about" className="relative overflow-hidden bg-background pt-[80px] pb-[48px] md:pt-[104px] md:pb-[72px] lg:pt-[104px] lg:pb-[88px]">
           {/* Ambient Background Magic */}
