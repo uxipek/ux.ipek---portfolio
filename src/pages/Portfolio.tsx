@@ -33,40 +33,6 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: index * 0.1, duration: 0.6 }}
               className="group flex flex-col"
             >
-              {project.id === "zeka-oyunlari" ? (
-                <a href={`/${lang}/portfolio/zeka-oyunlari`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                     <span className="bg-brand-transformation text-white py-3 rounded-full text-small font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                       {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
-                     </span>
-                  </div>
-                </a>
-              ) : project.id === "akademi-ozalit" ? (
-                <a
-                  href="https://akademozalit-uxaudit-redesign.lovable.app"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6"
-                >
-                  <img
-                    src={project.coverImage}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                     <span className="bg-brand-transformation text-white py-3 rounded-full text-small font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
-                       {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
-                     </span>
-                  </div>
-                </a>
-              ) : (
                 <Link to={`/${lang}/projects/${project.id}`} className="block relative aspect-[4/3] rounded-3xl overflow-hidden bg-white/5 border border-white/10 mb-6">
                   <img
                     src={project.coverImage}
@@ -80,7 +46,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                      </span>
                   </div>
                 </Link>
-              )}
+
               
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex items-center justify-between mb-3">

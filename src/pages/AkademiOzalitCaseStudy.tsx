@@ -11,7 +11,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
     return <Navigate to={`/${lang}/portfolio`} />;
   }
 
-  const relatedProject = otherProjects.find(p => p.id === "zeka-oyunlari");
+  const relatedProject = otherProjects[0];
 
   return (
     <div className="bg-background min-h-screen pt-24 pb-0 w-full text-ink">
@@ -323,7 +323,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {relatedProject && (
-              <a href={`/${lang}/portfolio/zeka-oyunlari`} className="group block">
+              <a href={`/${lang}/projects/${relatedProject.id}`} className="group block">
                 <div className="aspect-video md:aspect-[4/3] rounded-3xl overflow-hidden bg-brand-primary/5 mb-6 shadow-sm group-hover:shadow-xl transition-all duration-500 relative">
                   <img src={relatedProject.coverImage} alt={relatedProject.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-brand-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>

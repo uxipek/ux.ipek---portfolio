@@ -109,20 +109,6 @@
   </url>
 
   <!-- Case studies -->
-  <url>
-    <loc>https://www.uxipek.com/en/projects/zeka-oyunlari</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/zeka-oyunlari" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/zeka-oyunlari" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/zeka-oyunlari</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/zeka-oyunlari" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/zeka-oyunlari" />
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
 
   <url>
     <loc>https://www.uxipek.com/en/projects/akademi-ozalit</loc>
@@ -170,66 +156,6 @@
   </url>
 
   <url>
-    <loc>https://www.uxipek.com/en/projects/ntsedi</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/ntsedi" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/ntsedi" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/ntsedi</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/ntsedi" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/ntsedi" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.uxipek.com/en/projects/dashboard</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/dashboard" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/dashboard" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/dashboard</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/dashboard" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/dashboard" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.uxipek.com/en/projects/404</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/404" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/404" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/404</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/404" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/404" />
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://www.uxipek.com/en/projects/findme</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/findme" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/findme" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/findme</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/findme" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/findme" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
     <loc>https://www.uxipek.com/en/projects/wafflewanted</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/wafflewanted" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/wafflewanted" />
@@ -240,21 +166,6 @@
     <loc>https://www.uxipek.com/tr/projects/wafflewanted</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/wafflewanted" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/wafflewanted" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://www.uxipek.com/en/projects/silk</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/silk" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/silk" />
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.uxipek.com/tr/projects/silk</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/projects/silk" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/projects/silk" />
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

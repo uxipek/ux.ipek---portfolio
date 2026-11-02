@@ -59,7 +59,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
           transition={{ duration: 1.2, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
           className="w-full px-4 md:px-0 flex justify-center"
         >
-          <img src="/eventgo.png" alt="EventGO mobile application screens" className="block w-full max-w-4xl h-auto object-contain" />
+          <img src="/projects/eventgo-cover.webp" alt="EventGO mobile application screens" className="block w-full max-w-4xl h-auto object-contain" />
         </motion.div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-16 max-w-5xl mx-auto w-full text-center">
