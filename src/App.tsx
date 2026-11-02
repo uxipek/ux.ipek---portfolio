@@ -31,7 +31,7 @@ function ComingSoon() {
       <div className="w-16 h-16 rounded-2xl bg-brand-primary/5 flex items-center justify-center mb-6 text-ink-muted">
         <Lock className="w-8 h-8" />
       </div>
-      <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-ink mb-4">Coming Soon</h1>
+      <h1 className="text-heading md:text-title font-medium tracking-tight text-ink mb-4">Coming Soon</h1>
       <p className="text-ink-muted max-w-md mx-auto">This area is currently under development. Check back later for updates on our new client dashboard and subscription services.</p>
     </div>
   );

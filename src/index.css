@@ -42,7 +42,31 @@
   --font-display: "Playfair Display", ui-serif, Georgia, serif;
   --font-serif: "Playfair Display", ui-serif, Georgia, serif;
   --font-mono: "DM Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  
+
+  /* ---------- UXipek type scale ----------
+     7 steps, each with its line-height and tracking. Tailwind's default sizes are
+     switched off so text-sm / text-[11px] and similar can no longer creep back in.
+     Rules: nothing below 12px. Weight 300 only at title size and up.
+     Playfair for display/title, DM Sans for everything else. */
+  --text-*: initial;
+  --text-display: clamp(2.5rem, 5vw, 4.5rem);   /* 40-72  page H1, big numbers */
+  --text-display--line-height: 1.05;
+  --text-display--letter-spacing: -0.03em;
+  --text-title: clamp(2rem, 3.5vw, 3rem);       /* 32-48  section H2 */
+  --text-title--line-height: 1.1;
+  --text-title--letter-spacing: -0.02em;
+  --text-heading: 1.5rem;                        /* 24     card / sub-section titles */
+  --text-heading--line-height: 1.25;
+  --text-heading--letter-spacing: -0.01em;
+  --text-lead: clamp(1.125rem, 1.4vw, 1.25rem); /* 18-20  intro paragraphs, small titles */
+  --text-lead--line-height: 1.6;
+  --text-body: 1rem;                             /* 16     body copy, buttons, inputs */
+  --text-body--line-height: 1.6;
+  --text-small: 0.875rem;                        /* 14     card copy, meta, nav */
+  --text-small--line-height: 1.5;
+  --text-caption: 0.75rem;                       /* 12     eyebrows, tags, legal */
+  --text-caption--line-height: 1.4;
+
   --animate-blob: blob 10s infinite alternate;
 }
 
@@ -128,23 +152,22 @@ body {
 }
 @layer components {
   /* Typography Scale */
+  /* Role compositions: size from the scale + family + weight + color */
   .text-h1 {
-    @apply text-[clamp(2.5rem,5vw,4.75rem)] leading-[1.02] tracking-[-0.045em] font-bold font-serif text-brand-primary;
+    @apply text-display font-bold font-serif text-ink;
   }
   .text-h2 {
-    @apply text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.1] tracking-[-0.035em] font-bold font-serif text-brand-primary;
+    @apply text-title font-bold font-serif text-ink;
   }
   .text-h3 {
-    @apply text-[clamp(1.25rem,2vw,1.65rem)] leading-[1.25] tracking-[-0.015em] font-semibold;
+    @apply text-heading font-semibold font-sans;
   }
   .text-body-lg {
-    @apply text-[clamp(1rem,1.5vw,1.2rem)] leading-[1.7] text-text-muted;
+    @apply text-lead text-ink-muted;
   }
-  .text-body {
-    @apply text-base leading-[1.65];
-  }
-  .text-body-sm {
-    @apply text-[0.875rem] leading-[1.55];
+  /* Uppercase labels above headings */
+  .text-eyebrow {
+    @apply text-caption font-bold uppercase tracking-[0.08em];
   }
 
   /* Shared Container */
@@ -160,19 +183,19 @@ body {
 
   /* Button System */
   .btn-primary-pink {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-transformation text-white hover:bg-brand-transformation/90 focus-visible:ring-4 focus-visible:ring-brand-transformation/30 shadow-lg;
+    @apply min-h-[48px] px-6 text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-transformation text-white hover:bg-brand-transformation/90 focus-visible:ring-4 focus-visible:ring-brand-transformation/30 shadow-lg;
   }
   .btn-dark-solid {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-primary text-white hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg;
+    @apply min-h-[48px] px-6 text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-brand-primary text-white hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg;
   }
   .btn-light-solid {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-white border border-dark/10 text-brand-primary hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm;
+    @apply min-h-[48px] px-6 text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-white border border-dark/10 text-brand-primary hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm;
   }
   .btn-outline-light {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-white/20 text-white hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20;
+    @apply min-h-[48px] px-6 text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-white/20 text-white hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20;
   }
   .btn-outline-dark {
-    @apply min-h-[48px] px-6 text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-dark/20 text-dark hover:bg-dark/5 focus-visible:ring-4 focus-visible:ring-dark/10;
+    @apply min-h-[48px] px-6 text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 rounded-2xl transition-all bg-transparent border border-dark/20 text-dark hover:bg-dark/5 focus-visible:ring-4 focus-visible:ring-dark/10;
   }
 }
 

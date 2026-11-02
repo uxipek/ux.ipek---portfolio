@@ -49,13 +49,13 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             transition={{ duration: 0.8 }}
             className="flex-1"
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-xs font-bold uppercase tracking-widest text-accent mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-caption font-bold uppercase tracking-widest text-accent mb-8">
               {lang === 'en' ? 'AI-Native UX Strategist' : 'Yapay Zeka Odaklı UX Strateji'}
             </div>
             
-            <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-ink mb-6 mx-auto">
+            <h1 className="text-h1 text-display text-ink mb-6 mx-auto">
               {lang === 'en' ? 'Designing systems that scale businesses, ' : 'İşletmeleri ölçekleyen sistemler '}
-              <span className="text-h1 text-ink mb-8 italic md:text-5xl lg:text-6xl">{lang === 'en' ? 'not just interfaces.' : 'sadece arayüz değil.'}</span>
+              <span className="text-h1 text-ink mb-8 italic md:text-title lg:text-display">{lang === 'en' ? 'not just interfaces.' : 'sadece arayüz değil.'}</span>
             </h1>
             
             <p className="text-h3 text-ink mb-12 max-w-2xl">
@@ -65,10 +65,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4">
-              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto flex text-[0.9375rem]">
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto flex text-body">
                 {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <p className="text-sm font-medium text-ink-muted italic px-4">
+              <p className="text-small font-medium text-ink-muted italic px-4">
                 "Design with kindness."
               </p>
             </div>
@@ -82,10 +82,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             >
                <div className="flex justify-between items-center mb-4">
                  <div className="w-10 h-10 rounded-full bg-brand-transformation/10 flex items-center justify-center text-accent"><TrendingUp size={20}/></div>
-                 <span className="text-xs font-bold text-success bg-emerald-50 px-2 py-1 rounded-full">+42%</span>
+                 <span className="text-caption font-bold text-success bg-emerald-50 px-2 py-1 rounded-full">+42%</span>
                </div>
-               <p className="text-xs font-bold text-ink-muted uppercase tracking-wider mb-1">{lang === 'en' ? 'Conversion Clarity' : 'Dönüşüm Netliği'}</p>
-               <p className="text-2xl font-semibold text-ink font-mono"><Counter from={0} to={85} suffix="%" duration={2.5}/></p>
+               <p className="text-caption font-bold text-ink-muted uppercase tracking-wider mb-1">{lang === 'en' ? 'Conversion Clarity' : 'Dönüşüm Netliği'}</p>
+               <p className="text-lead font-semibold text-ink font-mono"><Counter from={0} to={85} suffix="%" duration={2.5}/></p>
             </motion.div>
 
             <motion.div 
@@ -95,8 +95,8 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
                <div className="flex gap-4 items-center">
                   <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center"><ShieldCheck size={24}/></div>
                   <div>
-                    <p className="text-xl font-medium"><Counter from={0} to={2.4} suffix="x" duration={3}/></p>
-                    <p className="text-xs text-on-ink-muted">{lang === 'en' ? 'Faster Activation' : 'Daha Hızlı Aktivasyon'}</p>
+                    <p className="text-lead font-medium"><Counter from={0} to={2.4} suffix="x" duration={3}/></p>
+                    <p className="text-caption text-on-ink-muted">{lang === 'en' ? 'Faster Activation' : 'Daha Hızlı Aktivasyon'}</p>
                   </div>
                </div>
                <div className="mt-6 h-2 bg-white/10 rounded-full overflow-hidden">
@@ -107,7 +107,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             {/* Minimal Decorative Butterfly element */}
             <motion.div 
                animate={{ y: [0, -10, 0] }} transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-4xl opacity-80"
+               className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-title opacity-80"
             >
               🦋
             </motion.div>
@@ -128,7 +128,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 text-on-ink mb-6">
               {lang === 'en' ? 'Measurable UX Impact' : 'Ölçülebilir UX Etkisi'}
             </h2>
-            <p className="text-on-ink-muted text-lg font-light leading-relaxed">
+            <p className="text-on-ink-muted text-lead font-normal leading-relaxed">
               {lang === 'en' ? 'Transforming arbitrary design decisions into robust conversion machines and scalable data-driven success.' : 'Sıradan tasarım kararlarını sağlam dönüşüm makinelerine ve veriye dayalı başarıya dönüştürmek.'}
             </p>
           </div>
@@ -145,10 +145,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="bg-white/5 backdrop-blur-sm border border-white/10 rounded-[2rem] p-8 flex flex-col items-center justify-center text-center hover:bg-white/10 transition-colors"
               >
-                <div className="text-4xl md:text-5xl font-medium text-white mb-4 font-mono">
+                <div className="text-title font-medium text-white mb-4 font-mono">
                   <Counter from={0} to={metric.val} prefix={metric.prefix} suffix={metric.suffix} duration={2 + i * 0.2}/>
                 </div>
-                <div className="text-sm font-light text-on-ink-muted tracking-wide uppercase">{metric.label}</div>
+                <div className="text-small font-normal text-on-ink-muted tracking-wide uppercase">{metric.label}</div>
               </motion.div>
             ))}
           </div>
@@ -160,11 +160,11 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
         <div className="container-app ">
           <div className="grid md:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-              <h2 className="text-h1 text-ink mb-8 md:text-5xl lg:text-6xl mb-8">
+              <h2 className="text-h1 text-ink mb-8 md:text-title lg:text-display mb-8">
                 {lang === 'en' ? 'Good UX is not decoration.' : 'İyi UX dekorasyon değildir.'}<br/>
                 <span className="text-accent">{lang === 'en' ? "It's behavioral architecture." : "Davranışsal mimaridir."}</span>
               </h2>
-              <p className="text-lg md:text-xl text-ink-muted font-light leading-relaxed mb-8">
+              <p className="text-lead text-ink-muted font-normal leading-relaxed mb-8">
                 {lang === 'en'
                   ? 'Building an interface is easy. Building a scalable digital ecosystem that actively influences human behavior, increases trust, and maximizes conversion requires deep strategic thinking.'
                   : 'Arayüz tasarlamak kolaydır. İnsan davranışını etkileyen, güveni artıran ve dönüşümü en üst düzeye çıkaran ölçeklenebilir bir dijital ekosistem kurmak ise derin stratejik düşünce gerektirir.'}
@@ -182,7 +182,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
               ].map((item, i) => (
                 <div key={i} className="bg-background rounded-2xl p-6 border border-brand-primary/5 flex items-start gap-4">
                   <div className="mt-1 w-2 h-2 rounded-full bg-brand-transformation shrink-0"></div>
-                  <span className="text-sm font-semibold text-ink leading-snug">{item}</span>
+                  <span className="text-small font-semibold text-ink leading-snug">{item}</span>
                 </div>
               ))}
             </motion.div>
@@ -193,10 +193,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
       {/* 4. BUTTERFLY TRANSFORMATION SYSTEM */}
       <section className="py-16 md:py-24 lg:py-32 w-full bg-background relative border-t border-brand-primary/5">
         <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-20">
-          <span className="text-xs font-bold text-accent tracking-[0.2em] uppercase mb-4 block">
+          <span className="text-caption font-bold text-accent tracking-[0.2em] uppercase mb-4 block">
             {lang === 'en' ? 'Transformation Ecosystem' : 'Dönüşüm Ekosistemi'}
           </span>
-          <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink">The Butterfly Model</h2>
+          <h2 className="text-h2 text-title text-ink">The Butterfly Model</h2>
         </div>
         
         <div className="container-app ">
@@ -212,10 +212,10 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
                 key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
                 className="flex-1 relative z-10 bg-white border border-brand-primary/5 shadow-xl shadow-dark/5 rounded-[2rem] p-8 transition-all duration-500 group hover:-translate-y-2"
               >
-                <div className="text-4xl mb-6 opacity-80 group-hover:scale-110 transition-transform origin-bottom-left">{p.icon}</div>
-                <div className="text-[10px] font-bold text-ink-muted tracking-widest uppercase mb-2">{p.label} — {p.state}</div>
+                <div className="text-title mb-6 opacity-80 group-hover:scale-110 transition-transform origin-bottom-left">{p.icon}</div>
+                <div className="text-caption font-bold text-ink-muted tracking-widest uppercase mb-2">{p.label} — {p.state}</div>
                 <h4 className="text-h3 text-ink mb-4">{p.title}</h4>
-                <p className="text-ink-muted font-light leading-relaxed">{p.desc}</p>
+                <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -226,7 +226,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 w-full bg-white relative">
         <div className="container-app ">
           <div className="text-center mb-20 w-[min(100%-32px,850px)] mx-auto">
-            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink mb-6">
+            <h2 className="text-h2 text-title text-ink mb-6">
               {lang === 'en' ? 'Expertise & Capabilities' : 'Uzmanlıklar ve Yetenekler'}
             </h2>
             <p className="text-body-lg text-ink-muted max-w-[680px]">
@@ -251,7 +251,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="w-16 h-16 rounded-full bg-background text-accent flex items-center justify-center mb-6 shadow-inner">
                    <item.icon strokeWidth={1.5} size={28}/>
                 </div>
-                <h4 className="text-base font-semibold leading-[1.65] text-ink max-w-[150px]">{item.title}</h4>
+                <h4 className="text-body font-semibold leading-[1.65] text-ink max-w-[150px]">{item.title}</h4>
               </motion.div>
             ))}
           </div>
@@ -277,7 +277,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
               <Link to={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto hover:shadow-xl">
                 {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'} <ArrowUpRight className="w-4 h-4" />
               </Link>
-              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">
                 {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'}
               </a>
             </div>

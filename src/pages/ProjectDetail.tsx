@@ -31,17 +31,17 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
     <div className="bg-background min-h-screen pt-24 pb-0 w-full text-ink">
       {/* Hero Section */}
       <div className="container-app py-12">
-        <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-ink-muted hover:text-accent transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-ink-muted hover:text-accent transition-colors mb-8 text-small font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
         </Link>
         <div className="mb-12 max-w-4xl">
-          <span className="inline-block mb-4 text-accent font-semibold tracking-wider text-sm uppercase">
+          <span className="inline-block mb-4 text-accent font-semibold tracking-wider text-small uppercase">
             {project.category[lang]}
           </span>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6">
+          <h1 className="text-title md:text-display font-bold tracking-tight mb-6">
             {project.title}
           </h1>
-          <p className="text-xl md:text-2xl text-ink-muted font-light leading-relaxed">
+          <p className="text-lead text-ink-muted font-normal leading-relaxed">
             {project.description[lang]}
           </p>
         </div>
@@ -65,29 +65,29 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
           <div className="lg:col-span-4 order-2 lg:order-1">
             <div className="sticky top-32 p-8 bg-white rounded-3xl border border-brand-primary/5 shadow-xl shadow-dark/5">
                <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Role' : 'Rol'}</h4>
+                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Role' : 'Rol'}</h4>
                  <p className="text-ink font-medium">{project.role}</p>
                </div>
                
                <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Timeline' : 'Süreç'}</h4>
+                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Timeline' : 'Süreç'}</h4>
                  <p className="text-ink font-medium">{project.timeline}</p>
                </div>
                
                <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-[11px] uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
+                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
                  <div className="flex flex-wrap gap-2">
                    {project.tools.map(tool => (
-                     <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-sm font-medium text-ink">{tool}</span>
+                     <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-small font-medium text-ink">{tool}</span>
                    ))}
                  </div>
                </div>
                
                <div>
-                 <h4 className="text-[11px] uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Services Provided' : 'Hizmetler'}</h4>
+                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Services Provided' : 'Hizmetler'}</h4>
                  <ul className="space-y-2">
                    {project.services.map(service => (
-                     <li key={service} className="flex items-start gap-2 text-sm font-medium text-ink">
+                     <li key={service} className="flex items-start gap-2 text-small font-medium text-ink">
                        <CheckCircle2 className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                        {service}
                      </li>
@@ -97,7 +97,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
             </div>
           </div>
           
-          <div className="lg:col-span-8 order-1 lg:order-2 text-lg font-light text-ink leading-relaxed space-y-16">
+          <div className="lg:col-span-8 order-1 lg:order-2 text-lead font-normal text-ink leading-relaxed space-y-16">
             
             <section>
               <h2 className="text-h2 mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
@@ -124,11 +124,11 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
               <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
                 <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
                    <h4 className="font-bold text-ink mb-2">Insight 1</h4>
-                   <p className="text-sm">Users felt overwhelmed by the amount of choices presented on a single screen.</p>
+                   <p className="text-small">Users felt overwhelmed by the amount of choices presented on a single screen.</p>
                 </li>
                 <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
                    <h4 className="font-bold text-ink mb-2">Insight 2</h4>
-                   <p className="text-sm">Trust signals were missing during critical conversion moments, leading to abandonment.</p>
+                   <p className="text-small">Trust signals were missing during critical conversion moments, leading to abandonment.</p>
                 </li>
               </ul>
             </section>
@@ -161,14 +161,14 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
           <h2 className="text-h2 mb-6">
             {lang === 'en' ? 'Ready to elevate your product?' : 'Ürününüzü bir üst seviyeye taşımaya hazır mısınız?'}
           </h2>
-          <p className="text-on-ink-muted text-lg mb-10">
+          <p className="text-on-ink-muted text-lead mb-10">
             {lang === 'en' ? 'Let’s discuss how strategic UX design can drive growth for your business.' : 'Stratejik UX tasarımının işletmeniz için nasıl büyüme sağlayabileceğini konuşalım.'}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-sm font-bold text-white transition-all hover:bg-brand-transformation/90 hover:shadow-lg hover:-translate-y-1">
+             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:bg-brand-transformation/90 hover:shadow-lg hover:-translate-y-1">
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
              </Link>
-             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-sm font-bold text-ink transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
+             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-small font-bold text-ink transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
                {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
              </Link>
           </div>
@@ -193,8 +193,8 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-white mb-4 shadow-sm group-hover:shadow-xl transition-all duration-300">
                   <img src={p.coverImage} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                 </div>
-                <h3 className="font-bold text-ink text-xl mb-1 group-hover:text-accent transition-colors">{p.title}</h3>
-                <p className="text-sm text-ink-muted font-medium">{p.category[lang]}</p>
+                <h3 className="font-bold text-ink text-lead mb-1 group-hover:text-accent transition-colors">{p.title}</h3>
+                <p className="text-small text-ink-muted font-medium">{p.category[lang]}</p>
               </Link>
             ))}
           </div>

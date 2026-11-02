@@ -17,12 +17,12 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/5 border border-brand-primary/5 mb-8">
               <div className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></div>
-              <span className="text-[11px] font-bold text-ink-muted tracking-widest uppercase">
+              <span className="text-caption font-bold text-ink-muted tracking-widest uppercase">
                 {lang === 'en' ? 'HOW UXIPEK WORKS' : 'UXİPEK NASIL ÇALIŞIR?'}
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-ink mb-8 tracking-tight leading-[1.1]">
+            <h1 className="text-title md:text-display lg:text-display font-medium text-ink mb-8 tracking-tight leading-[1.1]">
               {lang === 'en' ? '“Clarity before pixels.' : '“Önce netlik, sonra tasarım.'}
               <br className="hidden md:block" />
               <span className="text-accent font-semibold">
@@ -30,7 +30,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-ink-muted font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto mb-12">
+            <p className="text-lead text-ink-muted font-normal leading-relaxed w-[min(100%-32px,850px)] mx-auto mb-12">
               {lang === 'en'
                 ? '“I turn complex product and business problems into clear, usable and conversion-focused digital experiences.”'
                 : '“Karmaşık ürün ve iş problemlerini net, kullanılabilir ve dönüşüm odaklı dijital deneyimlere dönüştürüyorum.”'}
@@ -39,7 +39,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <div className="flex items-center justify-center">
               <Link 
                 to={`/${lang}/contact`} 
-                className="inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white transition-all rounded-full bg-brand-transformation shadow-lg shadow-brand-transformation/20 hover:-translate-y-1 hover:shadow-xl hover:bg-brand-transformation/90"
+                className="inline-flex items-center justify-center px-10 py-5 text-small font-bold text-white transition-all rounded-full bg-brand-transformation shadow-lg shadow-brand-transformation/20 hover:-translate-y-1 hover:shadow-xl hover:bg-brand-transformation/90"
               >
                 {lang === 'en' ? 'Start a Project' : 'Projenizi Başlatalım'}
               </Link>
@@ -56,7 +56,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-6">
               {lang === 'en' ? '“My Working Principles”' : '“Çalışma Prensiplerim”'}
             </h2>
-            <p className="text-ink-muted text-lg md:text-xl font-light leading-relaxed">
+            <p className="text-ink-muted text-lead font-normal leading-relaxed">
               {lang === 'en' 
                 ? '“Every project is shaped by evidence, clear communication and purposeful design decisions.”'
                 : '“Her projeyi araştırma, açık iletişim ve amaca hizmet eden tasarım kararlarıyla şekillendiriyorum.”'}
@@ -72,10 +72,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Focus size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-ink">
+              <h3 className="text-heading font-semibold text-ink">
                 {lang === 'en' ? 'Clarity First' : 'Önce Netlik'}
               </h3>
-              <p className="text-ink-muted text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lead font-normal leading-relaxed">
                 {lang === 'en' 
                   ? '“I define the real problem before designing the solution.”'
                   : '“Çözümü tasarlamadan önce gerçek problemi netleştiriyorum.”'}
@@ -90,10 +90,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Scale size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-ink">
+              <h3 className="text-heading font-semibold text-ink">
                 {lang === 'en' ? 'User and Business Balance' : 'Kullanıcı ve İş Dengesi'}
               </h3>
-              <p className="text-ink-muted text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lead font-normal leading-relaxed">
                 {lang === 'en' 
                   ? '“Design decisions should support both user needs and business goals.”'
                   : '“Tasarım kararları hem kullanıcı ihtiyaçlarına hem de iş hedeflerine hizmet etmeli.”'}
@@ -108,10 +108,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <MessageSquare size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-ink">
+              <h3 className="text-heading font-semibold text-ink">
                 {lang === 'en' ? 'Transparent Collaboration' : 'Şeffaf İş Birliği'}
               </h3>
-              <p className="text-ink-muted text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lead font-normal leading-relaxed">
                 {lang === 'en' 
                   ? '“You see the reasoning, progress and decisions throughout the project.”'
                   : '“Proje boyunca süreci, ilerlemeyi ve alınan kararları açıkça görebilirsiniz.”'}
@@ -126,10 +126,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Layers3 size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-ink">
+              <h3 className="text-heading font-semibold text-ink">
                 {lang === 'en' ? 'Systems, Not Screens' : 'Ekran Değil, Sistem'}
               </h3>
-              <p className="text-ink-muted text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lead font-normal leading-relaxed">
                 {lang === 'en' 
                   ? '“I create consistent and scalable experiences instead of isolated screens.”'
                   : '“Birbirinden kopuk ekranlar yerine tutarlı ve geliştirilebilir deneyim sistemleri oluşturuyorum.”'}
@@ -149,7 +149,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
                 <h2 className="text-h2 mb-6">
                   {lang === 'en' ? '“Clear communication at every stage”' : '“Her aşamada açık iletişim”'}
                 </h2>
-                <p className="text-ink-muted text-lg font-light leading-relaxed mb-10">
+                <p className="text-ink-muted text-lead font-normal leading-relaxed mb-10">
                   {lang === 'en'
                     ? '“You always know what is being designed, why a decision was made and what comes next.”'
                     : '“Neyin tasarlandığını, kararların neden alındığını ve sırada ne olduğunu her zaman bilirsiniz.”'}
@@ -164,7 +164,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
                     <motion.li 
                       key={i}
                       initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 * i }}
-                      className="flex items-center gap-4 text-ink font-medium text-lg"
+                      className="flex items-center gap-4 text-ink font-medium text-lead"
                     >
                       <div className="w-6 h-6 rounded-full bg-brand-transformation/10 flex items-center justify-center shrink-0">
                         <CheckCircle2 size={14} className="text-accent" strokeWidth={3} />
@@ -202,7 +202,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-8">
               {lang === 'en' ? '“AI-accelerated, human-directed”' : '“Yapay zekâyla hızlanan, insan bakışıyla yönlenen”'}
             </h2>
-            <p className="text-ink-muted text-lg md:text-xl font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-ink-muted text-lead font-normal leading-relaxed w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“I use AI to accelerate research, exploration and production—not to replace strategic thinking. Every final decision is reviewed through user needs, business goals and design principles.”'
                 : '“Yapay zekâyı stratejik düşünmenin yerine değil; araştırmayı, keşfi ve üretimi hızlandırmak için kullanıyorum. Her nihai kararı kullanıcı ihtiyaçları, iş hedefleri ve tasarım prensipleri doğrultusunda değerlendiriyorum.”'}
@@ -223,7 +223,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 !text-white mb-8">
               {lang === 'en' ? '“Ready to bring clarity to your product?”' : '“Ürününüzü daha net ve güçlü bir deneyime dönüştürmeye hazır mısınız?”'}
             </h2>
-            <p className="text-on-ink-muted text-lg md:text-xl font-light leading-relaxed mb-12 w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-on-ink-muted text-lead font-normal leading-relaxed mb-12 w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“Tell me what you are building, where users struggle and what you want to improve.”'
                 : '“Ne geliştirdiğinizi, kullanıcıların nerede zorlandığını ve neyi iyileştirmek istediğinizi paylaşın.”'}
@@ -232,13 +232,13 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link 
                 to={`/${lang}/contact`} 
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white transition-all rounded-full bg-brand-transformation shadow-lg shadow-brand-transformation/20 hover:-translate-y-1 hover:shadow-xl hover:bg-brand-transformation/90"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-small font-bold text-white transition-all rounded-full bg-brand-transformation shadow-lg shadow-brand-transformation/20 hover:-translate-y-1 hover:shadow-xl hover:bg-brand-transformation/90"
               >
                 {lang === 'en' ? 'Start a Project' : 'Projenizi Başlatalım'}
               </Link>
               <Link 
                 to={`/${lang}/portfolio`} 
-                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-sm font-bold text-white transition-all rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-1"
+                className="w-full sm:w-auto inline-flex items-center justify-center px-10 py-5 text-small font-bold text-white transition-all rounded-full border border-white/20 bg-white/5 backdrop-blur-sm hover:bg-white/10 hover:-translate-y-1"
               >
                 {lang === 'en' ? 'View My Work' : 'Projelerimi İnceleyin'}
               </Link>
