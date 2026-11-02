@@ -152,7 +152,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
               >
                 <div className="text-title mb-6 opacity-80 group-hover:scale-110 transition-transform origin-bottom-left">{p.icon}</div>
                 <div className="text-caption font-bold text-ink-muted tracking-widest uppercase mb-2">{p.label} — {p.state}</div>
-                <h4 className="text-h3 text-ink mb-4">{p.title}</h4>
+                <h3 className="text-h3 text-ink mb-4">{p.title}</h3>
                 <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
@@ -167,7 +167,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 text-title text-ink mb-6">
               {lang === 'en' ? 'Expertise & Capabilities' : 'Uzmanlıklar ve Yetenekler'}
             </h2>
-            <p className="text-body-lg text-ink-muted max-w-[680px]">
+            <p className="text-body-lg text-ink-muted max-w-[56ch]">
               {lang === 'en' 
                 ? 'Strategic consultation and design execution aimed at measurable outcomes.' 
                 : 'Ölçülebilir sonuçları hedefleyen stratejik danışmanlık ve tasarım uygulamaları.'}
@@ -189,7 +189,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="w-16 h-16 rounded-full bg-background text-accent flex items-center justify-center mb-6 shadow-inner">
                    <item.icon strokeWidth={1.5} size={28}/>
                 </div>
-                <h4 className="text-body font-semibold leading-[1.65] text-ink max-w-[150px]">{item.title}</h4>
+                <h3 className="text-body font-semibold leading-[1.65] text-ink max-w-[150px]">{item.title}</h3>
               </motion.div>
             ))}
           </div>

@@ -50,7 +50,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-heading font-bold text-white">{project.title}</h3>
+                  <h2 className="text-heading font-bold text-white">{project.title}</h2>
                   <span className="text-white text-caption font-medium px-3 py-1.5 rounded-full bg-brand-transformation border border-brand-transformation/20 shadow-sm shadow-brand-transformation/20">
                     {project.category[lang]}
                   </span>
@@ -64,7 +64,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
         </div>
         
         <div className="mt-24 text-center pt-16 border-t border-white/10">
-           <h3 className="text-heading font-bold mb-6">{lang === 'en' ? 'More projects available on Behance' : 'Daha fazla proje Behance üzerinde mevcut'}</h3>
+           <h2 className="text-heading font-bold mb-6">{lang === 'en' ? 'More projects available on Behance' : 'Daha fazla proje Behance üzerinde mevcut'}</h2>
            <a 
              href="https://www.behance.net/ipekbolakca" 
              target="_blank" rel="noopener noreferrer"

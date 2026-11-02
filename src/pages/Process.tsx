@@ -18,7 +18,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/5 border border-brand-primary/5 mb-8">
-              <div className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></div>
+              <div className="w-2 h-2 rounded-full bg-brand-transformation"></div>
               <span className="text-caption font-bold text-ink-muted tracking-widest uppercase">
                 {lang === 'en' ? 'HOW UXipek WORKS' : 'UXİPEK NASIL ÇALIŞIR?'}
               </span>
@@ -204,7 +204,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-8">
               {lang === 'en' ? 'AI-accelerated, human-directed' : 'Yapay zekâyla hızlanan, insan bakışıyla yönlenen'}
             </h2>
-            <p className="text-ink-muted text-lead font-normal leading-relaxed w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-ink-muted text-lead font-normal leading-relaxed max-w-[56ch] mx-auto">
               {lang === 'en'
                 ? 'I use AI to accelerate research, exploration and production—not to replace strategic thinking. Every final decision is reviewed through user needs, business goals and design principles.'
                 : 'Yapay zekâyı stratejik düşünmenin yerine değil; araştırmayı, keşfi ve üretimi hızlandırmak için kullanıyorum. Her nihai kararı kullanıcı ihtiyaçları, iş hedefleri ve tasarım prensipleri doğrultusunda değerlendiriyorum.'}

@@ -7,7 +7,7 @@
    2. Opacity is allowed only for borders, dividers and decorative fills.
    3. Accent is for CTAs and one emphasis word per heading. Never as small text on mist.
    Contrast (WCAG): ink/canvas 18.3 · ink-muted/canvas 7.8 · ink-muted/mist 5.0
-   accent/canvas 5.5 · white/accent 5.6 · on-ink-muted/ink 9.6 */
+   accent/canvas 5.5 · white/accent 5.6 · on-ink-muted/ink 10.6 */
 @theme {
   /* Primitives */
   --color-ink: #28002C;          /* text, dark sections */
@@ -67,7 +67,6 @@
   --text-caption: 0.75rem;                       /* 12     eyebrows, tags, legal */
   --text-caption--line-height: 1.4;
 
-  --animate-blob: blob 10s infinite alternate;
 }
 
 
@@ -82,68 +81,6 @@
   pointer-events: none;
   background: rgb(40 0 44 / var(--dawn-overlay));
   z-index: 10;
-}
-
-@layer utilities {
-  .bg-grid-pattern {
-    background-image: linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
-                      linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
-    background-size: 32px 32px;
-  }
-
-  .glass-card {
-    background: rgba(255, 255, 255, 0.6);
-    backdrop-filter: blur(24px);
-    -webkit-backdrop-filter: blur(24px);
-    border: 1px solid rgba(255, 255, 255, 0.8);
-    box-shadow: 0 10px 40px -10px rgba(0,0,0,0.05);
-  }
-
-  .glass-panel {
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(16px);
-    -webkit-backdrop-filter: blur(16px);
-    border: 1px solid rgba(255, 255, 255, 0.6);
-  }
-
-  .text-gradient-ai {
-    background: linear-gradient(135deg, #FF9A9E 0%, #A18CD1 25%, #A1C4FD 50%, #C2E9FB 75%, #FFECD2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .text-gradient-soft {
-    background: linear-gradient(135deg, #A1C4FD 0%, #C2E9FB 50%, #FFECD2 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .btn-primary {
-    background: linear-gradient(135deg, #A18CD1 0%, #FBC2EB 100%);
-    color: #111827;
-    transition: all 0.3s ease;
-  }
-  
-  .btn-primary:hover {
-    box-shadow: 0 10px 25px -5px rgba(161, 140, 209, 0.5);
-    transform: translateY(-2px);
-  }
-
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  .animation-delay-4000 {
-    animation-delay: 4s;
-  }
-}
-
-@keyframes blob {
-  0% { transform: translate(0px, 0px) scale(1); }
-  33% { transform: translate(30px, -50px) scale(1.1); }
-  66% { transform: translate(-20px, 20px) scale(0.9); }
-  100% { transform: translate(0px, 0px) scale(1); }
 }
 
 body {
