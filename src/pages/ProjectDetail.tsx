@@ -71,14 +71,14 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                  { label: lang === 'en' ? 'Timeline' : 'Süre', value: project.timeline },
                ].filter(f => f.value).map(f => (
                  <div key={f.label} className="mb-8 pb-8 border-b border-brand-primary/5">
-                   <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{f.label}</h4>
+                   <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{f.label}</p>
                    <p className="text-ink font-medium">{f.value}</p>
                  </div>
                ))}
 
                {project.tools.length > 0 && (
                  <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                   <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
+                   <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</p>
                    <div className="flex flex-wrap gap-2">
                      {project.tools.map(tool => (
                        <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-small font-medium text-ink">{tool}</span>
@@ -88,7 +88,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                )}
 
                <div>
-                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Scope' : 'Kapsam'}</h4>
+                 <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Scope' : 'Kapsam'}</p>
                  <ul className="space-y-2">
                    {project.services.map(service => (
                      <li key={service} className="flex items-start gap-2 text-small font-medium text-ink">

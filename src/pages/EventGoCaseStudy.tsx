@@ -121,7 +121,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm"
               >
-                <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{item.label}</h4>
+                <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{item.label}</p>
                 <p className="text-body font-semibold text-ink">{item.value}</p>
               </motion.div>
             ))}
