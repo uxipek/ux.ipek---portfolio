@@ -87,7 +87,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               <span className="text-ink italic font-serif opacity-80">{lang === 'en' ? 'Growth System.' : 'Sistemi Kuralım.'}</span>
             </h1>
 
-            <p className="text-lead font-normal text-ink-muted w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
+            <p className="text-lead font-normal text-ink-muted max-w-[56ch] mx-auto leading-relaxed mb-12">
               {lang === 'en'
                 ? 'Whether you\'re launching a new product, optimizing conversions, improving user experience, or building an AI-powered platform, let\'s create digital experiences people trust and businesses grow from.'
                 : 'Yeni bir ürün piyasaya sürüyor, dönüşümleri optimize ediyor, kullanıcı deneyimini iyileştiriyor veya yapay zeka destekli bir platform oluşturuyor olun; insanların güvendiği ve işlerin büyüdüğü dijital deneyimler yaratalım.'}
@@ -305,7 +305,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                 className="flex-1 relative z-10 bg-white/60 border border-white backdrop-blur-xl shadow-xl shadow-dark/5 rounded-[2rem] p-8 transition-all duration-500 group hover:-translate-y-2"
               >
                 <div className="text-caption font-bold text-accent tracking-[0.2em] uppercase mb-4">{lang === 'en' ? 'Step' : 'Adım'} {p.num}</div>
-                <h4 className="text-heading font-serif italic text-ink mb-4 group-hover:text-accent transition-colors">{lang === 'en' ? p.state : p.tr_state}</h4>
+                <h3 className="text-heading font-serif italic text-ink mb-4 group-hover:text-accent transition-colors">{lang === 'en' ? p.state : p.tr_state}</h3>
                 <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}

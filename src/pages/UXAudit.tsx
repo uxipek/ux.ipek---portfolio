@@ -135,7 +135,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             transition={{ duration: 0.8 }}
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-small font-semibold uppercase tracking-widest text-ink-muted mb-4">
-              <span className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></span>
+              <span className="w-2 h-2 rounded-full bg-brand-transformation"></span>
               {lang === 'en' ? 'UXipek UX EVALUATION' : 'UXİPEK UX DEĞERLENDİRMESİ'}
             </div>
             
@@ -145,7 +145,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               <span className="text-accent">{lang === 'en' ? 'Converting?' : 'Dönüştürüyor mu?'}</span>
             </h1>
             
-            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto mb-8">
+            <p className="text-body-lg text-ink-muted max-w-[56ch] mx-auto mb-8">
               {lang === 'en' 
                 ? "A beautiful website doesn't always create results. Let's discover together where users struggle, why they don't take action, and which areas need improvement." 
                 : "Güzel görünen bir web sitesi her zaman sonuç yaratmaz. Kullanıcıların nerede zorlandığını, neden harekete geçmediğini ve hangi noktaların iyileştirilmesi gerektiğini birlikte keşfedelim."}
@@ -179,7 +179,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               <h2 className="text-h2 text-title text-ink mb-6">
                 {lang === 'en' ? 'What is a UX Audit?' : 'UX Analizi Nedir?'}
               </h2>
-              <p className="text-body-lg text-ink-muted max-w-[680px] mb-12">
+              <p className="text-body-lg text-ink-muted max-w-[56ch] mb-12">
                 {lang === 'en'
                   ? 'A UX audit identifies points in your website where visitors struggle, hesitate, or leave without completing a transaction. The goal is not just to list problems, but to provide actionable solutions to improve user experience and conversion potential.'
                   : 'UX analizi, web sitenizde ziyaretçilerin zorlandığı, kararsız kaldığı veya işlemi tamamlamadan ayrıldığı noktaları ortaya çıkarır. Amaç yalnızca sorunları listelemek değil; kullanıcı deneyimini ve dönüşüm potansiyelini geliştirecek uygulanabilir çözümler sunmaktır.'}
@@ -230,7 +230,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <>Bir Web Sitesini Yalnızca<br className="hidden md:block" />Yeniden Tasarlamadım.<br className="hidden md:block" />Sorunlarını Görünür Hâle Getirdim.</>
               )}
             </h2>
-            <p className="text-body-lg text-on-ink-muted max-w-[680px]">
+            <p className="text-body-lg text-on-ink-muted max-w-[56ch]">
               {lang === 'en' 
                 ? 'I analyzed the Akademi Ozalit website in terms of user experience, content hierarchy, accessibility, and conversion. I presented the core issues I identified, along with actionable improvement recommendations and redesigned screens.' 
                 : 'Akademi Ozalit web sitesini kullanıcı deneyimi, içerik hiyerarşisi, erişilebilirlik ve dönüşüm açısından analiz ettim. Belirlediğim temel sorunları, uygulanabilir iyileştirme önerileri ve yeniden tasarlanan ekranlarla birlikte sundum.'}
@@ -329,7 +329,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 text-title text-ink mb-4">
               {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}
             </h2>
-            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[56ch] mx-auto">
               {lang === 'en' 
                 ? 'Just drop your link. I will review your website and reach you through the contact details on your site with the top 3 critical UX issues and initial improvement recommendations within 3 business days.' 
                 : 'Sadece linkinizi bırakın. Web sitenizi inceleyip en kritik 3 UX sorununu ve ilk iyileştirme önerilerimi 3 iş günü içinde sitenizdeki iletişim bilgileri üzerinden size ulaştıracağım.'}
@@ -415,7 +415,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 text-title text-ink mb-6">
               {lang === 'en' ? 'My Process' : 'Sürecim'}
             </h2>
-            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[56ch] mx-auto">
               {lang === 'en' 
                 ? 'I combine AI-assisted analysis tools with expert evaluation to prioritize issues and turn them into an actionable roadmap.' 
                 : 'Yapay zekâ destekli analiz araçlarını uzman değerlendirmesiyle birleştirerek sorunları önceliklendiriyor ve uygulanabilir bir yol haritasına dönüştürüyorum.'}
@@ -451,7 +451,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 text-title text-ink mb-6">
               {lang === 'en' ? 'Why UXipek?' : 'Neden UXipek?'}
             </h2>
-            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[56ch] mx-auto">
               {lang === 'en' 
                 ? 'I combine technology and human experience in a balanced, strategic, and actionable process.' 
                 : 'Teknoloji ve insan deneyimini dengeli, stratejik ve uygulanabilir bir süreçte birleştiriyorum.'}
@@ -482,9 +482,6 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               },
             ].map((card, i) => (
               <div key={i} className="p-6 lg:p-8 rounded-[2rem] bg-white border border-brand-primary/5 flex flex-col items-start transition-shadow hover:shadow-md h-full">
-                <div className="w-12 h-12 rounded-xl bg-background border border-brand-primary/5 flex shrink-0 items-center justify-center text-accent mb-6">
-                  <card.icon className="w-6 h-6 stroke-[1.5]" />
-                </div>
                 <h3 className="text-h3 text-ink mb-3">
                   {card.title}
                 </h3>
@@ -519,7 +516,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <div 
                   className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                  <p className="text-body leading-[1.65] text-ink">{faq.a}</p>
+                  <p className="text-body leading-[1.65] text-ink max-w-[56ch]">{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -537,7 +534,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
           <h2 className="text-h2 text-title text-white mb-6">
             {lang === 'en' ? 'Let\'s Discover Where Users Struggle on Your Website Together.' : 'Web Sitenizde Kullanıcıların Nerede Zorlandığını Birlikte Keşfedelim.'}
           </h2>
-          <p className="text-body-lg text-on-ink-muted max-w-[680px] mx-auto mb-10">
+          <p className="text-body-lg text-on-ink-muted max-w-[56ch] mx-auto mb-10">
             {lang === 'en' 
               ? 'See the most critical issues with a free mini audit, and plan your next steps more consciously.' 
               : 'Ücretsiz mini analizle en kritik sorunları görün, sonraki adımlarınızı daha bilinçli planlayın.'}

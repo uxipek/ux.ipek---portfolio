@@ -136,7 +136,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                   {lang === 'en' ? 'I design digital' : 'Karma\u015F\u0131kl\u0131\u011F\u0131'}<br />{lang === 'en' ? 'experiences that' : '\u00F6l\u00E7eklenebilir'}<br />{lang === 'en' ? 'turn ' : ''}<span className="text-accent font-semibold">{lang === 'en' ? 'clarity into growth.' : 'b\u00FCy\u00FCmeye d\u00F6n\u00FC\u015Ft\u00FCr\u00FCyorum.'}</span>
                 </h1>
                 
-                <p className="text-body-lg text-ink-muted max-w-[680px] mb-8">
+                <p className="text-body-lg text-ink-muted max-w-[56ch] mb-8">
                   {lang === 'en'
                     ? 'UX.Ipek helps startups, SaaS products, and AI-powered businesses build digital systems that are not only beautiful — but strategic, usable, and conversion-focused.'
                     : 'UX.Ipek; startupların, SaaS ürünlerinin ve yapay zeka destekli işletmelerin yalnızca güzel değil, stratejik, kullanılabilir ve dönüşüm odaklı dijital sistemler kurmasına yardımcı olur.'}
@@ -169,7 +169,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                       <div className="w-10 h-10 rounded-2xl bg-brand-transformation/10 flex items-center justify-center text-accent shadow-sm">
                         <feature.icon className="h-5 w-5" />
                       </div>
-                      <h4 className="text-small font-bold text-ink">{feature.title}</h4>
+                      <p className="text-small font-bold text-ink">{feature.title}</p>
                       <p className="text-caption text-ink-muted leading-relaxed lg:pr-2">{feature.desc}</p>
                     </motion.div>
                   ))}
@@ -359,7 +359,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 </h2>
               </div>
               <div className="max-w-sm pb-2 md:pb-4">
-                <p className="text-body-lg text-ink-muted max-w-[680px]">
+                <p className="text-body-lg text-ink-muted max-w-[56ch]">
                   {lang === 'en'
                     ? 'Scalable user experience logic designed to acquire, activate, and retain users beautifully.'
                     : 'Kullan\u0131c\u0131 kazanmak, etkinle\u015Ftirmek ve elde tutmak i\u00E7in tasarlanm\u0131\u015F \u00F6l\u00E7eklenebilir kullan\u0131c\u0131 deneyimi mant\u0131\u011F\u0131.'}
@@ -653,7 +653,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                   <div className="absolute inset-0 bg-gradient-to-br from-brand-transformation/5 to-accent/5 rounded-[2rem] pointer-events-none"></div>
                   <div className="text-caption font-bold text-accent uppercase tracking-widest mb-8 flex items-center justify-between relative z-10">
                     <span>{lang === 'en' ? 'Phase 03' : 'A\u015Fama 03'}</span>
-                    <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_12px_rgba(202,0,108,0.8)] animate-pulse"></div>
+                    <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_12px_rgba(202,0,108,0.8)]"></div>
                   </div>
                   <h3 className="text-heading font-bold text-ink mb-4 group cursor-default relative z-10">
                     {lang === 'en' ? 'Butterfly' : 'Kelebek'} <span className="text-accent/80 font-normal ml-1">— {lang === 'en' ? 'Growth & Transformation' : 'Büyüme ve Dönüşüm'}</span>
@@ -686,10 +686,10 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: 0.8, duration: 1 }}
               className="mt-12 mb-8 text-center lg:mt-16 relative z-30"
             >
-              <h4 className="text-heading md:text-title font-serif italic text-ink-muted tracking-tight">
+              <p className="text-heading md:text-title font-serif italic text-ink-muted tracking-tight">
                 {lang === 'en' ? '"Good design is not decoration.' : '"\u0130yi tasar\u0131m s\u00FCsleme de\u011Fildir.'}<br />
                 <span className="text-ink">{lang === 'en' ? 'It is transformation."' : 'Tamamen d\u00F6n\u00FC\u015F\u00FCm\u00FCn kendisidir."' }</span>
-              </h4>
+              </p>
             </motion.div>
 
             {/* Bottom CTA */}
@@ -874,7 +874,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Ready to fix the leaks in your product?' : 'Ürününüzdeki sorunlu noktaları düzeltmeye hazır mısınız?'}
             </h2>
-            <p className="text-ink-muted max-w-[850px] mx-auto text-lead mb-10">
+            <p className="text-ink-muted max-w-[56ch] mx-auto text-lead mb-10">
               {lang === 'en'
                 ? "Whether you need a full SaaS redesign or a targeted UX audit to fix a specific funnel, let's find the friction points and turn your digital experience into a growth system."
                 : 'İster kapsamlı bir SaaS yeniden tasarımına ihtiyacınız olsun, ister belirli bir dönüşüm hunisini düzeltmek için hedefe yönelik bir UX analizine; sürtünme noktalarını birlikte bulup dijital deneyiminizi bir büyüme sistemine dönüştürelim.'}

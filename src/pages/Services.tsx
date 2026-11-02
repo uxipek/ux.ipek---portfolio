@@ -54,6 +54,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
       {/* 2. SERVICES SECTION */}
       <section className="py-24 bg-white relative">
         <div className="container-app ">
+          <h2 className="sr-only">{lang === 'en' ? 'Services' : 'Hizmetler'}</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             {/* Card 1 */}
@@ -64,9 +65,6 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               className="group flex flex-col justify-between rounded-[2rem] bg-background p-10 transition-all hover:-translate-y-1 hover:shadow-xl border border-brand-primary/5 hover:border-brand-transformation/20"
             >
               <div>
-                <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-ink shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-accent">
-                  <Search className="h-6 w-6 stroke-[1.5]" />
-                </div>
                 <h3 className="mb-4 text-heading font-medium text-ink">{lang === 'en' ? 'UX & Conversion Strategy' : 'UX & Dönüşüm Stratejisi'}</h3>
                 <p className="font-normal leading-relaxed text-ink-muted mb-8">
                   {lang === 'en' 
@@ -96,9 +94,6 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               className="group flex flex-col justify-between rounded-[2rem] bg-brand-primary text-white p-10 transition-all hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-primary/20"
             >
               <div>
-                <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md text-white transition-transform duration-500 group-hover:scale-105 group-hover:bg-white group-hover:text-ink">
-                  <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
-                </div>
                 <h3 className="mb-4 text-heading font-medium">{lang === 'en' ? 'AI-Native Product Design' : 'Yapay Zeka Destekli Ürün Tasarımı'}</h3>
                 <p className="font-normal leading-relaxed text-on-ink-muted mb-8">
                   {lang === 'en'
@@ -128,9 +123,6 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               className="group flex flex-col justify-between rounded-[2rem] bg-background p-10 transition-all hover:-translate-y-1 hover:shadow-xl border border-brand-primary/5 hover:border-accent/20"
             >
               <div>
-                <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-ink shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-accent">
-                  <LineChart className="h-6 w-6 stroke-[1.5]" />
-                </div>
                 <h3 className="mb-4 text-heading font-medium text-ink">{lang === 'en' ? 'Landing Pages & Growth Funnels' : 'Açılış Sayfaları ve Büyüme Hunileri'}</h3>
                 <p className="font-normal leading-relaxed text-ink-muted mb-8">
                   {lang === 'en'
@@ -181,7 +173,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 className="flex-1 relative z-10 bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-[0_10px_30px_rgba(0,0,0,0.02)]"
               >
                 <div className="text-caption font-bold text-accent tracking-widest uppercase mb-6">{lang === 'en' ? 'Phase' : 'Aşama'} {p.phase} — {p.state}</div>
-                <h4 className="text-h3 text-ink mb-4">{p.stage}</h4>
+                <h3 className="text-h3 text-ink mb-4">{p.stage}</h3>
                 <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
