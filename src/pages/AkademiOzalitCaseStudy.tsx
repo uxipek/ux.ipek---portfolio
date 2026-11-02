@@ -35,19 +35,19 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 py-8 border-y border-brand-primary/10">
           <div>
-            <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Timeline' : 'Süre'}</h4>
+            <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Timeline' : 'Süre'}</p>
             <p className="text-small font-medium text-ink">{project.timeline}</p>
           </div>
           <div>
-            <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Role' : 'Rol'}</h4>
+            <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Role' : 'Rol'}</p>
             <p className="text-small font-medium text-ink">{project.role}</p>
           </div>
           <div>
-            <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
+            <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Tools' : 'Araçlar'}</p>
             <p className="text-small font-medium text-ink">{project.tools.join(", ")}</p>
           </div>
           <div>
-            <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Services' : 'Hizmetler'}</h4>
+            <p className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-2">{lang === 'en' ? 'Services' : 'Hizmetler'}</p>
             <p className="text-small font-medium text-ink">{project.services.join(", ")}</p>
           </div>
         </div>
@@ -91,7 +91,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
             <AlertTriangle className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-caption uppercase tracking-widest text-accent font-bold mb-1">Aşama 1</h3>
+            <p className="text-caption uppercase tracking-widest text-accent font-bold mb-1">Aşama 1</p>
             <h2 className="text-heading font-bold text-ink">Friction (Sürtünme)</h2>
           </div>
         </div>
@@ -106,21 +106,21 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
             <div className="p-6 rounded-2xl bg-white border border-red-500/20 shadow-sm flex gap-4">
               <span className="font-mono font-bold text-red-500 mt-1">Yüksek</span>
               <div>
-                <h4 className="font-bold text-ink mb-2">Belirsiz Değer Önerisi ve Hiyerarşi</h4>
+                <h3 className="font-bold text-ink mb-2">Belirsiz Değer Önerisi ve Hiyerarşi</h3>
                 <p className="text-body text-ink-muted">Görsele gömülü mesajlar okunabilirliği düşürüyor. Gerçek, okunabilir başlık ve tıklanabilir CTA eksikliği dönüşümü engelliyor.</p>
               </div>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-orange-500/20 shadow-sm flex gap-4">
               <span className="font-mono font-bold text-orange-500 mt-1">Orta</span>
               <div>
-                <h4 className="font-bold text-ink mb-2">Hizmetlerin Keşfedilebilirliği</h4>
+                <h3 className="font-bold text-ink mb-2">Hizmetlerin Keşfedilebilirliği</h3>
                 <p className="text-body text-ink-muted">Mevcut yapıda sadece üç temel hizmet sunulurken, üretim örnekleri, konum ve şeffaf süreç anlatımı gibi güven unsurları eksik.</p>
               </div>
             </div>
             <div className="p-6 rounded-2xl bg-white border border-orange-500/20 shadow-sm flex gap-4">
               <span className="font-mono font-bold text-orange-500 mt-1">Orta</span>
               <div>
-                <h4 className="font-bold text-ink mb-2">Tek İletişim Kanalı Kısıtlaması</h4>
+                <h3 className="font-bold text-ink mb-2">Tek İletişim Kanalı Kısıtlaması</h3>
                 <p className="text-body text-ink-muted">WhatsApp ağırlıklı tek iletişim yolu sunuluyor. Hizmet bazlı teklif ve çoklu iletişim seçenekleri kullanıcı niyetlerini karşılamıyor.</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
             <Target className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-caption uppercase tracking-widest text-accent font-bold mb-1">Aşama 2</h3>
+            <p className="text-caption uppercase tracking-widest text-accent font-bold mb-1">Aşama 2</p>
             <h2 className="text-heading font-bold text-ink">Strategy (Strateji)</h2>
           </div>
         </div>
@@ -242,7 +242,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
             <Lightbulb className="w-6 h-6" />
           </div>
           <div>
-            <h3 className="text-caption uppercase tracking-widest text-ink font-bold mb-1">Aşama 3</h3>
+            <p className="text-caption uppercase tracking-widest text-ink font-bold mb-1">Aşama 3</p>
             <h2 className="text-heading font-bold text-accent">Growth (Büyüme)</h2>
           </div>
         </div>
