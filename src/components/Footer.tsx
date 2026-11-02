@@ -10,18 +10,18 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
           <Link to={`/${lang}`} className="inline-block mb-6">
             <Logo className="h-8 w-auto text-white" />
           </Link>
-          <p className="text-on-ink-muted font-light text-sm mb-6 max-w-xs">
+          <p className="text-on-ink-muted font-normal text-small mb-6 max-w-xs">
             {lang === 'en' 
               ? 'AI-Native Product Design Studio focused on user experience and growth.' 
               : 'Kullanıcı deneyimi ve büyüme odaklı Yapay Zeka-Destekli Ürün Tasarım Stüdyosu.'}
           </p>
-          <p className="text-on-ink-muted text-xs">
+          <p className="text-on-ink-muted text-caption">
             © {new Date().getFullYear()} UXIPEK. {lang === 'en' ? 'All rights reserved.' : 'Tüm hakları saklıdır.'}
           </p>
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-accent">UXIPEK</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">UXIPEK</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/about`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
             <li><Link to={`/${lang}/services`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>
@@ -31,7 +31,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-accent">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/#portfolio`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Featured Projects' : 'Öne Çıkanlar'}</Link></li>
             <li><Link to={`/${lang}/portfolio`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Portfolio' : 'Portfolyo'}</Link></li>
@@ -40,7 +40,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-accent">{lang === 'en' ? 'Connect' : 'Bağlantılar'}</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">{lang === 'en' ? 'Connect' : 'Bağlantılar'}</h4>
           <ul className="space-y-4">
             <li><a href="https://www.linkedin.com/in/ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-white transition-colors">LinkedIn</a></li>
             <li><a href="https://medium.com/@ipekbolakca" target="_blank" rel="noopener noreferrer" className="text-on-ink-muted hover:text-white transition-colors">Medium</a></li>
@@ -49,7 +49,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-sm text-accent">{lang === 'en' ? 'Legal' : 'Yasal'}</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">{lang === 'en' ? 'Legal' : 'Yasal'}</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/privacy-policy`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}</Link></li>
             <li><Link to={`/${lang}/kvkk`} className="text-on-ink-muted hover:text-white transition-colors">KVKK Aydınlatma Metni</Link></li>

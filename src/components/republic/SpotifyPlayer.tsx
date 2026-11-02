@@ -84,12 +84,12 @@ export function SpotifyPlayer() {
           {playing ? <Pause aria-hidden /> : <Play aria-hidden />}
           {playing ? "Duraklat" : "Müziği başlat"}
         </Button>
-        <span role="status" className="text-sm r-muted">
+        <span role="status" className="text-small r-muted">
           {failed ? "Spotify yüklenemedi." : !ready ? "Spotify yükleniyor…" : playing ? "Çalıyor" : "Hazır"}
         </span>
       </div>
       <div ref={host} className="min-h-20 overflow-hidden border r-border r-card" />
-      {failed && <a className="text-sm r-accent underline" href="https://open.spotify.com/playlist/1rmV6jyWt6VnXwLRgga9ef" target="_blank" rel="noopener noreferrer">Spotify’da aç</a>}
+      {failed && <a className="text-small r-accent underline" href="https://open.spotify.com/playlist/1rmV6jyWt6VnXwLRgga9ef" target="_blank" rel="noopener noreferrer">Spotify’da aç</a>}
     </div>
   );
 }

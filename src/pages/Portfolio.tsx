@@ -8,15 +8,15 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-brand-primary min-h-screen pt-32 pb-24 w-full text-white">
       <div className="container-app ">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-on-ink-muted hover:text-accent transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-on-ink-muted hover:text-accent transition-colors mb-8 text-small font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
         <div className="mb-16 max-w-3xl">
-          <h1 className="text-h1 !text-white md:text-5xl lg:text-6xl mb-6">
+          <h1 className="text-h1 !text-white md:text-title lg:text-display mb-6">
             {lang === 'en' ? 'Featured Work' : 'Öne Çıkan Çalışmalar'}
           </h1>
-          <p className="text-on-ink-muted text-lg md:text-xl font-light leading-relaxed">
+          <p className="text-on-ink-muted text-lead font-normal leading-relaxed">
             {lang === 'en' 
               ? 'A collection of digital products and strategic experiences focused on conversion, usability, and growth.' 
               : 'Dönüşüm, kullanılabilirlik ve büyüme odaklı dijital ürünler ve stratejik deneyimler koleksiyonu.'}
@@ -42,7 +42,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                     <span className="bg-brand-transformation text-white py-3 rounded-full text-sm font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                     <span className="bg-brand-transformation text-white py-3 rounded-full text-small font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
                      </span>
                   </div>
@@ -61,7 +61,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                     <span className="bg-brand-transformation text-white py-3 rounded-full text-sm font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                     <span className="bg-brand-transformation text-white py-3 rounded-full text-small font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
                      </span>
                   </div>
@@ -75,7 +75,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-brand-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-center justify-center backdrop-blur-[2px]">
-                     <span className="bg-brand-transformation text-white py-3 rounded-full text-sm font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
+                     <span className="bg-brand-transformation text-white py-3 rounded-full text-small font-bold shadow-xl shadow-brand-transformation/30 flex items-center gap-2 transform translate-y-4 group-hover:translate-y-0 transition-all duration-300">
                        {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'} <ArrowRight className="w-4 h-4" />
                      </span>
                   </div>
@@ -84,12 +84,12 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
               
               <div className="flex flex-col flex-grow px-2">
                 <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-2xl font-bold text-white">{project.title}</h3>
-                  <span className="text-white text-xs font-medium px-3 py-1.5 rounded-full bg-brand-transformation border border-brand-transformation/20 shadow-sm shadow-brand-transformation/20">
+                  <h3 className="text-heading font-bold text-white">{project.title}</h3>
+                  <span className="text-white text-caption font-medium px-3 py-1.5 rounded-full bg-brand-transformation border border-brand-transformation/20 shadow-sm shadow-brand-transformation/20">
                     {project.category[lang]}
                   </span>
                 </div>
-                <p className="text-on-ink-muted font-light leading-relaxed">
+                <p className="text-on-ink-muted font-normal leading-relaxed">
                   {project.description[lang]}
                 </p>
               </div>
@@ -98,11 +98,11 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
         </div>
         
         <div className="mt-24 text-center pt-16 border-t border-white/10">
-           <h3 className="text-2xl font-bold mb-6">{lang === 'en' ? 'More projects available on Behance' : 'Daha fazla proje Behance üzerinde mevcut'}</h3>
+           <h3 className="text-heading font-bold mb-6">{lang === 'en' ? 'More projects available on Behance' : 'Daha fazla proje Behance üzerinde mevcut'}</h3>
            <a 
              href="https://www.behance.net/ipekbolakca" 
              target="_blank" rel="noopener noreferrer"
-             className="inline-flex items-center gap-2 rounded-full bg-white text-ink px-8 py-4 text-sm font-bold transition-all hover:bg-brand-transformation hover:text-white"
+             className="inline-flex items-center gap-2 rounded-full bg-white text-ink px-8 py-4 text-small font-bold transition-all hover:bg-brand-transformation hover:text-white"
            >
              {lang === 'en' ? 'View Full Portfolio on Behance' : 'Behance Portfolyosunu İncele'} <ArrowRight className="w-4 h-4" />
            </a>

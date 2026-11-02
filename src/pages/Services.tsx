@@ -23,27 +23,27 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-xs font-bold uppercase tracking-widest text-ink-muted mb-8">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-caption font-bold uppercase tracking-widest text-ink-muted mb-8">
               <span className="w-2 h-2 rounded-full bg-brand-transformation"></span>
               UX.IPEK SERVICES
             </div>
             
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-ink mb-8 leading-[1.05]">
+            <h1 className="text-title sm:text-display md:text-display font-medium tracking-tight text-ink mb-8 leading-[1.05]">
               {lang === 'en' ? 'Growth Systems for ' : 'Yapay Zeka Odaklı '}<br className="hidden md:block" />
               <span className="text-accent font-semibold">{lang === 'en' ? 'AI-Native Digital Products' : 'Dijital Ürün Büyüme Sistemleri'}</span>
             </h1>
             
-            <p className="text-xl md:text-2xl font-light text-ink-muted w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
+            <p className="text-lead font-normal text-ink-muted w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
               {lang === 'en' 
                 ? 'AI-powered UX systems designed to increase clarity, trust, and conversion.' 
                 : 'Netlik, güven ve dönüşümü artırmak için tasarlanmış, yapay zeka destekli UX sistemleri.'}
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
+              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-small font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
                 {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
+              <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
                 {lang === 'en' ? 'View Case Studies' : 'Vaka Çalışmalarını İncele'}
               </a>
             </div>
@@ -67,8 +67,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-ink shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-accent">
                   <Search className="h-6 w-6 stroke-[1.5]" />
                 </div>
-                <h3 className="mb-4 text-2xl font-medium text-ink">{lang === 'en' ? 'UX & Conversion Strategy' : 'UX & Dönüşüm Stratejisi'}</h3>
-                <p className="font-light leading-relaxed text-ink-muted mb-8">
+                <h3 className="mb-4 text-heading font-medium text-ink">{lang === 'en' ? 'UX & Conversion Strategy' : 'UX & Dönüşüm Stratejisi'}</h3>
+                <p className="font-normal leading-relaxed text-ink-muted mb-8">
                   {lang === 'en' 
                     ? 'Analyze user behavior, friction points, and trust gaps to transform digital experiences into scalable conversion systems.' 
                     : 'Kullanıcı davranışlarını ve sürtünme noktalarını analiz ederek dijital deneyimleri dönüşüm sistemlerine çevirir.'}
@@ -78,7 +78,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                     ? ['UX Audits', 'Behavioral UX', 'CRO Optimization']
                     : ['UX Analizleri', 'Davranışsal UX', 'CRO Optimizasyonu']
                   ).map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-ink">
+                    <li key={i} className="flex items-center gap-3 text-small font-medium text-ink">
                       <span className="w-1.5 h-1.5 rounded-full bg-brand-transformation"></span>
                       {item}
                     </li>
@@ -99,8 +99,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white/10 backdrop-blur-md text-white transition-transform duration-500 group-hover:scale-105 group-hover:bg-white group-hover:text-ink">
                   <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
                 </div>
-                <h3 className="mb-4 text-2xl font-medium">{lang === 'en' ? 'AI-Native Product Design' : 'Yapay Zeka Destekli Ürün Tasarımı'}</h3>
-                <p className="font-light leading-relaxed text-on-ink-muted mb-8">
+                <h3 className="mb-4 text-heading font-medium">{lang === 'en' ? 'AI-Native Product Design' : 'Yapay Zeka Destekli Ürün Tasarımı'}</h3>
+                <p className="font-normal leading-relaxed text-on-ink-muted mb-8">
                   {lang === 'en'
                     ? 'Design scalable SaaS and AI-driven product experiences focused on usability, automation, and growth.'
                     : 'Kullanılabilirlik, otomasyon ve büyüme odaklı yapay zeka entegreli SaaS ürünleri tasarlar.'}
@@ -110,7 +110,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                     ? ['SaaS UX Architecture', 'AI Workflow Interfaces', 'Design Systems']
                     : ['SaaS UX Mimarisi', 'AI İş Akışı Arayüzleri', 'Tasarım Sistemleri']
                   ).map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-on-ink">
+                    <li key={i} className="flex items-center gap-3 text-small font-medium text-on-ink">
                       <span className="w-1.5 h-1.5 rounded-full bg-white/50 border border-white/20"></span>
                       {item}
                     </li>
@@ -131,8 +131,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-white text-ink shadow-sm transition-transform duration-500 group-hover:scale-105 group-hover:text-accent">
                   <LineChart className="h-6 w-6 stroke-[1.5]" />
                 </div>
-                <h3 className="mb-4 text-2xl font-medium text-ink">{lang === 'en' ? 'Landing Pages & Growth Funnels' : 'Açılış Sayfaları ve Büyüme Hunileri'}</h3>
-                <p className="font-light leading-relaxed text-ink-muted mb-8">
+                <h3 className="mb-4 text-heading font-medium text-ink">{lang === 'en' ? 'Landing Pages & Growth Funnels' : 'Açılış Sayfaları ve Büyüme Hunileri'}</h3>
+                <p className="font-normal leading-relaxed text-ink-muted mb-8">
                   {lang === 'en'
                     ? 'Create conversion-focused landing experiences optimized for acquisition, activation, and customer trust.'
                     : 'Müşteri kazanımı, aktivasyon ve güven için optimize edilmiş dönüşüm odaklı deneyimler yaratır.'}
@@ -142,7 +142,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                     ? ['Funnel Design', 'CRM Integration', 'Growth Messaging']
                     : ['Huni Tasarımı', 'CRM Entegrasyonu', 'Büyüme Mesajlaşması']
                   ).map((item, i) => (
-                    <li key={i} className="flex items-center gap-3 text-sm font-medium text-ink">
+                    <li key={i} className="flex items-center gap-3 text-small font-medium text-ink">
                       <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
                       {item}
                     </li>
@@ -158,8 +158,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
       {/* 3. PROCESS SECTION */}
       <section className="py-16 md:py-24 lg:py-32 w-full bg-background relative border-t border-brand-primary/5">
         <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-20">
-          <span className="text-xs font-bold text-ink-muted tracking-[0.2em] uppercase mb-4 block">Transformation Framework</span>
-          <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink">The Butterfly Methodology</h2>
+          <span className="text-caption font-bold text-ink-muted tracking-[0.2em] uppercase mb-4 block">Transformation Framework</span>
+          <h2 className="text-h2 text-title text-ink">The Butterfly Methodology</h2>
         </div>
         
         <div className="container-app ">
@@ -180,9 +180,9 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 transition={{ delay: i * 0.15 }}
                 className="flex-1 relative z-10 bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-[0_10px_30px_rgba(0,0,0,0.02)]"
               >
-                <div className="text-[10px] font-bold text-accent tracking-widest uppercase mb-6">Phase {p.phase}</div>
+                <div className="text-caption font-bold text-accent tracking-widest uppercase mb-6">Phase {p.phase}</div>
                 <h4 className="text-h3 text-ink mb-4">{p.stage}</h4>
-                <p className="text-ink-muted font-light leading-relaxed">{p.desc}</p>
+                <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -205,7 +205,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-h2 text-on-ink italic mb-8">“Design is not decoration.<br/>It is transformation.”</h2>
-            <p className="text-xl md:text-2xl text-on-ink-muted font-light w-[min(100%-32px,850px)] mx-auto leading-relaxed">
+            <p className="text-lead text-on-ink-muted font-normal w-[min(100%-32px,850px)] mx-auto leading-relaxed">
               {lang === 'en' 
                 ? 'I architect digital systems where UX strategy, AI workflows, behavioral psychology, and business growth meet to create seamless products.' 
                 : 'UX stratejisi, yapay zeka akışları, davranışsal psikoloji ve stratejik iş büyümesini bir araya getirerek sistemler kuruyorum.'}
@@ -226,7 +226,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               {lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}<br/>
               <span className="text-accent">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
-            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto text-base hover:shadow-xl mt-8">
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto text-body hover:shadow-xl mt-8">
               {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-5 h-5" />
             </a>
           </motion.div>

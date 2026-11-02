@@ -50,10 +50,10 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
         </button>
         <img src="/images/ataturk-portre.jpg" alt="" width={736} height={920} className="h-56 w-full object-cover object-top" />
         <div className="p-8">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-accent">
+          <p className="text-caption font-bold uppercase tracking-widest text-accent">
             {lang === "en" ? "29 October · 103rd year" : "29 Ekim · 103. yıl"}
           </p>
-          <h2 id="republic-popup-title" className="mt-3 text-3xl font-medium tracking-tight text-ink">
+          <h2 id="republic-popup-title" className="mt-3 text-heading font-medium tracking-tight text-ink">
             Cumhuriyet Bayramımız kutlu olsun.
           </h2>
           <p className="mt-4 text-ink-muted">
@@ -62,11 +62,11 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
               : "Cumhuriyet’in 103. yılına UXipek’ten dijital bir armağan: hikâyeyi keşfet ve sana özel hatıra kartını oluştur."}
           </p>
           <div className="mt-6 flex flex-wrap items-center gap-4">
-            <Link to={`/${lang}/29-ekim`} onClick={close} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-6 py-3 text-sm font-bold text-white shadow-lg shadow-brand-transformation/20 hover:bg-brand-transformation/90">
+            <Link to={`/${lang}/29-ekim`} onClick={close} className="inline-flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-6 py-3 text-small font-bold text-white shadow-lg shadow-brand-transformation/20 hover:bg-brand-transformation/90">
               {lang === "en" ? "Visit the page" : "Sayfayı keşfet"}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
-            <button onClick={close} className="text-sm font-medium text-ink-muted hover:text-ink">
+            <button onClick={close} className="text-small font-medium text-ink-muted hover:text-ink">
               {lang === "en" ? "Maybe later" : "Sonra"}
             </button>
           </div>
