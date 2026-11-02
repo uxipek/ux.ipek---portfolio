@@ -12,16 +12,16 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
           </Link>
           <p className="text-on-ink-muted font-normal text-small mb-6 max-w-xs">
             {lang === 'en' 
-              ? 'AI-Native Product Design Studio focused on user experience and growth.' 
-              : 'Kullanıcı deneyimi ve büyüme odaklı Yapay Zeka-Destekli Ürün Tasarım Stüdyosu.'}
+              ? 'AI-native UX & product designer focused on user experience and growth.' 
+              : 'Kullanıcı deneyimi ve büyüme odaklı, yapay zeka destekli UX ve ürün tasarımcısı.'}
           </p>
           <p className="text-on-ink-muted text-caption">
-            © {new Date().getFullYear()} UXIPEK. {lang === 'en' ? 'All rights reserved.' : 'Tüm hakları saklıdır.'}
+            © {new Date().getFullYear()} UXipek. {lang === 'en' ? 'All rights reserved.' : 'Tüm hakları saklıdır.'}
           </p>
         </div>
 
         <div>
-          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">UXIPEK</h4>
+          <h4 className="text-white font-medium mb-6 uppercase tracking-wider text-small text-accent">UXipek</h4>
           <ul className="space-y-4">
             <li><Link to={`/${lang}/about`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
             <li><Link to={`/${lang}/services`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>

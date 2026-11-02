@@ -10,8 +10,8 @@ export function LegalSupportCard({ lang }: { lang: "en" | "tr" }) {
       </h3>
       <p className="text-ink-muted font-normal mb-8 max-w-2xl leading-relaxed">
         {lang === 'en'
-          ? 'If you have questions regarding privacy, personal data or website usage, feel free to contact UXIPEK.'
-          : 'Gizlilik, kişisel veriler veya web sitesi kullanımı ile ilgili sorularınız varsa UXIPEK ile iletişime geçmekten çekinmeyin.'}
+          ? 'If you have questions regarding privacy, personal data or website usage, feel free to contact UXipek.'
+          : 'Gizlilik, kişisel veriler veya web sitesi kullanımı ile ilgili sorularınız varsa UXipek ile iletişime geçmekten çekinmeyin.'}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
@@ -48,7 +48,7 @@ export function LegalSupportCard({ lang }: { lang: "en" | "tr" }) {
         to={`/${lang}/contact`} 
         className="inline-flex items-center justify-center gap-2 rounded-xl bg-brand-primary px-8 py-4 text-small font-bold text-white transition-all hover:bg-brand-transformation shadow-lg shadow-dark/10"
       >
-        {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'} <ArrowUpRight className="w-4 h-4" />
+        {lang === 'en' ? 'Contact UXipek' : 'UXipek İle İletişime Geçin'} <ArrowUpRight className="w-4 h-4" />
       </Link>
     </div>
   );

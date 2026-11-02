@@ -1,4 +1,4 @@
-export const SITE_NAME = "UXIPEK";
+export const SITE_NAME = "UXipek";
 export const SITE_URL = "https://www.uxipek.com";
 export const DEFAULT_OG_IMAGE = "/og-image.png";
 export const SOCIAL_LINKS = [
@@ -19,9 +19,9 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
         "UXipek provides UX audits, AI-native product design, and conversion-focused UX/UI solutions for SaaS products, AI platforms, and websites.",
     },
     tr: {
-      title: "UXipek | AI-Native Ürün Tasarımı ve UX Röntgeni",
+      title: "UXipek | Yapay Zeka Odaklı Ürün Tasarımı ve UX Analizi",
       description:
-        "UXipek; SaaS, yapay zekâ destekli ürünler ve web siteleri için UX Röntgeni, ürün tasarımı ve dönüşüm odaklı UX/UI çözümleri sunar.",
+        "UXipek; SaaS, yapay zekâ destekli ürünler ve web siteleri için UX analizi, ürün tasarımı ve dönüşüm odaklı UX/UI çözümleri sunar.",
     },
   },
   "/29-ekim": {
@@ -45,7 +45,7 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
     tr: {
       title: "Hizmetler | UXipek",
       description:
-        "UX Röntgeni, AI-native ürün tasarımı ve UX/UI redesign hizmetleriyle dijital ürünlerinizi daha açık, kullanılabilir ve ölçülebilir hâle getirin.",
+        "UX analizi, yapay zeka odaklı ürün tasarımı ve UX/UI redesign hizmetleriyle dijital ürünlerinizi daha açık, kullanılabilir ve ölçülebilir hâle getirin.",
     },
   },
   "/ux-audit": {
@@ -55,7 +55,7 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
         "Identify where visitors experience friction. Get a free Mini UX Evaluation with priority usability issues and actionable improvement opportunities.",
     },
     tr: {
-      title: "UX Röntgeni ve Mini UX Değerlendirmesi | UXipek",
+      title: "UX Analizi ve Ücretsiz Mini UX Analizi | UXipek",
       description:
         "Web sitenizde kullanıcıların zorlandığı noktaları görün. UXipek'in ücretsiz Mini UX Değerlendirmesiyle öncelikli sorunları ve iyileştirme alanlarını keşfedin.",
     },
@@ -81,7 +81,7 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
     tr: {
       title: "İletişim ve Proje Görüşmesi | UXipek",
       description:
-        "UX Röntgeni, AI-native ürün tasarımı veya UX/UI redesign projenizi konuşmak için UXipek ile iletişime geçin ya da ücretsiz görüşme planlayın.",
+        "UX analizi, yapay zeka odaklı ürün tasarımı veya UX/UI redesign projenizi konuşmak için UXipek ile iletişime geçin ya da ücretsiz görüşme planlayın.",
     },
   },
   "/about": {
@@ -93,7 +93,7 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
     tr: {
       title: "Hakkında | İpek Bolakça — UX/UI ve Ürün Tasarımcısı",
       description:
-        "İpek Bolakça'nın UX stratejisi, AI-native ürün tasarımı, kullanıcı araştırması ve dönüşüm odaklı dijital deneyim yaklaşımını keşfedin.",
+        "İpek Bolakça'nın UX stratejisi, yapay zeka odaklı ürün tasarımı, kullanıcı araştırması ve dönüşüm odaklı dijital deneyim yaklaşımını keşfedin.",
     },
   },
   "/portfolio": {
@@ -110,43 +110,43 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
   },
   "/privacy-policy": {
     en: {
-      title: "Privacy Policy | UXIPEK",
-      description: "Privacy Policy for UXIPEK — how personal data is collected, used, and protected.",
+      title: "Privacy Policy | UXipek",
+      description: "Privacy Policy for UXipek — how personal data is collected, used, and protected.",
     },
     tr: {
-      title: "Gizlilik Politikası | UXIPEK",
-      description: "UXIPEK Gizlilik Politikası — kişisel verilerin nasıl toplandığı, kullanıldığı ve korunduğu.",
+      title: "Gizlilik Politikası | UXipek",
+      description: "UXipek Gizlilik Politikası — kişisel verilerin nasıl toplandığı, kullanıldığı ve korunduğu.",
     },
   },
   "/kvkk": {
     en: {
-      title: "KVKK | UXIPEK",
+      title: "KVKK | UXipek",
       description: "KVKK aydınlatma metni — kişisel verilerin işlenmesine ilişkin bilgilendirme.",
     },
     tr: {
-      title: "KVKK Aydınlatma Metni | UXIPEK",
+      title: "KVKK Aydınlatma Metni | UXipek",
       description: "KVKK kapsamında kişisel verilerin işlenmesine ilişkin aydınlatma metni.",
     },
   },
   "/cookie-policy": {
     en: {
-      title: "Cookie Policy | UXIPEK",
+      title: "Cookie Policy | UXipek",
       description:
-        "Cookie Policy for UXIPEK — details on the cookies used across the site and how to manage preferences.",
+        "Cookie Policy for UXipek — details on the cookies used across the site and how to manage preferences.",
     },
     tr: {
-      title: "Çerez Politikası | UXIPEK",
-      description: "UXIPEK Çerez Politikası — sitede kullanılan çerezler ve tercihlerin nasıl yönetileceği hakkında bilgi.",
+      title: "Çerez Politikası | UXipek",
+      description: "UXipek Çerez Politikası — sitede kullanılan çerezler ve tercihlerin nasıl yönetileceği hakkında bilgi.",
     },
   },
   "/terms-of-use": {
     en: {
-      title: "Terms of Use | UXIPEK",
-      description: "Terms of Use for UXIPEK's website and services.",
+      title: "Terms of Use | UXipek",
+      description: "Terms of Use for UXipek's website and services.",
     },
     tr: {
-      title: "Kullanım Koşulları | UXIPEK",
-      description: "UXIPEK web sitesi ve hizmetleri için Kullanım Koşulları.",
+      title: "Kullanım Koşulları | UXipek",
+      description: "UXipek web sitesi ve hizmetleri için Kullanım Koşulları.",
     },
   },
 };

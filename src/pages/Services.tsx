@@ -25,7 +25,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-caption font-bold uppercase tracking-widest text-ink-muted mb-8">
               <span className="w-2 h-2 rounded-full bg-brand-transformation"></span>
-              UX.IPEK SERVICES
+              {lang === 'en' ? 'Services' : 'Hizmetler'}
             </div>
             
             <h1 className="text-title sm:text-display md:text-display font-medium tracking-tight text-ink mb-8 leading-[1.05]">
@@ -41,10 +41,10 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-small font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)] hover:-translate-y-1">
-                {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
+                {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
-                {lang === 'en' ? 'View Case Studies' : 'Vaka Çalışmalarını İncele'}
+                {lang === 'en' ? 'View Projects' : 'Projeleri İncele'}
               </a>
             </div>
           </motion.div>
@@ -158,8 +158,8 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
       {/* 3. PROCESS SECTION */}
       <section className="py-16 md:py-24 lg:py-32 w-full bg-background relative border-t border-brand-primary/5">
         <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-20">
-          <span className="text-caption font-bold text-ink-muted tracking-[0.2em] uppercase mb-4 block">Transformation Framework</span>
-          <h2 className="text-h2 text-title text-ink">The Butterfly Methodology</h2>
+          <span className="text-caption font-bold text-ink-muted tracking-[0.2em] uppercase mb-4 block">{lang === 'en' ? 'How I Work' : 'Çalışma Modelim'}</span>
+          <h2 className="text-h2 text-title text-ink">{lang === 'en' ? 'The Butterfly Model' : 'Kelebek Modeli'}</h2>
         </div>
         
         <div className="container-app ">
@@ -168,9 +168,9 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
             <div className="hidden md:block absolute top-[4rem] left-[10%] right-[10%] h-[1px] bg-brand-primary/10 z-0"></div>
 
             {[
-              { phase: "01", stage: lang === 'en' ? 'Friction & Discovery' : 'Sürtünme & Keşif', desc: lang === 'en' ? 'Research, friction mapping, and behavioral analysis to find the drop-offs.' : 'Düşüşleri bulmak için araştırma, sürtünme haritalaması ve analiz.', icon: '🦋' },
-              { phase: "02", stage: lang === 'en' ? 'System Thinking' : 'Sistem Düşüncesi', desc: lang === 'en' ? 'Information architecture, AI-supported flows, and structural UX strategy.' : 'Bilgi mimarisi, yapay zeka destekli akışlar ve UX stratejisi.', icon: '🦋' },
-              { phase: "03", stage: lang === 'en' ? 'Growth & Transformation' : 'Büyüme & Dönüşüm', desc: lang === 'en' ? 'Conversion optimization, trust systems, and scalable user experiences.' : 'Dönüşüm optimizasyonu, güven sistemleri ve ölçeklenebilir deneyimler.', icon: '🦋' }
+              { phase: "01", state: lang === 'en' ? 'Caterpillar' : 'Tırtıl', stage: lang === 'en' ? 'Friction & Discovery' : 'Sürtünme ve Keşif', desc: lang === 'en' ? 'Research, friction mapping, and behavioral analysis to find the drop-offs.' : 'Düşüşleri bulmak için araştırma, sürtünme haritalaması ve analiz.', icon: '🦋' },
+              { phase: "02", state: lang === 'en' ? 'Cocoon' : 'Koza', stage: lang === 'en' ? 'Strategy & System Design' : 'Strateji ve Sistem Kurgusu', desc: lang === 'en' ? 'Information architecture, AI-supported flows, and structural UX strategy.' : 'Bilgi mimarisi, yapay zeka destekli akışlar ve UX stratejisi.', icon: '🦋' },
+              { phase: "03", state: lang === 'en' ? 'Butterfly' : 'Kelebek', stage: lang === 'en' ? 'Growth & Transformation' : 'Büyüme ve Dönüşüm', desc: lang === 'en' ? 'Conversion optimization, trust systems, and scalable user experiences.' : 'Dönüşüm optimizasyonu, güven sistemleri ve ölçeklenebilir deneyimler.', icon: '🦋' }
             ].map((p, i) => (
               <motion.div 
                 key={i}
@@ -180,7 +180,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
                 transition={{ delay: i * 0.15 }}
                 className="flex-1 relative z-10 bg-white/50 backdrop-blur-xl p-8 rounded-3xl border border-white shadow-[0_10px_30px_rgba(0,0,0,0.02)]"
               >
-                <div className="text-caption font-bold text-accent tracking-widest uppercase mb-6">Phase {p.phase}</div>
+                <div className="text-caption font-bold text-accent tracking-widest uppercase mb-6">{lang === 'en' ? 'Phase' : 'Aşama'} {p.phase} — {p.state}</div>
                 <h4 className="text-h3 text-ink mb-4">{p.stage}</h4>
                 <p className="text-ink-muted font-normal leading-relaxed">{p.desc}</p>
               </motion.div>
@@ -204,7 +204,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
             viewport={{ once: true }}
             transition={{ duration: 0.8 }}
           >
-            <h2 className="text-h2 text-on-ink italic mb-8">“Design is not decoration.<br/>It is transformation.”</h2>
+            <h2 className="text-h2 text-on-ink italic mb-8">{lang === 'en' ? <>Design is not decoration.<br/>It is transformation.</> : <>Tasarım süsleme değildir.<br/>Dönüşümdür.</>}</h2>
             <p className="text-lead text-on-ink-muted font-normal w-[min(100%-32px,850px)] mx-auto leading-relaxed">
               {lang === 'en' 
                 ? 'I architect digital systems where UX strategy, AI workflows, behavioral psychology, and business growth meet to create seamless products.' 
@@ -227,7 +227,7 @@ export function ServicesPage({ lang }: { lang: "en" | "tr" }) {
               <span className="text-accent">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
             <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto text-body hover:shadow-xl mt-8">
-              {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-5 h-5" />
+              {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-5 h-5" />
             </a>
           </motion.div>
         </div>

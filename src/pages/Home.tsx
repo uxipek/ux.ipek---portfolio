@@ -128,7 +128,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 <div className="flex items-center gap-4 mb-8">
                   <div className="w-8 h-[2px] bg-brand-transformation"></div>
                   <span className="text-caption font-bold text-ink-muted tracking-[0.2em] uppercase">
-                    {lang === 'en' ? 'AI-Native UX/UI Designer & Growth Strategist' : 'AI-Native UX/UI Tasarımcı ve Büyüme Stratejisti'}
+                    {lang === 'en' ? 'AI-Native UX/UI Designer & Growth Strategist' : 'Yapay Zeka Odaklı UX/UI Tasarımcı ve Büyüme Stratejisti'}
                   </span>
                 </div>
                 
@@ -144,10 +144,10 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
                   <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-body">
-                    {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'} <ArrowUpRight className="h-4 w-4" />
+                    {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="h-4 w-4" />
                   </Link>
                   <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
-                    {lang === 'en' ? 'Book a Free 15-Minute Call' : '15 Dakikalık Ücretsiz Görüşme Planla'} <ArrowUpRight className="h-4 w-4" />
+                    {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="h-4 w-4" />
                   </a>
                 </div>
 
@@ -308,24 +308,24 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <div className="absolute top-[80%] left-[103px] flex items-center gap-3">
                       <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_10px_var(--color-brand-transformation)]"></div>
                       <div>
-                        <p className="text-accent font-bold text-caption tracking-wide">1. Tırtıl</p>
-                        <p className="text-ink-muted text-caption uppercase font-semibold">{lang === 'en' ? 'Problem & Friction' : 'Problem ve S\u00FCrt\u00FCnme'}</p>
+                        <p className="text-accent font-bold text-caption tracking-wide">1. {lang === 'en' ? 'Caterpillar' : 'Tırtıl'}</p>
+                        <p className="text-ink-muted text-caption uppercase font-semibold">{lang === 'en' ? 'Friction & Discovery' : 'S\u00FCrt\u00FCnme ve Ke\u015Fif'}</p>
                       </div>
                     </div>
 
                     <div className="absolute top-[50%] left-[53px] flex items-center gap-3">
                       <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation/60 shadow-[0_0_10px_var(--color-brand-transformation)]"></div>
                       <div>
-                        <p className="text-accent font-bold text-caption tracking-wide">2. Koza</p>
-                        <p className="text-ink-muted text-caption uppercase font-semibold">{lang === 'en' ? 'Analysis & Strategy' : 'Analiz ve Strateji'}</p>
+                        <p className="text-accent font-bold text-caption tracking-wide">2. {lang === 'en' ? 'Cocoon' : 'Koza'}</p>
+                        <p className="text-ink-muted text-caption uppercase font-semibold">{lang === 'en' ? 'Strategy & System Design' : 'Strateji ve Sistem Kurgusu'}</p>
                       </div>
                     </div>
 
                     <div className="absolute top-[20%] left-[123px] flex items-center gap-3">
                       <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_15px_var(--color-brand-transformation)]"></div>
                       <div>
-                        <p className="text-accent font-bold text-caption tracking-wide">3. Kelebek</p>
-                        <p className="text-ink-muted text-caption uppercase font-semibold leading-tight mt-0.5">{lang === 'en' ? 'Growth &' : 'B\u00FCy\u00FCme &'}<br/>{lang === 'en' ? 'Transformation' : 've D\u00F6n\u00FC\u015F\u00FCm'}</p>
+                        <p className="text-accent font-bold text-caption tracking-wide">3. {lang === 'en' ? 'Butterfly' : 'Kelebek'}</p>
+                        <p className="text-ink-muted text-caption uppercase font-semibold leading-tight mt-0.5">{lang === 'en' ? 'Growth &' : 'B\u00FCy\u00FCme ve'}<br/>{lang === 'en' ? 'Transformation' : 'D\u00F6n\u00FC\u015F\u00FCm'}</p>
                       </div>
                     </div>
                   </div>
@@ -381,7 +381,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                   <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-ink border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-accent group-hover:border-brand-transformation/20 group-hover:bg-brand-transformation/5">
                     <Search className="h-6 w-6 stroke-[1.5]" />
                   </div>
-                  <h3 className="text-h3 mb-5 text-ink">{lang === 'en' ? 'UX X-Ray' : 'UX R\u00F6ntgeni'}</h3>
+                  <h3 className="text-h3 mb-5 text-ink">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</h3>
                   <p className="font-normal leading-relaxed text-ink-muted text-lead">
                     {lang === 'en'
                       ? 'I make the exact points where users struggle, hesitate, and abandon the conversion path visible \u2014 backed by evidence.'
@@ -403,7 +403,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-caption font-bold uppercase tracking-[0.15em] text-ink-muted group-hover:text-ink transition-colors duration-300">
-                    {lang === 'en' ? "Explore the UX X-Ray" : "UX R\u00F6ntgeni'ni \u0130ncele"}
+                    {lang === 'en' ? "Explore the UX Audit" : "UX Analizini \u0130ncele"}
                   </span>
                 </Link>
               </motion.div>
@@ -420,7 +420,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                   <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-background text-ink border border-brand-primary/5 transition-transform duration-500 group-hover:scale-105 group-hover:text-accent group-hover:border-accent/20 group-hover:bg-accent/5">
                     <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
                   </div>
-                  <h3 className="text-h3 mb-5 text-ink">{lang === 'en' ? 'AI-Native Product Design' : 'AI-Native \u00DCr\u00FCn Tasar\u0131m\u0131'}</h3>
+                  <h3 className="text-h3 mb-5 text-ink">{lang === 'en' ? 'AI-Native Product Design' : 'Yapay Zeka Odakl\u0131 \u00DCr\u00FCn Tasar\u0131m\u0131'}</h3>
                   <p className="font-normal leading-relaxed text-ink-muted text-lead">
                     {lang === 'en'
                       ? 'I design clear, trustworthy, human-centered user experiences for SaaS and AI-powered products.'
@@ -481,7 +481,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
                   <span className="text-caption font-bold uppercase tracking-[0.15em] text-ink-muted group-hover:text-ink transition-colors duration-300">
-                    {lang === 'en' ? 'View the Work' : '\u00C7al\u0131\u015Fmalar\u0131 \u0130ncele'}
+                    {lang === 'en' ? 'View Projects' : 'Projeleri \u0130ncele'}
                   </span>
                 </Link>
               </motion.div>
@@ -591,7 +591,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <div className="w-2 h-2 rounded-full bg-brand-primary/20"></div>
                   </div>
                   <h3 className="text-heading font-bold text-ink mb-4 group cursor-default">
-                    Tırtıl <span className="text-ink-muted font-normal ml-1 transition-colors group-hover:text-ink-muted">— {lang === 'en' ? 'Friction & Discovery' : 'Sürtünme ve Keşif'}</span>
+                    {lang === 'en' ? 'Caterpillar' : 'Tırtıl'} <span className="text-ink-muted font-normal ml-1 transition-colors group-hover:text-ink-muted">— {lang === 'en' ? 'Friction & Discovery' : 'Sürtünme ve Keşif'}</span>
                   </h3>
                   <p className="text-ink-muted leading-relaxed mb-8 font-normal text-body">
                     {lang === 'en'
@@ -623,7 +623,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <div className="w-2 h-2 rounded-full bg-brand-transformation/40 shadow-[0_0_8px_rgba(202,0,108,0.5)]"></div>
                   </div>
                   <h3 className="text-heading font-bold text-ink mb-4 group cursor-default">
-                    Koza <span className="text-accent font-normal ml-1 transition-colors group-hover:text-accent">— {lang === 'en' ? 'Strategy & System Thinking' : 'Strateji ve Sistem Kurgusu'}</span>
+                    {lang === 'en' ? 'Cocoon' : 'Koza'} <span className="text-accent font-normal ml-1 transition-colors group-hover:text-accent">— {lang === 'en' ? 'Strategy & System Design' : 'Strateji ve Sistem Kurgusu'}</span>
                   </h3>
                   <p className="text-ink leading-relaxed mb-8 font-normal text-body">
                     {lang === 'en'
@@ -656,7 +656,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     <div className="w-2.5 h-2.5 rounded-full bg-brand-transformation shadow-[0_0_12px_rgba(202,0,108,0.8)] animate-pulse"></div>
                   </div>
                   <h3 className="text-heading font-bold text-ink mb-4 group cursor-default relative z-10">
-                    Kelebek <span className="text-accent/80 font-normal ml-1">— {lang === 'en' ? 'Growth & Transformation' : 'Büyüme ve Dönüşüm'}</span>
+                    {lang === 'en' ? 'Butterfly' : 'Kelebek'} <span className="text-accent/80 font-normal ml-1">— {lang === 'en' ? 'Growth & Transformation' : 'Büyüme ve Dönüşüm'}</span>
                   </h3>
                   <p className="text-ink leading-relaxed mb-8 font-normal text-body relative z-10">
                     {lang === 'en'
@@ -701,7 +701,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
                <Link to={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-body font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
-                  {lang === 'en' ? 'Start Your Transformation' : 'Dönüşümüne Başla'} <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                  {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                </Link>
                <p className="mt-5 text-small md:text-body text-ink-muted font-medium">
                  {lang === 'en' ? "Let's turn your digital experience into a growth system." : 'Dijital deneyiminizi bir büyüme sistemine dönüştürelim.'}
@@ -802,7 +802,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 to={`/${lang}/portfolio`} 
                 className="inline-flex items-center gap-2 rounded-full border border-white/20 px-8 py-4 text-small font-semibold text-white transition-all hover:bg-white/10 hover:border-white/30"
               >
-                {lang === 'en' ? 'Explore All Projects' : 'Tüm Projeleri Keşfet'} <ArrowRight className="w-4 h-4" />
+                {lang === 'en' ? 'View Projects' : 'Projeleri İncele'} <ArrowRight className="w-4 h-4" />
               </Link>
             </div>
           </div>
@@ -829,7 +829,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               <p className="text-ink-muted text-lead leading-relaxed max-w-2xl mx-auto mb-4">
                 {lang === 'en'
                   ? "I'm building an AI-assisted UX diagnostic platform that makes usability, accessibility, and conversion friction across websites more visible."
-                  : 'Web sitelerindeki kullanıcı deneyimi, erişilebilirlik ve dönüşüm problemlerini görünür hâle getiren AI destekli bir UX Röntgeni platformu geliştiriyorum.'}
+                  : 'Web sitelerindeki kullanıcı deneyimi, erişilebilirlik ve dönüşüm problemlerini görünür hâle getiren yapay zeka destekli bir UX analizi platformu geliştiriyorum.'}
               </p>
               <p className="text-ink-muted leading-relaxed max-w-2xl mx-auto mb-8">
                 {lang === 'en'
@@ -837,7 +837,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                   : 'UX-Ray AI; masaüstü ve mobil deneyimi inceleyerek öncelikli sorunları, olası iş etkilerini ve uygulanabilir iyileştirme alanlarını anlaşılır bir rapora dönüştürmeyi hedefliyor.'}
               </p>
               <div className="flex flex-wrap justify-center gap-2 mb-10">
-                {['UX Research', 'Product Strategy', 'AI-Native UX', 'In Development'].map(tag => (
+                {(lang === 'en' ? ['UX Research', 'Product Strategy', 'AI-Native UX', 'In Development'] : ['UX Araştırması', 'Ürün Stratejisi', 'Yapay Zeka Odaklı UX', 'Geliştiriliyor']).map(tag => (
                   <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-ink-muted text-caption font-semibold border border-brand-primary/5">
                     {tag}
                   </span>
@@ -872,7 +872,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
-                <Mail className="h-4 w-4" /> {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
+                <Mail className="h-4 w-4" /> {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
               </Link>
               <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-surface border border-brand-primary/10 px-8 py-4 text-small font-bold text-ink transition-colors hover:bg-brand-primary/5">
                 {lang === 'en' ? 'Contact Me' : 'İletişime Geç'}

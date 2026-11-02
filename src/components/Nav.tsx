@@ -84,7 +84,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
             <button onClick={() => setLang('tr')} className={`px-3 py-1.5 rounded-full transition-colors ${lang === 'tr' ? 'bg-white text-ink shadow-sm' : 'text-ink-muted hover:text-ink'}`}>TR</button>
           </div>
           <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="hidden lg:flex items-center gap-2 rounded-full bg-brand-transformation px-6 py-2.5 text-small font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20">
-            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme'}
+            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'}
           </a>
         </div>
 
@@ -159,7 +159,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
           </div>
           
           <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" onClick={toggleMenu} className="sm:hidden flex items-center justify-center gap-2 rounded-xl bg-brand-transformation w-full py-4 text-body font-semibold text-white transition-transform hover:scale-105 shadow-lg shadow-brand-transformation/20 mt-4">
-            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme'}
+            {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'}
           </a>
         </div>
       )}

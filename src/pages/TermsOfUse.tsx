@@ -16,8 +16,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
         </h1>
         <p className="text-ink-muted text-lead font-normal mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en'
-            ? 'Guidelines and rules for using the UXIPEK website, content, and digital assets.'
-            : 'UXIPEK web sitesinin, içeriklerinin ve dijital varlıklarının kullanımına dair kurallar ve esaslar.'}
+            ? 'Guidelines and rules for using the UXipek website, content, and digital assets.'
+            : 'UXipek web sitesinin, içeriklerinin ve dijital varlıklarının kullanımına dair kurallar ve esaslar.'}
         </p>
         <p className="text-ink-muted text-caption font-bold mb-16 uppercase tracking-[0.2em]">
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
@@ -32,8 +32,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             <p className="mb-4">
               {lang === 'en'
-                ? 'The UXIPEK website (https://www.uxipek.com) serves as an informational platform and portfolio showcasing our AI-Native Product Design Studio services. It presents our expertise in UX/UI design, UX audits, product strategy, and digital consulting.'
-                : 'UXIPEK web sitesi (https://www.uxipek.com), Yapay Zeka-Destekli Ürün Tasarım Stüdyosu hizmetlerimizi sergileyen bilgilendirici bir portfolyo platformudur. UX/UI tasarımı, UX analizi, ürün stratejisi ve dijital danışmanlık uzmanlıklarımızı sunar.'}
+                ? 'The UXipek website (https://www.uxipek.com) serves as an informational platform and portfolio showcasing our AI-Native Product Design Studio services. It presents our expertise in UX/UI design, UX audits, product strategy, and digital consulting.'
+                : 'UXipek web sitesi (https://www.uxipek.com), Yapay Zeka-Destekli Ürün Tasarım Stüdyosu hizmetlerimizi sergileyen bilgilendirici bir portfolyo platformudur. UX/UI tasarımı, UX analizi, ürün stratejisi ve dijital danışmanlık uzmanlıklarımızı sunar.'}
             </p>
             <div className="p-5 rounded-xl bg-brand-primary/5 border border-brand-primary/10">
               <p className="text-small font-medium text-ink">
@@ -63,8 +63,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             <p className="mb-4">
               {lang === 'en'
-                ? 'All content on this website, including but not limited to typography, interface design, text, logos, code, case studies, and portfolio imagery, is the intellectual property of UXIPEK or our respective clients.'
-                : 'Bu web sitesinde yer alan tipografi, arayüz tasarımı, metin, logolar, kodlar, vaka çalışmaları ve portfolyo görselleri dahil tüm içerikler UXIPEK\'in veya ilgili müşterilerimizin fikri mülkiyetindedir.'}
+                ? 'All content on this website, including but not limited to typography, interface design, text, logos, code, case studies, and portfolio imagery, is the intellectual property of UXipek or our respective clients.'
+                : 'Bu web sitesinde yer alan tipografi, arayüz tasarımı, metin, logolar, kodlar, vaka çalışmaları ve portfolyo görselleri dahil tüm içerikler UXipek\'in veya ilgili müşterilerimizin fikri mülkiyetindedir.'}
             </p>
             <p>
               {lang === 'en'
@@ -113,8 +113,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             <p>
               {lang === 'en'
-                ? 'While we strive to keep the website up to date and functional, UXIPEK cannot be held liable for temporary downtime, technical errors, or indirect damages resulting from the use of this website.'
-                : 'Web sitesini güncel ve işlevsel tutmak için çaba göstersek de, UXIPEK geçici kesintilerden, teknik hatalardan veya bu web sitesinin kullanımından doğabilecek dolaylı zararlardan sorumlu tutulamaz.'}
+                ? 'While we strive to keep the website up to date and functional, UXipek cannot be held liable for temporary downtime, technical errors, or indirect damages resulting from the use of this website.'
+                : 'Web sitesini güncel ve işlevsel tutmak için çaba göstersek de, UXipek geçici kesintilerden, teknik hatalardan veya bu web sitesinin kullanımından doğabilecek dolaylı zararlardan sorumlu tutulamaz.'}
             </p>
           </section>
 

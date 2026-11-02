@@ -111,7 +111,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             {[
               { label: lang === 'en' ? 'Industry' : 'Sektör', value: lang === 'en' ? 'Sports & Social Networking' : 'Spor ve Sosyal Ağ' },
               { label: lang === 'en' ? 'Duration' : 'Süre', value: project.timeline },
-              { label: lang === 'en' ? 'Deliverables' : 'Teslimatlar', value: 'Research, Persona, User Flow, Wireframes, UI Design, Prototype' },
+              { label: lang === 'en' ? 'Deliverables' : 'Teslimatlar', value: lang === 'en' ? 'Research, Persona, User Flow, Wireframes, UI Design, Prototype' : 'Araştırma, Persona, Kullanıcı Akışı, Wireframe, Arayüz Tasarımı, Prototip' },
             ].map((item, i) => (
               <motion.div 
                 key={item.label}

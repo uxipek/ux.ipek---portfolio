@@ -31,8 +31,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             <p className="mb-4">
               {lang === 'en' 
-                ? 'This Privacy Policy explains how UXIPEK ("we", "us", or "our") collects, uses, and protects the personal data of users interacting with our website (https://www.uxipek.com).' 
-                : 'Bu Gizlilik Politikası, UXIPEK ("biz", "bizim" veya "UXIPEK") web sitesini (https://www.uxipek.com) ziyaret eden ve hizmetlerimizle etkileşime giren kullanıcıların kişisel bilgilerinin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.'}
+                ? 'This Privacy Policy explains how UXipek ("we", "us", or "our") collects, uses, and protects the personal data of users interacting with our website (https://www.uxipek.com).' 
+                : 'Bu Gizlilik Politikası, UXipek ("biz", "bizim" veya "UXipek") web sitesini (https://www.uxipek.com) ziyaret eden ve hizmetlerimizle etkileşime giren kullanıcıların kişisel bilgilerinin nasıl toplandığını, kullanıldığını ve korunduğunu açıklar.'}
             </p>
             <p>
               {lang === 'en' 

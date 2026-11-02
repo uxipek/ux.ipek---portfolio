@@ -300,10 +300,10 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
              <Link to={`/${lang}/contact`} className="btn-primary-pink">
-               <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
+               <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXipek' : 'UXipek İle İletişime Geçin'}
              </Link>
              <Link to={`/${lang}/ux-audit`} className="btn-outline-light">
-               {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
+               {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
              </Link>
           </div>
         </div>
