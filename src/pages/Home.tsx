@@ -860,16 +860,8 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               ))}
             </div>
 
-            <div className="text-center mt-12">
-              <a
-                href="https://www.linkedin.com/in/ipekbolakca/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-outline-light"
-              >
-                {lang === 'en' ? 'Follow the Build Journey' : 'Geliştirme Sürecini Takip Et'} <ArrowUpRight className="h-4 w-4" />
-              </a>
-              <p className="text-small text-on-ink-muted mt-5">
+            <div className="text-center mt-10">
+              <p className="text-small text-on-ink-muted">
                 {lang === 'en' ? 'UX X-Ray is live in the first release. Other modules are being rolled out gradually.' : 'İlk sürümde UX Röntgeni aktif. Diğer modüller kontrollü olarak devreye alınıyor.'}
               </p>
             </div>
