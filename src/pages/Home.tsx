@@ -808,53 +808,71 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
           </div>
         </section>
 
-        {/* Coming Soon: UX-Ray AI */}
-        <section className="py-[48px] md:py-[64px] lg:py-[88px] bg-surface">
-          <div className="page-container">
+        {/* UXipek OS: AI-assisted design workspace (UX Röntgeni is its first live module) */}
+        <section className="py-[48px] md:py-[64px] lg:py-[88px] bg-brand-primary relative overflow-hidden">
+          <div className="page-container relative z-10">
             <motion.div
               initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="max-w-4xl mx-auto rounded-[2.5rem] border-2 border-dashed border-brand-transformation/25 bg-white p-10 md:p-14 text-center"
+              className="max-w-3xl mx-auto text-center mb-12"
             >
-              <div className="mb-8 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-brand-transformation/5 text-accent border border-brand-transformation/10 mx-auto">
-                <BrainCircuit className="h-6 w-6 stroke-[1.5]" />
-              </div>
-              <span className="inline-block px-4 py-1.5 rounded-full bg-brand-transformation/5 text-accent text-caption font-bold uppercase tracking-[0.15em] border border-brand-transformation/10 mb-6">
-                {lang === 'en' ? 'IN DEVELOPMENT' : 'GELİŞTİRİLİYOR'}
+              <span className="text-eyebrow text-on-ink-muted block mb-5">
+                {lang === 'en' ? 'UXipek OS · AI-assisted design workspace' : 'UXipek OS · Yapay zeka destekli tasarım çalışma alanı'}
               </span>
-              <h2 className="text-h2 text-ink mb-5">
-                {lang === 'en' ? 'Coming Soon: UX-Ray AI' : 'Yakında: UX-Ray AI'}
+              <h2 className="text-h2 text-on-ink mb-5">
+                {lang === 'en' ? 'From findings to a better experience.' : 'Bulgudan daha iyi bir deneyime.'}
               </h2>
-              <p className="text-ink-muted text-lead leading-relaxed max-w-2xl mx-auto mb-4">
+              <p className="text-on-ink-muted text-lead leading-relaxed">
                 {lang === 'en'
-                  ? "I'm building an AI-assisted UX diagnostic platform that makes usability, accessibility, and conversion friction across websites more visible."
-                  : 'Web sitelerindeki kullanıcı deneyimi, erişilebilirlik ve dönüşüm problemlerini görünür hâle getiren yapay zeka destekli bir UX analizi platformu geliştiriyorum.'}
+                  ? 'UXipek OS brings UX analysis, website redesign and content production together in one evidence-based workspace. It is the tool I build and use in my own audits.'
+                  : 'UXipek OS; UX analizi, web sitesi yenileme ve içerik üretimini tek, kanıta dayalı bir çalışma alanında birleştiriyor. Kendi analizlerimde kullandığım ve geliştirdiğim araç.'}
               </p>
-              <p className="text-ink-muted leading-relaxed max-w-2xl mx-auto mb-8">
-                {lang === 'en'
-                  ? 'UX-Ray AI aims to examine desktop and mobile experiences and translate priority issues, potential business risks, and actionable improvement areas into a clear report.'
-                  : 'UX-Ray AI; masaüstü ve mobil deneyimi inceleyerek öncelikli sorunları, olası iş etkilerini ve uygulanabilir iyileştirme alanlarını anlaşılır bir rapora dönüştürmeyi hedefliyor.'}
-              </p>
-              <div className="flex flex-wrap justify-center gap-2 mb-10">
-                {(lang === 'en' ? ['UX Research', 'Product Strategy', 'AI-Native UX', 'In Development'] : ['UX Araştırması', 'Ürün Stratejisi', 'Yapay Zeka Odaklı UX', 'Geliştiriliyor']).map(tag => (
-                  <span key={tag} className="px-3 py-1.5 rounded-full bg-brand-primary/5 text-ink-muted text-caption font-semibold border border-brand-primary/5">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+            </motion.div>
+
+            <motion.figure
+              initial={prefersReducedMotion ? false : { opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="max-w-5xl mx-auto mb-12"
+            >
+              <img
+                src="/uxipek-os/ux-rontgeni.webp"
+                alt={lang === 'en' ? 'UX X-Ray module in UXipek OS: enter a website address and the site goal to get evidence-based UX findings' : 'UXipek OS içindeki UX Röntgeni modülü: web sitesi adresi ve sitenin amacı girilerek kanıtlı UX bulguları alınıyor'}
+                loading="lazy"
+                className="w-full rounded-2xl border border-white/10 shadow-2xl"
+              />
+            </motion.figure>
+
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 max-w-5xl mx-auto">
+              {[
+                { name: lang === 'en' ? 'UX X-Ray' : 'UX Röntgeni', status: lang === 'en' ? 'Live' : 'Aktif', desc: lang === 'en' ? 'Start with a URL and get 1–3 evidence-based UX findings.' : 'Bir URL ile başla; 1–3 kanıtlı UX bulgusu elde et.' },
+                { name: 'VİTRİN', status: lang === 'en' ? 'Foundation ready' : 'Temel hazır', desc: lang === 'en' ? 'Plan a website redesign with scope and approval gates.' : 'Web sitesi projesi için kapsam ve üretim kapılarını hazırla.' },
+                { name: 'Content Lab', status: 'Demo', desc: lang === 'en' ? 'Manage strategy, reference analysis and the content plan in one place.' : 'Strateji, referans analizi ve içerik planını tek yerde yönet.' },
+              ].map(m => (
+                <div key={m.name} className="rounded-2xl border border-white/10 bg-white/5 p-6 text-left">
+                  <div className="flex items-center justify-between gap-3 mb-3">
+                    <h3 className="text-h3 text-on-ink">{m.name}</h3>
+                    <span className="text-caption font-bold uppercase tracking-wider text-on-ink border border-white/20 rounded-full px-3 py-1">{m.status}</span>
+                  </div>
+                  <p className="text-small text-on-ink-muted">{m.desc}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className="text-center mt-12">
               <a
                 href="https://www.linkedin.com/in/ipekbolakca/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 min-h-[44px] rounded-full bg-brand-primary px-8 py-4 text-small font-bold text-white transition-all hover:-translate-y-1 hover:bg-brand-primary/90 shadow-lg hover:shadow-xl"
+                className="btn-outline-light"
               >
                 {lang === 'en' ? 'Follow the Build Journey' : 'Geliştirme Sürecini Takip Et'} <ArrowUpRight className="h-4 w-4" />
               </a>
-              <p className="text-small text-ink-muted mt-5">
-                {lang === 'en' ? 'The first version is currently in development.' : 'İlk sürüm üzerinde çalışılıyor.'}
+              <p className="text-small text-on-ink-muted mt-5">
+                {lang === 'en' ? 'UX X-Ray is live in the first release. Other modules are being rolled out gradually.' : 'İlk sürümde UX Röntgeni aktif. Diğer modüller kontrollü olarak devreye alınıyor.'}
               </p>
-            </motion.div>
+            </div>
           </div>
         </section>
 

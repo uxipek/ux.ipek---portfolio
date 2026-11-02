@@ -1,10 +1,12 @@
 import React, { useEffect } from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { motion } from "motion/react";
-import { ArrowLeft, ArrowRight, CheckCircle2, ChevronRight, Mail } from "lucide-react";
+import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react";
 import { projects } from "../data/projects";
 import { EventGoCaseStudy } from "./EventGoCaseStudy";
 import { AkademiOzalitCaseStudy } from "./AkademiOzalitCaseStudy";
+
+const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
 export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
   const { id } = useParams<{ id: string }>();
@@ -61,30 +63,32 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       {/* Project Info & Overview */}
       <div className="container-app mb-24">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
-          
+
           <div className="lg:col-span-4 order-2 lg:order-1">
             <div className="sticky top-32 p-8 bg-white rounded-3xl border border-brand-primary/5 shadow-xl shadow-dark/5">
-               <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Role' : 'Rol'}</h4>
-                 <p className="text-ink font-medium">{project.role}</p>
-               </div>
-               
-               <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Timeline' : 'Süreç'}</h4>
-                 <p className="text-ink font-medium">{project.timeline}</p>
-               </div>
-               
-               <div className="mb-8 pb-8 border-b border-brand-primary/5">
-                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
-                 <div className="flex flex-wrap gap-2">
-                   {project.tools.map(tool => (
-                     <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-small font-medium text-ink">{tool}</span>
-                   ))}
+               {[
+                 { label: lang === 'en' ? 'Role' : 'Rol', value: project.role },
+                 { label: lang === 'en' ? 'Timeline' : 'Süre', value: project.timeline },
+               ].filter(f => f.value).map(f => (
+                 <div key={f.label} className="mb-8 pb-8 border-b border-brand-primary/5">
+                   <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{f.label}</h4>
+                   <p className="text-ink font-medium">{f.value}</p>
                  </div>
-               </div>
-               
+               ))}
+
+               {project.tools.length > 0 && (
+                 <div className="mb-8 pb-8 border-b border-brand-primary/5">
+                   <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Tools' : 'Araçlar'}</h4>
+                   <div className="flex flex-wrap gap-2">
+                     {project.tools.map(tool => (
+                       <span key={tool} className="px-3 py-1.5 bg-brand-primary/5 rounded-md text-small font-medium text-ink">{tool}</span>
+                     ))}
+                   </div>
+                 </div>
+               )}
+
                <div>
-                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Services Provided' : 'Hizmetler'}</h4>
+                 <h4 className="text-caption uppercase tracking-widest text-ink-muted font-bold mb-3">{lang === 'en' ? 'Scope' : 'Kapsam'}</h4>
                  <ul className="space-y-2">
                    {project.services.map(service => (
                      <li key={service} className="flex items-start gap-2 text-small font-medium text-ink">
@@ -94,63 +98,68 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
                    ))}
                  </ul>
                </div>
+
+               {project.behanceUrl && (
+                 <a href={project.behanceUrl} target="_blank" rel="noopener noreferrer" className="btn-dark-solid w-full mt-8">
+                   {lang === 'en' ? 'Full case study on Behance' : 'Tüm vaka çalışması Behance\'te'} <ArrowUpRight className="w-4 h-4" />
+                 </a>
+               )}
             </div>
           </div>
-          
+
           <div className="lg:col-span-8 order-1 lg:order-2 text-lead font-normal text-ink leading-relaxed space-y-16">
-            
-            <section>
-              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
-              <p className="mb-6">
-                This project focuses on delivering a highly optimized and intuitive experience for users. The primary goal was to bridge the gap between complex requirements and a seamless user interface, ultimately driving higher engagement and conversion rates.
-              </p>
-              <p>
-                Through a comprehensive approach covering research, strategy, and visual design, we transformed the initial concept into a robust digital product that aligns with both business objectives and user needs.
-              </p>
-            </section>
-            
-            <section>
-              <h2 className="text-h2 mb-6">{lang === 'en' ? 'The Challenge' : 'Zorluk'}</h2>
-              <p className="p-8 rounded-2xl bg-brand-primary/5 border-l-4 border-brand-transformation">
-                The main challenge was simplifying a multi-step, data-heavy process into an experience that felt effortless and trustworthy for the end user, while accommodating diverse user personas and technical constraints.
-              </p>
-            </section>
-            
-            <section>
-              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Research & Insights' : 'Araştırma ve İçgörüler'}</h2>
-              <p className="mb-6">
-                Extensive qualitative and quantitative research revealed significant friction points in the existing user journey. We utilized affinity mapping and user interviews to pinpoint exactly where users were dropping off.
-              </p>
-              <ul className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-8">
-                <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
-                   <h4 className="font-bold text-ink mb-2">Insight 1</h4>
-                   <p className="text-small">Users felt overwhelmed by the amount of choices presented on a single screen.</p>
-                </li>
-                <li className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
-                   <h4 className="font-bold text-ink mb-2">Insight 2</h4>
-                   <p className="text-small">Trust signals were missing during critical conversion moments, leading to abandonment.</p>
-                </li>
-              </ul>
-            </section>
-            
-            <section>
-              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Design Decisions & UI' : 'Tasarım Kararları ve Arayüz'}</h2>
-              <p className="mb-8">
-                Based on our research, the information architecture was completely restructured. We adopted a progressive disclosure approach, presenting information only when the user needed it. The visual language was refined to communicate premium quality, using a clean layout, generous whitespace, and purposeful micro-interactions.
-              </p>
-              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-brand-primary/5 mb-6">
-                 {/* Placeholder for project specific UI screenshots */}
-                 <img src={project.coverImage} alt="UI Design" className="w-full h-full object-cover opacity-80" />
-              </div>
-            </section>
-            
-            <section>
-              <h2 className="text-h2 mb-6">{lang === 'en' ? 'Outcome & Impact' : 'Sonuç ve Etki'}</h2>
-              <p>
-                The redesigned experience led to a more intuitive flow and a measurable increase in user task success rates. The strategic alignment of business goals with user-centered design principles successfully transformed the product into a growth engine.
-              </p>
-            </section>
-            
+
+            {project.overview && (
+              <section>
+                <h2 className="text-h2 mb-6">{lang === 'en' ? 'Overview' : 'Genel Bakış'}</h2>
+                {project.overview.map((para, i) => (
+                  <p key={i} className="mb-6">{para[lang]}</p>
+                ))}
+              </section>
+            )}
+
+            {project.problems && (
+              <section>
+                <h2 className="text-h2 mb-6">{lang === 'en' ? 'Problems to Solve' : 'Çözülmesi Gereken Sorunlar'}</h2>
+                <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {project.problems.map((pr, i) => (
+                    <li key={i} className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm text-body font-medium">{pr[lang]}</li>
+                  ))}
+                </ul>
+              </section>
+            )}
+
+            {project.process && (
+              <section>
+                <h2 className="text-h2 mb-6">{lang === 'en' ? 'Process' : 'Süreç'}</h2>
+                <ol className="space-y-4">
+                  {project.process.map((step, i) => (
+                    <li key={i} className="flex gap-5 p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm">
+                      <span className="text-caption font-bold text-accent tracking-widest mt-1">{String(i + 1).padStart(2, '0')}</span>
+                      <div>
+                        <h3 className="text-h3 text-ink mb-1">{step.title[lang]}</h3>
+                        <p className="text-body text-ink-muted">{step.items[lang]}</p>
+                      </div>
+                    </li>
+                  ))}
+                </ol>
+              </section>
+            )}
+
+            {project.gallery && (
+              <section>
+                <h2 className="text-h2 mb-6">{lang === 'en' ? 'Selected Work' : 'Seçili Çalışmalar'}</h2>
+                <div className="space-y-10">
+                  {project.gallery.map(img => (
+                    <figure key={img.src}>
+                      <img src={img.src} alt={img.caption[lang]} loading="lazy" className="w-full rounded-2xl border border-brand-primary/5 shadow-sm bg-white" />
+                      <figcaption className="text-small text-ink-muted mt-3">{img.caption[lang]}</figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </section>
+            )}
+
           </div>
         </div>
       </div>
@@ -158,17 +167,17 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
       {/* CTA Section */}
       <section className="py-24 bg-brand-primary text-center">
         <div className="w-[min(100%-32px,850px)] mx-auto">
-          <h2 className="text-h2 mb-6">
-            {lang === 'en' ? 'Ready to elevate your product?' : 'Ürününüzü bir üst seviyeye taşımaya hazır mısınız?'}
+          <h2 className="text-h2 text-on-ink mb-6">
+            {lang === 'en' ? 'Want this kind of clarity for your product?' : 'Ürününüz için de bu netliği ister misiniz?'}
           </h2>
           <p className="text-on-ink-muted text-lead mb-10">
-            {lang === 'en' ? 'Let’s discuss how strategic UX design can drive growth for your business.' : 'Stratejik UX tasarımının işletmeniz için nasıl büyüme sağlayabileceğini konuşalım.'}
+            {lang === 'en' ? 'Tell me what you are building and where users get stuck.' : 'Ne geliştirdiğinizi ve kullanıcıların nerede zorlandığını anlatın.'}
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-             <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:bg-brand-transformation/90 hover:shadow-lg hover:-translate-y-1">
-               <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXipek' : 'UXipek İle İletişime Geçin'}
-             </Link>
-             <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-small font-bold text-ink transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
+             <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto">
+               {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
+             </a>
+             <Link to={`/${lang}/ux-audit`} className="btn-outline-light w-full sm:w-auto">
                {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
              </Link>
           </div>
