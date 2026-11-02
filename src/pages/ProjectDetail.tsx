@@ -166,10 +166,10 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
              <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:bg-brand-transformation/90 hover:shadow-lg hover:-translate-y-1">
-               <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXIPEK' : 'UXIPEK İle İletişime Geçin'}
+               <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXipek' : 'UXipek İle İletişime Geçin'}
              </Link>
              <Link to={`/${lang}/ux-audit`} className="inline-flex items-center justify-center gap-2 rounded-2xl bg-white border border-brand-primary/10 px-8 py-4 text-small font-bold text-ink transition-all hover:bg-background hover:border-brand-primary/20 shadow-sm">
-               {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
+               {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
              </Link>
           </div>
         </div>

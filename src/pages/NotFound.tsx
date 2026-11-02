@@ -4,7 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export function NotFoundPage({ lang }: { lang: 'en' | 'tr' }) {
   useEffect(() => {
-    document.title = lang === 'en' ? '404 - Page Not Found | UXIPEK' : '404 - Sayfa Bulunamadı | UXIPEK';
+    document.title = lang === 'en' ? '404 - Page Not Found | UXipek' : '404 - Sayfa Bulunamadı | UXipek';
   }, [lang]);
 
   return (

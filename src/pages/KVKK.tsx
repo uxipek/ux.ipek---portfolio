@@ -29,7 +29,7 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
               Veri Sorumlusu
             </h2>
             <p>
-              6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, UXIPEK marka ve web sitesi faaliyetlerini yürüten hizmet sağlayıcısı ("Veri Sorumlusu") olarak, kişisel verilerinizi işbu aydınlatma metninde açıklanan şartlar dahilinde işliyoruz.
+              6698 sayılı Kişisel Verilerin Korunması Kanunu ("KVKK") uyarınca, UXipek marka ve web sitesi faaliyetlerini yürüten hizmet sağlayıcısı ("Veri Sorumlusu") olarak, kişisel verilerinizi işbu aydınlatma metninde açıklanan şartlar dahilinde işliyoruz.
             </p>
           </section>
 

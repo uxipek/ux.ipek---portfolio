@@ -8,6 +8,7 @@ import { CookieBanner } from "./components/CookieBanner";
 import { LanguageProvider, useLanguage } from "./components/layout/LanguageProvider";
 import { DawnTransition } from "./components/layout/DawnTransition";
 import { Lock } from "lucide-react";
+import { MotionConfig } from "motion/react";
 
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
 const ServicesPage = lazy(() => import("./pages/Services").then(module => ({ default: module.ServicesPage })));
@@ -99,8 +100,10 @@ function AppContent() {
 
 export default function App() {
   return (
+    <MotionConfig reducedMotion="user">
     <BrowserRouter>
       <AppLayout />
     </BrowserRouter>
+    </MotionConfig>
   );
 }

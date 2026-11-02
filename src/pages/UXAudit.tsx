@@ -136,7 +136,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
           >
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-small font-semibold uppercase tracking-widest text-ink-muted mb-4">
               <span className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></span>
-              {lang === 'en' ? 'UXIPEK UX EVALUATION' : 'UXİPEK UX DEĞERLENDİRMESİ'}
+              {lang === 'en' ? 'UXipek UX EVALUATION' : 'UXİPEK UX DEĞERLENDİRMESİ'}
             </div>
             
             <h1 className="text-h1 text-display text-ink mb-6 mx-auto">
@@ -157,14 +157,14 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('hero'); }}
                 className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-brand-primary text-white text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-brand-primary/90 focus-visible:ring-4 focus-visible:ring-brand-primary/30 shadow-lg"
               >
-                {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
+                {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
               </a>
               <a
                 href="#ornek-ux-calismasi"
                 onClick={(e) => smoothScroll(e, 'ornek-ux-calismasi')}
                 className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm"
               >
-                <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample Work' : 'Örnek Çalışmayı İncele'}
+                <FileText className="w-4 h-4" /> {lang === 'en' ? 'View Sample Audit' : 'Örnek Analizi İncele'}
               </a>
             </div>
           </motion.div>
@@ -301,14 +301,14 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   onClick={handleSampleProjectClick}
                   className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
                 >
-                  <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample UX Audit' : 'Örnek UX Çalışmasını İncele'}
+                  <FileText className="w-4 h-4" /> {lang === 'en' ? 'View Sample Audit' : 'Örnek Analizi İncele'}
                 </a>
                 <a
                   href={`#${formSectionId}`}
                   onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('sample_project'); }}
                   className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20"
                 >
-                  {lang === 'en' ? 'Analyze My Site Too' : 'Benim Sitemi de Analiz Et'}
+                  {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
                 </a>
               </div>
               
@@ -327,7 +327,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
         <div className="w-[min(100%-32px,640px)] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-h2 text-title text-ink mb-4">
-              {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}
+              {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}
             </h2>
             <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
               {lang === 'en' 
@@ -393,7 +393,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   {status === 'loading' ? (
                      <><Loader2 className="w-5 h-5 animate-spin" /> {lang === 'en' ? 'Sending...' : 'Gönderiliyor...'}</>
                   ) : (
-                    <>{lang === 'en' ? 'Request My Free Mini Audit' : 'Ücretsiz Mini Analizimi İste'} <ArrowUpRight className="w-4 h-4" /></>
+                    <>{lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" /></>
                   )}
                 </button>
 
@@ -413,7 +413,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
         <div className="w-[min(100%-32px,1000px)] mx-auto">
           <div className="text-center mb-12 lg:mb-16">
             <h2 className="text-h2 text-title text-ink mb-6">
-              {lang === 'en' ? 'Our Process' : 'Sürecimiz'}
+              {lang === 'en' ? 'My Process' : 'Sürecim'}
             </h2>
             <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
               {lang === 'en' 
@@ -444,7 +444,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
         </div>
       </section>
 
-      {/* 6. WHY UXIPEK SECTION */}
+      {/* 6. WHY UXipek SECTION */}
       <section className="py-16 md:py-24 lg:py-32 bg-background border-y border-brand-primary/5 relative w-full">
         <div className="container-app ">
           <div className="text-center mb-12 lg:mb-16">
@@ -547,7 +547,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('final_cta'); }}
             className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-ink text-body font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
           >
-            {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />
+            {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />
           </a>
         </div>
       </section>
