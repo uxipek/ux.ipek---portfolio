@@ -5,38 +5,38 @@ import { Mail, Phone, Globe, Linkedin, ArrowUpRight } from "lucide-react";
 export function LegalSupportCard({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="mt-16 p-8 md:p-10 rounded-[2rem] bg-white border border-brand-primary/5 shadow-xl shadow-dark/5">
-      <h3 className="text-2xl font-medium text-text-primary mb-4">
+      <h3 className="text-2xl font-medium text-ink mb-4">
         {lang === 'en' ? 'Need assistance?' : 'Yardıma mı ihtiyacınız var?'}
       </h3>
-      <p className="text-text-primary/70 font-light mb-8 max-w-2xl leading-relaxed">
+      <p className="text-ink-muted font-light mb-8 max-w-2xl leading-relaxed">
         {lang === 'en'
           ? 'If you have questions regarding privacy, personal data or website usage, feel free to contact UXIPEK.'
           : 'Gizlilik, kişisel veriler veya web sitesi kullanımı ile ilgili sorularınız varsa UXIPEK ile iletişime geçmekten çekinmeyin.'}
       </p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-        <a href="mailto:uxdesigneripek@gmail.com" className="flex items-center gap-3 text-text-primary hover:text-brand-transformation transition-colors">
+        <a href="mailto:uxdesigneripek@gmail.com" className="flex items-center gap-3 text-ink hover:text-accent transition-colors">
           <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center">
             <Mail className="w-4 h-4" />
           </div>
           <span className="text-sm font-medium">uxdesigneripek@gmail.com</span>
         </a>
         
-        <a href="tel:+905462275264" className="flex items-center gap-3 text-text-primary hover:text-brand-transformation transition-colors">
+        <a href="tel:+905462275264" className="flex items-center gap-3 text-ink hover:text-accent transition-colors">
           <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center">
             <Phone className="w-4 h-4" />
           </div>
           <span className="text-sm font-medium">+90 546 227 52 64</span>
         </a>
 
-        <a href="https://www.uxipek.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-text-primary hover:text-brand-transformation transition-colors">
+        <a href="https://www.uxipek.com" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-ink hover:text-accent transition-colors">
           <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center">
             <Globe className="w-4 h-4" />
           </div>
           <span className="text-sm font-medium">https://www.uxipek.com</span>
         </a>
 
-        <a href="https://linkedin.com/in/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-text-primary hover:text-brand-transformation transition-colors">
+        <a href="https://linkedin.com/in/ipekbolakca" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 text-ink hover:text-accent transition-colors">
           <div className="w-10 h-10 rounded-full bg-brand-primary/5 flex items-center justify-center">
             <Linkedin className="w-4 h-4" />
           </div>

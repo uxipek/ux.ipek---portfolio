@@ -8,7 +8,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-brand-primary min-h-screen pt-32 pb-24 w-full text-white">
       <div className="container-app ">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-white/60 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-on-ink-muted hover:text-accent transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
@@ -16,7 +16,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
           <h1 className="text-h1 !text-white md:text-5xl lg:text-6xl mb-6">
             {lang === 'en' ? 'Featured Work' : 'Öne Çıkan Çalışmalar'}
           </h1>
-          <p className="text-white/60 text-lg md:text-xl font-light leading-relaxed">
+          <p className="text-on-ink-muted text-lg md:text-xl font-light leading-relaxed">
             {lang === 'en' 
               ? 'A collection of digital products and strategic experiences focused on conversion, usability, and growth.' 
               : 'Dönüşüm, kullanılabilirlik ve büyüme odaklı dijital ürünler ve stratejik deneyimler koleksiyonu.'}
@@ -89,7 +89,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
                     {project.category[lang]}
                   </span>
                 </div>
-                <p className="text-white/60 font-light leading-relaxed">
+                <p className="text-on-ink-muted font-light leading-relaxed">
                   {project.description[lang]}
                 </p>
               </div>
@@ -102,7 +102,7 @@ export function PortfolioPage({ lang }: { lang: "en" | "tr" }) {
            <a 
              href="https://www.behance.net/ipekbolakca" 
              target="_blank" rel="noopener noreferrer"
-             className="inline-flex items-center gap-2 rounded-full bg-white text-text-primary px-8 py-4 text-sm font-bold transition-all hover:bg-brand-transformation hover:text-white"
+             className="inline-flex items-center gap-2 rounded-full bg-white text-ink px-8 py-4 text-sm font-bold transition-all hover:bg-brand-transformation hover:text-white"
            >
              {lang === 'en' ? 'View Full Portfolio on Behance' : 'Behance Portfolyosunu İncele'} <ArrowRight className="w-4 h-4" />
            </a>

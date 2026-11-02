@@ -21,11 +21,11 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
 
   return (
     <MotionConfig reducedMotion="user">
-    <div className="bg-background w-full text-text-primary">
+    <div className="bg-background w-full text-ink">
       {/* 1. Hero Section */}
       <section className="container-app relative w-full min-h-[90vh] flex flex-col justify-center pt-24 pb-12">
         <div className="absolute top-24 left-6 z-10">
-          <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-text-primary/60 hover:text-brand-transformation transition-colors text-sm font-medium">
+          <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-ink-muted hover:text-accent transition-colors text-sm font-medium">
             <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Portfolio' : 'Portfolyoya Dön'}
           </Link>
         </div>
@@ -37,7 +37,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <h1 className="text-6xl md:text-8xl font-bold tracking-tight mb-4">{project.title}</h1>
-            <p className="text-xl md:text-3xl text-text-primary/60 font-light mb-8 w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-xl md:text-3xl text-ink-muted font-light mb-8 w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en' 
                 ? 'Making it easier to find people, plan activities and move together.' 
                 : 'Spor yapacak kişileri bulmayı, etkinlik planlamayı ve birlikte harekete geçmeyi kolaylaştıran bir deneyim.'}
@@ -46,7 +46,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
               <a href="https://www.behance.net/gallery/245540023/EventGO-Social-Sports-Event-Planner" target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-brand-primary text-white rounded-full font-medium hover:bg-brand-transformation transition-colors w-full sm:w-auto">
                 {lang === 'en' ? 'View Case Study' : 'Projeyi İncele'}
               </a>
-              <Link to={`/${lang}/contact`} className="px-8 py-4 bg-transparent border border-brand-primary/20 text-text-primary rounded-full font-medium hover:bg-brand-primary/5 transition-colors w-full sm:w-auto">
+              <Link to={`/${lang}/contact`} className="px-8 py-4 bg-transparent border border-brand-primary/20 text-ink rounded-full font-medium hover:bg-brand-primary/5 transition-colors w-full sm:w-auto">
                 {lang === 'en' ? 'Contact Me' : 'İletişime Geç'}
               </Link>
             </div>
@@ -76,8 +76,8 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
               transition={{ duration: 0.6, delay: 0.4 + (i * 0.1) }}
               className="flex flex-col gap-2"
             >
-              <span className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold">{meta.label}</span>
-              <span className="text-sm font-medium text-text-primary/80">{meta.value}</span>
+              <span className="text-[11px] uppercase tracking-widest text-ink-muted font-bold">{meta.label}</span>
+              <span className="text-sm font-medium text-ink">{meta.value}</span>
             </motion.div>
           ))}
         </div>
@@ -95,12 +95,12 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Project Overview' : 'Projeye Genel Bakış'}
             </h2>
-            <p className="text-lg text-text-primary/70 leading-relaxed mb-6">
+            <p className="text-lg text-ink-muted leading-relaxed mb-6">
               {lang === 'en' 
                 ? 'EventGO is a mobile application designed to help users discover, organize, and participate in sports events more easily.'
                 : 'EventGO, kullanıcıların spor etkinliklerini daha kolay keşfetmesine, organize etmesine ve katılmasına yardımcı olmak için tasarlanmış bir mobil uygulamadır.'}
             </p>
-            <p className="text-lg text-text-primary/70 leading-relaxed">
+            <p className="text-lg text-ink-muted leading-relaxed">
               {lang === 'en'
                 ? 'The goal of the project was to create a social-first experience where people can effortlessly connect through sports, motivated by gamification, while enjoying a modern and engaging interface.'
                 : 'Projenin amacı, insanların modern ve ilgi çekici bir arayüzün tadını çıkarırken, oyunlaştırma ile motive olarak spor aracılığıyla zahmetsizce bağlantı kurabilecekleri, sosyal odaklı bir deneyim yaratmaktı.'}
@@ -121,8 +121,8 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                 transition={{ duration: 0.6, delay: i * 0.1 }}
                 className="p-6 bg-white rounded-2xl border border-brand-primary/5 shadow-sm"
               >
-                <h4 className="text-[11px] uppercase tracking-widest text-text-primary/40 font-bold mb-2">{item.label}</h4>
-                <p className="text-base font-semibold text-text-primary/90">{item.value}</p>
+                <h4 className="text-[11px] uppercase tracking-widest text-ink-muted font-bold mb-2">{item.label}</h4>
+                <p className="text-base font-semibold text-ink">{item.value}</p>
               </motion.div>
             ))}
           </div>
@@ -136,7 +136,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-bold text-text-primary mb-16 text-center"
+            className="text-3xl md:text-4xl font-bold text-ink mb-16 text-center"
           >
             {lang === 'en' ? 'Design Process' : 'Tasarım Süreci'}
           </motion.h2>
@@ -176,10 +176,10 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                   key={step.en}
                   className="flex md:flex-col items-center md:text-center pl-16 md:pl-0 relative group"
                 >
-                  <div className="flex h-12 w-12 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-md text-text-primary z-20 border border-brand-primary/5 absolute md:relative left-0 md:left-auto md:mb-4">
+                  <div className="flex h-12 w-12 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-xl bg-white shadow-md text-ink z-20 border border-brand-primary/5 absolute md:relative left-0 md:left-auto md:mb-4">
                     {step.icon}
                   </div>
-                  <h3 className="font-bold text-lg text-text-primary/90">{lang === 'en' ? step.en : step.tr}</h3>
+                  <h3 className="font-bold text-lg text-ink">{lang === 'en' ? step.en : step.tr}</h3>
                 </div>
               ))}
             </div>
@@ -200,8 +200,8 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                 transition={{ duration: 0.5, delay: i * 0.1 }}
                 className="bg-white p-8 md:p-10 rounded-3xl border border-brand-primary/5 shadow-sm hover:shadow-md transition-shadow"
               >
-                <h3 className="text-2xl font-bold text-text-primary mb-4">{lang === 'en' ? section.titleEn : section.titleTr}</h3>
-                <p className="text-text-primary/70 text-lg leading-relaxed">
+                <h3 className="text-2xl font-bold text-ink mb-4">{lang === 'en' ? section.titleEn : section.titleTr}</h3>
+                <p className="text-ink-muted text-lg leading-relaxed">
                   {lang === 'en' ? section.descEn : section.descTr}
                 </p>
               </motion.div>
@@ -219,8 +219,8 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                     transition={{ duration: 0.8 }}
                     className="w-[min(100%-32px,850px)] mx-auto text-center mb-12"
                   >
-                    <h3 className="text-3xl font-bold text-text-primary mb-6">{lang === 'en' ? section.titleEn : section.titleTr}</h3>
-                    <p className="text-text-primary/70 text-lg leading-relaxed">
+                    <h3 className="text-3xl font-bold text-ink mb-6">{lang === 'en' ? section.titleEn : section.titleTr}</h3>
+                    <p className="text-ink-muted text-lg leading-relaxed">
                       {lang === 'en' ? section.descEn : section.descTr}
                     </p>
                   </motion.div>
@@ -284,7 +284,7 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                   {i + 1}
                 </div>
                 <h3 className="text-xl font-bold mb-3">{outcome.title}</h3>
-                <p className="text-white/60 leading-relaxed">{outcome.desc}</p>
+                <p className="text-on-ink-muted leading-relaxed">{outcome.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -308,19 +308,19 @@ export function EventGoCaseStudy({ lang, project, otherProjects }: { lang: 'en'|
                   <img src={p.coverImage} alt={p.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
                   <div className="absolute inset-0 bg-brand-primary/0 group-hover:bg-brand-primary/10 transition-colors duration-500" />
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white rounded-full flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-300 scale-50 group-hover:scale-100 shadow-xl">
-                    <ArrowRight className="w-5 h-5 text-text-primary" />
+                    <ArrowRight className="w-5 h-5 text-ink" />
                   </div>
                 </div>
                 <div className="text-center">
-                  <h3 className="font-bold text-text-primary text-2xl mb-2 group-hover:text-brand-transformation transition-colors">{p.title}</h3>
-                  <p className="text-sm text-text-primary/60 font-medium tracking-wide uppercase">{p.category[lang]}</p>
+                  <h3 className="font-bold text-ink text-2xl mb-2 group-hover:text-accent transition-colors">{p.title}</h3>
+                  <p className="text-sm text-ink-muted font-medium tracking-wide uppercase">{p.category[lang]}</p>
                 </div>
               </Link>
             ))}
           </div>
           
           <div className="mt-16 text-center">
-             <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-text-primary font-semibold border-2 border-brand-primary/10 px-8 py-4 rounded-full hover:border-brand-transformation hover:text-brand-transformation transition-all">
+             <Link to={`/${lang}/portfolio`} className="inline-flex items-center gap-2 text-ink font-semibold border-2 border-brand-primary/10 px-8 py-4 rounded-full hover:border-brand-transformation hover:text-accent transition-all">
                {lang === 'en' ? 'View All Projects' : 'Tüm Projeleri Gör'} <ArrowRight className="w-4 h-4" />
              </Link>
           </div>

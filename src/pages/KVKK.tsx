@@ -7,25 +7,25 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-text-primary/80 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-ink hover:text-accent transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-6">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">
           KVKK Aydınlatma Metni
         </h1>
-        <p className="text-text-primary/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
+        <p className="text-ink-muted text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında, verilerinizin nasıl işlendiği ve korunduğu hakkında şeffaf bilgilendirme.
         </p>
-        <p className="text-text-primary/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
+        <p className="text-ink-muted text-xs font-bold mb-16 uppercase tracking-[0.2em]">
           Son Güncelleme: 12 Temmuz 2026
         </p>
 
-        <div className="space-y-16 text-text-primary/80 font-light leading-[1.7]">
+        <div className="space-y-16 text-ink font-light leading-[1.7]">
           
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">01</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">01</span> 
               Veri Sorumlusu
             </h2>
             <p>
@@ -34,8 +34,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">02</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">02</span> 
               İşlenme Amaçları
             </h2>
             <p className="mb-4">
@@ -62,8 +62,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">03</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">03</span> 
               Toplama Yöntemi ve Hukuki Sebepler
             </h2>
             <p className="mb-4">
@@ -77,8 +77,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">04</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">04</span> 
               Olası Alıcılar ve Veri Aktarımı
             </h2>
             <p>
@@ -87,8 +87,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">05</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">05</span> 
               Saklama Süresi ve Güvenlik Tedbirleri
             </h2>
             <p className="mb-4">
@@ -102,8 +102,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">06</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">06</span> 
               KVKK Madde 11 Kapsamındaki Haklarınız
             </h2>
             <p className="mb-4">
@@ -121,8 +121,8 @@ export function KVKKPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">07</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">07</span> 
               Başvuru Yöntemi
             </h2>
             <p>

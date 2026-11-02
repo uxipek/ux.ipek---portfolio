@@ -7,26 +7,26 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-text-primary/80 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-ink hover:text-accent transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-6">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">
           {lang === 'en' ? 'Privacy Policy' : 'Gizlilik Politikası'}
         </h1>
-        <p className="text-text-primary/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
+        <p className="text-ink-muted text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en' 
             ? 'We are committed to protecting your privacy and ensuring your personal information is handled securely and transparently.' 
             : 'Gizliliğinizi korumayı, kişisel bilgilerinizin şeffaf ve güvenli bir şekilde işlenmesini taahhüt ediyoruz.'}
         </p>
-        <p className="text-text-primary/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
+        <p className="text-ink-muted text-xs font-bold mb-16 uppercase tracking-[0.2em]">
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
         </p>
 
-        <div className="space-y-16 text-text-primary/80 font-light leading-[1.7]">
+        <div className="space-y-16 text-ink font-light leading-[1.7]">
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">01</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">01</span> 
               {lang === 'en' ? 'Purpose' : 'Amaç'}
             </h2>
             <p className="mb-4">
@@ -42,8 +42,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">02</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">02</span> 
               {lang === 'en' ? 'Information We Collect' : 'Topladığımız Bilgiler'}
             </h2>
             <p className="mb-6">
@@ -53,7 +53,7 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
             </p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
-                <h4 className="font-medium text-text-primary mb-2 text-sm">{lang === 'en' ? 'Provided by You' : 'Sizin Sağladıklarınız'}</h4>
+                <h4 className="font-medium text-ink mb-2 text-sm">{lang === 'en' ? 'Provided by You' : 'Sizin Sağladıklarınız'}</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Name</li>
                   <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-transformation/50"></div> Email address</li>
@@ -63,7 +63,7 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
                 </ul>
               </div>
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
-                <h4 className="font-medium text-text-primary mb-2 text-sm">{lang === 'en' ? 'Collected Automatically' : 'Otomatik Toplananlar'}</h4>
+                <h4 className="font-medium text-ink mb-2 text-sm">{lang === 'en' ? 'Collected Automatically' : 'Otomatik Toplananlar'}</h4>
                 <ul className="space-y-2 text-sm">
                   <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> Browser information</li>
                   <li className="flex items-center gap-2"><div className="w-1.5 h-1.5 rounded-full bg-brand-primary/20"></div> Device information</li>
@@ -75,8 +75,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">03</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">03</span> 
               {lang === 'en' ? 'Why We Process Data' : 'Verileri Neden İşliyoruz?'}
             </h2>
             <p className="mb-4">
@@ -103,8 +103,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">04</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">04</span> 
               {lang === 'en' ? 'Data Security' : 'Veri Güvenliği'}
             </h2>
             <p>
@@ -115,8 +115,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">05</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">05</span> 
               {lang === 'en' ? 'Third Party Services' : 'Üçüncü Taraf Hizmetleri'}
             </h2>
             <p className="mb-4">
@@ -128,7 +128,7 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
               <span className="px-4 py-2 rounded-full border border-brand-primary/10 bg-white text-sm">Google Analytics</span>
               <span className="px-4 py-2 rounded-full border border-brand-primary/10 bg-white text-sm">Vercel</span>
             </div>
-            <p className="mt-6 text-sm text-text-primary/50">
+            <p className="mt-6 text-sm text-ink-muted">
               {lang === 'en' 
                 ? 'These services process data according to their own privacy policies. We do not sell your data to third parties.' 
                 : 'Bu servisler, verileri kendi gizlilik politikalarına göre işler. Verilerinizi asla üçüncü taraflara satmıyoruz.'}
@@ -136,8 +136,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">06</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">06</span> 
               {lang === 'en' ? 'Data Retention' : 'Veri Saklama Süresi'}
             </h2>
             <p>
@@ -148,8 +148,8 @@ export function PrivacyPolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">07</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">07</span> 
               {lang === 'en' ? 'Your Rights' : 'Haklarınız'}
             </h2>
             <p className="mb-4">

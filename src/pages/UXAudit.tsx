@@ -122,7 +122,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section className="relative overflow-hidden pt-28 pb-16 md:pt-40 md:pb-24 lg:pb-32 w-full">
         <div className="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80">
           <motion.div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-brand-transformation/20 to-brand-secondary/20 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-brand-transformation/20 to-accent/20 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             animate={{ rotate: 360 }}
             transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
           />
@@ -134,18 +134,18 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-[0.875rem] font-semibold uppercase tracking-widest text-text-primary/70 mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white border border-brand-primary/5 shadow-sm text-[0.875rem] font-semibold uppercase tracking-widest text-ink-muted mb-4">
               <span className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></span>
               {lang === 'en' ? 'UXIPEK UX EVALUATION' : 'UXİPEK UX DEĞERLENDİRMESİ'}
             </div>
             
-            <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-text-primary mb-6 mx-auto">
+            <h1 className="text-h1 text-[clamp(2.5rem,5vw,4.75rem)] text-ink mb-6 mx-auto">
               {lang === 'en' ? 'Is Your Website Actually ' : 'Web Siteniz Gerçekten '}
               <br className="hidden md:block" />
-              <span className="text-brand-transformation">{lang === 'en' ? 'Converting?' : 'Dönüştürüyor mu?'}</span>
+              <span className="text-accent">{lang === 'en' ? 'Converting?' : 'Dönüştürüyor mu?'}</span>
             </h1>
             
-            <p className="text-body-lg text-text-primary/70 max-w-[680px] mx-auto mb-8">
+            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto mb-8">
               {lang === 'en' 
                 ? "A beautiful website doesn't always create results. Let's discover together where users struggle, why they don't take action, and which areas need improvement." 
                 : "Güzel görünen bir web sitesi her zaman sonuç yaratmaz. Kullanıcıların nerede zorlandığını, neden harekete geçmediğini ve hangi noktaların iyileştirilmesi gerektiğini birlikte keşfedelim."}
@@ -162,7 +162,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               <a
                 href="#ornek-ux-calismasi"
                 onClick={(e) => smoothScroll(e, 'ornek-ux-calismasi')}
-                className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm"
+                className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm"
               >
                 <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample Work' : 'Örnek Çalışmayı İncele'}
               </a>
@@ -176,10 +176,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
         <div className="container-app ">
           <div className="flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
             <div className="flex-1 w-full">
-              <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary mb-6">
+              <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink mb-6">
                 {lang === 'en' ? 'What is a UX Audit?' : 'UX Analizi Nedir?'}
               </h2>
-              <p className="text-body-lg text-text-primary/70 max-w-[680px] mb-12">
+              <p className="text-body-lg text-ink-muted max-w-[680px] mb-12">
                 {lang === 'en'
                   ? 'A UX audit identifies points in your website where visitors struggle, hesitate, or leave without completing a transaction. The goal is not just to list problems, but to provide actionable solutions to improve user experience and conversion potential.'
                   : 'UX analizi, web sitenizde ziyaretçilerin zorlandığı, kararsız kaldığı veya işlemi tamamlamadan ayrıldığı noktaları ortaya çıkarır. Amaç yalnızca sorunları listelemek değil; kullanıcı deneyimini ve dönüşüm potansiyelini geliştirecek uygulanabilir çözümler sunmaktır.'}
@@ -193,10 +193,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   { icon: BarChart3, text: lang === 'en' ? 'Provide data-driven recommendations' : 'Veriye dayalı iyileştirme önerileri sunma' },
                 ].map((item, i) => (
                   <div key={i} className="flex items-start gap-4 p-6 rounded-2xl bg-background border border-brand-primary/5 h-full">
-                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex shrink-0 items-center justify-center text-brand-transformation">
+                    <div className="w-10 h-10 rounded-xl bg-white shadow-sm flex shrink-0 items-center justify-center text-accent">
                       <item.icon className="w-5 h-5 stroke-[1.5]" />
                     </div>
-                    <span className="font-semibold text-base leading-[1.65] text-text-primary mt-1.5">{item.text}</span>
+                    <span className="font-semibold text-base leading-[1.65] text-ink mt-1.5">{item.text}</span>
                   </div>
                 ))}
               </div>
@@ -206,9 +206,9 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="absolute inset-0 bg-white/40 backdrop-blur-3xl rounded-[2rem]"></div>
                 <div className="relative z-10 grid grid-cols-2 gap-4 w-full h-full p-8">
                   <div className="bg-white rounded-2xl shadow-sm border border-brand-primary/5 flex items-center justify-center p-6"><Search className="w-12 h-12 text-text-primary/20 stroke-[1]" /></div>
-                  <div className="bg-white rounded-2xl shadow-sm border border-brand-primary/5 flex items-center justify-center p-6"><AlertCircle className="w-12 h-12 text-brand-transformation/40 stroke-[1]" /></div>
+                  <div className="bg-white rounded-2xl shadow-sm border border-brand-primary/5 flex items-center justify-center p-6"><AlertCircle className="w-12 h-12 text-accent stroke-[1]" /></div>
                   <div className="bg-white rounded-2xl shadow-sm border border-brand-primary/5 flex items-center justify-center p-6"><BarChart3 className="w-12 h-12 text-text-primary/20 stroke-[1]" /></div>
-                  <div className="bg-brand-primary rounded-2xl shadow-xl flex items-center justify-center p-6"><CheckCircle2 className="w-12 h-12 text-white/50 stroke-[1]" /></div>
+                  <div className="bg-brand-primary rounded-2xl shadow-xl flex items-center justify-center p-6"><CheckCircle2 className="w-12 h-12 text-on-ink-muted stroke-[1]" /></div>
                 </div>
               </div>
             </div>
@@ -220,7 +220,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section id="ornek-ux-calismasi" className="py-16 md:py-24 lg:py-32 bg-brand-primary text-white relative w-full">
         <div className="container-app ">
           <div className="mb-12 lg:mb-16">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-[0.875rem] font-semibold uppercase tracking-widest mb-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-on-ink text-[0.875rem] font-semibold uppercase tracking-widest mb-4">
               {lang === 'en' ? 'SAMPLE UX AUDIT CASE STUDY' : 'ÖRNEK UX AUDIT ÇALIŞMASI'}
             </div>
             <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] leading-[1.08] text-white mb-6 max-w-[820px]">
@@ -230,7 +230,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <>Bir Web Sitesini Yalnızca<br className="hidden md:block" />Yeniden Tasarlamadım.<br className="hidden md:block" />Sorunlarını Görünür Hâle Getirdim.</>
               )}
             </h2>
-            <p className="text-body-lg text-white/80 max-w-[680px]">
+            <p className="text-body-lg text-on-ink-muted max-w-[680px]">
               {lang === 'en' 
                 ? 'I analyzed the Akademi Ozalit website in terms of user experience, content hierarchy, accessibility, and conversion. I presented the core issues I identified, along with actionable improvement recommendations and redesigned screens.' 
                 : 'Akademi Ozalit web sitesini kullanıcı deneyimi, içerik hiyerarşisi, erişilebilirlik ve dönüşüm açısından analiz ettim. Belirlediğim temel sorunları, uygulanabilir iyileştirme önerileri ve yeniden tasarlanan ekranlarla birlikte sundum.'}
@@ -248,7 +248,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <div className="absolute inset-0 bg-gradient-to-t from-brand-primary to-transparent opacity-80"></div>
                 <div className="absolute bottom-8 left-8 right-8">
                   <div className="text-h3 !text-white mb-2">Akademi Ozalit</div>
-                  <div className="text-white/70 text-base">UX Audit & Redesign</div>
+                  <div className="text-on-ink-muted text-base">UX Audit & Redesign</div>
                 </div>
               </div>
             </div>
@@ -256,19 +256,19 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
             <div className="flex flex-col gap-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div>
-                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Service Type' : 'Çalışma Türü'}</div>
+                  <div className="text-[0.875rem] leading-[1.55] text-on-ink-muted mb-2">{lang === 'en' ? 'Service Type' : 'Çalışma Türü'}</div>
                   <div className="text-base font-semibold leading-[1.65] text-white">UX Audit & Redesign</div>
                 </div>
                 <div>
-                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Industry' : 'Sektör'}</div>
+                  <div className="text-[0.875rem] leading-[1.55] text-on-ink-muted mb-2">{lang === 'en' ? 'Industry' : 'Sektör'}</div>
                   <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'Education & Publishing' : 'Eğitim ve Yayıncılık'}</div>
                 </div>
                 <div className="sm:col-span-2">
-                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Areas Evaluated' : 'İncelenen Alanlar'}</div>
+                  <div className="text-[0.875rem] leading-[1.55] text-on-ink-muted mb-2">{lang === 'en' ? 'Areas Evaluated' : 'İncelenen Alanlar'}</div>
                   <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'User experience, accessibility, and content hierarchy' : 'Kullanıcı deneyimi, erişilebilirlik ve içerik hiyerarşisi'}</div>
                 </div>
                 <div className="sm:col-span-2">
-                  <div className="text-[0.875rem] leading-[1.55] text-white/60 mb-2">{lang === 'en' ? 'Deliverables' : 'Çıktı'}</div>
+                  <div className="text-[0.875rem] leading-[1.55] text-on-ink-muted mb-2">{lang === 'en' ? 'Deliverables' : 'Çıktı'}</div>
                   <div className="text-base font-semibold leading-[1.65] text-white">{lang === 'en' ? 'Prioritized findings and redesign recommendations' : 'Önceliklendirilmiş bulgular ve yeniden tasarım önerileri'}</div>
                 </div>
               </div>
@@ -277,17 +277,17 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 <h3 className="text-h3 !text-white mb-4">
                   {lang === 'en' ? 'Key Deliverables:' : 'Üç Temel Çıktı:'}
                 </h3>
-                <ul className="flex flex-col gap-3 text-white/90 text-base leading-[1.65]">
+                <ul className="flex flex-col gap-3 text-on-ink text-base leading-[1.65]">
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-transformation shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span>{lang === 'en' ? 'UX and accessibility issues' : 'UX ve erişilebilirlik sorunları'}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-transformation shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span>{lang === 'en' ? 'Prioritized improvement recommendations' : 'Önceliklendirilmiş iyileştirme önerileri'}</span>
                   </li>
                   <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-brand-transformation shrink-0 mt-0.5" />
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span>{lang === 'en' ? 'Redesigned user interface' : 'Yeniden tasarlanmış kullanıcı arayüzü'}</span>
                   </li>
                 </ul>
@@ -299,7 +299,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={handleSampleProjectClick}
-                  className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
+                  className="w-full sm:w-auto min-h-[48px] px-6 rounded-2xl bg-white text-ink text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
                 >
                   <FileText className="w-4 h-4" /> {lang === 'en' ? 'Review Sample UX Audit' : 'Örnek UX Çalışmasını İncele'}
                 </a>
@@ -312,7 +312,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                 </a>
               </div>
               
-              <p className="text-[0.875rem] leading-[1.55] text-white/50 mt-2">
+              <p className="text-[0.875rem] leading-[1.55] text-on-ink-muted mt-2">
                 {lang === 'en' 
                   ? '*This project was prepared to demonstrate my UX audit process and recommended design approach.' 
                   : '*Bu çalışma, UX analiz sürecimi ve önerdiğim tasarım yaklaşımını göstermek amacıyla hazırlanmıştır.'}
@@ -326,10 +326,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section id={formSectionId} className="py-16 md:py-24 lg:py-32 bg-background relative border-y border-brand-primary/5 w-full">
         <div className="w-[min(100%-32px,640px)] mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary mb-4">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink mb-4">
               {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İsteyin'}
             </h2>
-            <p className="text-body-lg text-text-primary/70 max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
               {lang === 'en' 
                 ? 'Just drop your link. I will review your website and reach you through the contact details on your site with the top 3 critical UX issues and initial improvement recommendations within 3 business days.' 
                 : 'Sadece linkinizi bırakın. Web sitenizi inceleyip en kritik 3 UX sorununu ve ilk iyileştirme önerilerimi 3 iş günü içinde sitenizdeki iletişim bilgileri üzerinden size ulaştıracağım.'}
@@ -339,13 +339,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
           <div className="bg-white p-6 sm:p-8 md:p-10 rounded-[2rem] border border-brand-primary/5 shadow-xl shadow-dark/5">
             {status === 'success' ? (
               <div className="text-center py-12">
-                <div className="w-16 h-16 bg-green-500/10 text-green-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                <div className="w-16 h-16 bg-green-500/10 text-success rounded-full flex items-center justify-center mx-auto mb-6">
                   <CheckCircle2 className="w-8 h-8" />
                 </div>
-                <h3 className="text-h3 font-bold text-text-primary mb-4">
+                <h3 className="text-h3 font-bold text-ink mb-4">
                   {lang === 'en' ? 'Request Sent Successfully!' : 'Talebiniz Başarıyla Alındı!'}
                 </h3>
-                <p className="text-base leading-[1.65] text-text-primary/70 mb-8">
+                <p className="text-base leading-[1.65] text-ink-muted mb-8">
                   {lang === 'en' ? 'I will review your website and reach you through the contact details on your site shortly.' : 'Web sitenizi inceleyip sitenizdeki iletişim bilgileri üzerinden en kısa sürede size dönüş yapacağım.'}
                 </p>
                 <button 
@@ -364,8 +364,8 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   </div>
                 )}
                 <div>
-                  <label htmlFor="website" className="block text-[0.9375rem] font-semibold text-text-primary mb-2">
-                    {lang === 'en' ? 'Website URL' : 'Web Sitesi URL’si'} <span className="text-brand-transformation">*</span>
+                  <label htmlFor="website" className="block text-[0.9375rem] font-semibold text-ink mb-2">
+                    {lang === 'en' ? 'Website URL' : 'Web Sitesi URL’si'} <span className="text-accent">*</span>
                   </label>
                   <input 
                     id="website"
@@ -373,7 +373,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                     value={formState.website}
                     onChange={(e) => setFormState({...formState, website: e.target.value})}
                     placeholder="https://" 
-                    className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-text-primary placeholder-dark/30 text-base" 
+                    className="w-full min-h-[48px] px-4 rounded-xl bg-background border border-brand-primary/10 focus:outline-none focus:border-brand-transformation focus:ring-2 focus:ring-brand-transformation/20 transition-all text-ink placeholder-dark/30 text-base" 
                     required 
                   />
                 </div>
@@ -397,10 +397,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   )}
                 </button>
 
-                <p className="text-[0.875rem] leading-[1.55] text-center text-text-primary/60 mt-2">
+                <p className="text-[0.875rem] leading-[1.55] text-center text-ink-muted mt-2">
                   {lang === 'en'
-                    ? <>Your link is used only to evaluate your request and is not shared with third parties. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Notice</Link></>
-                    : <>Linkiniz yalnızca talebinizi değerlendirmek için kullanılır ve üçüncü kişilerle paylaşılmaz. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-brand-transformation hover:underline font-semibold">KVKK Aydınlatma Metni</Link></>}
+                    ? <>Your link is used only to evaluate your request and is not shared with third parties. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">KVKK Notice</Link></>
+                    : <>Linkiniz yalnızca talebinizi değerlendirmek için kullanılır ve üçüncü kişilerle paylaşılmaz. <Link to={`/${lang}/kvkk`} target="_blank" rel="noopener noreferrer" className="text-accent hover:underline font-semibold">KVKK Aydınlatma Metni</Link></>}
                 </p>
               </form>
             )}
@@ -412,10 +412,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 bg-white w-full">
         <div className="w-[min(100%-32px,1000px)] mx-auto">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary mb-6">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink mb-6">
               {lang === 'en' ? 'Our Process' : 'Sürecimiz'}
             </h2>
-            <p className="text-body-lg text-text-primary/70 max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
               {lang === 'en' 
                 ? 'I combine AI-assisted analysis tools with expert evaluation to prioritize issues and turn them into an actionable roadmap.' 
                 : 'Yapay zekâ destekli analiz araçlarını uzman değerlendirmesiyle birleştirerek sorunları önceliklendiriyor ve uygulanabilir bir yol haritasına dönüştürüyorum.'}
@@ -434,10 +434,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               { num: '5', title: lang === 'en' ? 'Redesign Strategy' : 'Yeniden Tasarım Stratejisi' },
             ].map((step, i) => (
               <div key={i} className="flex flex-row md:flex-col items-center gap-6 md:gap-4 relative z-10 group flex-1">
-                <div className="w-14 h-14 rounded-full bg-white text-brand-primary border-2 border-brand-primary/10 flex flex-shrink-0 items-center justify-center font-bold text-xl group-hover:border-brand-transformation group-hover:text-brand-transformation transition-colors shadow-sm">
+                <div className="w-14 h-14 rounded-full bg-white text-ink border-2 border-brand-primary/10 flex flex-shrink-0 items-center justify-center font-bold text-xl group-hover:border-brand-transformation group-hover:text-accent transition-colors shadow-sm">
                   {step.num}
                 </div>
-                <h3 className="text-base font-semibold leading-[1.65] text-text-primary md:text-center px-2">{step.title}</h3>
+                <h3 className="text-base font-semibold leading-[1.65] text-ink md:text-center px-2">{step.title}</h3>
               </div>
             ))}
           </div>
@@ -448,10 +448,10 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 bg-background border-y border-brand-primary/5 relative w-full">
         <div className="container-app ">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary mb-6">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink mb-6">
               {lang === 'en' ? 'Why UXipek?' : 'Neden UXipek?'}
             </h2>
-            <p className="text-body-lg text-text-primary/70 max-w-[680px] mx-auto">
+            <p className="text-body-lg text-ink-muted max-w-[680px] mx-auto">
               {lang === 'en' 
                 ? 'I combine technology and human experience in a balanced, strategic, and actionable process.' 
                 : 'Teknoloji ve insan deneyimini dengeli, stratejik ve uygulanabilir bir süreçte birleştiriyorum.'}
@@ -482,13 +482,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
               },
             ].map((card, i) => (
               <div key={i} className="p-6 lg:p-8 rounded-[2rem] bg-white border border-brand-primary/5 flex flex-col items-start transition-shadow hover:shadow-md h-full">
-                <div className="w-12 h-12 rounded-xl bg-background border border-brand-primary/5 flex shrink-0 items-center justify-center text-brand-transformation mb-6">
+                <div className="w-12 h-12 rounded-xl bg-background border border-brand-primary/5 flex shrink-0 items-center justify-center text-accent mb-6">
                   <card.icon className="w-6 h-6 stroke-[1.5]" />
                 </div>
-                <h3 className="text-h3 text-text-primary mb-3">
+                <h3 className="text-h3 text-ink mb-3">
                   {card.title}
                 </h3>
-                <p className="text-base leading-[1.65] text-text-primary/70">
+                <p className="text-base leading-[1.65] text-ink-muted">
                   {card.desc}
                 </p>
               </div>
@@ -501,7 +501,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 bg-white border-b border-brand-primary/5 w-full">
         <div className="w-[min(100%-32px,850px)] mx-auto">
           <div className="text-center mb-12 lg:mb-16">
-            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-text-primary">
+            <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-ink">
               {lang === 'en' ? 'Frequently Asked Questions' : 'Sık Sorulan Sorular'}
             </h2>
           </div>
@@ -513,13 +513,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
                   className="w-full px-6 py-5 flex items-center justify-between text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50 rounded-2xl"
                   aria-expanded={openFaq === i}
                 >
-                  <span className="text-[1.125rem] leading-[1.4] font-semibold text-text-primary pr-4">{faq.q}</span>
-                  <ChevronDown className={`w-5 h-5 text-brand-transformation shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
+                  <span className="text-[1.125rem] leading-[1.4] font-semibold text-ink pr-4">{faq.q}</span>
+                  <ChevronDown className={`w-5 h-5 text-accent shrink-0 transition-transform duration-300 ${openFaq === i ? 'rotate-180' : ''}`} />
                 </button>
                 <div 
                   className={`px-6 overflow-hidden transition-all duration-300 ease-in-out ${openFaq === i ? 'max-h-40 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                  <p className="text-base leading-[1.65] text-text-primary/80">{faq.a}</p>
+                  <p className="text-base leading-[1.65] text-ink">{faq.a}</p>
                 </div>
               </div>
             ))}
@@ -531,13 +531,13 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 bg-brand-primary text-center relative overflow-hidden w-full">
         <div className="absolute inset-0 z-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-brand-transformation/30 via-transparent to-transparent"></div>
         <div className="w-[min(100%-32px,850px)] mx-auto relative z-10">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-white/90 text-[0.875rem] font-semibold uppercase tracking-widest mb-6">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 text-on-ink text-[0.875rem] font-semibold uppercase tracking-widest mb-6">
             {lang === 'en' ? 'TAKE THE FIRST STEP' : 'İLK ADIMI ATIN'}
           </div>
           <h2 className="text-h2 text-[clamp(2rem,3.5vw,3.25rem)] text-white mb-6">
             {lang === 'en' ? 'Let\'s Discover Where Users Struggle on Your Website Together.' : 'Web Sitenizde Kullanıcıların Nerede Zorlandığını Birlikte Keşfedelim.'}
           </h2>
-          <p className="text-body-lg text-white/80 max-w-[680px] mx-auto mb-10">
+          <p className="text-body-lg text-on-ink-muted max-w-[680px] mx-auto mb-10">
             {lang === 'en' 
               ? 'See the most critical issues with a free mini audit, and plan your next steps more consciously.' 
               : 'Ücretsiz mini analizle en kritik sorunları görün, sonraki adımlarınızı daha bilinçli planlayın.'}
@@ -545,7 +545,7 @@ export function UXAuditPage({ lang }: { lang: "en" | "tr" }) {
           <a
             href={`#${formSectionId}`}
             onClick={(e) => { smoothScroll(e, formSectionId); handleCtaClick('final_cta'); }}
-            className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-brand-primary text-[1rem] font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
+            className="w-full sm:w-auto min-h-[48px] px-8 rounded-2xl bg-white text-ink text-[1rem] font-bold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-white/30 shadow-lg"
           >
             {lang === 'en' ? 'Request Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-5 h-5" />
           </a>

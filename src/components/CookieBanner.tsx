@@ -49,11 +49,11 @@ export function CookieBanner({ lang }: { lang: "en" | "tr" }) {
         {/* Subtle accent line */}
         <div className="absolute top-0 left-0 w-full h-1 bg-brand-transformation"></div>
 
-        <h3 className="text-base font-bold text-text-primary mb-2">
+        <h3 className="text-base font-bold text-ink mb-2">
           {lang === 'en' ? 'Cookie Preferences' : 'Çerez Tercihleri'}
         </h3>
 
-        <p className="text-text-primary/70 text-xs mb-4 leading-relaxed">
+        <p className="text-ink-muted text-xs mb-4 leading-relaxed">
           {lang === 'en'
             ? 'We use cookies to improve your website experience and analyze usage data.'
             : 'Web sitesi deneyimini iyileştirmek ve kullanım verilerini analiz etmek için çerezlerden yararlanıyoruz.'}
@@ -63,7 +63,7 @@ export function CookieBanner({ lang }: { lang: "en" | "tr" }) {
           <div className="flex gap-2">
             <button
               onClick={handleRejectOptional}
-              className="flex-1 py-2.5 px-3 bg-background text-text-primary border border-brand-primary/10 text-xs font-bold rounded-xl hover:bg-brand-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50"
+              className="flex-1 py-2.5 px-3 bg-background text-ink border border-brand-primary/10 text-xs font-bold rounded-xl hover:bg-brand-primary/5 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50"
             >
               {lang === 'en' ? 'Reject' : 'Reddet'}
             </button>
@@ -79,14 +79,14 @@ export function CookieBanner({ lang }: { lang: "en" | "tr" }) {
             <Link
               to={`/${lang}/cookie-policy`}
               onClick={() => setIsVisible(false)}
-              className="text-brand-transformation hover:underline text-[11px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50 rounded"
+              className="text-accent hover:underline text-[11px] font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50 rounded"
             >
               {lang === 'en' ? 'Cookie Policy' : 'Çerez Politikası'}
             </Link>
 
             <button
               onClick={() => setIsVisible(false)}
-              className="text-text-primary/50 hover:text-text-primary text-[11px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50 rounded"
+              className="text-ink-muted hover:text-ink text-[11px] font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-transformation/50 rounded"
             >
               {lang === 'en' ? 'Manage Preferences' : 'Tercihleri Yönet'}
             </button>

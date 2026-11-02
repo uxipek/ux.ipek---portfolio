@@ -45,18 +45,18 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
         className="relative max-h-[90vh] w-full max-w-md overflow-y-auto rounded-[2rem] bg-surface shadow-2xl"
         onClick={(e) => e.stopPropagation()}
       >
-        <button ref={closeRef} onClick={close} aria-label={lang === "en" ? "Close" : "Kapat"} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-text-primary shadow hover:bg-white">
+        <button ref={closeRef} onClick={close} aria-label={lang === "en" ? "Close" : "Kapat"} className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-white/90 text-ink shadow hover:bg-white">
           <X className="h-5 w-5" aria-hidden />
         </button>
         <img src="/images/ataturk-portre.jpg" alt="" width={736} height={920} className="h-56 w-full object-cover object-top" />
         <div className="p-8">
-          <p className="text-[11px] font-bold uppercase tracking-widest text-brand-transformation">
+          <p className="text-[11px] font-bold uppercase tracking-widest text-accent">
             {lang === "en" ? "29 October · 103rd year" : "29 Ekim · 103. yıl"}
           </p>
-          <h2 id="republic-popup-title" className="mt-3 text-3xl font-medium tracking-tight text-text-primary">
+          <h2 id="republic-popup-title" className="mt-3 text-3xl font-medium tracking-tight text-ink">
             Cumhuriyet Bayramımız kutlu olsun.
           </h2>
-          <p className="mt-4 text-text-primary/70">
+          <p className="mt-4 text-ink-muted">
             {lang === "en"
               ? "A digital gift from UXipek for the Republic's 103rd year: explore the story and create your own keepsake card. (Page in Turkish.)"
               : "Cumhuriyet’in 103. yılına UXipek’ten dijital bir armağan: hikâyeyi keşfet ve sana özel hatıra kartını oluştur."}
@@ -66,7 +66,7 @@ export function RepublicPopup({ lang }: { lang: "en" | "tr" }) {
               {lang === "en" ? "Visit the page" : "Sayfayı keşfet"}
               <ArrowRight className="h-4 w-4" aria-hidden />
             </Link>
-            <button onClick={close} className="text-sm font-medium text-text-primary/60 hover:text-text-primary">
+            <button onClick={close} className="text-sm font-medium text-ink-muted hover:text-ink">
               {lang === "en" ? "Maybe later" : "Sonra"}
             </button>
           </div>

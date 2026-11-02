@@ -66,7 +66,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
       <section className="relative overflow-hidden pt-32 pb-24 md:pt-40 md:pb-32">
         <div className="absolute inset-x-0 top-0 -z-10 transform-gpu overflow-hidden blur-[120px]">
           <motion.div
-            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-brand-transformation/20 to-brand-secondary/20 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
+            className="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-brand-transformation/20 to-accent/20 opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]"
             animate={{ rotate: 360 }}
             transition={{ duration: 150, repeat: Infinity, ease: "linear" }}
           />
@@ -78,16 +78,16 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/50 backdrop-blur-sm border border-brand-primary/5 shadow-sm text-xs font-bold uppercase tracking-[0.2em] text-brand-transformation mb-8">
+            <div className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/50 backdrop-blur-sm border border-brand-primary/5 shadow-sm text-xs font-bold uppercase tracking-[0.2em] text-accent mb-8">
               {lang === 'en' ? 'Start a Conversation' : 'İletişime Geçin'}
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-text-primary mb-8 leading-[1.05]">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl font-medium tracking-tight text-ink mb-8 leading-[1.05]">
               {lang === 'en' ? 'Let\'s Build a Smarter ' : 'Daha Akıllı Bir Büyüme '}<br className="hidden md:block" />
-              <span className="text-brand-primary italic font-serif opacity-80">{lang === 'en' ? 'Growth System.' : 'Sistemi Kuralım.'}</span>
+              <span className="text-ink italic font-serif opacity-80">{lang === 'en' ? 'Growth System.' : 'Sistemi Kuralım.'}</span>
             </h1>
 
-            <p className="text-xl md:text-2xl font-light text-text-primary/70 w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
+            <p className="text-xl md:text-2xl font-light text-ink-muted w-[min(100%-32px,850px)] mx-auto leading-relaxed mb-12">
               {lang === 'en'
                 ? 'Whether you\'re launching a new product, optimizing conversions, improving user experience, or building an AI-powered platform, let\'s create digital experiences people trust and businesses grow from.'
                 : 'Yeni bir ürün piyasaya sürüyor, dönüşümleri optimize ediyor, kullanıcı deneyimini iyileştiriyor veya yapay zeka destekli bir platform oluşturuyor olun; insanların güvendiği ve işlerin büyüdüğü dijital deneyimler yaratalım.'}
@@ -97,7 +97,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-sm font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
                 {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <Link to={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-brand-primary text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
+              <Link to={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-[0.9375rem] font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
                 {lang === 'en' ? 'Get a Free Mini UX Evaluation' : 'Ücretsiz Mini UX Değerlendirmesi Al'}
               </Link>
             </div>
@@ -123,13 +123,13 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                 key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }}
                 className="group flex items-start gap-6 bg-background p-10 rounded-[2rem] border border-brand-primary/5 hover:border-brand-transformation/20 hover:shadow-xl transition-all"
               >
-                <div className="w-16 h-16 rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center text-text-primary/60 transition-all duration-300 group-hover:text-brand-transformation group-hover:scale-105 shadow-sm">
+                <div className="w-16 h-16 rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center text-ink-muted transition-all duration-300 group-hover:text-accent group-hover:scale-105 shadow-sm">
                    <s.icon strokeWidth={1.5} size={28}/>
                 </div>
                 <div>
-                  <div className="text-[10px] font-bold text-brand-transformation tracking-widest uppercase mb-2">{s.num}</div>
-                  <h3 className="text-xl font-medium text-text-primary mb-3">{s.title}</h3>
-                  <p className="text-text-primary/60 font-light leading-relaxed">{s.desc}</p>
+                  <div className="text-[10px] font-bold text-accent tracking-widest uppercase mb-2">{s.num}</div>
+                  <h3 className="text-xl font-medium text-ink mb-3">{s.title}</h3>
+                  <p className="text-ink-muted font-light leading-relaxed">{s.desc}</p>
                 </div>
               </motion.div>
             ))}
@@ -144,30 +144,30 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-6">
               {lang === 'en' ? 'Start the Conversation' : 'Bağlantı Kurun'}
             </h2>
-            <p className="text-xl text-text-primary/60 font-light mb-12 max-w-md leading-relaxed">
+            <p className="text-xl text-ink-muted font-light mb-12 max-w-md leading-relaxed">
               {lang === 'en' ? 'I personally review every inquiry and respond within 1–2 business days.' : 'Her talebi bizzat inceliyor ve 1-2 iş günü içinde geri dönüş yapıyorum.'}
             </p>
 
             {/* 04 CONNECT (Moved inside left column for layout elegance) */}
-            <h3 className="text-[11px] font-bold text-text-primary/40 tracking-[0.2em] uppercase mb-6">{lang === 'en' ? 'Connect Beyond Email' : 'Diğer Platformlar'}</h3>
+            <h3 className="text-[11px] font-bold text-ink-muted tracking-[0.2em] uppercase mb-6">{lang === 'en' ? 'Connect Beyond Email' : 'Diğer Platformlar'}</h3>
             <div className="grid grid-cols-2 gap-4">
               <a href="https://www.linkedin.com/in/ipekbolakca/" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-blue-500/30 hover:shadow-md group">
-                <Linkedin size={20} className="text-[#0A66C2] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-text-primary">LinkedIn</span>
+                <Linkedin size={20} className="text-[#0A66C2] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-ink">LinkedIn</span>
               </a>
               <a href="https://www.behance.net/ipekbolakca" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-[#1769FF]/30 hover:shadow-md group">
-                <PenTool size={20} className="text-[#1769FF] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-text-primary">Behance</span>
+                <PenTool size={20} className="text-[#1769FF] group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-ink">Behance</span>
               </a>
               <a href="https://medium.com/@ipekbolakca" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-brand-primary/30 hover:shadow-md group">
-                 <Briefcase size={20} className="text-text-primary group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-text-primary">Medium</span>
+                 <Briefcase size={20} className="text-ink group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-ink">Medium</span>
               </a>
               <a href="https://www.instagram.com/ux.ipek/" target="_blank" rel="noopener noreferrer" className="rounded-2xl bg-white border border-brand-primary/10 flex items-center justify-center p-4 transition-all duration-300 hover:border-brand-transformation/30 hover:shadow-md group">
-                 <Instagram size={20} className="text-brand-transformation group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-text-primary">Instagram</span>
+                 <Instagram size={20} className="text-accent group-hover:scale-110 transition-transform"/> <span className="text-sm font-medium text-ink">Instagram</span>
               </a>
             </div>
 
             <div className="mt-12 p-8 bg-white/50 backdrop-blur-md rounded-3xl border border-white">
-              <p className="text-[11px] font-bold text-text-primary/40 tracking-wider uppercase mb-2">{lang === 'en' ? 'Direct Email' : 'E-posta'}</p>
-              <a href="mailto:uxdesigneripek@gmail.com" className="text-xl font-medium text-brand-transformation hover:underline">uxdesigneripek@gmail.com</a>
+              <p className="text-[11px] font-bold text-ink-muted tracking-wider uppercase mb-2">{lang === 'en' ? 'Direct Email' : 'E-posta'}</p>
+              <a href="mailto:uxdesigneripek@gmail.com" className="text-xl font-medium text-accent hover:underline">uxdesigneripek@gmail.com</a>
             </div>
           </motion.div>
 
@@ -176,28 +176,28 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
             <form onSubmit={handleSubmit} className="space-y-6 relative z-10">
               <div className="grid grid-cols-2 gap-6">
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Name' : 'İsim'}</label>
-                  <input required name="name" type="text" minLength={2} maxLength={100} className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary placeholder:text-text-primary/20 transition-all font-medium" placeholder={lang === 'en' ? 'Jane Doe' : 'Ayşe Yılmaz'} />
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Name' : 'İsim'}</label>
+                  <input required name="name" type="text" minLength={2} maxLength={100} className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink placeholder:text-ink-muted transition-all font-medium" placeholder={lang === 'en' ? 'Jane Doe' : 'Ayşe Yılmaz'} />
                 </div>
                 <div>
-                  <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Company' : 'Şirket'}</label>
-                  <input type="text" name="company" maxLength={150} className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary placeholder:text-text-primary/20 transition-all font-medium" placeholder={lang === 'en' ? 'Acme Inc.' : 'Şirket A.Ş.'} />
+                  <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Company' : 'Şirket'}</label>
+                  <input type="text" name="company" maxLength={150} className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink placeholder:text-ink-muted transition-all font-medium" placeholder={lang === 'en' ? 'Acme Inc.' : 'Şirket A.Ş.'} />
                 </div>
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Email Address' : 'E-posta Adresi'}</label>
-                <input required name="email" type="email" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary placeholder:text-text-primary/20 transition-all font-medium" placeholder="hello@company.com" />
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Email Address' : 'E-posta Adresi'}</label>
+                <input required name="email" type="email" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink placeholder:text-ink-muted transition-all font-medium" placeholder="hello@company.com" />
               </div>
 
               <div className="grid grid-cols-2 gap-6">
                  <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Website (Optional)' : 'Web Sitesi (Opsiyonel)'}</label>
-                    <input name="website" type="text" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary placeholder:text-text-primary/20 transition-all font-medium" placeholder="https://example.com" />
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Website (Optional)' : 'Web Sitesi (Opsiyonel)'}</label>
+                    <input name="website" type="text" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink placeholder:text-ink-muted transition-all font-medium" placeholder="https://example.com" />
                  </div>
                  <div>
-                    <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Project Type' : 'Proje Türü'}</label>
-                    <select name="projectType" defaultValue="ux_audit" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary transition-all font-medium appearance-none">
+                    <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Project Type' : 'Proje Türü'}</label>
+                    <select name="projectType" defaultValue="ux_audit" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink transition-all font-medium appearance-none">
                        <option value="ux_audit">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</option>
                        <option value="saas_design">{lang === 'en' ? 'SaaS Product Design' : 'SaaS Ürün Tasarımı'}</option>
                        <option value="landing_page">{lang === 'en' ? 'Landing Page' : 'Açılış Sayfası'}</option>
@@ -208,8 +208,8 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Budget Range' : 'Bütçe Aralığı'}</label>
-                <select name="budget" defaultValue="tier_1" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary transition-all font-medium appearance-none">
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Budget Range' : 'Bütçe Aralığı'}</label>
+                <select name="budget" defaultValue="tier_1" className="w-full px-5 py-4 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink transition-all font-medium appearance-none">
                    <option value="tier_1">{lang === 'en' ? '₺25,000 – ₺75,000' : '₺25.000 – ₺75.000'}</option>
                    <option value="tier_2">{lang === 'en' ? '₺75,000 – ₺200,000' : '₺75.000 – ₺200.000'}</option>
                    <option value="tier_3">{lang === 'en' ? '₺200,000+' : '₺200.000+'}</option>
@@ -218,8 +218,8 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               </div>
 
               <div>
-                <label className="block text-[10px] font-bold uppercase tracking-wider text-text-primary/50 mb-3">{lang === 'en' ? 'Message' : 'Mesaj'}</label>
-                <textarea name="message" required minLength={10} maxLength={5000} rows={4} className="w-full px-5 py-5 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-text-primary placeholder:text-text-primary/20 transition-all resize-none font-medium" placeholder={lang === 'en' ? 'Tell me about your product challenges...' : 'Ürün pürüzlerinden bahsedin...'}></textarea>
+                <label className="block text-[10px] font-bold uppercase tracking-wider text-ink-muted mb-3">{lang === 'en' ? 'Message' : 'Mesaj'}</label>
+                <textarea name="message" required minLength={10} maxLength={5000} rows={4} className="w-full px-5 py-5 bg-background border border-brand-primary/5 rounded-2xl focus:outline-none focus:ring-2 focus:ring-brand-transformation/30 text-ink placeholder:text-ink-muted transition-all resize-none font-medium" placeholder={lang === 'en' ? 'Tell me about your product challenges...' : 'Ürün pürüzlerinden bahsedin...'}></textarea>
               </div>
 
               <div className="space-y-4 pt-2">
@@ -229,13 +229,13 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                     id="contactLegalConsent"
                     name="legalConsent"
                     required
-                    className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-brand-transformation focus:ring-brand-transformation"
+                    className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-accent focus:ring-brand-transformation"
                   />
-                  <label htmlFor="contactLegalConsent" className="text-sm text-text-primary/70 font-light leading-relaxed">
+                  <label htmlFor="contactLegalConsent" className="text-sm text-ink-muted font-light leading-relaxed">
                     {lang === 'en' ? (
-                      <>I have read the <a href={`/${lang}/kvkk`} target="_blank" className="text-brand-transformation hover:underline font-medium">KVKK Information Notice</a> and <a href={`/${lang}/privacy-policy`} target="_blank" className="text-brand-transformation hover:underline font-medium">Privacy Policy</a>.</>
+                      <>I have read the <a href={`/${lang}/kvkk`} target="_blank" className="text-accent hover:underline font-medium">KVKK Information Notice</a> and <a href={`/${lang}/privacy-policy`} target="_blank" className="text-accent hover:underline font-medium">Privacy Policy</a>.</>
                     ) : (
-                      <><a href={`/${lang}/kvkk`} target="_blank" className="text-brand-transformation hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href={`/${lang}/privacy-policy`} target="_blank" className="text-brand-transformation hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
+                      <><a href={`/${lang}/kvkk`} target="_blank" className="text-accent hover:underline font-medium">KVKK Aydınlatma Metni</a>'ni ve <a href={`/${lang}/privacy-policy`} target="_blank" className="text-accent hover:underline font-medium">Gizlilik Politikası</a>'nı okudum.</>
                     )}
                   </label>
                 </div>
@@ -245,9 +245,9 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                     type="checkbox"
                     id="contactMarketingConsent"
                     name="marketingConsent"
-                    className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-brand-transformation focus:ring-brand-transformation"
+                    className="mt-1 w-4 h-4 rounded border-brand-primary/20 text-accent focus:ring-brand-transformation"
                   />
-                  <label htmlFor="contactMarketingConsent" className="text-sm text-text-primary/70 font-light leading-relaxed">
+                  <label htmlFor="contactMarketingConsent" className="text-sm text-ink-muted font-light leading-relaxed">
                     {lang === 'en' ? (
                       'I would like to receive content, announcements, and service updates from UXIPEK via email.'
                     ) : (
@@ -276,7 +276,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               )}
 
               {isSuccess && (
-                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 text-emerald-600 font-medium text-center bg-emerald-50 border border-emerald-100 py-5 rounded-2xl mt-4">
+                <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="flex items-center justify-center gap-3 text-success font-medium text-center bg-emerald-50 border border-emerald-100 py-5 rounded-2xl mt-4">
                   <span className="text-xl">🦋</span> {lang === 'en' ? "Your inquiry has been received. I'll be in touch." : "Talebiniz alındı. Yakında iletişime geçeceğim."}
                 </motion.div>
               )}
@@ -289,7 +289,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
       <section className="py-16 md:py-24 lg:py-32 w-full bg-white relative overflow-hidden">
         <div className="w-[min(100%-32px,1000px)] mx-auto text-center mb-24 relative z-10">
           <h2 className="text-h2 mb-4">{lang === 'en' ? 'What Happens Next?' : 'Süreç Nasıl İşliyor?'}</h2>
-          <p className="text-text-primary/60 font-light">{lang === 'en' ? 'The transformation journey.' : 'Dönüşüm yolculuğu.'}</p>
+          <p className="text-ink-muted font-light">{lang === 'en' ? 'The transformation journey.' : 'Dönüşüm yolculuğu.'}</p>
         </div>
 
         <div className="container-app relative z-10">
@@ -304,9 +304,9 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
                 key={i} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.15 }}
                 className="flex-1 relative z-10 bg-white/60 border border-white backdrop-blur-xl shadow-xl shadow-dark/5 rounded-[2rem] p-8 transition-all duration-500 group hover:-translate-y-2"
               >
-                <div className="text-[10px] font-bold text-brand-transformation tracking-[0.2em] uppercase mb-4">{lang === 'en' ? 'Step' : 'Adım'} {p.num}</div>
-                <h4 className="text-2xl font-serif italic text-text-primary mb-4 group-hover:text-brand-transformation transition-colors">{lang === 'en' ? p.state : p.tr_state}</h4>
-                <p className="text-text-primary/60 font-light leading-relaxed">{p.desc}</p>
+                <div className="text-[10px] font-bold text-accent tracking-[0.2em] uppercase mb-4">{lang === 'en' ? 'Step' : 'Adım'} {p.num}</div>
+                <h4 className="text-2xl font-serif italic text-ink mb-4 group-hover:text-accent transition-colors">{lang === 'en' ? p.state : p.tr_state}</h4>
+                <p className="text-ink-muted font-light leading-relaxed">{p.desc}</p>
               </motion.div>
             ))}
           </div>
@@ -323,14 +323,14 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-h2 mb-8 !text-white">
               <span className="text-white" style={{ color: '#FFFFFF', opacity: 1 }}>{lang === 'en' ? 'Your product doesn’t need more screens.' : 'Ürününüzün daha fazla ekrana ihtiyacı yok.'}</span><br/>
-              <span className="text-brand-transformation italic font-serif opacity-90">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
+              <span className="text-accent italic font-serif">{lang === 'en' ? 'It needs a smarter system.' : 'Daha akıllı bir sisteme ihtiyacı var.'}</span>
             </h2>
 
-            <p className="text-xl text-white/60 font-light w-[min(100%-32px,850px)] mx-auto mb-12 leading-relaxed">
+            <p className="text-xl text-on-ink-muted font-light w-[min(100%-32px,850px)] mx-auto mb-12 leading-relaxed">
                {lang === 'en' ? 'Let\'s uncover the friction, simplify complexity, and design experiences that help your business grow.' : 'Gelin sürtünmeleri ortaya çıkaralım, karmaşıklığı basitleştirelim ve işinizin büyümesine yardımcı olacak deneyimler tasarlayalım.'}
             </p>
 
-            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-brand-primary transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
+            <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-3 rounded-2xl bg-white px-10 py-5 text-sm font-bold text-ink transition-all shadow-xl hover:-translate-y-1 hover:bg-gray-100">
               {lang === 'en' ? 'Book a 15-Minute Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
             </a>
           </motion.div>
