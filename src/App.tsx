@@ -28,11 +28,11 @@ const NotFoundPage = lazy(() => import("./pages/NotFound").then(module => ({ def
 function ComingSoon() {
   return (
     <div className="flex flex-col items-center justify-center min-h-[70vh] px-6 text-center">
-      <div className="w-16 h-16 rounded-2xl bg-brand-primary/5 flex items-center justify-center mb-6 text-text-primary/40">
+      <div className="w-16 h-16 rounded-2xl bg-brand-primary/5 flex items-center justify-center mb-6 text-ink-muted">
         <Lock className="w-8 h-8" />
       </div>
-      <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-text-primary mb-4">Coming Soon</h1>
-      <p className="text-text-primary/60 max-w-md mx-auto">This area is currently under development. Check back later for updates on our new client dashboard and subscription services.</p>
+      <h1 className="text-3xl md:text-4xl font-medium tracking-tight text-ink mb-4">Coming Soon</h1>
+      <p className="text-ink-muted max-w-md mx-auto">This area is currently under development. Check back later for updates on our new client dashboard and subscription services.</p>
     </div>
   );
 }
@@ -54,10 +54,10 @@ function AppContent() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="min-h-screen bg-surface font-sans text-text-primary/90 selection:bg-brand-transformation/30 flex flex-col">
+    <div className="min-h-screen bg-surface font-sans text-ink selection:bg-brand-transformation/30 flex flex-col">
       <Nav lang={lang} setLang={setLang} />
       <main className="pt-20 flex-grow relative overflow-x-clip">
-        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-text-primary/40"><Logo className="h-8 w-auto animate-pulse" /></div>}>
+        <Suspense fallback={<div className="min-h-[50vh] flex items-center justify-center text-ink-muted"><Logo className="h-8 w-auto animate-pulse" /></div>}>
         <DawnTransition>
           {(location) => (
           <Routes location={location}>

@@ -7,27 +7,27 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-text-primary/80 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-ink hover:text-accent transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-6">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">
           {lang === 'en' ? 'Terms of Use' : 'Kullanım Koşulları'}
         </h1>
-        <p className="text-text-primary/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
+        <p className="text-ink-muted text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en'
             ? 'Guidelines and rules for using the UXIPEK website, content, and digital assets.'
             : 'UXIPEK web sitesinin, içeriklerinin ve dijital varlıklarının kullanımına dair kurallar ve esaslar.'}
         </p>
-        <p className="text-text-primary/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
+        <p className="text-ink-muted text-xs font-bold mb-16 uppercase tracking-[0.2em]">
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
         </p>
 
-        <div className="space-y-16 text-text-primary/80 font-light leading-[1.7]">
+        <div className="space-y-16 text-ink font-light leading-[1.7]">
           
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">01</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">01</span> 
               {lang === 'en' ? 'Website Purpose & Services' : 'Web Sitesinin Amacı ve Hizmetler'}
             </h2>
             <p className="mb-4">
@@ -36,7 +36,7 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
                 : 'UXIPEK web sitesi (https://www.uxipek.com), Yapay Zeka-Destekli Ürün Tasarım Stüdyosu hizmetlerimizi sergileyen bilgilendirici bir portfolyo platformudur. UX/UI tasarımı, UX analizi, ürün stratejisi ve dijital danışmanlık uzmanlıklarımızı sunar.'}
             </p>
             <div className="p-5 rounded-xl bg-brand-primary/5 border border-brand-primary/10">
-              <p className="text-sm font-medium text-text-primary">
+              <p className="text-sm font-medium text-ink">
                 {lang === 'en'
                   ? 'Important Note: Project scopes, pricing, revisions, payment terms, and intellectual property transfers are defined separately through written proposals and official project agreements, not directly through this website.'
                   : 'Önemli Not: Proje kapsamı, fiyatlandırma, revizyon hakları, ödeme koşulları ve fikri mülkiyet devirleri bu web sitesi üzerinden değil; taraflar arasında yapılacak yazılı teklifler ve resmi proje sözleşmeleri ile ayrıca belirlenir.'}
@@ -45,8 +45,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">02</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">02</span> 
               {lang === 'en' ? 'User Responsibilities' : 'Kullanıcı Sorumlulukları'}
             </h2>
             <p>
@@ -57,8 +57,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">03</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">03</span> 
               {lang === 'en' ? 'Intellectual Property & Ownership' : 'Fikri Mülkiyet ve Mülkiyet Hakları'}
             </h2>
             <p className="mb-4">
@@ -74,8 +74,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">04</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">04</span> 
               {lang === 'en' ? 'Prohibited Use' : 'Yasaklı Kullanımlar'}
             </h2>
             <ul className="space-y-3">
@@ -95,8 +95,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">05</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">05</span> 
               {lang === 'en' ? 'External Links' : 'Dış Bağlantılar'}
             </h2>
             <p>
@@ -107,8 +107,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">06</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">06</span> 
               {lang === 'en' ? 'Limitation of Liability' : 'Sorumluluğun Sınırlandırılması'}
             </h2>
             <p>
@@ -119,8 +119,8 @@ export function TermsOfUsePage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">07</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">07</span> 
               {lang === 'en' ? 'Changes & Applicable Law' : 'Değişiklikler ve Uygulanacak Hukuk'}
             </h2>
             <p>

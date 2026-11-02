@@ -10,27 +10,27 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
       <section className="relative py-24 md:py-32 lg:py-40 bg-background overflow-hidden">
         {/* Soft Ambient Background Gradients */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-transformation/5 blur-[120px] rounded-full pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-secondary/5 blur-[150px] rounded-full pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/5 blur-[150px] rounded-full pointer-events-none"></div>
         
         <div className="mx-auto max-w-5xl text-center relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }}>
             
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/5 border border-brand-primary/5 mb-8">
               <div className="w-2 h-2 rounded-full bg-brand-transformation animate-pulse"></div>
-              <span className="text-[11px] font-bold text-text-primary/70 tracking-widest uppercase">
+              <span className="text-[11px] font-bold text-ink-muted tracking-widest uppercase">
                 {lang === 'en' ? 'HOW UXIPEK WORKS' : 'UXİPEK NASIL ÇALIŞIR?'}
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-text-primary mb-8 tracking-tight leading-[1.1]">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium text-ink mb-8 tracking-tight leading-[1.1]">
               {lang === 'en' ? '“Clarity before pixels.' : '“Önce netlik, sonra tasarım.'}
               <br className="hidden md:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-transformation to-brand-secondary font-semibold">
+              <span className="text-accent font-semibold">
                 {lang === 'en' ? 'Strategy before decoration.”' : 'Önce strateji, sonra görünüm.”'}
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-text-primary/70 font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto mb-12">
+            <p className="text-xl md:text-2xl text-ink-muted font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto mb-12">
               {lang === 'en'
                 ? '“I turn complex product and business problems into clear, usable and conversion-focused digital experiences.”'
                 : '“Karmaşık ürün ve iş problemlerini net, kullanılabilir ve dönüşüm odaklı dijital deneyimlere dönüştürüyorum.”'}
@@ -56,7 +56,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-6">
               {lang === 'en' ? '“My Working Principles”' : '“Çalışma Prensiplerim”'}
             </h2>
-            <p className="text-text-primary/60 text-lg md:text-xl font-light leading-relaxed">
+            <p className="text-ink-muted text-lg md:text-xl font-light leading-relaxed">
               {lang === 'en' 
                 ? '“Every project is shaped by evidence, clear communication and purposeful design decisions.”'
                 : '“Her projeyi araştırma, açık iletişim ve amaca hizmet eden tasarım kararlarıyla şekillendiriyorum.”'}
@@ -69,13 +69,13 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}
               className="bg-background p-8 md:p-12 rounded-[2rem] border border-brand-primary/5 flex flex-col gap-6"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-transformation">
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Focus size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-text-primary">
+              <h3 className="text-2xl font-semibold text-ink">
                 {lang === 'en' ? 'Clarity First' : 'Önce Netlik'}
               </h3>
-              <p className="text-text-primary/70 text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lg font-light leading-relaxed">
                 {lang === 'en' 
                   ? '“I define the real problem before designing the solution.”'
                   : '“Çözümü tasarlamadan önce gerçek problemi netleştiriyorum.”'}
@@ -87,13 +87,13 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 }}
               className="bg-background p-8 md:p-12 rounded-[2rem] border border-brand-primary/5 flex flex-col gap-6"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-transformation">
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Scale size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-text-primary">
+              <h3 className="text-2xl font-semibold text-ink">
                 {lang === 'en' ? 'User and Business Balance' : 'Kullanıcı ve İş Dengesi'}
               </h3>
-              <p className="text-text-primary/70 text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lg font-light leading-relaxed">
                 {lang === 'en' 
                   ? '“Design decisions should support both user needs and business goals.”'
                   : '“Tasarım kararları hem kullanıcı ihtiyaçlarına hem de iş hedeflerine hizmet etmeli.”'}
@@ -105,13 +105,13 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.3 }}
               className="bg-background p-8 md:p-12 rounded-[2rem] border border-brand-primary/5 flex flex-col gap-6"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-transformation">
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <MessageSquare size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-text-primary">
+              <h3 className="text-2xl font-semibold text-ink">
                 {lang === 'en' ? 'Transparent Collaboration' : 'Şeffaf İş Birliği'}
               </h3>
-              <p className="text-text-primary/70 text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lg font-light leading-relaxed">
                 {lang === 'en' 
                   ? '“You see the reasoning, progress and decisions throughout the project.”'
                   : '“Proje boyunca süreci, ilerlemeyi ve alınan kararları açıkça görebilirsiniz.”'}
@@ -123,13 +123,13 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.4 }}
               className="bg-background p-8 md:p-12 rounded-[2rem] border border-brand-primary/5 flex flex-col gap-6"
             >
-              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-brand-transformation">
+              <div className="w-16 h-16 rounded-2xl bg-white shadow-sm flex items-center justify-center text-accent">
                 <Layers3 size={32} strokeWidth={1.5} />
               </div>
-              <h3 className="text-2xl font-semibold text-text-primary">
+              <h3 className="text-2xl font-semibold text-ink">
                 {lang === 'en' ? 'Systems, Not Screens' : 'Ekran Değil, Sistem'}
               </h3>
-              <p className="text-text-primary/70 text-lg font-light leading-relaxed">
+              <p className="text-ink-muted text-lg font-light leading-relaxed">
                 {lang === 'en' 
                   ? '“I create consistent and scalable experiences instead of isolated screens.”'
                   : '“Birbirinden kopuk ekranlar yerine tutarlı ve geliştirilebilir deneyim sistemleri oluşturuyorum.”'}
@@ -149,7 +149,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
                 <h2 className="text-h2 mb-6">
                   {lang === 'en' ? '“Clear communication at every stage”' : '“Her aşamada açık iletişim”'}
                 </h2>
-                <p className="text-text-primary/70 text-lg font-light leading-relaxed mb-10">
+                <p className="text-ink-muted text-lg font-light leading-relaxed mb-10">
                   {lang === 'en'
                     ? '“You always know what is being designed, why a decision was made and what comes next.”'
                     : '“Neyin tasarlandığını, kararların neden alındığını ve sırada ne olduğunu her zaman bilirsiniz.”'}
@@ -164,10 +164,10 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
                     <motion.li 
                       key={i}
                       initial={{ opacity: 0, y: 10 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 * i }}
-                      className="flex items-center gap-4 text-text-primary/80 font-medium text-lg"
+                      className="flex items-center gap-4 text-ink font-medium text-lg"
                     >
                       <div className="w-6 h-6 rounded-full bg-brand-transformation/10 flex items-center justify-center shrink-0">
-                        <CheckCircle2 size={14} className="text-brand-transformation" strokeWidth={3} />
+                        <CheckCircle2 size={14} className="text-accent" strokeWidth={3} />
                       </div>
                       {item}
                     </motion.li>
@@ -182,7 +182,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
               >
                 {/* Decorative element */}
                 <div className="absolute top-0 right-0 w-32 h-32 bg-brand-transformation/5 blur-3xl rounded-full"></div>
-                <MessageSquare className="w-12 h-12 text-brand-transformation mb-8 opacity-80" strokeWidth={1} />
+                <MessageSquare className="w-12 h-12 text-accent mb-8 opacity-80" strokeWidth={1} />
                 <div className="space-y-4">
                   <div className="h-2 bg-brand-primary/5 rounded-full w-3/4"></div>
                   <div className="h-2 bg-brand-primary/5 rounded-full w-full"></div>
@@ -202,7 +202,7 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
             <h2 className="text-h2 mb-8">
               {lang === 'en' ? '“AI-accelerated, human-directed”' : '“Yapay zekâyla hızlanan, insan bakışıyla yönlenen”'}
             </h2>
-            <p className="text-text-primary/70 text-lg md:text-xl font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-ink-muted text-lg md:text-xl font-light leading-relaxed w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“I use AI to accelerate research, exploration and production—not to replace strategic thinking. Every final decision is reviewed through user needs, business goals and design principles.”'
                 : '“Yapay zekâyı stratejik düşünmenin yerine değil; araştırmayı, keşfi ve üretimi hızlandırmak için kullanıyorum. Her nihai kararı kullanıcı ihtiyaçları, iş hedefleri ve tasarım prensipleri doğrultusunda değerlendiriyorum.”'}
@@ -216,14 +216,14 @@ export function ProcessPage({ lang }: { lang: "en" | "tr" }) {
         {/* Soft animated background elements */}
         <div className="absolute inset-0 pointer-events-none overflow-hidden">
             <div className="absolute top-1/2 left-1/4 w-96 h-96 bg-brand-transformation/20 blur-[100px] rounded-full mix-blend-screen"></div>
-            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-secondary/20 blur-[100px] rounded-full mix-blend-screen"></div>
+            <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent/20 blur-[100px] rounded-full mix-blend-screen"></div>
         </div>
         <div className="w-[min(100%-32px,850px)] mx-auto relative z-10">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
             <h2 className="text-h2 !text-white mb-8">
               {lang === 'en' ? '“Ready to bring clarity to your product?”' : '“Ürününüzü daha net ve güçlü bir deneyime dönüştürmeye hazır mısınız?”'}
             </h2>
-            <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed mb-12 w-[min(100%-32px,850px)] mx-auto">
+            <p className="text-on-ink-muted text-lg md:text-xl font-light leading-relaxed mb-12 w-[min(100%-32px,850px)] mx-auto">
               {lang === 'en'
                 ? '“Tell me what you are building, where users struggle and what you want to improve.”'
                 : '“Ne geliştirdiğinizi, kullanıcıların nerede zorlandığını ve neyi iyileştirmek istediğinizi paylaşın.”'}

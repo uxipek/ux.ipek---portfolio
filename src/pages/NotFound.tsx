@@ -13,7 +13,7 @@ export function NotFoundPage({ lang }: { lang: 'en' | 'tr' }) {
       <h2 className="text-h2 mb-6">
         {lang === 'en' ? 'Page Not Found' : 'Sayfa Bulunamadı'}
       </h2>
-      <p className="text-text-primary/60 text-lg mb-10 max-w-md">
+      <p className="text-ink-muted text-lg mb-10 max-w-md">
         {lang === 'en' 
           ? "The page you are looking for doesn't exist or has been moved." 
           : "Aradığınız sayfa mevcut değil veya taşınmış."}

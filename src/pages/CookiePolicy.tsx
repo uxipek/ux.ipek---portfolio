@@ -7,27 +7,27 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
   return (
     <div className="bg-background w-full min-h-screen pt-32 pb-24">
       <div className="max-w-[800px] mx-auto px-6 md:px-8">
-        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-text-primary/80 hover:text-brand-transformation transition-colors mb-8 text-sm font-medium">
+        <Link to={`/${lang}`} className="inline-flex items-center gap-2 text-ink hover:text-accent transition-colors mb-8 text-sm font-medium">
           <ArrowLeft className="w-4 h-4" /> {lang === 'en' ? 'Back to Home' : 'Ana Sayfaya Dön'}
         </Link>
         
-        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-text-primary mb-6">
+        <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-ink mb-6">
           {lang === 'en' ? 'Cookie Policy' : 'Çerez Politikası'}
         </h1>
-        <p className="text-text-primary/70 text-lg font-light mb-8 leading-[1.7] max-w-2xl">
+        <p className="text-ink-muted text-lg font-light mb-8 leading-[1.7] max-w-2xl">
           {lang === 'en'
             ? 'We use cookies to ensure our website functions securely and to understand how you interact with our content.'
             : 'Web sitemizin güvenli bir şekilde çalışmasını sağlamak ve içeriklerimizle nasıl etkileşime girdiğinizi anlamak için çerezler kullanıyoruz.'}
         </p>
-        <p className="text-text-primary/40 text-xs font-bold mb-16 uppercase tracking-[0.2em]">
+        <p className="text-ink-muted text-xs font-bold mb-16 uppercase tracking-[0.2em]">
           {lang === 'en' ? 'Last Updated: 12 July 2026' : 'Son Güncelleme: 12 Temmuz 2026'}
         </p>
 
-        <div className="space-y-16 text-text-primary/80 font-light leading-[1.7]">
+        <div className="space-y-16 text-ink font-light leading-[1.7]">
           
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">01</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">01</span> 
               {lang === 'en' ? 'What Are Cookies?' : 'Çerezler (Cookies) Nedir?'}
             </h2>
             <p>
@@ -38,8 +38,8 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">02</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">02</span> 
               {lang === 'en' ? 'Types of Cookies We Use' : 'Kullandığımız Çerez Türleri'}
             </h2>
             
@@ -47,7 +47,7 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-green-500"></div>
-                  <h3 className="font-medium text-text-primary text-lg">{lang === 'en' ? 'Necessary Cookies' : 'Zorunlu Çerezler'}</h3>
+                  <h3 className="font-medium text-ink text-lg">{lang === 'en' ? 'Necessary Cookies' : 'Zorunlu Çerezler'}</h3>
                 </div>
                 <p className="text-sm">
                   {lang === 'en'
@@ -59,14 +59,14 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-brand-transformation"></div>
-                  <h3 className="font-medium text-text-primary text-lg">{lang === 'en' ? 'Analytics Cookies' : 'Analitik Çerezler'}</h3>
+                  <h3 className="font-medium text-ink text-lg">{lang === 'en' ? 'Analytics Cookies' : 'Analitik Çerezler'}</h3>
                 </div>
                 <p className="text-sm mb-3">
                   {lang === 'en'
                     ? 'These cookies help us understand how visitors interact with our website. We use tools like Google Analytics to collect anonymous traffic data, page views, and interaction metrics.'
                     : 'Ziyaretçilerin web sitemizle nasıl etkileşime girdiğini anlamamıza yardımcı olur. Anonim trafik verileri ve sayfa görüntülemelerini analiz etmek için Google Analytics kullanıyoruz.'}
                 </p>
-                <div className="inline-block px-3 py-1 bg-brand-primary/5 rounded-md text-xs font-medium text-text-primary/70">
+                <div className="inline-block px-3 py-1 bg-brand-primary/5 rounded-md text-xs font-medium text-ink-muted">
                   {lang === 'en' ? 'Status: Active (Requires Consent)' : 'Durum: Aktif (Onaya Tabi)'}
                 </div>
               </div>
@@ -74,7 +74,7 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-brand-primary/20"></div>
-                  <h3 className="font-medium text-text-primary text-lg">{lang === 'en' ? 'Functional Cookies' : 'İşlevsel Çerezler'}</h3>
+                  <h3 className="font-medium text-ink text-lg">{lang === 'en' ? 'Functional Cookies' : 'İşlevsel Çerezler'}</h3>
                 </div>
                 <p className="text-sm">
                   {lang === 'en'
@@ -86,14 +86,14 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
               <div className="p-6 rounded-2xl bg-white border border-brand-primary/5">
                 <div className="flex items-center gap-3 mb-3">
                   <div className="w-2 h-2 rounded-full bg-brand-primary/20"></div>
-                  <h3 className="font-medium text-text-primary text-lg">{lang === 'en' ? 'Marketing Cookies' : 'Pazarlama Çerezleri'}</h3>
+                  <h3 className="font-medium text-ink text-lg">{lang === 'en' ? 'Marketing Cookies' : 'Pazarlama Çerezleri'}</h3>
                 </div>
                 <p className="text-sm mb-3">
                   {lang === 'en'
                     ? 'These cookies are used to track visitors across websites to display relevant advertisements.'
                     : 'Kullanıcıları web siteleri arasında takip etmek ve ilgili reklamları göstermek için kullanılır.'}
                 </p>
-                <div className="inline-block px-3 py-1 bg-brand-primary/5 rounded-md text-xs font-medium text-text-primary/70">
+                <div className="inline-block px-3 py-1 bg-brand-primary/5 rounded-md text-xs font-medium text-ink-muted">
                   {lang === 'en' ? 'Status: Not used on this project' : 'Durum: Bu projede kullanılmamaktadır'}
                 </div>
               </div>
@@ -101,8 +101,8 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">03</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">03</span> 
               {lang === 'en' ? 'How to Manage Cookies' : 'Çerezleri Nasıl Yönetebilirsiniz?'}
             </h2>
             <p className="mb-4">
@@ -118,8 +118,8 @@ export function CookiePolicyPage({ lang }: { lang: "en" | "tr" }) {
           </section>
 
           <section>
-            <h2 className="text-xl font-medium text-text-primary mb-6 flex items-baseline gap-4">
-              <span className="text-brand-transformation text-sm font-bold">04</span> 
+            <h2 className="text-xl font-medium text-ink mb-6 flex items-baseline gap-4">
+              <span className="text-accent text-sm font-bold">04</span> 
               {lang === 'en' ? 'Policy Updates' : 'Politika Güncellemeleri'}
             </h2>
             <p>

@@ -1,24 +1,42 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
 @import "tailwindcss";
 
+/* ---------- UXipek color system ----------
+   5 brand colors, one role each. Rules:
+   1. Text never uses opacity. Use ink, ink-muted (light bg) or on-ink / on-ink-muted (dark bg).
+   2. Opacity is allowed only for borders, dividers and decorative fills.
+   3. Accent is for CTAs and one emphasis word per heading. Never as small text on mist.
+   Contrast (WCAG): ink/canvas 18.3 · ink-muted/canvas 7.8 · ink-muted/mist 5.0
+   accent/canvas 5.5 · white/accent 5.6 · on-ink-muted/ink 9.6 */
 @theme {
-  --color-brand-primary: #28002C;
-  --color-brand-transformation: #CA006C;
-  --color-brand-secondary: #D60081;
-  --color-brand-technology: #246B9A;
-  --color-background: #F7F4F2;
-  --color-surface: #FFFFFF;
-  --color-text-primary: #28002C;
-  --color-text-muted: #8F8787;
+  /* Primitives */
+  --color-ink: #28002C;          /* text, dark sections */
+  --color-accent: #CA006C;       /* CTAs, emphasis */
+  --color-canvas: #FEFCFD;       /* page background */
+  --color-mist: #BFCDE0;         /* small highlights: icon chips, tags */
+  --color-mist-soft: #EBEFF5;    /* alternate sections, inputs (mist at ~30% on canvas, solid) */
+  --color-ink-muted: #5E4A60;    /* secondary text on light backgrounds */
+  --color-on-ink: #FFFFFF;       /* text on ink */
+  --color-on-ink-muted: #CDBFCF; /* secondary text on ink */
+  --color-success: #047857;      /* positive data, 5.5:1 on white */
 
-  /* Legacy mappings mapped to new semantic colors */
-  --color-dark: #28002c; 
-  --color-cream: #F7F4F2;
-  --color-base: #FFFFFF;
-  --color-pink: #CA006C;
-  --color-purple: #D60081;
-  --color-orange: #E0583A;
-  --color-green: #198754;
+  /* Legacy names: kept so existing classes keep working; all point to the primitives above */
+  --color-brand-primary: var(--color-ink);
+  --color-text-primary: var(--color-ink);
+  --color-dark: var(--color-ink);
+  --color-brand-transformation: var(--color-accent);
+  --color-brand-secondary: var(--color-accent);
+  --color-pink: var(--color-accent);
+  --color-purple: var(--color-accent);
+  --color-background: var(--color-mist-soft);
+  --color-cream: var(--color-mist-soft);
+  --color-surface: #FFFFFF;
+  /* Do not define --color-base: in Tailwind v4 it collides with the text-base font-size
+     utility and turns every text-base element white. */
+  --color-text-muted: var(--color-ink-muted);
+  --color-brand-technology: var(--color-ink-muted);
+  --color-orange: var(--color-accent);
+  --color-green: var(--color-success);
 
   --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Playfair Display", ui-serif, Georgia, serif;
@@ -106,7 +124,7 @@
 
 body {
   overflow-x: hidden;
-  @apply font-sans text-text-primary bg-background;
+  @apply font-sans text-ink bg-canvas;
 }
 @layer components {
   /* Typography Scale */
