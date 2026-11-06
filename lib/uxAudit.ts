@@ -60,9 +60,12 @@ export async function submitUxAudit(body: unknown, ip: string | undefined): Prom
         submittedAt: new Date().toISOString(),
       }),
     });
-    const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
+    const result = (await response.json().catch(() => null)) as { ok?: boolean; reason?: string } | null;
     if (!response.ok || !result?.ok) {
-      return respond(502, `webhook_failed_${response.status}`, { error: "Failed to submit your request. Please try again." });
+      // The script reports a short fixed reason ("secret", "sheet", "exception");
+      // "not_json" means it answered with something other than JSON (e.g. a Google error page).
+      const reason = typeof result?.reason === "string" && /^[a-z_]{1,20}$/.test(result.reason) ? result.reason : result ? "unknown" : "not_json";
+      return respond(502, `webhook_failed_${response.status}_${reason}`, { error: "Failed to submit your request. Please try again." });
     }
     return respond(200, "sent", { success: true });
   } catch {
