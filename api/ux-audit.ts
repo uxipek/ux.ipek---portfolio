@@ -1,4 +1,4 @@
-import { submitUxAudit } from "../lib/uxAudit";
+import { submitUxAudit } from "../lib/uxAudit.js";
 
 // Minimal request/response shapes so we don't need @vercel/node as a dependency.
 type Req = { method?: string; body?: unknown; headers: Record<string, string | string[] | undefined> };
