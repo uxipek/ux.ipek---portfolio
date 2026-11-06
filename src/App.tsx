@@ -9,6 +9,7 @@ import { LanguageProvider, useLanguage } from "./components/layout/LanguageProvi
 import { DawnTransition } from "./components/layout/DawnTransition";
 import { Lock } from "lucide-react";
 import { MotionConfig } from "motion/react";
+import { SHOW_REPUBLIC_CAMPAIGN, showAnmaPage } from "./lib/campaigns";
 
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
 const ServicesPage = lazy(() => import("./pages/Services").then(module => ({ default: module.ServicesPage })));
@@ -23,6 +24,7 @@ const PrivacyPolicyPage = lazy(() => import("./pages/PrivacyPolicy").then(module
 const KVKKPage = lazy(() => import("./pages/KVKK").then(module => ({ default: module.KVKKPage })));
 const CookiePolicyPage = lazy(() => import("./pages/CookiePolicy").then(module => ({ default: module.CookiePolicyPage })));
 const TermsOfUsePage = lazy(() => import("./pages/TermsOfUse").then(module => ({ default: module.TermsOfUsePage })));
+const Anma10KasimPage = lazy(() => import("./pages/Anma10Kasim").then(module => ({ default: module.Anma10KasimPage })));
 const Republic29EkimPage = lazy(() => import("./pages/Republic29Ekim").then(module => ({ default: module.Republic29EkimPage })));
 const NotFoundPage = lazy(() => import("./pages/NotFound").then(module => ({ default: module.NotFoundPage })));
 
@@ -74,7 +76,8 @@ function AppContent() {
             <Route path="/:lang/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             <Route path="/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             
-            <Route path="/:lang/29-ekim" element={<PageWrapper component={Republic29EkimPage} />} />
+            {showAnmaPage() && <Route path="/:lang/10-kasim" element={<PageWrapper component={Anma10KasimPage} />} />}
+            {SHOW_REPUBLIC_CAMPAIGN && <Route path="/:lang/29-ekim" element={<PageWrapper component={Republic29EkimPage} />} />}
 
             <Route path="/:lang/dashboard" element={<ComingSoon />} />
             <Route path="/:lang/reports" element={<ComingSoon />} />

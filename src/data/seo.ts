@@ -24,6 +24,16 @@ export const STATIC_SEO: Record<string, LocalizedSeo> = {
         "UXipek; SaaS, yapay zekâ destekli ürünler ve web siteleri için UX analizi, ürün tasarımı ve dönüşüm odaklı UX/UI çözümleri sunar.",
     },
   },
+  "/10-kasim": {
+    en: {
+      title: "10 November — Remembering Atatürk | UXipek",
+      description: "On the anniversary of his passing, we remember Mustafa Kemal Atatürk with respect and longing. (Content in Turkish.)",
+    },
+    tr: {
+      title: "10 Kasım — Saygı ve özlemle | UXipek",
+      description: "Mustafa Kemal Atatürk’ü ebediyete intikalinin yıl dönümünde saygı, minnet ve özlemle anıyoruz.",
+    },
+  },
   "/29-ekim": {
     en: {
       title: "29 October — Republic Day, 103rd Year | UXipek",

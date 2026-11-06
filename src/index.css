@@ -178,6 +178,21 @@ body {
   --r-ring: oklch(0.77 0.09 226);
   color-scheme: dark;
 }
+/* 10 Kasım anma sayfası: tamamen siyah tema (görselin zemini #000 ile birleşir). */
+.republic-page.republic-black {
+  --r-bg: oklch(0 0 0);
+  --r-fg: oklch(0.97 0.003 85);
+  --r-soft: oklch(0.15 0 0);
+  --r-warm: oklch(0 0 0);
+  --r-muted-bg: oklch(0.2 0 0);
+  --r-muted: oklch(0.78 0.006 70);
+  --r-border: oklch(0.3 0 0);
+  --r-input: oklch(0.45 0 0);
+  --r-primary: oklch(0.95 0.003 85);
+  --r-primary-fg: oklch(0.15 0 0);
+  --r-ring: oklch(0.77 0.09 226);
+  color-scheme: dark;
+}
 .republic-page :focus-visible { outline: 2px solid var(--r-ring); outline-offset: 4px; }
 .republic-page h1, .republic-page h2 { font-family: "Playfair Display", ui-serif, Georgia, serif; line-height: 1.2; font-weight: 400; }
 .republic-page h3 { font-family: "DM Sans", ui-sans-serif, system-ui, sans-serif; font-size: 24px; font-weight: 700; line-height: 1.2; }

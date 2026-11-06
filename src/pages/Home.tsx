@@ -6,6 +6,7 @@ import { Logo } from "../components/Logo";
 import { projects } from "../data/projects";
 import { RepublicPopup } from "../components/RepublicPopup";
 import { uxAuditPath } from '../lib/paths';
+import { SHOW_REPUBLIC_CAMPAIGN, showAnmaBanner } from '../lib/campaigns';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -37,19 +38,34 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
   
   return (
     <>
-      <RepublicPopup lang={lang} />
+      {SHOW_REPUBLIC_CAMPAIGN && <RepublicPopup lang={lang} />}
       <div className="w-full">
-        <Link
-          to={`/${lang}/29-ekim`}
-          className="flex min-h-[44px] items-center justify-center gap-2 bg-[var(--republic-red)] px-4 py-2.5 text-center text-small font-semibold text-white transition-colors hover:bg-[color-mix(in_oklab,var(--republic-red)_88%,black)] focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
-        >
-          <span>
-            {lang === 'en'
-              ? '29 October, Republic Day: click to visit the page (in Turkish)'
-              : '29 Ekim Cumhuriyet Bayramı: sayfaya gitmek için tıklayınız'}
-          </span>
-          <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
-        </Link>
+        {showAnmaBanner() && (
+          <Link
+            to={`/${lang}/10-kasim`}
+            className="flex min-h-[44px] items-center justify-center gap-2 bg-neutral-900 px-4 py-2.5 text-center text-small font-semibold text-white transition-colors hover:bg-neutral-800 focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
+          >
+            <span>
+              {lang === 'en'
+                ? '10 November: we remember Atatürk with respect and longing (page in Turkish)'
+                : '10 Kasım: Atatürk’ü saygı ve özlemle anıyoruz'}
+            </span>
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+        )}
+        {SHOW_REPUBLIC_CAMPAIGN && (
+          <Link
+            to={`/${lang}/29-ekim`}
+            className="flex min-h-[44px] items-center justify-center gap-2 bg-[var(--republic-red)] px-4 py-2.5 text-center text-small font-semibold text-white transition-colors hover:bg-[color-mix(in_oklab,var(--republic-red)_88%,black)] focus-visible:outline-2 focus-visible:outline-offset-[-4px] focus-visible:outline-white"
+          >
+            <span>
+              {lang === 'en'
+                ? '29 October, Republic Day: click to visit the page (in Turkish)'
+                : '29 Ekim Cumhuriyet Bayramı: sayfaya gitmek için tıklayınız'}
+            </span>
+            <ArrowRight className="h-4 w-4 shrink-0" aria-hidden />
+          </Link>
+        )}
                 {/* Hero Section */}
         <section id="about" className="relative overflow-hidden bg-background pt-[80px] pb-[48px] md:pt-[104px] md:pb-[72px] lg:pt-[104px] lg:pb-[88px]">
           {/* Ambient Background Magic */}
