@@ -116,11 +116,20 @@ export async function verifyTurnstile(token: unknown, expectedAction: string, re
       body: params.toString(),
     });
 
-    if (!res.ok) {
-      return { ok: false, reason: "siteverify_http_error" };
-    }
+    const data = (await res.json().catch(() => ({}))) as {
+      success?: boolean;
+      action?: string;
+      hostname?: string;
+      "error-codes"?: unknown;
+    };
 
-    const data = (await res.json()) as { success?: boolean; action?: string; hostname?: string };
+    if (!res.ok) {
+      // Cloudflare answers 400 with a fixed error vocabulary (e.g.
+      // "invalid-input-secret"). Only that kebab-case code is logged.
+      const code = Array.isArray(data["error-codes"]) ? data["error-codes"][0] : undefined;
+      const safeCode = typeof code === "string" && /^[a-z-]{1,40}$/.test(code) ? code : "unknown";
+      return { ok: false, reason: `siteverify_http_error_${safeCode}` };
+    }
 
     if (!data.success) {
       return { ok: false, reason: "verification_failed" };
