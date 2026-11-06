@@ -64,6 +64,16 @@
   ],
   "redirects": [
     {
+      "source": "/tr/ux-audit",
+      "destination": "/ux-analiz",
+      "permanent": true
+    },
+    {
+      "source": "/tr/ux-analiz",
+      "destination": "/ux-analiz",
+      "permanent": true
+    },
+    {
       "source": "/zeka-oyunlari-case-study.html",
       "destination": "/portfolio/zeka-oyunlari",
       "permanent": true

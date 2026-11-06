@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { motion } from "motion/react";
 import { ArrowUpRight, BarChart3, TrendingUp, Users, Zap, Layout, Workflow, ShieldCheck, CheckCircle2, BrainCircuit } from "lucide-react";
+import { uxAuditPath } from '../lib/paths';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -212,7 +213,7 @@ export function AboutPage({ lang }: { lang: "en" | "tr" }) {
             </h2>
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-12">
-              <Link to={`/${lang}/ux-audit`} className="btn-primary-pink w-full sm:w-auto hover:shadow-xl">
+              <Link to={`${uxAuditPath(lang)}`} className="btn-primary-pink w-full sm:w-auto hover:shadow-xl">
                 {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="w-4 h-4" />
               </Link>
               <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto inline-flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-transparent border border-white/20 text-white text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-white/5 focus-visible:ring-4 focus-visible:ring-white/20">

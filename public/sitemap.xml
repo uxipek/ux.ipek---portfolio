@@ -36,14 +36,14 @@
   <url>
     <loc>https://www.uxipek.com/en/ux-audit</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/ux-audit" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/ux-audit" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/ux-analiz" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.uxipek.com/tr/ux-audit</loc>
+    <loc>https://www.uxipek.com/ux-analiz</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/ux-audit" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/tr/ux-audit" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://www.uxipek.com/ux-analiz" />
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

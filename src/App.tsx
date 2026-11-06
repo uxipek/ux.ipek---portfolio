@@ -64,6 +64,7 @@ function AppContent() {
           <Routes location={location}>
             <Route path="/:lang" element={<PageWrapper component={Home} />} />
             <Route path="/:lang/services" element={<PageWrapper component={ServicesPage} />} />
+            <Route path="/ux-analiz" element={<PageWrapper component={UXAuditPage} />} />
             <Route path="/:lang/ux-audit" element={<PageWrapper component={UXAuditPage} />} />
             <Route path="/:lang/process" element={<PageWrapper component={ProcessPage} />} />
             <Route path="/:lang/contact" element={<PageWrapper component={ContactPage} />} />

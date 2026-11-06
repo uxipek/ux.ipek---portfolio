@@ -5,6 +5,7 @@ import { ArrowLeft, ArrowRight, ArrowUpRight, CheckCircle2 } from "lucide-react"
 import { projects } from "../data/projects";
 import { EventGoCaseStudy } from "./EventGoCaseStudy";
 import { AkademiOzalitCaseStudy } from "./AkademiOzalitCaseStudy";
+import { uxAuditPath } from '../lib/paths';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -177,7 +178,7 @@ export function ProjectDetailPage({ lang }: { lang: "en" | "tr" }) {
              <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="btn-primary-pink w-full sm:w-auto">
                {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
              </a>
-             <Link to={`/${lang}/ux-audit`} className="btn-outline-light w-full sm:w-auto">
+             <Link to={`${uxAuditPath(lang)}`} className="btn-outline-light w-full sm:w-auto">
                {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
              </Link>
           </div>

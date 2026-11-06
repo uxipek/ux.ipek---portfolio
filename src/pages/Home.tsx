@@ -5,6 +5,7 @@ import { ArrowRight, BarChart3, BrainCircuit, Briefcase, ChevronRight, FileText,
 import { Logo } from "../components/Logo";
 import { projects } from "../data/projects";
 import { RepublicPopup } from "../components/RepublicPopup";
+import { uxAuditPath } from '../lib/paths';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -143,7 +144,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                 </p>
 
                 <div className="flex flex-wrap items-center gap-4 mb-12 md:mb-16">
-                  <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-body">
+                  <Link to={`${uxAuditPath(lang)}#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="btn-primary-pink w-full sm:w-auto flex text-body">
                     {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ArrowUpRight className="h-4 w-4" />
                   </Link>
                   <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
@@ -398,7 +399,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
                     ))}
                   </div>
                 </div>
-                <Link to={`/${lang}/ux-audit`} className="mt-14 flex items-center gap-4">
+                <Link to={`${uxAuditPath(lang)}`} className="mt-14 flex items-center gap-4">
                   <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full border border-brand-primary/10 bg-white transition-colors duration-500 group-hover:bg-brand-primary group-hover:border-brand-primary group-hover:text-white">
                     <ArrowUpRight className="h-5 w-5" />
                   </div>
@@ -700,7 +701,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
               transition={{ delay: 0.2 }}
               className="flex flex-col items-center justify-center mt-12 text-center"
             >
-               <Link to={`/${lang}/ux-audit`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-body font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
+               <Link to={`${uxAuditPath(lang)}`} className="flex items-center justify-center gap-3 rounded-full bg-brand-primary px-10 py-5 text-body font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:shadow-2xl hover:-translate-y-1 hover:bg-brand-primary/90 group">
                   {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'} <ChevronRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                </Link>
                <p className="mt-5 text-small md:text-body text-ink-muted font-medium">
@@ -881,7 +882,7 @@ export function Home({ lang }: { lang: "en" | "tr" }) {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link to={`/${lang}/ux-audit#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
+              <Link to={`${uxAuditPath(lang)}#${lang === 'en' ? 'ux-audit-form' : 'ux-analizi-formu'}`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-brand-transformation px-8 py-4 text-small font-bold text-white transition-all hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-brand-transformation/90">
                 <Mail className="h-4 w-4" /> {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
               </Link>
               <Link to={`/${lang}/contact`} className="w-full sm:w-auto flex items-center justify-center gap-2 rounded-full bg-surface border border-brand-primary/10 px-8 py-4 text-small font-bold text-ink transition-colors hover:bg-brand-primary/5">
