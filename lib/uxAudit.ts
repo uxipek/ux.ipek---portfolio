@@ -5,7 +5,7 @@ import {
   checkRateLimit,
   generateRequestId,
   logOutcome,
-} from "./security";
+} from "./security.js";
 
 // The form only asks for the website URL (plus the Turnstile token).
 const UX_AUDIT_ALLOWED_KEYS = ["websiteUrl", "turnstileToken"] as const;
