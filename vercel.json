@@ -58,7 +58,7 @@
       "destination": "/zeka-oyunlari-case-study.html"
     },
     {
-      "source": "/((?!assets/|.*\\..*$).*)",
+      "source": "/((?!api/|assets/|.*\\..*$).*)",
       "destination": "/index.html"
     }
   ],

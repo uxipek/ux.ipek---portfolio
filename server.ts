@@ -18,6 +18,7 @@ import {
   generateRequestId,
   logOutcome,
 } from "./lib/security";
+import { submitUxAudit } from "./lib/uxAudit";
 
 // Bumped whenever the KVKK / privacy-policy text meaningfully changes, so
 // consent records can be tied back to the text the user actually agreed to.
@@ -35,18 +36,6 @@ const CONTACT_ALLOWED_KEYS = [
   "budget",
   "message",
   "legalConsent",
-  "marketingConsent",
-  "turnstileToken",
-] as const;
-
-const UX_AUDIT_ALLOWED_KEYS = [
-  "websiteUrl",
-  "fullName",
-  "email",
-  "companyName",
-  "primaryGoal",
-  "mainProblem",
-  "kvkkConsent",
   "marketingConsent",
   "turnstileToken",
 ] as const;
@@ -203,81 +192,9 @@ async function startServer() {
   });
 
   app.post("/api/ux-audit", async (req, res) => {
-    const requestId = generateRequestId();
-
-    if (!rateLimitOrReject("ux-audit", req, res)) {
-      logOutcome("/api/ux-audit", 429, "rate_limited", requestId);
-      return;
-    }
-
-    const body = req.body;
-    if (!hasOnlyAllowedKeys(body, UX_AUDIT_ALLOWED_KEYS)) {
-      logOutcome("/api/ux-audit", 400, "unexpected_keys", requestId);
-      return res.status(400).json({ error: "Invalid request." });
-    }
-
-    const { websiteUrl, fullName, email, companyName, primaryGoal, mainProblem, kvkkConsent, marketingConsent, turnstileToken } = body;
-
-    // The form only asks for the website URL now; the other fields stay
-    // accepted (optional) so older clients and the webhook schema keep working.
-    const fieldErrors: string[] = [];
-    if (!isRequiredHttpUrl(websiteUrl)) fieldErrors.push("websiteUrl");
-    if (!isOptionalString(fullName, 100)) fieldErrors.push("fullName");
-    if (email !== undefined && email !== "" && !isValidEmail(email)) fieldErrors.push("email");
-    if (!isOptionalString(companyName, 150)) fieldErrors.push("companyName");
-    if (!isOptionalString(primaryGoal, 2000)) fieldErrors.push("primaryGoal");
-    if (!isOptionalString(mainProblem, 2000)) fieldErrors.push("mainProblem");
-    if (kvkkConsent !== undefined && !isBoolean(kvkkConsent)) fieldErrors.push("kvkkConsent");
-    if (marketingConsent !== undefined && !isBoolean(marketingConsent)) fieldErrors.push("marketingConsent");
-
-    if (fieldErrors.length > 0) {
-      logOutcome("/api/ux-audit", 400, "validation_failed", requestId);
-      return res.status(400).json({ error: "Invalid request." });
-    }
-
-    const turnstile = await verifyTurnstile(turnstileToken, "ux_audit_form", req.ip);
-    if (turnstile.ok === false) {
-      logOutcome("/api/ux-audit", 403, `turnstile_${turnstile.reason}`, requestId);
-      return res.status(403).json({ error: "Verification failed. Please try again." });
-    }
-
-    const webhookUrl = process.env.UX_AUDIT_WEBHOOK_URL;
-    if (!webhookUrl) {
-      logOutcome("/api/ux-audit", 500, "webhook_not_configured", requestId);
-      return res.status(500).json({ error: "The UX audit request form is temporarily unavailable." });
-    }
-
-    const payload = {
-      websiteUrl: (websiteUrl as string).trim(),
-      fullName: fullName ? (fullName as string).trim() : "",
-      email: email ? (email as string).trim() : "",
-      companyName: companyName ? (companyName as string).trim() : "",
-      primaryGoal: primaryGoal ? (primaryGoal as string).trim() : "",
-      mainProblem: mainProblem ? (mainProblem as string).trim() : "",
-      kvkkConsent: Boolean(kvkkConsent),
-      marketingConsent: Boolean(marketingConsent),
-      consentTimestamp: new Date().toISOString(),
-      privacyPolicyVersion: PRIVACY_POLICY_VERSION,
-    };
-
-    try {
-      const response = await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-
-      if (!response.ok) {
-        logOutcome("/api/ux-audit", response.status, "webhook_send_failed", requestId);
-        return res.status(502).json({ error: "Failed to submit your request. Please try again." });
-      }
-
-      logOutcome("/api/ux-audit", 200, "sent", requestId);
-      res.status(200).json({ success: true });
-    } catch {
-      logOutcome("/api/ux-audit", 500, "webhook_network_error", requestId);
-      res.status(500).json({ error: "Failed to submit your request. Please try again." });
-    }
+    const result = await submitUxAudit(req.body, req.ip);
+    if (result.retryAfter) res.setHeader("Retry-After", String(result.retryAfter));
+    res.status(result.status).json(result.body);
   });
 
   // Pretty URL for the static Zeka Oyunları case study (mirrors the rewrite in vercel.json)
