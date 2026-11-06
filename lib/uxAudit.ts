@@ -15,7 +15,7 @@ export type UxAuditResult = { status: number; body: Record<string, unknown>; ret
 /**
  * Shared by the Vercel function (api/ux-audit.ts) and the local Express dev
  * server, so both behave identically. Each submission becomes one row in the
- * Airtable table configured by AIRTABLE_* env vars.
+ * Google Sheet behind the UX_AUDIT_WEBHOOK_* env vars (see docs/google-sheets-webhook.gs).
  */
 export async function submitUxAudit(body: unknown, ip: string | undefined): Promise<UxAuditResult> {
   const requestId = generateRequestId();
@@ -42,30 +42,30 @@ export async function submitUxAudit(body: unknown, ip: string | undefined): Prom
     return respond(403, `turnstile_${turnstile.reason}`, { error: "Verification failed. Please try again." });
   }
 
-  const token = process.env.AIRTABLE_TOKEN;
-  const baseId = process.env.AIRTABLE_BASE_ID;
-  const table = process.env.AIRTABLE_TABLE;
-  if (!token || !baseId || !table) {
-    return respond(500, "airtable_not_configured", { error: "The UX audit request form is temporarily unavailable." });
+  const webhookUrl = process.env.UX_AUDIT_WEBHOOK_URL;
+  const webhookSecret = process.env.UX_AUDIT_WEBHOOK_SECRET;
+  if (!webhookUrl || !webhookSecret) {
+    return respond(500, "webhook_not_configured", { error: "The UX audit request form is temporarily unavailable." });
   }
 
   try {
-    const response = await fetch(`https://api.airtable.com/v0/${baseId}/${encodeURIComponent(table)}`, {
+    // Apps Script web apps answer a POST with a 302 to the result page; fetch
+    // follows it, so a non-2xx here means the script itself failed.
+    const response = await fetch(webhookUrl, {
       method: "POST",
-      headers: { Authorization: `Bearer ${token}`, "Content-Type": "application/json" },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
-        typecast: true,
-        fields: {
-          Website: websiteUrl.trim(),
-          "Submitted At": new Date().toISOString(),
-        },
+        secret: webhookSecret,
+        websiteUrl: websiteUrl.trim(),
+        submittedAt: new Date().toISOString(),
       }),
     });
-    if (!response.ok) {
-      return respond(502, `airtable_http_${response.status}`, { error: "Failed to submit your request. Please try again." });
+    const result = (await response.json().catch(() => null)) as { ok?: boolean } | null;
+    if (!response.ok || !result?.ok) {
+      return respond(502, `webhook_failed_${response.status}`, { error: "Failed to submit your request. Please try again." });
     }
     return respond(200, "sent", { success: true });
   } catch {
-    return respond(500, "airtable_network_error", { error: "Failed to submit your request. Please try again." });
+    return respond(500, "webhook_network_error", { error: "Failed to submit your request. Please try again." });
   }
 }
