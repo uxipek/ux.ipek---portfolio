@@ -1,4 +1,4 @@
-import { MotionConfig, motion, useScroll, useTransform } from "motion/react";
+import { MotionConfig, motion, useReducedMotion, useScroll, useTransform } from "motion/react";
 import { ArrowDown } from "lucide-react";
 import { ButtonLink } from "../components/republic/Button";
 import { Reveal } from "../components/republic/Reveal";
@@ -13,7 +13,9 @@ const ceremonies = [
 // Content is Turkish-only by design; the /en route renders the same page.
 export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
   const { scrollY } = useScroll();
-  const portraitY = useTransform(scrollY, [0, 700], [0, 60]);
+  // Parallax is decorative: skip it when the visitor asks for reduced motion.
+  const reduceMotion = useReducedMotion();
+  const portraitY = useTransform(scrollY, [0, 700], [0, reduceMotion ? 0 : 60]);
 
   return (
     <MotionConfig reducedMotion="user">
