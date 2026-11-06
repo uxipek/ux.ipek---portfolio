@@ -37,11 +37,24 @@ export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
       </section>
 
       <section id="saygi-durusu" className="r-section">
-        <div className="r-page-width">
-          <p className="r-section-label">SAAT 09.05</p>
-          <Reveal as="h2" className="r-section-title">Bir ülke,<br /><span className="italic">iki dakika.</span></Reveal>
-          <p className="r-muted mt-7 max-w-2xl">Atatürk, 10 Kasım 1938 günü saat 09.05’te İstanbul Beşiktaş’taki Dolmabahçe Sarayı’nda hayata gözlerini yumdu. Her yıl aynı dakikada Türkiye genelinde sirenler çalar ve iki dakikalık saygı duruşu yapılır.</p>
-          <p className="mt-6 max-w-2xl">İnsanlar bulundukları yerde durur, araçlardakiler inip saygı duruşuna katılır ya da kornalarıyla sirene eşlik eder. Resmî binalarda ve dış temsilciliklerde bayraklar yarıya indirilir.</p>
+        <div className="r-page-width grid items-center gap-10 md:grid-cols-2">
+          <div>
+            <p className="r-section-label">SAAT 09.05</p>
+            <Reveal as="h2" className="r-section-title">Bir ülke,<br /><span className="italic">iki dakika.</span></Reveal>
+            <p className="r-muted mt-7 max-w-xl">Atatürk, 10 Kasım 1938 günü saat 09.05’te İstanbul Beşiktaş’taki Dolmabahçe Sarayı’nda hayata gözlerini yumdu. Her yıl aynı dakikada Türkiye genelinde sirenler çalar ve iki dakikalık saygı duruşu yapılır.</p>
+            <p className="mt-6 max-w-xl">İnsanlar bulundukları yerde durur, araçlardakiler inip saygı duruşuna katılır ya da kornalarıyla sirene eşlik eder. Resmî binalarda ve dış temsilciliklerde bayraklar yarıya indirilir.</p>
+          </div>
+          <motion.p
+            aria-hidden
+            className="r-serif select-none text-center leading-none md:text-right"
+            style={{ fontSize: "clamp(5rem, 16vw, 11rem)" }}
+            initial={{ opacity: reduceMotion ? 1 : 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, amount: 0.6 }}
+            transition={{ duration: 2.4, ease: "easeOut" }}
+          >
+            09.05
+          </motion.p>
         </div>
       </section>
 

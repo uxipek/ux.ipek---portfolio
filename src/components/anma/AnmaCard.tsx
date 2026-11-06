@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { animate, useReducedMotion } from "motion/react";
 import { Download, Share2, Check, Moon, Sun } from "lucide-react";
 import { Button } from "../republic/Button";
 import { anmaMessages, cardBlob, drawAnmaCard, limitMessage, limitName, type AnmaValue, type CardFormat, type CardTheme } from "../../lib/anma-card";
@@ -13,6 +14,7 @@ export function AnmaCard() {
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState("");
   const canvas = useRef<HTMLCanvasElement>(null);
+  const reduceMotion = useReducedMotion();
   useEffect(() => {
     let active = true;
     const temporary = document.createElement("canvas");
@@ -20,9 +22,11 @@ export function AnmaCard() {
       if (!active || !canvas.current) return;
       canvas.current.width = temporary.width; canvas.current.height = temporary.height;
       canvas.current.getContext("2d")?.drawImage(temporary, 0, 0);
+      // Soft crossfade so the preview eases into each change instead of snapping.
+      if (!reduceMotion) animate(canvas.current, { opacity: [0.35, 1] }, { duration: 0.35, ease: "easeOut" });
     }).catch(() => { if (active) setStatus("Kart önizlemesi yüklenemedi."); });
     return () => { active = false; };
-  }, [name, profession, message, value, format, theme]);
+  }, [name, profession, message, value, format, theme, reduceMotion]);
 
   const choose = (selected: AnmaValue) => { setValue(selected); setMessage(anmaMessages[selected]); };
 
