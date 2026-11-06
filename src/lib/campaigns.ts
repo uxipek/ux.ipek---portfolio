@@ -12,7 +12,8 @@ export const SHOW_REPUBLIC_CAMPAIGN = false;
  * 10 Kasım Atatürk'ü Anma Günü: anasayfa bandı yalnızca 10 Kasım'da, anma
  * sayfası (/:lang/10-kasim) Atatürk Haftası boyunca (10-16 Kasım) açıktır.
  * Tarih, ziyaretçinin saatine değil İstanbul saatine göre belirlenir.
- * Geliştirme sunucusunda ?anma=1 ile önizlenebilir.
+ * Geliştirme sunucusunda ve *.vercel.app önizleme adreslerinde ?anma=1 ile önizlenebilir
+ * (www.uxipek.com'da çalışmaz).
  */
 function istanbulMonthDay(): { month: number; day: number } {
   const parts = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Istanbul", month: "numeric", day: "numeric" }).formatToParts(new Date());
@@ -20,7 +21,10 @@ function istanbulMonthDay(): { month: number; day: number } {
   return { month: get("month"), day: get("day") };
 }
 
-const previewAnma = () => import.meta.env.DEV && typeof window !== "undefined" && new URLSearchParams(window.location.search).has("anma");
+const previewAnma = () =>
+  typeof window !== "undefined" &&
+  (import.meta.env.DEV || window.location.hostname.endsWith(".vercel.app")) &&
+  new URLSearchParams(window.location.search).has("anma");
 
 export const showAnmaBanner = (): boolean => {
   if (previewAnma()) return true;
