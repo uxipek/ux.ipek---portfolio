@@ -2,43 +2,8 @@ import express from "express";
 import helmet from "helmet";
 import path from "path";
 import { createServer as createViteServer } from "vite";
-import {
-  escapeHtml,
-  isRequiredString,
-  isOptionalString,
-  isValidEmail,
-  isRequiredHttpUrl,
-  isOptionalHttpUrl,
-  isInAllowlist,
-  isBoolean,
-  isStrictTrue,
-  hasOnlyAllowedKeys,
-  verifyTurnstile,
-  checkRateLimit,
-  generateRequestId,
-  logOutcome,
-} from "./lib/security";
 import { submitUxAudit } from "./lib/uxAudit";
-
-// Bumped whenever the KVKK / privacy-policy text meaningfully changes, so
-// consent records can be tied back to the text the user actually agreed to.
-const PRIVACY_POLICY_VERSION = "2026-08-18";
-
-const PROJECT_TYPES = ["ux_audit", "saas_design", "landing_page", "ai_interface", "consultancy"] as const;
-const BUDGET_TIERS = ["tier_1", "tier_2", "tier_3", "discuss"] as const;
-
-const CONTACT_ALLOWED_KEYS = [
-  "name",
-  "email",
-  "company",
-  "website",
-  "projectType",
-  "budget",
-  "message",
-  "legalConsent",
-  "marketingConsent",
-  "turnstileToken",
-] as const;
+import { submitContact } from "./lib/contact";
 
 async function startServer() {
   const app = express();
@@ -73,122 +38,11 @@ async function startServer() {
   // over any realistic legitimate payload and caps the cost of abuse.
   app.use(express.json({ limit: "50kb" }));
 
-  function rateLimitOrReject(endpoint: string, req: express.Request, res: express.Response): boolean {
-    const key = `${endpoint}:${req.ip ?? "unknown"}`;
-    const result = checkRateLimit(key, 5, 10 * 60 * 1000); // 5 requests / 10 minutes / IP
-    if (!result.allowed) {
-      res.setHeader("Retry-After", String(result.retryAfterSeconds));
-      res.status(429).json({ error: "Too many requests. Please try again later." });
-      return false;
-    }
-    return true;
-  }
-
   // API Routes
   app.post("/api/contact", async (req, res) => {
-    const requestId = generateRequestId();
-
-    if (!rateLimitOrReject("contact", req, res)) {
-      logOutcome("/api/contact", 429, "rate_limited", requestId);
-      return;
-    }
-
-    const body = req.body;
-    if (!hasOnlyAllowedKeys(body, CONTACT_ALLOWED_KEYS)) {
-      logOutcome("/api/contact", 400, "unexpected_keys", requestId);
-      return res.status(400).json({ error: "Invalid request." });
-    }
-
-    const { name, email, company, website, projectType, budget, message, legalConsent, marketingConsent, turnstileToken } = body;
-
-    const fieldErrors: string[] = [];
-    if (!isRequiredString(name, 2, 100)) fieldErrors.push("name");
-    if (!isValidEmail(email)) fieldErrors.push("email");
-    if (!isOptionalString(company, 150)) fieldErrors.push("company");
-    if (!isOptionalHttpUrl(website)) fieldErrors.push("website");
-    if (!isInAllowlist(projectType, PROJECT_TYPES)) fieldErrors.push("projectType");
-    if (!isInAllowlist(budget, BUDGET_TIERS)) fieldErrors.push("budget");
-    if (!isRequiredString(message, 10, 5000)) fieldErrors.push("message");
-    if (!isStrictTrue(legalConsent)) fieldErrors.push("legalConsent");
-    if (!isBoolean(marketingConsent)) fieldErrors.push("marketingConsent");
-
-    if (fieldErrors.length > 0) {
-      logOutcome("/api/contact", 400, "validation_failed", requestId);
-      return res.status(400).json({ error: "Invalid request." });
-    }
-
-    const turnstile = await verifyTurnstile(turnstileToken, "contact_form", req.ip);
-    if (turnstile.ok === false) {
-      logOutcome("/api/contact", 403, `turnstile_${turnstile.reason}`, requestId);
-      return res.status(403).json({ error: "Verification failed. Please try again." });
-    }
-
-    const apiKey = process.env.BREVO_API_KEY;
-    if (!apiKey) {
-      logOutcome("/api/contact", 500, "brevo_not_configured", requestId);
-      return res.status(500).json({ error: "The contact form is temporarily unavailable." });
-    }
-
-    const trimmedName = (name as string).trim();
-    const trimmedEmail = (email as string).trim();
-    const trimmedCompany = company ? (company as string).trim() : "";
-    const trimmedWebsite = website ? (website as string).trim() : "";
-    const trimmedMessage = (message as string).trim();
-    const subject = `New Contact Form Submission — ${projectType}`;
-
-    const textContent = [
-      `Name: ${trimmedName}`,
-      `Email: ${trimmedEmail}`,
-      `Company: ${trimmedCompany || "-"}`,
-      `Website: ${trimmedWebsite || "-"}`,
-      `Project Type: ${projectType}`,
-      `Budget: ${budget}`,
-      `Marketing Consent: ${marketingConsent ? "Yes" : "No"}`,
-      "",
-      "Message:",
-      trimmedMessage,
-    ].join("\n");
-
-    const htmlContent = `
-      <p><strong>Name:</strong> ${escapeHtml(trimmedName)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(trimmedEmail)}</p>
-      <p><strong>Company:</strong> ${escapeHtml(trimmedCompany || "-")}</p>
-      <p><strong>Website:</strong> ${escapeHtml(trimmedWebsite || "-")}</p>
-      <p><strong>Project Type:</strong> ${escapeHtml(String(projectType))}</p>
-      <p><strong>Budget:</strong> ${escapeHtml(String(budget))}</p>
-      <p><strong>Marketing Consent:</strong> ${marketingConsent ? "Yes" : "No"}</p>
-      <p><strong>Message:</strong><br>${escapeHtml(trimmedMessage).replace(/\n/g, "<br>")}</p>
-    `;
-
-    try {
-      const response = await fetch("https://api.brevo.com/v3/smtp/email", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json",
-          "api-key": apiKey,
-        },
-        body: JSON.stringify({
-          sender: { name: "UX.IPEK Contact Form", email: "ipekbolakca@gmail.com" },
-          replyTo: { name: trimmedName, email: trimmedEmail },
-          to: [{ email: "uxdesigneripek@gmail.com", name: "Ipek Bolakca" }],
-          subject,
-          textContent,
-          htmlContent,
-        }),
-      });
-
-      if (!response.ok) {
-        logOutcome("/api/contact", response.status, "brevo_send_failed", requestId);
-        return res.status(502).json({ error: "Failed to send your message. Please try again." });
-      }
-
-      logOutcome("/api/contact", 200, "sent", requestId);
-      res.status(200).json({ success: true });
-    } catch {
-      logOutcome("/api/contact", 500, "brevo_network_error", requestId);
-      res.status(500).json({ error: "Failed to send your message. Please try again." });
-    }
+    const result = await submitContact(req.body, req.ip);
+    if (result.retryAfter) res.setHeader("Retry-After", String(result.retryAfter));
+    res.status(result.status).json(result.body);
   });
 
   app.post("/api/ux-audit", async (req, res) => {
