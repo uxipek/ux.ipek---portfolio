@@ -169,6 +169,7 @@
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+  <!-- 29 Ekim kampanyası gizli (src/lib/campaigns.ts). Tekrar açarken bu yorumu kaldır.
   <url>
     <loc>https://www.uxipek.com/en/29-ekim</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://www.uxipek.com/en/29-ekim" />
@@ -183,4 +184,5 @@
     <changefreq>yearly</changefreq>
     <priority>0.5</priority>
   </url>
+  -->
 </urlset>

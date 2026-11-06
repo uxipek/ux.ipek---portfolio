@@ -9,6 +9,7 @@ import { LanguageProvider, useLanguage } from "./components/layout/LanguageProvi
 import { DawnTransition } from "./components/layout/DawnTransition";
 import { Lock } from "lucide-react";
 import { MotionConfig } from "motion/react";
+import { SHOW_REPUBLIC_CAMPAIGN } from "./lib/campaigns";
 
 const Home = lazy(() => import("./pages/Home").then(module => ({ default: module.Home })));
 const ServicesPage = lazy(() => import("./pages/Services").then(module => ({ default: module.ServicesPage })));
@@ -74,7 +75,7 @@ function AppContent() {
             <Route path="/:lang/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             <Route path="/case-study/:id" element={<PageWrapper component={ProjectDetailPage} />} />
             
-            <Route path="/:lang/29-ekim" element={<PageWrapper component={Republic29EkimPage} />} />
+            {SHOW_REPUBLIC_CAMPAIGN && <Route path="/:lang/29-ekim" element={<PageWrapper component={Republic29EkimPage} />} />}
 
             <Route path="/:lang/dashboard" element={<ComingSoon />} />
             <Route path="/:lang/reports" element={<ComingSoon />} />
