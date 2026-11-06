@@ -1,5 +1,4 @@
 import {
-  escapeHtml,
   isRequiredString,
   isOptionalString,
   isValidEmail,
@@ -34,7 +33,9 @@ export type ContactResult = { status: number; body: Record<string, unknown>; ret
 
 /**
  * Shared by the Vercel function (api/contact.ts) and the local Express dev
- * server, so both behave identically. Sends the message via Brevo.
+ * server, so both behave identically. Each message becomes one row in the
+ * "Iletisim" tab of the Google Sheet behind the UX_AUDIT_WEBHOOK_* env vars
+ * (see docs/google-sheets-webhook.gs).
  */
 export async function submitContact(body: unknown, ip: string | undefined): Promise<ContactResult> {
   const requestId = generateRequestId();
@@ -74,65 +75,39 @@ export async function submitContact(body: unknown, ip: string | undefined): Prom
     return respond(403, `turnstile_${turnstile.reason}`, { error: "Verification failed. Please try again." });
   }
 
-  const apiKey = process.env.BREVO_API_KEY;
-  if (!apiKey) {
-    return respond(500, "brevo_not_configured", { error: "The contact form is temporarily unavailable." });
+  const webhookUrl = process.env.UX_AUDIT_WEBHOOK_URL;
+  const webhookSecret = process.env.UX_AUDIT_WEBHOOK_SECRET;
+  if (!webhookUrl || !webhookSecret) {
+    return respond(500, "webhook_not_configured", { error: "The contact form is temporarily unavailable." });
   }
 
-  const trimmedName = (name as string).trim();
-  const trimmedEmail = (email as string).trim();
-  const trimmedCompany = company ? (company as string).trim() : "";
-  const trimmedWebsite = website ? (website as string).trim() : "";
-  const trimmedMessage = (message as string).trim();
-  const subject = `New Contact Form Submission — ${projectType}`;
-
-  const textContent = [
-    `Name: ${trimmedName}`,
-    `Email: ${trimmedEmail}`,
-    `Company: ${trimmedCompany || "-"}`,
-    `Website: ${trimmedWebsite || "-"}`,
-    `Project Type: ${projectType}`,
-    `Budget: ${budget}`,
-    `Marketing Consent: ${marketingConsent ? "Yes" : "No"}`,
-    "",
-    "Message:",
-    trimmedMessage,
-  ].join("\n");
-
-  const htmlContent = `
-      <p><strong>Name:</strong> ${escapeHtml(trimmedName)}</p>
-      <p><strong>Email:</strong> ${escapeHtml(trimmedEmail)}</p>
-      <p><strong>Company:</strong> ${escapeHtml(trimmedCompany || "-")}</p>
-      <p><strong>Website:</strong> ${escapeHtml(trimmedWebsite || "-")}</p>
-      <p><strong>Project Type:</strong> ${escapeHtml(String(projectType))}</p>
-      <p><strong>Budget:</strong> ${escapeHtml(String(budget))}</p>
-      <p><strong>Marketing Consent:</strong> ${marketingConsent ? "Yes" : "No"}</p>
-      <p><strong>Message:</strong><br>${escapeHtml(trimmedMessage).replace(/\n/g, "<br>")}</p>
-    `;
-
   try {
-    const response = await fetch("https://api.brevo.com/v3/smtp/email", {
+    // Apps Script web apps answer a POST with a 302 to the result page; fetch
+    // follows it, so a non-2xx here means the script itself failed.
+    const response = await fetch(webhookUrl, {
       method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-        "api-key": apiKey,
-      },
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
       body: JSON.stringify({
-        sender: { name: "UX.IPEK Contact Form", email: "ipekbolakca@gmail.com" },
-        replyTo: { name: trimmedName, email: trimmedEmail },
-        to: [{ email: "uxdesigneripek@gmail.com", name: "Ipek Bolakca" }],
-        subject,
-        textContent,
-        htmlContent,
+        secret: webhookSecret,
+        type: "contact",
+        submittedAt: new Date().toISOString(),
+        name: (name as string).trim(),
+        email: (email as string).trim(),
+        company: company ? (company as string).trim() : "",
+        website: website ? (website as string).trim() : "",
+        projectType,
+        budget,
+        marketingConsent,
+        message: (message as string).trim(),
       }),
     });
-
-    if (!response.ok) {
-      return respond(502, `brevo_send_failed_${response.status}`, { error: "Failed to send your message. Please try again." });
+    const result = (await response.json().catch(() => null)) as { ok?: boolean; reason?: string } | null;
+    if (!response.ok || !result?.ok) {
+      const reason = typeof result?.reason === "string" && /^[a-z_]{1,20}$/.test(result.reason) ? result.reason : result ? "unknown" : "not_json";
+      return respond(502, `webhook_failed_${response.status}_${reason}`, { error: "Failed to send your message. Please try again." });
     }
     return respond(200, "sent", { success: true });
   } catch {
-    return respond(500, "brevo_network_error", { error: "Failed to send your message. Please try again." });
+    return respond(500, "webhook_network_error", { error: "Failed to send your message. Please try again." });
   }
 }
