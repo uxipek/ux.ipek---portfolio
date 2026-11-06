@@ -123,16 +123,18 @@ export async function verifyTurnstile(token: unknown, expectedAction: string, re
       "error-codes"?: unknown;
     };
 
+    // Cloudflare reports failures with a fixed error vocabulary (e.g.
+    // "invalid-input-secret", "timeout-or-duplicate"). Only that kebab-case
+    // code is ever logged, never the token or secret.
+    const code = Array.isArray(data["error-codes"]) ? data["error-codes"][0] : undefined;
+    const safeCode = typeof code === "string" && /^[a-z-]{1,40}$/.test(code) ? code : "unknown";
+
     if (!res.ok) {
-      // Cloudflare answers 400 with a fixed error vocabulary (e.g.
-      // "invalid-input-secret"). Only that kebab-case code is logged.
-      const code = Array.isArray(data["error-codes"]) ? data["error-codes"][0] : undefined;
-      const safeCode = typeof code === "string" && /^[a-z-]{1,40}$/.test(code) ? code : "unknown";
       return { ok: false, reason: `siteverify_http_error_${safeCode}` };
     }
 
     if (!data.success) {
-      return { ok: false, reason: "verification_failed" };
+      return { ok: false, reason: `verification_failed_${safeCode}` };
     }
     if (data.action && data.action !== expectedAction) {
       return { ok: false, reason: "action_mismatch" };
