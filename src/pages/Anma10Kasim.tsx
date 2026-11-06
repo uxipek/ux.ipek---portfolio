@@ -17,12 +17,12 @@ export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
 
   return (
     <MotionConfig reducedMotion="user">
-    <div className="republic-page">
+    <div className="republic-page republic-black">
       <section className="r-opening r-dark-band">
-        <motion.img src="/images/ataturk-portre.jpg" width={736} height={920} alt="Türk bayrağı önünde Mustafa Kemal Atatürk portresi." className="r-opening-art" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} style={{ y: portraitY }} />
+        <motion.img src="/images/anma-10-kasim.jpg" width={1080} height={1613} alt="Anıtkabir önünde Mustafa Kemal Atatürk’ün siyah beyaz portresi ve “Saygı ve özlemle anıyoruz” yazısı." className="r-opening-art" initial={{ opacity: 0, scale: 1.04 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }} style={{ y: portraitY }} />
         <div className="r-page-width r-opening-content">
           <Reveal as="p" className="r-eyebrow">10 KASIM 1938 — 2026 · 88. YIL</Reveal>
-          <Reveal as="h1" delay={0.1}>Saygı ve<br /><span className="italic">özlemle.</span></Reveal>
+          <Reveal as="h1" delay={0.1}>10 Kasım,<br /><span className="italic">saat 09.05.</span></Reveal>
           <div className="r-headline-rule" aria-hidden />
           <Reveal as="p" delay={0.2} className="r-lead">Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk’ü, ebediyete intikalinin 88. yılında saygı, minnet ve özlemle anıyoruz.</Reveal>
           <Reveal delay={0.3} className="mt-8 flex flex-wrap gap-3">
@@ -64,7 +64,7 @@ export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
         </div>
       </section>
 
-      <section className="r-section r-dark-band">
+      <section className="r-section r-soft border-t r-border">
         <div className="r-page-width max-w-4xl text-center">
           <div className="mx-auto mb-10 h-px w-20 r-rule" />
           <p className="r-serif text-lead italic">Yurtta sulh, cihanda sulh.</p>
