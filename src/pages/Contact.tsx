@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { ArrowUpRight, ArrowRight, Linkedin, Instagram, PenTool, Briefcase, LayoutTemplate, Zap, BarChart3, LineChart } from "lucide-react";
 import React, { useState } from "react";
 import { TurnstileWidget } from "../components/TurnstileWidget";
+import { uxAuditPath } from '../lib/paths';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -97,7 +98,7 @@ export function ContactPage({ lang }: { lang: "en" | "tr" }) {
               <a href={CAL_COM_URL} target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto flex items-center justify-center gap-3 rounded-2xl bg-brand-primary px-8 py-4 text-small font-bold text-white transition-all shadow-[0_8px_30px_rgb(30,41,59,0.2)] hover:-translate-y-1 hover:shadow-[0_8px_40px_rgb(30,41,59,0.4)]">
                 {lang === 'en' ? 'Book a 15-Min Call' : '15 Dakikalık Görüşme Planla'} <ArrowUpRight className="w-4 h-4" />
               </a>
-              <Link to={`/${lang}/ux-audit`} className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
+              <Link to={`${uxAuditPath(lang)}`} className="w-full sm:w-auto flex items-center justify-center gap-3 min-h-[48px] px-6 rounded-2xl bg-white border border-brand-primary/10 text-ink text-body font-semibold leading-[1.2] inline-flex items-center justify-center gap-2 transition-all hover:bg-background focus-visible:ring-4 focus-visible:ring-brand-primary/10 shadow-sm">
                 {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
               </Link>
             </div>

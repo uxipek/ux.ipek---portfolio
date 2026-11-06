@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { STATIC_SEO, SITE_NAME, SITE_URL, DEFAULT_OG_IMAGE, SOCIAL_LINKS } from '../data/seo';
 import { projects } from '../data/projects';
+import { toInternalPath, toPublicPath } from '../lib/paths';
 
 function setMetaTag(attr: 'name' | 'property', key: string, content: string) {
   let tag = document.querySelector(`meta[${attr}="${key}"]`);
@@ -47,17 +48,18 @@ export function MetaHelper({ lang }: { lang: 'en' | 'tr' }) {
   useEffect(() => {
     document.documentElement.lang = lang;
 
-    const canonicalUrl = `${SITE_URL}${location.pathname}`;
+    const internalPath = toInternalPath(location.pathname);
+    const canonicalUrl = `${SITE_URL}${toPublicPath(internalPath)}`;
     setLinkTag('canonical', canonicalUrl);
 
-    const alternateEnPath = location.pathname.replace(/^\/(tr|en)/, '/en');
-    const alternateTrPath = location.pathname.replace(/^\/(tr|en)/, '/tr');
+    const alternateEnPath = toPublicPath(internalPath.replace(/^\/(tr|en)/, '/en'));
+    const alternateTrPath = toPublicPath(internalPath.replace(/^\/(tr|en)/, '/tr'));
     setLinkTag('alternate', `${SITE_URL}${alternateEnPath}`, { hreflang: 'en' });
     setLinkTag('alternate', `${SITE_URL}${alternateTrPath}`, { hreflang: 'tr' });
     setLinkTag('alternate', `${SITE_URL}${alternateEnPath}`, { hreflang: 'x-default' });
 
     // Path with the /:lang segment stripped, e.g. "/en/services" -> "/services", "/en" -> "/"
-    const routePath = location.pathname.replace(/^\/(tr|en)/, '') || '/';
+    const routePath = internalPath.replace(/^\/(tr|en)/, '') || '/';
 
     let title = `${SITE_NAME}`;
     let description = '';

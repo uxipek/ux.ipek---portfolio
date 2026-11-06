@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Logo } from "./Logo";
+import { uxAuditPath } from '../lib/paths';
 
 export function Footer({ lang }: { lang: "en" | "tr" }) {
   return (
@@ -25,7 +26,7 @@ export function Footer({ lang }: { lang: "en" | "tr" }) {
           <ul className="space-y-4">
             <li><Link to={`/${lang}/about`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'About' : 'Hakkında'}</Link></li>
             <li><Link to={`/${lang}/services`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Services' : 'Hizmetler'}</Link></li>
-            <li><Link to={`/${lang}/ux-audit`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</Link></li>
+            <li><Link to={`${uxAuditPath(lang)}`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'UX Audit' : 'UX Analizi'}</Link></li>
             <li><Link to={`/${lang}/contact`} className="text-on-ink-muted hover:text-white transition-colors">{lang === 'en' ? 'Contact' : 'İletişim'}</Link></li>
           </ul>
         </div>

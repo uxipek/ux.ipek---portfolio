@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Logo } from './Logo';
+import { uxAuditPath, toInternalPath } from '../lib/paths';
 
 const CAL_COM_URL = "https://cal.com/ipek-bolakca-s41eqm/ucretsiz-ux-audit";
 
@@ -11,7 +12,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
   const pathname = location.pathname;
   const hash = location.hash;
 
-  const currentPath = pathname.replace(/^\/(en|tr)/, '') || '/';
+  const currentPath = toInternalPath(pathname).replace(/^\/(en|tr)/, '') || '/';
 
   const isHomePage = currentPath === '/';
 
@@ -49,7 +50,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
             {lang === 'en' ? 'Services' : 'Hizmetler'}
           </Link>
           <Link 
-            to={`/${lang}/ux-audit`} 
+            to={`${uxAuditPath(lang)}`} 
             className={`transition-colors relative pb-1 ${isUxAuditActive ? "text-accent font-semibold after:absolute after:bottom-0 after:left-0 after:w-full after:h-0.5 after:bg-brand-transformation after:rounded-full" : "hover:text-accent"}`}
             aria-current={isUxAuditActive ? "page" : undefined}
           >
@@ -119,7 +120,7 @@ export function Nav({ lang, setLang }: { lang: "en" | "tr", setLang: (l: "en" | 
             {lang === 'en' ? 'Services' : 'Hizmetler'}
           </Link>
           <Link 
-            to={`/${lang}/ux-audit`} 
+            to={`${uxAuditPath(lang)}`} 
             onClick={toggleMenu} 
             className={`transition-colors text-lead ${isUxAuditActive ? "text-accent font-semibold" : "hover:text-accent"}`}
             aria-current={isUxAuditActive ? "page" : undefined}

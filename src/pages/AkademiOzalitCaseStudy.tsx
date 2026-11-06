@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ArrowRight, CheckCircle2, Mail, ExternalLink, AlertTriangle, Lightbulb, Target } from "lucide-react";
+import { uxAuditPath } from '../lib/paths';
 
 export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang: "en" | "tr", project: any, otherProjects: any[] }) {
   useEffect(() => {
@@ -302,7 +303,7 @@ export function AkademiOzalitCaseStudy({ lang, project, otherProjects }: { lang:
              <Link to={`/${lang}/contact`} className="btn-primary-pink">
                <Mail className="w-4 h-4" /> {lang === 'en' ? 'Contact UXipek' : 'UXipek İle İletişime Geçin'}
              </Link>
-             <Link to={`/${lang}/ux-audit`} className="btn-outline-light">
+             <Link to={`${uxAuditPath(lang)}`} className="btn-outline-light">
                {lang === 'en' ? 'Request a Free Mini UX Audit' : 'Ücretsiz Mini UX Analizi İste'}
              </Link>
           </div>

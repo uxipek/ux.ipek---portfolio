@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { TR_UX_AUDIT_PATH, toInternalPath, toPublicPath } from '../../lib/paths';
 
 type Language = 'en' | 'tr';
 
@@ -19,7 +20,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
   const location = useLocation();
   const navigate = useNavigate();
   
-  const pathParts = location.pathname.split('/').filter(Boolean);
+  // /ux-analiz is the public URL of /tr/ux-audit; treat it as Turkish internally.
+  const pathParts = toInternalPath(location.pathname).split('/').filter(Boolean);
   const pathLang = pathParts[0] as Language | undefined;
   
   const isValidLang = pathLang === 'en' || pathLang === 'tr';
@@ -38,6 +40,8 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       } else {
         navigate('/en', { replace: true });
       }
+    } else if (location.pathname === '/tr/ux-audit' || location.pathname === '/tr/ux-analiz') {
+      navigate(TR_UX_AUDIT_PATH + location.search + location.hash, { replace: true });
     } else if (!isValidLang) {
       // Add 'en' prefix if missing language
       navigate(`/en${location.pathname}`, { replace: true });
@@ -56,7 +60,7 @@ export function LanguageProvider({ children }: { children: React.ReactNode }) {
       const newPath = '/' + newLang + (pathParts.slice(1).length > 0 ? '/' + pathParts.slice(1).join('/') : '');
       const hash = location.hash;
       const search = location.search;
-      navigate(newPath + search + hash);
+      navigate(toPublicPath(newPath) + search + hash);
     } else {
       navigate(`/${newLang}`);
     }
