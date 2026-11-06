@@ -144,6 +144,9 @@ body {
   --republic-ink: oklch(0.214 0.018 265);
   --republic-card-night: oklch(0.205 0.04 245);
   --republic-red: oklch(0.536 0.199 20);
+  --anma-black: oklch(0 0 0);
+  --anma-paper: oklch(0.97 0.003 85);
+  --anma-gold: oklch(0.85755 0.11757 88.27);
 }
 .republic-page {
   --r-bg: oklch(1 0 0);

@@ -2,6 +2,8 @@ import { MotionConfig, motion, useReducedMotion, useScroll, useTransform } from 
 import { ArrowDown } from "lucide-react";
 import { ButtonLink } from "../components/republic/Button";
 import { Reveal } from "../components/republic/Reveal";
+import { AnmaCard } from "../components/anma/AnmaCard";
+import { PinVideo } from "../components/anma/PinVideo";
 
 const ceremonies = [
   ["Anıtkabir", "Devlet erkânının katılımıyla yapılan törende Aslanlı Yol’da yürünür, mozoleye çelenk bırakılır, saat 09.05’te saygı duruşu yapılır ve İstiklâl Marşı okunur. Tören, Anıtkabir Özel Defteri’nin imzalanmasıyla sona erer."],
@@ -29,6 +31,7 @@ export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
           <Reveal as="p" delay={0.2} className="r-lead">Cumhuriyetimizin kurucusu Gazi Mustafa Kemal Atatürk’ü, ebediyete intikalinin 88. yılında saygı, minnet ve özlemle anıyoruz.</Reveal>
           <Reveal delay={0.3} className="mt-8 flex flex-wrap gap-3">
             <ButtonLink size="lg" variant="outline" href="#saygi-durusu">Bu gün nasıl anılır?<ArrowDown aria-hidden /></ButtonLink>
+            <ButtonLink size="lg" variant="ghost" href="#anma-karti">Anma kartını hazırla</ButtonLink>
           </Reveal>
         </div>
       </section>
@@ -66,7 +69,11 @@ export function Anma10KasimPage(_props: { lang: "en" | "tr" }) {
         </div>
       </section>
 
-      <section className="r-section r-soft border-t r-border">
+      <PinVideo />
+
+      <AnmaCard />
+
+      <section className="r-section border-t r-border">
         <div className="r-page-width max-w-4xl text-center">
           <div className="mx-auto mb-10 h-px w-20 r-rule" />
           <p className="r-serif text-lead italic">Yurtta sulh, cihanda sulh.</p>
